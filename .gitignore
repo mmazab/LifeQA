@@ -1,0 +1,11 @@
+data/
+lqa_framework/
+models/
+.DS_Store
+data/cdr/extra.json
+*.pyc
+*.pdf
+models/
+*.gz
+*.zip
+*.sw*
