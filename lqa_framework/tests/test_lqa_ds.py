@@ -10,9 +10,9 @@ class TestLQA_DatasetReader(AllenNlpTestCase):
 	def test_read_from_file(self):
 		reader = LqaTextDatasetReader()
 		train_dataset, dev_dataset, test_dataset = None, None, None
-		train_dataset = reader.read('/scratch/mihalcea_fluxg/mazab/lifeqa/data/lqa_data.json')
-		#dev_dataset = reader.read('/home/mazab/allen_projects/data/cpr/development.json')
-		#test_dataset = reader.read('/home/mazab/allen_projects/data/cpr/test_gs.json')
+		train_dataset = reader.read('/scratch/mihalcea_fluxg/mazab/lifeqa/data/lqa_train.json')
+		dev_dataset = reader.read('/scratch/mihalcea_fluxg/mazab/lifeqa/data/lqa_dev.json')
+		test_dataset = reader.read('/scratch/mihalcea_fluxg/mazab/lifeqa/data/lqa_test.json')
 		return train_dataset, dev_dataset, test_dataset
 
 
