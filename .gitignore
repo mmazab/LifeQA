@@ -1,8 +1,9 @@
-data/
-lqa_framework/
-models/
-.DS_Store
-data/cdr/extra.json
+data/closed_captions/
+data/compressed/
+data/question/
+data/videos/
+#lqa_framework/
+*.DS_Store
 *.pyc
 *.pdf
 models/
