@@ -2,7 +2,6 @@ data/closed_captions/
 data/compressed/
 data/question/
 data/videos/
-#lqa_framework/
 *.DS_Store
 *.pyc
 *.pdf

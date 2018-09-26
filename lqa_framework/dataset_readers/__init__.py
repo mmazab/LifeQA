@@ -1,0 +1,1 @@
+from lqa_framework.dataset_readers.lifeqa_text import LqaTextDatasetReader
