@@ -5,7 +5,8 @@ data/videos/
 *.DS_Store
 *.pyc
 *.pdf
-models/
+!lqa_framework/models/
+/models/
 *.gz
 *.zip
 *.sw*
