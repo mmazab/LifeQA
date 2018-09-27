@@ -9,3 +9,4 @@ models/
 *.gz
 *.zip
 *.sw*
+*.tar
