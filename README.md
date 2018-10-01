@@ -12,7 +12,7 @@ Download the videos from Google Drive to `data/videos`.
 
 ### Text
 
-Obtain or run the transcriptions:
+Obtain or run the transcriptions (remember there's a charge for each API call):
 
 ```bash
 cd transcribe
