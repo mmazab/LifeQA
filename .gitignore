@@ -1,7 +1,9 @@
-data/closed_captions/
-data/compressed/
-data/question/
-data/videos/
+/data/closed_captions/
+/data/compressed/
+/data/features/
+/data/frames
+/data/question/
+/data/videos/
 *.DS_Store
 *.pyc
 *.pdf
