@@ -4,11 +4,11 @@
 /data/frames
 /data/question/
 /data/videos/
+!/lqa_framework/models/
+/models/
 *.DS_Store
 *.pyc
 *.pdf
-!lqa_framework/models/
-/models/
 *.gz
 *.zip
 *.sw*
