@@ -31,4 +31,10 @@ Then run `run_scripts/train_cnn.sh` or `run_scripts/train_lstm.sh`.
     bash transfer_learning/save_frames.sh
     ```
 
-3. 
+3. Download [pretrained weights from Sports1M for C3D](http://imagelab.ing.unimore.it/files/c3d_pytorch/c3d.pickle)
+and save it in `data/features/c3d.pickle`.
+4. To extract the features and save them in heavy H5 files:
+
+    ```bash
+    python transfer_learning/extract_features.py
+    ``` 
