@@ -2,7 +2,7 @@
 
 This repo contains the code for the LifeQA project.
 
-Use Python 3.6 and Conda.
+Use Python 3.6 and Conda. Install the dependencies in `environment.yaml`, also: torch, torchvision and tqdm.
 
 ## Data
 

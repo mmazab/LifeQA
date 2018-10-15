@@ -12,6 +12,8 @@ from lifeqa_dataset import LifeQaDataset
 
 FEATURES_DIR = 'data/features'
 
+DEVICE = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+
 
 def pretrained_resnet152() -> torch.nn.Module:
     resnet152 = torchvision.models.resnet152(pretrained=True)
@@ -33,7 +35,7 @@ def save_resnet_features():
     ])
     dataset = LifeQaDataset(transform=transforms)
 
-    resnet = pretrained_resnet152()
+    resnet = pretrained_resnet152().to(DEVICE)
 
     res5c_features_path = os.path.join(FEATURES_DIR, features_file_name('RESNET', 'res5c'))
     pool5_features_path = os.path.join(FEATURES_DIR, features_file_name('RESNET', 'pool5'))
@@ -56,10 +58,11 @@ def save_resnet_features():
         resnet.avgpool.register_forward_hook(avg_pool_hook)
 
         for instance in tqdm(torch.utils.data.DataLoader(dataset), desc="Extracting ResNet features"):
+            # TODO: extract in batches, grouping by video_id; or load all frames of a video in memory?
             # Remember DataLoader returns the data transformed to tensors (except strings which are inside lists).
             video_id = instance['video_id'][0]
             frame_id = instance['frame_id'].item()
-            frame = instance['frame']
+            frame = instance['frame'].to(DEVICE)
 
             resnet(frame)  # The fc1000 layer is computed unnecessarily, but it's just 1 layer.
 
@@ -76,7 +79,7 @@ def save_c3d_features():
     ])
     dataset = LifeQaDataset(transform=transforms)
 
-    c3d = C3D()
+    c3d = C3D().to(DEVICE)
 
     conv5b_features_path = os.path.join(FEATURES_DIR, features_file_name('C3D', 'conv5b'))
     fc6_features_path = os.path.join(FEATURES_DIR, features_file_name('C3D', 'fc6'))
@@ -92,7 +95,7 @@ def save_c3d_features():
             # Remember DataLoader returns the data transformed to tensors (except strings which are inside lists).
             video_id = instance['video_id'][0]
             frame_id = instance['frame_id'].item()
-            frame = instance['frame']
+            frame = instance['frame'].to(DEVICE)
 
             c3d(frame)  # TODO: take 16 frames, what overlapping?
 
