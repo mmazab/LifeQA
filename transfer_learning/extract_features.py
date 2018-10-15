@@ -7,8 +7,8 @@ import torch.utils.data
 import torchvision
 from tqdm import tqdm
 
-from transfer_learning.c3d import C3D
-from transfer_learning.lifeqa_dataset import LifeQaDataset
+from c3d import C3D
+from lifeqa_dataset import LifeQaDataset
 
 FEATURES_DIR = 'data/features'
 
