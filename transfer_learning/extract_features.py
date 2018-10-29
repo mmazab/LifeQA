@@ -3,6 +3,7 @@
 import os
 
 import h5py
+import torch.nn
 import torch.utils.data
 import torchvision
 from tqdm import tqdm
@@ -12,18 +13,27 @@ from lifeqa_dataset import LifeQaDataset
 
 FEATURES_DIR = 'data/features'
 
-DEVICE = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
 def pretrained_resnet152() -> torch.nn.Module:
     resnet152 = torchvision.models.resnet152(pretrained=True)
+    resnet152.eval()
     for param in resnet152.parameters():
         param.requires_grad = False
     return resnet152
 
 
+def pretrained_c3d() -> torch.nn.Module:
+    c3d = C3D()
+    c3d.eval()
+    for param in c3d.parameters():
+        param.requires_grad = False
+    return c3d
+
+
 def features_file_name(model_name, layer_name):
-    return f"TGIF_{model_name}_{layer_name}.hdf5"
+    return f"LifeQA_{model_name}_{layer_name}.hdf5"
 
 
 def save_resnet_features():
@@ -33,9 +43,15 @@ def save_resnet_features():
         torchvision.transforms.ToTensor(),
         torchvision.transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     ])
-    dataset = LifeQaDataset(transform=transforms)
+    dataset = LifeQaDataset(transform=transforms, check_missing_videos=False)  # FIXME
 
     resnet = pretrained_resnet152().to(DEVICE)
+
+    class Identity(torch.nn.Module):
+        def forward(self, input_):
+            return input_
+
+    resnet.fc = Identity()  # Trick to avoid computing the fc1000 layer, as we don't need it here.
 
     res5c_features_path = os.path.join(FEATURES_DIR, features_file_name('RESNET', 'res5c'))
     pool5_features_path = os.path.join(FEATURES_DIR, features_file_name('RESNET', 'pool5'))
@@ -48,26 +64,31 @@ def save_resnet_features():
             pool5_features_file.create_dataset(video_id, shape=(video_frame_count, 2048))
 
         res5c_output = None
-        avg_pool_value = None
 
-        def avg_pool_hook(_module, input_, output):
+        def avg_pool_hook(_module, input_, _output):
             nonlocal res5c_output, avg_pool_value
             res5c_output = input_[0]
-            avg_pool_value = output.view(output.size(0), -1)
 
         resnet.avgpool.register_forward_hook(avg_pool_hook)
 
-        for instance in tqdm(torch.utils.data.DataLoader(dataset), desc="Extracting ResNet features"):
-            # TODO: extract in batches, grouping by video_id; or load all frames of a video in memory?
-            # Remember DataLoader returns the data transformed to tensors (except strings which are inside lists).
-            video_id = instance['video_id'][0]
-            frame_id = instance['frame_id'].item()
-            frame = instance['frame'].to(DEVICE)
+        total_frame_count = sum(dataset.frame_count_by_video_id[video_id] for video_id in dataset.video_ids)
+        with tqdm(total=total_frame_count, desc="Extracting ResNet features") as progress_bar:
+            for instance in torch.utils.data.DataLoader(dataset):
+                video_id = instance['id'][0]
+                frames = instance['frames'][0].to(DEVICE)
 
-            resnet(frame)  # The fc1000 layer is computed unnecessarily, but it's just 1 layer.
+                BATCH_SIZE = 32
+                for start_index in range(0, len(frames), BATCH_SIZE):
+                    end_index = min(start_index + BATCH_SIZE, len(frames))
+                    frame_ids_range = range(start_index, end_index)
+                    frame_batch = frames[frame_ids_range]
 
-            res5c_features_file[video_id][frame_id] = res5c_output
-            pool5_features_file[video_id][frame_id] = avg_pool_value
+                    avg_pool_value = resnet(frame_batch)
+
+                    res5c_features_file[video_id][frame_ids_range] = res5c_output
+                    pool5_features_file[video_id][frame_ids_range] = avg_pool_value
+
+                    progress_bar.update(len(frame_ids_range))
 
 
 def save_c3d_features():
@@ -79,7 +100,7 @@ def save_c3d_features():
     ])
     dataset = LifeQaDataset(transform=transforms)
 
-    c3d = C3D().to(DEVICE)
+    c3d = pretrained_c3d().to(DEVICE)
 
     conv5b_features_path = os.path.join(FEATURES_DIR, features_file_name('C3D', 'conv5b'))
     fc6_features_path = os.path.join(FEATURES_DIR, features_file_name('C3D', 'fc6'))
@@ -93,16 +114,15 @@ def save_c3d_features():
 
         for instance in tqdm(torch.utils.data.DataLoader(dataset), desc="Extracting C3D features"):
             # Remember DataLoader returns the data transformed to tensors (except strings which are inside lists).
-            video_id = instance['video_id'][0]
-            frame_id = instance['frame_id'].item()
-            frame = instance['frame'].to(DEVICE)
+            video_id = instance['id'][0]
+            frames = instance['frames'][0].to(DEVICE)
 
-            c3d(frame)  # TODO: take 16 frames, what overlapping?
+            c3d(frames)  # TODO: take 16 frames, what overlapping?
 
 
 def main():
     save_resnet_features()
-    save_c3d_features()
+    # save_c3d_features()
 
 
 if __name__ == '__main__':

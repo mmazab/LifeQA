@@ -1,45 +1,68 @@
-import PIL.Image
+import json
 import os
 from typing import Callable, Dict
 
+import PIL.Image
+import torch
 import torch.utils.data
 
 
 class LifeQaDataset(torch.utils.data.Dataset):
-    """Dataset of LifeQA video frames with ``PIL.Image.Image`` type."""
-    FRAMES_FILE_DIR = 'data/frames'
+    """Dataset of LifeQA videos."""
+    FRAMES_DIR_PATH = 'data/frames'
 
-    def __init__(self, transform: Callable = None) -> None:
+    def __init__(self, transform: Callable = None, videos_data_path: str = 'data/lqa_data.json',
+                 check_missing_videos: bool = True) -> None:
         self.transform = transform
 
-        self.video_ids = []
-        self.frame_paths = []
-        self.video_ids_by_idx = []
-        self.frame_ids_by_idx = []
-        self.frame_count_by_video_id = {}
-        for video_folder_name in os.listdir(LifeQaDataset.FRAMES_FILE_DIR):
-            self.video_ids.append(video_folder_name)
-            video_folder_path = os.path.join(LifeQaDataset.FRAMES_FILE_DIR, video_folder_name)
-            frame_file_names = os.listdir(video_folder_path)
-            for i, frame_file_name in enumerate(frame_file_names):
-                self.frame_paths.append(os.path.join(video_folder_path, frame_file_name))
-                self.frame_ids_by_idx.append(i)
-                self.video_ids_by_idx.append(video_folder_name)
-            self.frame_count_by_video_id[video_folder_name] = len(frame_file_names)
+        with open(videos_data_path) as file:
+            self.videos_data_dict = json.load(file)
+
+        for video_id in list(self.videos_data_dict.keys()):  # Convert to list to be able to possibly remove items.
+            video_folder_path = self._video_folder_path(video_id)
+            if not os.path.exists(video_folder_path):
+                if check_missing_videos:
+                    raise FileNotFoundError(f"Directory {video_folder_path} not found, which was referenced in"
+                                            f" {videos_data_path}")
+                else:
+                    del self.videos_data_dict[video_id]
+
+        self.video_ids = list(self.videos_data_dict.keys())
+
+        self.frame_count_by_video_id = {video_id: len(os.listdir(self._video_folder_path(video_id)))
+                                        for video_id in self.video_ids}
+
+    @staticmethod
+    def _video_folder_path(video_id: str) -> str:
+        return os.path.join(LifeQaDataset.FRAMES_DIR_PATH, video_id)
 
     def __getitem__(self, index) -> Dict[str, object]:
-        frame = PIL.Image.open(self.frame_paths[index])
+        video_id = self.video_ids[index]
+        video_data_dict = self.videos_data_dict[video_id]
+        frames = None
 
-        if self.transform:
-            frame = self.transform(frame)
+        video_folder_path = self._video_folder_path(video_id)
+        for i, frame_file_name in enumerate(os.listdir(video_folder_path)):
+            frame = PIL.Image.open(os.path.join(video_folder_path, frame_file_name))
+            if self.transform:
+                frame = self.transform(frame)
 
-        video_id = self.video_ids_by_idx[index]
-        return {
-            'video_id': video_id,
-            'video_frame_count': self.frame_count_by_video_id[video_id],
-            'frame_id': self.frame_ids_by_idx[index],
-            'frame': frame
+            if frames is None:
+                # noinspection PyUnresolvedReferences
+                frames = torch.empty((self.frame_count_by_video_id[video_id], *frame.size()))
+            frames[i] = frame
+
+        item = {
+            'id': video_id,
+            'frames': frames,
+            'questions': video_data_dict['questions'],
         }
 
+        captions_dict = video_data_dict['captions']
+        if captions_dict:
+            item['captions'] = captions_dict
+
+        return item
+
     def __len__(self) -> int:
-        return len(self.frame_paths)
+        return len(self.video_ids)
