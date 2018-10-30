@@ -2,6 +2,7 @@
 import torch
 import torch.nn
 import torch.utils.data
+from tqdm import tqdm
 
 from lifeqa_dataset import LifeQaDataset
 
@@ -10,12 +11,14 @@ DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
 def main():
+    epochs = 50
     pool5_size = 2048
     hidden_layer_size = 3  # 512
     output_size = 4
     dataset_options = {
         'load_frames': False,
         'load_resnet_features': 'pool5',
+        'check_missing_videos': False,  # FIXME
     }
     training_dataset = LifeQaDataset(videos_data_path='data/lqa_train.json', **dataset_options)
     dev_dataset = LifeQaDataset(videos_data_path='data/lqa_dev.json', **dataset_options)
@@ -24,13 +27,15 @@ def main():
     video_encoder_lstm = torch.nn.LSTM(pool5_size, hidden_layer_size)
     linear = torch.nn.Linear(hidden_layer_size, output_size)
 
-    for _epoch in range(50):
-        for instance in torch.utils.data.DataLoader(training_dataset):  # shuffle=True
-            resnet_features = instance['resnet_features'].to(DEVICE)
-            resnet_features = resnet_features.permute(1, 0, 2)
-            _output, (h, _c) = video_encoder_lstm(resnet_features)
-            output = linear(h)
-            t = 4
+    with tqdm(desc="Training", total=epochs * len(training_dataset)) as progress_bar:
+        for _epoch in range(epochs):
+            for instance in torch.utils.data.DataLoader(training_dataset):  # shuffle=True
+                resnet_features = instance['resnet_features'].to(DEVICE)
+                resnet_features = resnet_features.permute(1, 0, 2)
+                _output, (h, _c) = video_encoder_lstm(resnet_features)
+                output = linear(h)
+
+                progress_bar.update()
 
 
 if __name__ == '__main__':

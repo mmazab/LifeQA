@@ -34,21 +34,31 @@ class LifeQaDataset(torch.utils.data.Dataset):
                     else:
                         del self.videos_data_dict[video_id]
 
+        if self.load_resnet_features:
+            with h5py.File(self.features_file_path('resnet', self.load_resnet_features)) as features_file:
+                # Convert to list to be able to possibly remove items.
+                for video_id in list(self.videos_data_dict.keys()):
+                    if video_id not in features_file:
+                        if check_missing_videos:
+                            raise Exception(f"Frames features from video {video_id} not present in the features file.")
+                        else:
+                            del self.videos_data_dict[video_id]
+
+        if self.load_c3d_features:
+            with h5py.File(self.features_file_path('c3d', self.load_c3d_features)) as features_file:
+                # Convert to list to be able to possibly remove items.
+                for video_id in list(self.videos_data_dict.keys()):
+                    if video_id not in features_file:
+                        if check_missing_videos:
+                            raise Exception(f"Frames features from video {video_id} not present in the features file.")
+                        else:
+                            del self.videos_data_dict[video_id]
+
         self.video_ids = list(self.videos_data_dict.keys())
 
         if load_frames:
             self.frame_count_by_video_id = {video_id: len(os.listdir(self._video_folder_path(video_id)))
                                             for video_id in self.video_ids}
-
-        if self.load_resnet_features:
-            with h5py.File(self.features_file_path('resnet', self.load_resnet_features)) as features_file:
-                for video_id in self.video_ids:
-                    assert video_id in features_file
-
-        if self.load_c3d_features:
-            with h5py.File(self.features_file_path('c3d', self.load_resnet_features)) as features_file:
-                for video_id in self.video_ids:
-                    assert video_id in features_file
 
     @staticmethod
     def _video_folder_path(video_id: str) -> str:
