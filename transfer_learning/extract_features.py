@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 """Script to extract ResNet features from video frames."""
-import os
-
 import h5py
+import torch
 import torch.nn
 import torch.utils.data
 import torchvision
@@ -11,8 +10,7 @@ from tqdm import tqdm
 from c3d import C3D
 from lifeqa_dataset import LifeQaDataset
 
-FEATURES_DIR = 'data/features'
-
+# noinspection PyUnresolvedReferences
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
@@ -32,18 +30,14 @@ def pretrained_c3d() -> torch.nn.Module:
     return c3d
 
 
-def features_file_name(model_name, layer_name):
-    return f"LifeQA_{model_name}_{layer_name}.hdf5"
-
-
 def save_resnet_features():
     transforms = torchvision.transforms.Compose([
         torchvision.transforms.Resize(256),
         torchvision.transforms.CenterCrop(224),
         torchvision.transforms.ToTensor(),
-        torchvision.transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+        torchvision.transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
     ])
-    dataset = LifeQaDataset(transform=transforms, check_missing_videos=False)  # FIXME
+    dataset = LifeQaDataset(transform=transforms)
 
     resnet = pretrained_resnet152().to(DEVICE)
 
@@ -53,10 +47,8 @@ def save_resnet_features():
 
     resnet.fc = Identity()  # Trick to avoid computing the fc1000 layer, as we don't need it here.
 
-    res5c_features_path = os.path.join(FEATURES_DIR, features_file_name('RESNET', 'res5c'))
-    pool5_features_path = os.path.join(FEATURES_DIR, features_file_name('RESNET', 'pool5'))
-    with h5py.File(res5c_features_path, 'w') as res5c_features_file, \
-            h5py.File(pool5_features_path, 'w') as pool5_features_file:
+    with h5py.File(LifeQaDataset.features_file_path('resnet', 'res5c'), 'w') as res5c_features_file, \
+            h5py.File(LifeQaDataset.features_file_path('resnet', 'pool5'), 'w') as pool5_features_file:
 
         for video_id in dataset.video_ids:
             video_frame_count = dataset.frame_count_by_video_id[video_id]
@@ -77,9 +69,9 @@ def save_resnet_features():
                 video_id = instance['id'][0]
                 frames = instance['frames'][0].to(DEVICE)
 
-                BATCH_SIZE = 32
-                for start_index in range(0, len(frames), BATCH_SIZE):
-                    end_index = min(start_index + BATCH_SIZE, len(frames))
+                batch_size = 32
+                for start_index in range(0, len(frames), batch_size):
+                    end_index = min(start_index + batch_size, len(frames))
                     frame_ids_range = range(start_index, end_index)
                     frame_batch = frames[frame_ids_range]
 
@@ -96,16 +88,14 @@ def save_c3d_features():
         torchvision.transforms.Resize(256),
         torchvision.transforms.CenterCrop(224),
         torchvision.transforms.ToTensor(),
-        torchvision.transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+        torchvision.transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
     ])
     dataset = LifeQaDataset(transform=transforms)
 
     c3d = pretrained_c3d().to(DEVICE)
 
-    conv5b_features_path = os.path.join(FEATURES_DIR, features_file_name('C3D', 'conv5b'))
-    fc6_features_path = os.path.join(FEATURES_DIR, features_file_name('C3D', 'fc6'))
-    with h5py.File(conv5b_features_path, 'w') as conv5b_features_file, \
-            h5py.File(fc6_features_path, 'w') as fc6_features_file:
+    with h5py.File(LifeQaDataset.features_file_path('c3d', 'conv5b'), 'w') as conv5b_features_file, \
+            h5py.File(LifeQaDataset.features_file_path('c3d', 'fc6'), 'w') as fc6_features_file:
 
         for video_id in dataset.video_ids:
             video_frame_count = dataset.frame_count_by_video_id[video_id]
@@ -113,7 +103,6 @@ def save_c3d_features():
             fc6_features_file.create_dataset(video_id, shape=(video_frame_count, 4096))
 
         for instance in tqdm(torch.utils.data.DataLoader(dataset), desc="Extracting C3D features"):
-            # Remember DataLoader returns the data transformed to tensors (except strings which are inside lists).
             video_id = instance['id'][0]
             frames = instance['frames'][0].to(DEVICE)
 
