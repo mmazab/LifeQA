@@ -26,20 +26,19 @@ class LqaDatasetReader(DatasetReader):
     @overrides
     def _read(self, file_path: str) -> Iterable[Instance]:
         with open(cached_path(file_path)) as data_file:
-            videos = json.load(data_file)
+            video_dict = json.load(data_file)
             logger.info("Reading instances in file at: %s", file_path)
-            for v in videos:
-                questions = videos[v]['questions']
-                captions = videos[v]['captions']
-                for q in questions:
-                    question = q['question']
-                    q_id = q['q_id']
-                    answers = q['answers']
-                    correct_index = q['correct_index']
-                    yield self.text_to_instance(q_id, question, answers, correct_index, captions)
+            for video_id in video_dict:
+                questions = video_dict[video_id]['questions']
+                captions = video_dict[video_id]['captions']
+                for question in questions:
+                    question = question['question']
+                    answers = question['answers']
+                    correct_index = question['correct_index']
+                    yield self.text_to_instance(question, answers, correct_index, captions)
 
     @overrides
-    def text_to_instance(self, qid: str, question: str, answers: List[str], correct_index: Optional[int] = None,
+    def text_to_instance(self, question: str, answers: List[str], correct_index: Optional[int] = None,
                          captions: Optional[Dict[str, Any]] = None, unroll: Optional[bool] = True) -> Instance:
         tokenized_question = self._tokenizer.tokenize(question)
         tokenized_answers = (self._tokenizer.tokenize(a) for a in answers)
