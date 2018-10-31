@@ -21,7 +21,7 @@ cd transcribe
 GOOGLE_APPLICATION_CREDENTIALS=... python gcp_transcribe.py
 ```
 
-Then run `run_scripts/train_cnn.sh` or `run_scripts/train_lstm.sh`.
+Then run `run_scripts/train_text_cnn.sh` or `run_scripts/train_text_lstm.sh`.
 
 ### Video
 

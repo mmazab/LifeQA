@@ -13,8 +13,8 @@ import torch.nn.functional as F
 
 
 @Model.register('text_baseline')
-class LqaBaselineClassifier(Model):
-    """ This ``Model`` performs question answering. We assume we're given the video/question/set of answers and we
+class TextBaselineClassifier(Model):
+    """This ``Model`` performs question answering. We assume we're given the video/question/set of answers and we
     predict the correct answer.
 
     The basic model structure: we embed the question using LSTM/CNN, same for the answers, and captions using a
@@ -39,7 +39,7 @@ class LqaBaselineClassifier(Model):
         self.answers_encoder = TimeDistributed(answers_encoder)
         self.captions_encoder = TimeDistributed(captions_encoder)
         self.classifier_feedforward = classifier_feedforward
-        # self.classifier_feedforward = TimeDistributed (classifier_feedforward)
+        # self.classifier_feedforward = TimeDistributed(classifier_feedforward)
 
         self._encoding_dim = captions_encoder.get_output_dim()
         self.ques_cap_att = LinearMatrixAttention(self._encoding_dim, self._encoding_dim, 'x,y,x*y')
@@ -65,7 +65,7 @@ class LqaBaselineClassifier(Model):
         Returns
         -------
         An output dictionary consisting of:
-        class_probabilities : torch.FloatTensor
+        class_probabilities : torch.FloatTensor  FIXME
             A tensor of shape ``(batch_size, num_classes)`` representing a distribution over the
             label classes for each instance.
         loss : torch.FloatTensor, optional
@@ -78,6 +78,7 @@ class LqaBaselineClassifier(Model):
         embedded_answers = self.text_field_embedder(answers)
         answers_mask = util.get_text_field_mask(answers, num_wrapping_dims=1)
         encoded_answers = self.answers_encoder(embedded_answers, answers_mask)
+
         embedded_captions = self.text_field_embedder(captions)
         captions_mask = util.get_text_field_mask(captions, num_wrapping_dims=1)
         encoded_captions = self.captions_encoder(embedded_captions, captions_mask)
@@ -91,16 +92,15 @@ class LqaBaselineClassifier(Model):
 
         output_dict = {'logits': logits}
         if label is not None:
-            loss = self.loss(logits, label)
+            output_dict['loss'] = self.loss(logits, label)
             for metric in self.metrics.values():
                 metric(logits, label)
-            output_dict['loss'] = loss
 
         return output_dict
 
     @overrides
     def decode(self, output_dict: Dict[str, torch.Tensor]) -> Dict[str, torch.Tensor]:
-        """ Does a simple argmax over the class probabilities, converts indices to string labels, and adds a ``'label'``
+        """Does a simple argmax over the class probabilities, converts indices to string labels, and adds a ``'label'``
         key to the dictionary with the result. """
         class_probabilities = F.softmax(output_dict['logits'], dim=-1)
         output_dict['class_probabilities'] = class_probabilities

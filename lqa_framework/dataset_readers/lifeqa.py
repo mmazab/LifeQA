@@ -13,10 +13,9 @@ from overrides import overrides
 logger = logging.getLogger(__name__)
 
 
-@DatasetReader.register('lqa_text')
-class LqaTextDatasetReader(DatasetReader):
-    """Reads a JSON-lines file containing questions and answers, and creates a dataset suitable for question
-    answering. """
+@DatasetReader.register('lqa')
+class LqaDatasetReader(DatasetReader):
+    """Reads a JSON file containing questions and answers, and creates a dataset suitable for QA. """
 
     def __init__(self, lazy: bool = False, tokenizer: Optional[Tokenizer] = None,
                  token_indexers: Optional[Dict[str, TokenIndexer]] = None) -> None:

@@ -1,1 +1,2 @@
-from lqa_framework.models.text_baseline import LqaBaselineClassifier
+from .text_baseline import TextBaselineClassifier
+from .tgif_qa import TgifQaClassifier
