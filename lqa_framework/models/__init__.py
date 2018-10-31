@@ -1,1 +1,1 @@
-from lqa_framework.models.nn_baseline import LqaBaselineClassifier
+from lqa_framework.models.text_baseline import LqaBaselineClassifier
