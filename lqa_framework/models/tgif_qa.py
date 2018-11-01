@@ -3,6 +3,7 @@ from typing import Dict, Optional
 from allennlp.data import Vocabulary
 from allennlp.models.model import Model
 from allennlp.modules import FeedForward, Seq2VecEncoder, TextFieldEmbedder, TimeDistributed
+from allennlp.modules.seq2vec_encoders import PytorchSeq2VecWrapper
 from allennlp.nn import InitializerApplicator, RegularizerApplicator, util
 from allennlp.training.metrics import CategoricalAccuracy
 from overrides import overrides
@@ -12,8 +13,8 @@ import torch
 @Model.register('tgif_qa')
 class TgifQaClassifier(Model):
     def __init__(self, vocab: Vocabulary, text_field_embedder: TextFieldEmbedder, video_encoder: Seq2VecEncoder,
-                 question_encoder: Seq2VecEncoder, answers_encoder: Seq2VecEncoder, classifier_feedforward: FeedForward,
-                 initializer: InitializerApplicator = InitializerApplicator(),
+                 question_encoder: PytorchSeq2VecWrapper, answers_encoder: PytorchSeq2VecWrapper,
+                 classifier_feedforward: FeedForward, initializer: InitializerApplicator = InitializerApplicator(),
                  regularizer: Optional[RegularizerApplicator] = None) -> None:
         super().__init__(vocab, regularizer)
 
@@ -53,15 +54,16 @@ class TgifQaClassifier(Model):
         loss : torch.FloatTensor, optional
             A scalar loss to be optimised.
         """
-        encoded_video = self.video_encoder(video_features, [1] * len(video_features))
+        video_mask = [1] * len(video_features)
+        encoded_video = self.video_encoder(video_features, video_mask)
 
         embedded_question = self.text_field_embedder(question)
         question_mask = util.get_text_field_mask(question)
-        encoded_question = self.question_encoder(embedded_question, question_mask)
+        encoded_question = self.question_encoder(embedded_question, question_mask, hidden_state=encoded_video)
 
         embedded_answers = self.text_field_embedder(answers)
         answers_mask = util.get_text_field_mask(answers, num_wrapping_dims=1)
-        encoded_answers = self.answers_encoder(embedded_answers, answers_mask)
+        encoded_answers = self.answers_encoder(embedded_answers, answers_mask, hidden_state=encoded_question)
 
         scores = self.classifier_feedforward(encoded_answers)
 
