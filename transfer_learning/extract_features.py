@@ -47,13 +47,13 @@ def save_resnet_features():
 
     resnet.fc = Identity()  # Trick to avoid computing the fc1000 layer, as we don't need it here.
 
-    with h5py.File(LifeQaDataset.features_file_path('resnet', 'res5c'), 'r+') as res5c_features_file, \
-            h5py.File(LifeQaDataset.features_file_path('resnet', 'pool5'), 'r+') as pool5_features_file:
+    with h5py.File(LifeQaDataset.features_file_path('resnet', 'res5c'), 'w') as res5c_features_file, \
+            h5py.File(LifeQaDataset.features_file_path('resnet', 'pool5'), 'w') as pool5_features_file:
 
-        # for video_id in dataset.video_ids:
-        #     video_frame_count = dataset.frame_count_by_video_id[video_id]
-        #     res5c_features_file.create_dataset(video_id, shape=(video_frame_count, 2048, 7, 7))
-        #     pool5_features_file.create_dataset(video_id, shape=(video_frame_count, 2048))
+        for video_id in dataset.video_ids:
+            video_frame_count = dataset.frame_count_by_video_id[video_id]
+            res5c_features_file.create_dataset(video_id, shape=(video_frame_count, 2048, 7, 7))
+            pool5_features_file.create_dataset(video_id, shape=(video_frame_count, 2048))
 
         res5c_output = None
 
