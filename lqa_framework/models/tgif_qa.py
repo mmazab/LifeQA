@@ -3,7 +3,6 @@ from typing import Dict, Optional
 from allennlp.data import Vocabulary
 from allennlp.models.model import Model
 from allennlp.modules import FeedForward, Seq2VecEncoder, TextFieldEmbedder, TimeDistributed
-from allennlp.modules.seq2vec_encoders import PytorchSeq2VecWrapper
 from allennlp.nn import InitializerApplicator, RegularizerApplicator, util
 from allennlp.training.metrics import CategoricalAccuracy
 from overrides import overrides
@@ -13,7 +12,7 @@ import torch
 @Model.register('tgif_qa')
 class TgifQaClassifier(Model):
     def __init__(self, vocab: Vocabulary, text_field_embedder: TextFieldEmbedder, video_encoder: Seq2VecEncoder,
-                 question_encoder: PytorchSeq2VecWrapper, answers_encoder: PytorchSeq2VecWrapper,
+                 question_encoder: Seq2VecEncoder, answers_encoder: Seq2VecEncoder,
                  classifier_feedforward: FeedForward, initializer: InitializerApplicator = InitializerApplicator(),
                  regularizer: Optional[RegularizerApplicator] = None) -> None:
         super().__init__(vocab, regularizer)
@@ -54,8 +53,7 @@ class TgifQaClassifier(Model):
         loss : torch.FloatTensor, optional
             A scalar loss to be optimised.
         """
-        video_mask = [1] * len(video_features)
-        encoded_video = self.video_encoder(video_features, video_mask)
+        encoded_video = self.video_encoder(video_features, mask=None)  # FIXME: should mask because it's a batch
 
         embedded_question = self.text_field_embedder(question)
         question_mask = util.get_text_field_mask(question)
