@@ -54,7 +54,7 @@ class LifeQaDataset(torch.utils.data.Dataset):
                         else:
                             del self.videos_data_dict[video_id]
 
-        self.video_ids = list(self.videos_data_dict.keys())
+        self.video_ids = list(key for key in self.videos_data_dict.keys() if int(key) >= 173)
 
         if load_frames:
             self.frame_count_by_video_id = {video_id: len(os.listdir(self._video_folder_path(video_id)))
