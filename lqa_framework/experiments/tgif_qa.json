@@ -19,25 +19,28 @@
 	  "type": "gru",
 	  "bidirectional": false,
 	  "input_size": 2048,
-	  "hidden_size": 100,
-	  "num_layers": 1
+	  "hidden_size": [100, 100],
+	  "num_layers": 2,
+      "dropout": 0.2
 	},
 	"question_encoder": {
 	  "type": "gru",
 	  "bidirectional": false,
 	  "input_size": 300,
-	  "hidden_size": 100,
-	  "num_layers": 1
+	  "hidden_size": [100, 100],
+	  "num_layers": 2,
+      "dropout": 0.2
 	},
 	"answers_encoder": {
 	  "type": "gru",
 	  "bidirectional": false,
 	  "input_size": 300,
-	  "hidden_size": 100,
-	  "num_layers": 1
+	  "hidden_size": [100, 100],
+	  "num_layers": 2,
+      "dropout": 0.2
 	},
 	"classifier_feedforward": {
-	  "input_dim": 100,
+	  "input_dim": 200,
 	  "num_layers": 1,
 	  "hidden_dims": [1],
 	  "activations": ["linear"]
