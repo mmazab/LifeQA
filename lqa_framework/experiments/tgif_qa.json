@@ -16,21 +16,21 @@
 	  }
 	},
 	"video_encoder": {
-	  "type": "lstm",
+	  "type": "gru",
 	  "bidirectional": false,
 	  "input_size": 2048,
 	  "hidden_size": 3,
 	  "num_layers": 1
 	},
 	"question_encoder": {
-	  "type": "lstm",
+	  "type": "gru",
 	  "bidirectional": false,
 	  "input_size": 300,
 	  "hidden_size": 3,
 	  "num_layers": 1
 	},
 	"answers_encoder": {
-	  "type": "lstm",
+	  "type": "gru",
 	  "bidirectional": false,
 	  "input_size": 300,
 	  "hidden_size": 3,
@@ -46,7 +46,7 @@
   "iterator": {
 	"type": "bucket",
 	"sorting_keys": [["question", "num_tokens"]],
-	"batch_size": 1
+	"batch_size": 64
   },
   "trainer": {
 	"num_epochs": 40,
