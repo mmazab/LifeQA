@@ -37,7 +37,7 @@
 	  "num_layers": 1
 	},
 	"classifier_feedforward": {
-	  "input_dim": 300,
+	  "input_dim": 100,
 	  "num_layers": 1,
 	  "hidden_dims": [1],
 	  "activations": ["linear"]
