@@ -12,5 +12,5 @@
 # Change to the directory you submitted from
 if [ -n "$PBS_O_WORKDIR" ]; then cd $PBS_O_WORKDIR; fi
 
-source flux_pre_steps.source
+source flux/flux_pre_steps.source
 transfer_learning/extract_features.py

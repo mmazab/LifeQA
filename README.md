@@ -23,7 +23,7 @@ GOOGLE_APPLICATION_CREDENTIALS=... python gcp_transcribe.py
 
 Then run `run_scripts/train_text_cnn.sh` or `run_scripts/train_text_lstm.sh`.
 
-### Video
+### Video (TGIF-QA)
 
 1. Install ffmpeg.
 2. Run `save_frames.sh` to extract the frames in the video files:
@@ -39,3 +39,8 @@ and save it in `data/features/c3d.pickle`.
     ```bash
     python transfer_learning/extract_features.py
     ``` 
+5. Run `run_scripts/train_tgif_qa.sh`.
+
+## Flux
+
+Run from this folder (cloned) the scripts under `flux`, such as: `qsub flux/tgif-qa.pbs`.
