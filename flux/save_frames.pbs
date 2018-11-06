@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 #PBS -N LQA-save-frames
 #PBS -M sacastro@umich.edu
