@@ -13,4 +13,4 @@
 if [ -n "$PBS_O_WORKDIR" ]; then cd $PBS_O_WORKDIR; fi
 
 source flux/flux_pre_steps.source
-transfer_learning/save_frames.sh
+feature_extraction/save_frames.sh

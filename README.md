@@ -29,7 +29,7 @@ Then run `run_scripts/train_text_cnn.sh` or `run_scripts/train_text_lstm.sh`.
 2. Run `save_frames.sh` to extract the frames in the video files:
 
     ```bash
-    bash transfer_learning/save_frames.sh
+    bash feature_extraction/save_frames.sh
     ```
 
 3. Download [pretrained weights from Sports1M for C3D](http://imagelab.ing.unimore.it/files/c3d_pytorch/c3d.pickle)
@@ -37,7 +37,7 @@ and save it in `data/features/c3d.pickle`.
 4. To extract the features and save them in heavy H5 files:
 
     ```bash
-    python transfer_learning/extract_features.py
+    python feature_extraction/extract_features.py
     ``` 
 5. Run `run_scripts/train_tgif_qa.sh`.
 
