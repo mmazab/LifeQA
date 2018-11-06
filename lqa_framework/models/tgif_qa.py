@@ -68,6 +68,8 @@ class TgifQaClassifier(Model):
         encoded_video = self.video_encoder(video_features, mask=video_features_mask)
         encoded_video = encoded_video.reshape(num_layers, batch_size, -1)
 
+        # TODO: how to obtain all layers last hidden layer? Neither seq2vec nor seq2seq give it.
+
         embedded_question = self.text_field_embedder(question)
         question_mask = util.get_text_field_mask(question)
         # Passing the hidden state with LSTM doesn't work. This is because allennlp seq2vec wrapper only keeps h
