@@ -1,4 +1,5 @@
 local embedding_size = 300;
+local rnn_type = "gru";
 local rnn_hidden_size = 512;
 local rnn_num_layers = 1;
 local bidirectional = false;
@@ -24,7 +25,7 @@ local feed_forward_hidden_size = rnn_hidden_size * rnn_num_layers;
 	  }
 	},
 	"video_encoder": {
-	  "type": "gru",
+	  "type": rnn_type,
 	  "bidirectional": bidirectional,
 	  "input_size": 2048,
 	  "hidden_size": rnn_hidden_size,
@@ -32,7 +33,7 @@ local feed_forward_hidden_size = rnn_hidden_size * rnn_num_layers;
       "dropout": rnn_dropout
 	},
 	"question_encoder": {
-	  "type": "gru",
+	  "type": rnn_type,
 	  "bidirectional": bidirectional,
 	  "input_size": embedding_size,
 	  "hidden_size": rnn_hidden_size,
@@ -40,7 +41,7 @@ local feed_forward_hidden_size = rnn_hidden_size * rnn_num_layers;
       "dropout": rnn_dropout
 	},
 	"answers_encoder": {
-	  "type": "gru",
+	  "type": rnn_type,
 	  "bidirectional": bidirectional,
 	  "input_size": embedding_size,
 	  "hidden_size": rnn_hidden_size,
