@@ -22,7 +22,6 @@ class TgifQaClassifier(Model):
         super().__init__(vocab, regularizer)
 
         self.text_field_embedder = text_field_embedder
-        # self.num_classes = self.vocab.get_vocab_size('labels')
 
         self.video_encoder = video_encoder
         self.question_encoder = question_encoder
