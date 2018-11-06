@@ -1,0 +1,4 @@
+module load cuda/9.0 cudnn/9.0-v7.0 python-anaconda3/latest-3.6
+source activate lifeqa
+source deactivate
+source activate lifeqa # For some reason, if I don't do this, tqdm is not available.
