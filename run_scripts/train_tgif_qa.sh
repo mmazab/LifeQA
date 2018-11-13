@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-model_folder=models/tgif_qa
-
-rm -r "${model_folder}" 2> /dev/null
-allennlp train lqa_framework/experiments/tgif_qa.jsonnet -s "${model_folder}" --include-package lqa_framework
+allennlp train \
+    --force \
+    --serialization-dir models/tgif_qa \
+    --include-package lqa_framework \
+    lqa_framework/experiments/tgif_qa.jsonnet
