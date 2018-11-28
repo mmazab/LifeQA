@@ -1,5 +1,6 @@
 name: lifeqa
 channels:
+  - pytorch
   - defaults
 dependencies:
   - alabaster=0.7.10=py36h306e16b_0
@@ -66,7 +67,7 @@ dependencies:
   - greenlet=0.4.13=py36h14c3975_0
   - gst-plugins-base=1.14.0=hbbd80ab_1
   - gstreamer=1.14.0=hb453b48_1
-  - h5py=2.7.1=py36ha1f6525_2
+  - h5py=2.8.0=py36h989c5e5_3
   - harfbuzz=1.7.6=h5f0a787_1
   - hdf5=1.10.2=hba1933b_1
   - heapdict=1.0.0=py36_2
@@ -99,7 +100,7 @@ dependencies:
   - libcurl=7.60.0=h1ad7b7a_0
   - libedit=3.1.20170329=h6b74fdf_2
   - libffi=3.2.1=hd88cf55_4
-  - libgcc-ng=7.2.0=hdf63c60_3
+  - libgcc-ng=8.2.0=hdf63c60_1
   - libgfortran-ng=7.2.0=hdf63c60_3
   - libpng=1.6.34=hb9fc6fc_0
   - libsodium=1.0.16=h1bed415_0
@@ -132,6 +133,7 @@ dependencies:
   - nbformat=4.4.0=py36h31c9010_0
   - ncurses=6.1=hf484d3e_0
   - networkx=2.1=py36_0
+  - ninja=1.8.2=py36h6bb024c_1
   - nltk=3.3.0=py36_0
   - nose=1.3.7=py36hcdf7029_2
   - notebook=5.5.0=py36_0
@@ -231,6 +233,7 @@ dependencies:
   - tk=8.6.7=hc745277_3
   - toolz=0.9.0=py36_0
   - tornado=5.0.2=py36_0
+  - tqdm=4.26.0=py36h28b3542_0
   - traitlets=4.3.2=py36h674d592_0
   - typing=3.6.4=py36_0
   - unicodecsv=0.14.1=py36ha668878_0
@@ -250,5 +253,5 @@ dependencies:
   - zeromq=4.2.5=h439df22_0
   - zict=0.1.3=py36h3a3bf81_0
   - zlib=1.2.11=ha838bed_2
-prefix: /home/mazab/anaconda3/envs/lifeqa
-
+#  - pytorch 0.4.1 (CPU or GPU)
+#  - torchvision 0.2.1 (CPU or GPU)

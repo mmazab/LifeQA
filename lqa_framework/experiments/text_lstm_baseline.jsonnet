@@ -1,23 +1,26 @@
+local embedding_size = 300;
+
 {
   "dataset_reader": {
-	"type": "lqa_text"
+	"type": "lqa"
   },
-  "train_data_path": "/scratch/mihalcea_fluxg/mazab/lifeqa/data/lqa_train.json",
-  "validation_data_path": "/scratch/mihalcea_fluxg/mazab/lifeqa/data/lqa_dev.json",
+  "train_data_path": "data/lqa_train.json",
+  "validation_data_path": "data/lqa_dev.json",
+  "test_data_path": "data/lqa_test.json",
   "model": {
-	"type": "lqa_baseline",
+	"type": "text_baseline",
 	"text_field_embedder": {
 	  "tokens": {
 		"type": "embedding",
 		"pretrained_file": "https://s3-us-west-2.amazonaws.com/allennlp/datasets/glove/glove.6B.300d.txt.gz",
-		"embedding_dim": 300,
+		"embedding_dim": embedding_size,
 		"trainable": false
 	  }
 	},
 	"question_encoder": {
 	  "type": "lstm",
 	  "bidirectional": true,
-	  "input_size": 300,
+	  "input_size": embedding_size,
 	  "hidden_size": 100,
 	  "num_layers": 1,
 	  "dropout": 0.2
@@ -25,7 +28,7 @@
 	"captions_encoder": {
 	  "type": "lstm",
 	  "bidirectional": true,
-	  "input_size": 300,
+	  "input_size": embedding_size,
 	  "hidden_size": 100,
 	  "num_layers": 1,
 	  "dropout": 0.2
@@ -33,7 +36,7 @@
 	"answers_encoder": {
 	  "type": "lstm",
 	  "bidirectional": true,
-	  "input_size": 300,
+	  "input_size": embedding_size,
 	  "hidden_size": 100,
 	  "num_layers": 1,
 	  "dropout": 0.2
@@ -48,7 +51,7 @@
   },
   "iterator": {
 	"type": "bucket",
-	"sorting_keys": [["closed_captions", "num_fields"], ["question", "num_tokens"]],
+	"sorting_keys": [["captions", "num_fields"], ["question", "num_tokens"]],
 	"batch_size": 64
   },
   "trainer": {

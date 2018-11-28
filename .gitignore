@@ -1,13 +1,17 @@
-data/closed_captions/
-data/compressed/
-data/question/
-data/videos/
+/data/closed_captions
+/data/compressed
+/data/features
+/data/frames
+/data/question
+/data/videos
+/models
 *.DS_Store
-*.pyc
-*.pdf
-!lqa_framework/models/
-/models/
 *.gz
-*.zip
+*.pdf
+*.pyc
 *.sw*
 *.tar
+*.zip
+
+# Flux output files:
+*.o[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
