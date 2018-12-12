@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 """Script to extract ResNet features from video frames."""
+import argparse
 import h5py
 import torch
 import torch.nn
@@ -8,6 +9,7 @@ import torchvision
 from tqdm import tqdm
 
 from c3d import C3D
+from i3d import I3D
 from lifeqa_dataset import LifeQaDataset
 
 # noinspection PyUnresolvedReferences
@@ -23,11 +25,19 @@ def pretrained_resnet152() -> torch.nn.Module:
 
 
 def pretrained_c3d() -> torch.nn.Module:
-    c3d = C3D()
+    c3d = C3D(pretrained=True)
     c3d.eval()
     for param in c3d.parameters():
         param.requires_grad = False
     return c3d
+
+
+def pretrained_i3d() -> torch.nn.Module:
+    i3d = I3D(pretrained=True)
+    i3d.eval()
+    for param in i3d.parameters():
+        param.requires_grad = False
+    return i3d
 
 
 def save_resnet_features():
@@ -84,9 +94,9 @@ def save_resnet_features():
 
 
 def save_c3d_features():
-    transforms = torchvision.transforms.Compose([  # TODO
-        torchvision.transforms.Resize(256),
-        torchvision.transforms.CenterCrop(224),
+    transforms = torchvision.transforms.Compose([
+        torchvision.transforms.Resize(128),
+        torchvision.transforms.CenterCrop(112),
         torchvision.transforms.ToTensor(),
         torchvision.transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
     ])
@@ -94,25 +104,71 @@ def save_c3d_features():
 
     c3d = pretrained_c3d().to(DEVICE)
 
-    with h5py.File(LifeQaDataset.features_file_path('c3d', 'conv5b'), 'w') as conv5b_features_file, \
-            h5py.File(LifeQaDataset.features_file_path('c3d', 'fc6'), 'w') as fc6_features_file:
+    with h5py.File(LifeQaDataset.features_file_path('c3d', 'fc7'), 'w') as fc7_features_file:
 
         for video_id in dataset.video_ids:
             video_frame_count = dataset.frame_count_by_video_id[video_id]
-            conv5b_features_file.create_dataset(video_id, shape=(video_frame_count, 1024, 7, 7))
-            fc6_features_file.create_dataset(video_id, shape=(video_frame_count, 4096))
+            feature_count = video_frame_count - 16 + 1
+            fc7_features_file.create_dataset(video_id, shape=(feature_count, 4096))
 
         for instance in tqdm(torch.utils.data.DataLoader(dataset), desc="Extracting C3D features"):
             video_id = instance['id'][0]
+            video_frame_count = dataset.frame_count_by_video_id[video_id]
+            feature_count = video_frame_count - 16 + 1
             frames = instance['frames'][0].to(DEVICE)
+            frames = frames.unsqueeze(0) # Add batch dimension
+            frames = frames.transpose(1, 2) # I3D expects (B, C, T, H, W)
 
-            c3d(frames)  # TODO: take 16 frames, what overlapping?
+            for i in range(feature_count):
+                output = c3d.extract_features(frames[:, :, i:i+16, :, :]).squeeze()
+                fc7_features_file[video_id][i, :] = output.cpu().data.numpy()
 
 
-def main():
-    save_resnet_features()
-    # save_c3d_features()
+def save_i3d_features():
+    transforms = torchvision.transforms.Compose([
+        torchvision.transforms.Resize(256),
+        torchvision.transforms.CenterCrop(224),
+        torchvision.transforms.ToTensor(),
+        torchvision.transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+    ])
+    dataset = LifeQaDataset(transform=transforms)
 
+    i3d = pretrained_i3d().to(DEVICE)
+
+    with h5py.File(LifeQaDataset.features_file_path('i3d', 'avg_pool'), 'w') as avg_pool_features_file:
+
+        for video_id in dataset.video_ids:
+            video_frame_count = dataset.frame_count_by_video_id[video_id]
+            feature_count = video_frame_count - 16 + 1
+            avg_pool_features_file.create_dataset(video_id, shape=(feature_count, 1024))
+
+        for instance in tqdm(torch.utils.data.DataLoader(dataset), desc="Extracting I3D features"):
+            video_id = instance['id'][0]
+            video_frame_count = dataset.frame_count_by_video_id[video_id]
+            feature_count = video_frame_count - 16 + 1
+            frames = instance['frames'][0].to(DEVICE)
+            frames = frames.unsqueeze(0) # Add batch dimension
+            frames = frames.transpose(1, 2) # I3D expects (B, C, T, H, W)
+
+            for i in range(feature_count):
+                output = i3d.extract_features(frames[:, :, i:i+16, :, :]).squeeze()
+                avg_pool_features_file[video_id][i, :] = output.cpu().data.numpy()
+
+
+def main(args):
+    if args.network == 'resnet':
+        save_resnet_features()
+    elif args.network == 'c3d':
+        save_c3d_features()
+    elif args.network == 'i3d':
+        save_i3d_features()
+    else:
+        raise ValueError('Network type not supported.')
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description='Extract video features.')
+    parser.add_argument('--network', type=str, default='resnet',
+                        help='The network type. Can be "resnet", "c3d", or "i3d".')
+    args = parser.parse_args()
+
+    main(args)
