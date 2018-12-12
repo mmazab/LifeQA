@@ -40,7 +40,7 @@ class C3D(nn.Module):
         if pretrained:
             self.load_state_dict(torch.load('data/features/c3d.pickle'))
 
-    def forward(self, x):
+    def forward(self, x, extract_features=False):
 
         h = self.relu(self.conv1(x))
         h = self.pool1(h)
@@ -65,12 +65,17 @@ class C3D(nn.Module):
         h = self.dropout(h)
         h = self.relu(self.fc7(h))
         h = self.dropout(h)
+        if extract_features:
+            return h
 
         logits = self.fc8(h)
         probs = self.softmax(logits)
 
         return probs
 
+    
+    def extract_features(self, x):
+        return self.forward(x, extract_features=True)
 
 """
 References
