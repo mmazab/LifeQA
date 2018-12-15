@@ -88,7 +88,7 @@ class LqaDatasetReader(DatasetReader):
 
         if video_features is not None:
             fields['video_features'] = ArrayField(video_features)
-            fields['frame_count'] = ArrayField(np.asarray([len(video_features)], dtype=np.int32))
+            fields['frame_count'] = ArrayField(np.asarray(len(video_features), dtype=np.int32))
 
         if correct_index is not None:
             fields['label'] = LabelField(str(correct_index))
