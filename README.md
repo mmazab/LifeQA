@@ -3,7 +3,7 @@
 This repo contains the code for the LifeQA project.
 
 Use Python 3.6 and Conda. Setup an environment from `environment.yml`, but also install torch 1.0.0, torchvision 0.2.1,
-and an allennlp post-0.7.2 patched version (`pip install git+https://github.com/bryant1410/allennlp.git@patch-1`).
+and allennlp 0.8.1.
 
 ## Data
 
