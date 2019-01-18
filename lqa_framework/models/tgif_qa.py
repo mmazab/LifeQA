@@ -59,7 +59,8 @@ class TgifQaClassifier(Model):
         batch_size = len(video_features)
         # noinspection PyProtectedMember
         num_layers = self.video_encoder._module.num_layers
-        num_answers = answers['tokens'].shape[1]  # This supposes a fixed number of answers.
+        num_answers = list(answers.values())[0].shape[1]  # This supposes a fixed number of answers, by grabbing
+        # any of the embeddings available.
 
         video_features_mask = util.get_mask_from_sequence_lengths(frame_count, int(max(frame_count).item()))
         encoded_video = self.video_encoder(video_features, mask=video_features_mask)
