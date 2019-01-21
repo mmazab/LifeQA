@@ -7,6 +7,14 @@ local feed_forward_hidden_size = rnn_hidden_size * rnn_num_layers;
 
 {
   embedding_size:: 300,
+  text_encoder:: {
+    type: rnn_type,
+    bidirectional: bidirectional,
+    input_size: $.embedding_size,
+    hidden_size: rnn_hidden_size,
+    num_layers: rnn_num_layers,
+    dropout: rnn_dropout,
+  },
 
   dataset_reader: {
     type: 'lqa',
@@ -27,30 +35,11 @@ local feed_forward_hidden_size = rnn_hidden_size * rnn_num_layers;
         }
       }
     },
-    video_encoder: {
-      type: rnn_type,
-      bidirectional: bidirectional,
+    video_encoder: $.text_encoder + {
       input_size: 2048,
-      hidden_size: rnn_hidden_size,
-      num_layers: rnn_num_layers,
-      dropout: rnn_dropout,
     },
-    question_encoder: {
-      type: rnn_type,
-      bidirectional: bidirectional,
-      input_size: $.embedding_size,
-      hidden_size: rnn_hidden_size,
-      num_layers: rnn_num_layers,
-      dropout: rnn_dropout,
-    },
-    answers_encoder: {
-      type: rnn_type,
-      bidirectional: bidirectional,
-      input_size: $.embedding_size,
-      hidden_size: rnn_hidden_size,
-      num_layers: rnn_num_layers,
-      dropout: rnn_dropout,
-    },
+    question_encoder: $.text_encoder,
+    answers_encoder: $.text_encoder,
     classifier_feedforward: {
       input_dim: feed_forward_hidden_size,
       num_layers: 1,
