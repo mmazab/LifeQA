@@ -61,8 +61,6 @@ class TgifQaClassifier(Model):
         num_layers = self.video_encoder._module.num_layers
         num_answers = answers['tokens'].shape[1]  # This supposes a fixed number of answers.
 
-        frame_count = frame_count.reshape(-1)  # We have to do this because ArrayFields do not support scalars.
-
         video_features_mask = util.get_mask_from_sequence_lengths(frame_count, int(max(frame_count).item()))
         encoded_video = self.video_encoder(video_features, mask=video_features_mask)
         encoded_video = encoded_video.reshape(num_layers, batch_size, -1)

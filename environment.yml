@@ -253,5 +253,5 @@ dependencies:
   - zeromq=4.2.5=h439df22_0
   - zict=0.1.3=py36h3a3bf81_0
   - zlib=1.2.11=ha838bed_2
-#  - pytorch 0.4.1 (CPU or GPU)
+#  - pytorch 1.0.0 (CPU or GPU)
 #  - torchvision 0.2.1 (CPU or GPU)
