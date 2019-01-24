@@ -15,10 +15,12 @@ from .time_distributed_rnn import TimeDistributedRNN
 
 @Model.register('tgif_qa')
 class TgifQaClassifier(Model):
+    text_video_mode_options = ['video-text', 'text-video', 'parallel']
+
     def __init__(self, vocab: Vocabulary, text_field_embedder: TextFieldEmbedder, video_encoder: Seq2VecEncoder,
                  question_encoder: Seq2VecEncoder, answers_encoder: Seq2VecEncoder,
                  classifier_feedforward: FeedForward, initializer: InitializerApplicator = InitializerApplicator(),
-                 regularizer: Optional[RegularizerApplicator] = None) -> None:
+                 regularizer: Optional[RegularizerApplicator] = None, text_video_mode: str = 'video-text') -> None:
         super().__init__(vocab, regularizer)
 
         self.text_field_embedder = text_field_embedder
@@ -28,8 +30,22 @@ class TgifQaClassifier(Model):
         self.answers_encoder = TimeDistributedRNN(answers_encoder)
         self.classifier_feedforward = TimeDistributed(classifier_feedforward)
 
+        # noinspection PyProtectedMember
+        self.num_layers = self.video_encoder._module.num_layers
+
+        if text_video_mode == 'text-video':
+            self.video_encoder = TimeDistributedRNN(self.video_encoder)
+
+        encoded_size = video_encoder.get_output_dim()
+        self.parallel_feedforward = TimeDistributed(FeedForward(input_dim=encoded_size * 2, num_layers=1,
+                                                                hidden_dims=[encoded_size], activations=[lambda x: x]))
+
         self.metrics = {'accuracy': CategoricalAccuracy()}
         self.loss = torch.nn.CrossEntropyLoss()  # TODO: HingeEmbeddingLoss()
+
+        if text_video_mode not in self.text_video_mode_options:
+            raise ValueError(f"'text_video_mode' should be one of {self.text_video_mode_options}")
+        self.text_video_mode = text_video_mode
 
         initializer(self)
 
@@ -57,30 +73,37 @@ class TgifQaClassifier(Model):
             A scalar loss to be optimised.
         """
         batch_size = len(video_features)
-        # noinspection PyProtectedMember
-        num_layers = self.video_encoder._module.num_layers
         num_answers = list(answers.values())[0].shape[1]  # This supposes a fixed number of answers, by grabbing
-        # any of the embeddings available.
+        #   any of the embeddings available.
 
-        video_features_mask = util.get_mask_from_sequence_lengths(frame_count, int(max(frame_count).item()))
-        encoded_video = self.video_encoder(video_features, mask=video_features_mask)
-        encoded_video = encoded_video.reshape(num_layers, batch_size, -1)
+        # TODO: how to obtain all layers last hidden layer for more than 1 layer? Neither seq2vec nor seq2seq give it.
 
-        # TODO: how to obtain all layers last hidden layer? Neither seq2vec nor seq2seq give it.
+        if self.text_video_mode == 'video-text':
+            encoded_video = self._encode_video(video_features, frame_count, batch_size)
+            encoded_video = encoded_video.reshape(self.num_layers, *encoded_video.size())  # FIXME: shouldn't it
+            #   *expand* num_layers instead of reshape?
+            encoded_modalities = self._encode_text(question, answers, num_answers, batch_size,
+                                                   hidden_state=encoded_video)
+        elif self.text_video_mode == 'text-video':
+            encoded_text = self._encode_text(question, answers, num_answers, batch_size)
+            encoded_text = encoded_text.reshape(self.num_layers, *encoded_text.size())  # FIXME: shouldn't it
+            #   *expand* num_layers instead of reshape?
 
-        embedded_question = self.text_field_embedder(question)
-        question_mask = util.get_text_field_mask(question)
-        # Passing the hidden state with LSTM doesn't work. This is because allennlp seq2vec wrapper only keeps h
-        # (the hidden state) but not the cell state c. A workaround should be done if we want to chain LSTMs.
-        encoded_question = self.question_encoder(embedded_question, question_mask, hidden_state=encoded_video)
-        encoded_question = encoded_question.reshape(num_layers, batch_size, 1, -1)\
-            .expand(-1, -1, num_answers, -1)
+            video_features = video_features.reshape(batch_size, 1, *video_features.size()[1:]) \
+                .expand(-1, num_answers, -1, -1)
 
-        embedded_answers = self.text_field_embedder(answers)
-        answers_mask = util.get_text_field_mask(answers, num_wrapping_dims=1)
-        encoded_answers = self.answers_encoder(embedded_answers, answers_mask, hidden_state=encoded_question)
+            encoded_modalities = self._encode_video(video_features, frame_count, batch_size, hidden_state=encoded_text,
+                                                    time_expand_size=num_answers)
+        else:
+            encoded_video = self._encode_video(video_features, frame_count, batch_size)
+            encoded_video = encoded_video.reshape(self.num_layers, *encoded_video.size()) \
+                .expand(-1, num_answers, -1)
 
-        scores = self.classifier_feedforward(encoded_answers).squeeze(2)
+            encoded_text = self._encode_text(question, answers, num_answers, batch_size)
+            # noinspection PyUnresolvedReferences
+            encoded_modalities = self.parallel_feedforward(torch.cat((encoded_video, encoded_text), 2))
+
+        scores = self.classifier_feedforward(encoded_modalities).squeeze(2)
 
         output_dict = {'scores': scores}
 
@@ -90,6 +113,26 @@ class TgifQaClassifier(Model):
                 metric(scores, label)
 
         return output_dict
+
+    def _encode_video(self, video_features: torch.Tensor, frame_count: torch.Tensor, batch_size: int,
+                      hidden_state: torch.Tensor = None, time_expand_size: int = 1) -> torch.Tensor:
+        video_features_mask = util.get_mask_from_sequence_lengths(frame_count, int(max(frame_count).item()))
+        if time_expand_size > 1:
+            video_features_mask = video_features_mask.reshape(batch_size, 1, -1).expand(-1, time_expand_size, -1)
+        return self.video_encoder(video_features, video_features_mask, hidden_state=hidden_state)
+
+    def _encode_text(self, question: Dict[str, torch.LongTensor], answers: Dict[str, torch.LongTensor],
+                     num_answers: int, batch_size: int, hidden_state: torch.Tensor = None) -> torch.Tensor:
+        embedded_question = self.text_field_embedder(question)
+        question_mask = util.get_text_field_mask(question)
+        # Passing the hidden state with LSTM doesn't work. This is because allennlp seq2vec wrapper only keeps h
+        # (the hidden state) but not the cell state c. A workaround should be done if we want to chain LSTMs.
+        encoded_question = self.question_encoder(embedded_question, question_mask, hidden_state=hidden_state)
+        encoded_question = encoded_question.reshape(self.num_layers, batch_size, 1, -1) \
+            .expand(-1, -1, num_answers, -1)
+        embedded_answers = self.text_field_embedder(answers)
+        answers_mask = util.get_text_field_mask(answers, num_wrapping_dims=1)
+        return self.answers_encoder(embedded_answers, answers_mask, hidden_state=encoded_question)
 
     @overrides
     def decode(self, output_dict: Dict[str, torch.Tensor]) -> Dict[str, torch.Tensor]:
