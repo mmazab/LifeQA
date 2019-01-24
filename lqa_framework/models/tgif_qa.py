@@ -16,11 +16,13 @@ from .time_distributed_rnn import TimeDistributedRNN
 @Model.register('tgif_qa')
 class TgifQaClassifier(Model):
     text_video_mode_options = ['video-text', 'text-video', 'parallel']
+    loss_options = ['hinge', 'cross-entropy']
 
     def __init__(self, vocab: Vocabulary, text_field_embedder: TextFieldEmbedder, video_encoder: Seq2VecEncoder,
                  question_encoder: Seq2VecEncoder, answers_encoder: Seq2VecEncoder,
                  classifier_feedforward: FeedForward, initializer: InitializerApplicator = InitializerApplicator(),
-                 regularizer: Optional[RegularizerApplicator] = None, text_video_mode: str = 'video-text') -> None:
+                 regularizer: Optional[RegularizerApplicator] = None, text_video_mode: str = 'video-text',
+                 loss: str = 'hinge') -> None:
         super().__init__(vocab, regularizer)
 
         self.text_field_embedder = text_field_embedder
@@ -33,6 +35,10 @@ class TgifQaClassifier(Model):
         # noinspection PyProtectedMember
         self.num_layers = self.video_encoder._module.num_layers
 
+        if text_video_mode not in self.text_video_mode_options:
+            raise ValueError(f"'text_video_mode' should be one of {self.text_video_mode_options}")
+        self.text_video_mode = text_video_mode
+
         if text_video_mode == 'text-video':
             self.video_encoder = TimeDistributedRNN(self.video_encoder)
 
@@ -41,11 +47,14 @@ class TgifQaClassifier(Model):
                                                                 hidden_dims=[encoded_size], activations=[lambda x: x]))
 
         self.metrics = {'accuracy': CategoricalAccuracy()}
-        self.loss = torch.nn.CrossEntropyLoss()  # TODO: HingeEmbeddingLoss()
 
-        if text_video_mode not in self.text_video_mode_options:
-            raise ValueError(f"'text_video_mode' should be one of {self.text_video_mode_options}")
-        self.text_video_mode = text_video_mode
+        if loss not in self.loss_options:
+            raise ValueError(f"'loss' should be one of {self.loss_options}")
+
+        if loss == 'hinge':
+            self.loss = torch.nn.HingeEmbeddingLoss()
+        else:
+            self.loss = torch.nn.CrossEntropyLoss()
 
         initializer(self)
 
