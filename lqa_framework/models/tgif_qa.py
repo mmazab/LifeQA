@@ -15,10 +15,11 @@ from .time_distributed_rnn import TimeDistributedRNN
 
 @Model.register('tgif_qa')
 class TgifQaClassifier(Model):
-    text_video_mode_options = ['video-text', 'text-video', 'parallel']
+    text_video_mode_options = ['video-text', 'text-video', 'parallel', 'text']
     loss_options = ['hinge', 'cross-entropy']
 
-    def __init__(self, vocab: Vocabulary, text_field_embedder: TextFieldEmbedder, video_encoder: Seq2VecEncoder,
+    def __init__(self, vocab: Vocabulary, text_field_embedder: TextFieldEmbedder,
+                 video_encoder: Optional[Seq2VecEncoder],
                  question_encoder: Seq2VecEncoder, answers_encoder: Seq2VecEncoder,
                  classifier_feedforward: FeedForward, initializer: InitializerApplicator = InitializerApplicator(),
                  regularizer: Optional[RegularizerApplicator] = None, text_video_mode: str = 'video-text',
@@ -33,7 +34,7 @@ class TgifQaClassifier(Model):
         self.classifier_feedforward = TimeDistributed(classifier_feedforward)
 
         # noinspection PyProtectedMember
-        self.num_layers = self.video_encoder._module.num_layers
+        self.num_layers = self.question_encoder._module.num_layers
 
         if text_video_mode not in self.text_video_mode_options:
             raise ValueError(f"'text_video_mode' should be one of {self.text_video_mode_options}")
@@ -42,7 +43,10 @@ class TgifQaClassifier(Model):
         if text_video_mode == 'text-video':
             self.video_encoder = TimeDistributedRNN(self.video_encoder)
 
-        encoded_size = video_encoder.get_output_dim()
+        if video_encoder is None and text_video_mode != 'text':
+            raise ValueError("'video_encoder' can be None only if 'text_video_mode' is set to 'text'")
+
+        encoded_size = question_encoder.get_output_dim()
         self.parallel_feedforward = TimeDistributed(FeedForward(input_dim=encoded_size * 2, num_layers=1,
                                                                 hidden_dims=[encoded_size], activations=[lambda x: x]))
 
@@ -60,7 +64,8 @@ class TgifQaClassifier(Model):
 
     @overrides
     def forward(self, question: Dict[str, torch.LongTensor], answers: Dict[str, torch.LongTensor],
-                captions: Dict[str, torch.LongTensor], video_features: torch.Tensor, frame_count: torch.Tensor,
+                captions: Dict[str, torch.LongTensor], video_features: Optional[torch.Tensor] = None,
+                frame_count: Optional[torch.Tensor] = None,
                 label: Optional[torch.LongTensor] = None) -> Dict[str, torch.Tensor]:
         """Does the forward pass.
 
@@ -81,9 +86,10 @@ class TgifQaClassifier(Model):
         loss : torch.FloatTensor, optional
             A scalar loss to be optimised.
         """
-        batch_size = len(video_features)
+        batch_size = list(question.values())[0].shape[0]  # Grabs any of the dict values available (note it keys depend
+        #   on the actual implementation).
         num_answers = list(answers.values())[0].shape[1]  # This supposes a fixed number of answers, by grabbing
-        #   any of the embeddings available.
+        #   any of the dict values available.
 
         # TODO: how to obtain all layers last hidden layer for more than 1 layer? Neither seq2vec nor seq2seq give it.
 
@@ -103,7 +109,7 @@ class TgifQaClassifier(Model):
 
             encoded_modalities = self._encode_video(video_features, frame_count, batch_size, hidden_state=encoded_text,
                                                     time_expand_size=num_answers)
-        else:
+        elif self.text_video_mode == 'parallel':
             encoded_video = self._encode_video(video_features, frame_count, batch_size)
             encoded_video = encoded_video.reshape(self.num_layers, *encoded_video.size()) \
                 .expand(-1, num_answers, -1)
@@ -111,6 +117,10 @@ class TgifQaClassifier(Model):
             encoded_text = self._encode_text(question, answers, num_answers, batch_size)
             # noinspection PyUnresolvedReferences
             encoded_modalities = self.parallel_feedforward(torch.cat((encoded_video, encoded_text), 2))
+        elif self.text_video_mode == 'text':
+            encoded_modalities = self._encode_text(question, answers, num_answers, batch_size)
+        else:
+            raise ValueError(f"'text_video_mode' should be one of {self.text_video_mode_options}")
 
         scores = self.classifier_feedforward(encoded_modalities).squeeze(2)
 
