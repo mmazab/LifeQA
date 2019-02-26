@@ -52,7 +52,7 @@ class TgifQaClassifier(Model):
             raise ValueError(f"'loss' should be one of {self.loss_options}")
 
         if loss == 'hinge':
-            self.loss = torch.nn.HingeEmbeddingLoss()
+            self.loss = torch.nn.MultiMarginLoss()
         else:
             self.loss = torch.nn.CrossEntropyLoss()
 
