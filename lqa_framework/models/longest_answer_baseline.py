@@ -3,7 +3,6 @@ import random
 import json
 
 
-
 def choose_longest(answers):
     # This function will return the location of maximum length answer in answers
     max_num = len(max(answers, key=lambda x: len(x)))
@@ -35,7 +34,7 @@ with open('data/' + filename) as f:
             # Always add to the total
             total += 1
 
-    print("Accuracy of longest_answer_baseline on {} = {}".format(filename, float(accuracy)/ float(total)))
+    print("Accuracy of longest_answer_baseline on {} = {}".format(filename, accuracy/ total))
 
 
 

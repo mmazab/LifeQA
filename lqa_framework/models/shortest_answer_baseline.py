@@ -34,4 +34,4 @@ with open('data/' + filename) as f:
             # Always add to the total
             total += 1
 
-    print("Accuracy of shortest_answer_baseline on {} = {}".format(filename, float(accuracy)/ float(total)))
+    print("Accuracy of shortest_answer_baseline on {} = {}".format(filename, accuracy/ total))
