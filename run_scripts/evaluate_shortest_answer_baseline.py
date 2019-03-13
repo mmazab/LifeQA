@@ -10,7 +10,7 @@ def main():
     import sys
     sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-    from lqa_framework import LongestAnswer, LqaDatasetReader
+    from lqa_framework import LqaDatasetReader, ShortestAnswer
 
     reader = LqaDatasetReader()
     validation_dataset = reader.read(cached_path('data/lqa_dev.json'))
@@ -20,7 +20,7 @@ def main():
     data_iterator = BasicIterator()
     data_iterator.index_with(vocab)
 
-    model = LongestAnswer(vocab)
+    model = ShortestAnswer(vocab)
 
     evaluate(model, validation_dataset, data_iterator, -1, '')
 
