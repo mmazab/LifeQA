@@ -1,63 +1,47 @@
-import pickle
-import bcolz
-import numpy as np
-import string
-from scipy import spatial
-import json
-import random
-from random import randint
-import re
-import math 
+from typing import Dict, Optional
 
-print("Running most_similar_answer_baseline...")
+from allennlp.data import Vocabulary
+from allennlp.models.model import Model
+from allennlp.modules import Seq2VecEncoder, TextFieldEmbedder, TimeDistributed
+from allennlp.modules.similarity_functions import CosineSimilarity
+from allennlp.nn import InitializerApplicator, RegularizerApplicator, util
+from overrides import overrides
+import torch
 
-glove_path = "glove.6B"
-vectors = bcolz.open(f'{glove_path}/6B.300.dat')[:]
-words = pickle.load(open(f'{glove_path}/6B.300_words.pkl', 'rb'))
-word2idx = pickle.load(open(f'{glove_path}/6B.300_idx.pkl', 'rb'))
-
-glove = {w: vectors[word2idx[w]] for w in words}
-default = np.zeros(300)
-
-print("Embeddings loaded! Running dev data...")
+from .simple_baseline import SimpleBaseline
 
 
-def choose_most_similar(q, answers):
-    # This function will return the location of the question of closest similarity
-    question_vec = np.mean(np.array([glove.get(a, default) for a in q.strip('?').lower().split()]),axis = 0)
+@Model.register('most_similar_answer')
+class MostSimilarAnswer(SimpleBaseline):
+    """This ``Model`` performs question answering. We assume we're given the video/question/set of answers and we
+    predict the correct answer.
 
+    The basic model structure: we take the answers and return the one closest in cosine similarity to the question
+    (by averaging the word embeddings)."""
 
-    max_similarity = math.inf
-    max_vec = []
-    answ_vec = None
-    # Find the minimum cosine value
-    for index, ans in enumerate(answers):
-        answ_vec = np.mean(np.array([glove.get(a, default) for a in ans.strip('?').lower().split()]))
-        if (abs(spatial.distance.cosine(question_vec, answ_vec))) <= max_similarity:
-            max_similarity = abs(spatial.distance.cosine(question_vec, answ_vec))
-            max_vec.append(index)
-    
+    def __init__(self, vocab: Vocabulary, text_field_embedder: TextFieldEmbedder,
+                 question_encoder: Seq2VecEncoder, answers_encoder: Seq2VecEncoder,
+                 initializer: InitializerApplicator = InitializerApplicator(),
+                 regularizer: Optional[RegularizerApplicator] = None) -> None:
+        super().__init__(vocab, initializer, regularizer)
+        self.text_field_embedder = text_field_embedder
+        self.question_encoder = question_encoder
+        self.answers_encoder = TimeDistributed(answers_encoder)
+        self.cosine_similarity = TimeDistributed(CosineSimilarity())
 
-    if max_similarity == 0:
-        return randint(0, 3)
-    return random.choice(max_vec)
+    @overrides
+    def _compute_logits(self, question: Dict[str, torch.LongTensor],
+                        answers: Dict[str, torch.LongTensor]) -> torch.Tensor:
+        embedded_question = self.text_field_embedder(question)
+        question_mask = util.get_text_field_mask(question)
+        encoded_question = self.question_encoder(embedded_question, question_mask)
 
+        embedded_answers = self.text_field_embedder(answers)
+        answers_mask = util.get_text_field_mask(answers, num_wrapping_dims=1)
+        encoded_answers = self.answers_encoder(embedded_answers, answers_mask)
 
-filename = 'lqa_dev.json' 
-
-with open('data/' + filename) as f:
-    accuracy = 0
-    total = 0
-    data = json.load(f)
-    for video, info in data.items():
-        questions = info['questions']
-        for question in questions:
-            choice = choose_most_similar(question["question"], question["answers"])
-
-            if choice == question['correct_index']: 
-                accuracy += 1
-            # Always add to the total
-            total += 1
-
-    print("Accuracy of most_similar_answer_baseline on {} = {}".format(filename, accuracy/ total))
-
+        repeated_encoded_question = encoded_question.repeat(encoded_answers.shape[1], 1)
+        return self.cosine_similarity(tensor_1=repeated_encoded_question, tensor_2=encoded_answers,
+                                      pass_through=['tensor_1'])\
+            .view(encoded_answers.shape[1], encoded_question.shape[0])\
+            .transpose(0, 1)
