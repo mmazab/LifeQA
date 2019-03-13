@@ -1,14 +1,16 @@
 #!/usr/bin/env python
 import argparse
-from allennlp.common import Params
+import logging
 
+from allennlp.common import Params
 from allennlp.common.file_utils import cached_path
+from allennlp.common.util import cleanup_global_logging, prepare_environment, prepare_global_logging
 from allennlp.data.iterators import BasicIterator
 from allennlp.data.vocabulary import Vocabulary
 from allennlp.modules import Embedding
 from allennlp.modules.seq2vec_encoders import BagOfEmbeddingsEncoder
 from allennlp.modules.text_field_embedders import BasicTextFieldEmbedder
-from allennlp.training.util import evaluate
+from allennlp.training.util import create_serialization_dir, evaluate
 
 
 def parse_args():
@@ -19,13 +21,24 @@ def parse_args():
 
 
 def main():
+    logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s - %(message)s', level=logging.INFO)
+
     import os
     import sys
     sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-    from lqa_framework import LongestAnswer, LqaDatasetReader, MostSimilarAnswer, ShortestAnswer
+    from lqa_framework import LqaDatasetReader
+    from lqa_framework import ShortestAnswer
+    from lqa_framework import MostSimilarAnswer
+    from lqa_framework import LongestAnswer
 
     args = parse_args()
+
+    # prepare_environment(Params({}))
+
+    # serialization_dir = f'models/{args.model}'
+    # create_serialization_dir(Params({}), serialization_dir, False, True)
+    # stdout_handler = prepare_global_logging(serialization_dir, False)
 
     reader = LqaDatasetReader()
     validation_dataset = reader.read(cached_path('data/lqa_dev.json'))
@@ -40,6 +53,8 @@ def main():
     elif args.model == 'shortest_answer':
         model = ShortestAnswer(vocab)
     elif args.model == 'most_similar_answer':
+        # FIXME: when a word is not in GloVe, it assigns a random embedding, which is not good.
+
         # Use from_params because it does some extra stuff __init__ doesn't.
         embedder = Embedding.from_params(vocab, Params({
           'pretrained_file': 'https://s3-us-west-2.amazonaws.com/allennlp/datasets/glove/glove.6B.300d.txt.gz',
@@ -56,6 +71,8 @@ def main():
         raise ValueError("Model name not recognized")
 
     evaluate(model, validation_dataset, data_iterator, -1, '')
+
+    # cleanup_global_logging(stdout_handler)
 
 
 if __name__ == '__main__':
