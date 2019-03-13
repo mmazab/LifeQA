@@ -83,6 +83,20 @@ class LongestAnswer(SimpleBaseline):
         return answers_lengths(answers, self.vocab)
 
 
+@Model.register('shortest_answer')
+class ShortestAnswer(SimpleBaseline):
+    """This ``Model`` performs question answering. We assume we're given the video/question/set of answers and we
+    predict the correct answer.
+
+    The basic model structure: we take the answers and return the shortest one (character-wise) as correct."""
+
+    @overrides
+    def _compute_logits(self, question: Dict[str, torch.LongTensor],
+                        answers: Dict[str, torch.LongTensor]) -> torch.Tensor:
+        # noinspection PyProtectedMember
+        return - lqa_framework.models.simple_baseline.answers_lengths(answers, self.vocab)
+
+
 @Model.register('most_similar_answer')
 class MostSimilarAnswer(SimpleBaseline):
     """This ``Model`` performs question answering. We assume we're given the video/question/set of answers and we
@@ -117,17 +131,3 @@ class MostSimilarAnswer(SimpleBaseline):
                                       pass_through=['tensor_1'])\
             .view(encoded_answers.shape[1], encoded_question.shape[0])\
             .transpose(0, 1)
-
-
-@Model.register('shortest_answer')
-class ShortestAnswer(SimpleBaseline):
-    """This ``Model`` performs question answering. We assume we're given the video/question/set of answers and we
-    predict the correct answer.
-
-    The basic model structure: we take the answers and return the shortest one (character-wise) as correct."""
-
-    @overrides
-    def _compute_logits(self, question: Dict[str, torch.LongTensor],
-                        answers: Dict[str, torch.LongTensor]) -> torch.Tensor:
-        # noinspection PyProtectedMember
-        return - lqa_framework.models.simple_baseline.answers_lengths(answers, self.vocab)

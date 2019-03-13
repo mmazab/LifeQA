@@ -6,11 +6,13 @@ from allennlp.common import Params
 from allennlp.common.file_utils import cached_path
 from allennlp.common.util import cleanup_global_logging, prepare_environment, prepare_global_logging
 from allennlp.data.iterators import BasicIterator
-from allennlp.data.vocabulary import Vocabulary
+from allennlp.data.vocabulary import DEFAULT_OOV_TOKEN, DEFAULT_PADDING_TOKEN, Vocabulary
 from allennlp.modules import Embedding
 from allennlp.modules.seq2vec_encoders import BagOfEmbeddingsEncoder
 from allennlp.modules.text_field_embedders import BasicTextFieldEmbedder
 from allennlp.training.util import create_serialization_dir, evaluate
+
+GLOVE_URL = 'https://s3-us-west-2.amazonaws.com/allennlp/datasets/glove/glove.6B.300d.txt.gz'
 
 
 def parse_args():
@@ -34,8 +36,9 @@ def main():
 
     args = parse_args()
 
-    # prepare_environment(Params({}))
+    prepare_environment(Params({}))
 
+    # TODO: maybe the following code is useful to use `allennlp evaluate` instead of this file?
     # serialization_dir = f'models/{args.model}'
     # create_serialization_dir(Params({}), serialization_dir, False, True)
     # stdout_handler = prepare_global_logging(serialization_dir, False)
@@ -43,7 +46,8 @@ def main():
     reader = LqaDatasetReader()
     validation_dataset = reader.read(cached_path('data/lqa_dev.json'))
 
-    vocab = Vocabulary.from_instances(validation_dataset)
+    vocab = Vocabulary.from_instances(validation_dataset, pretrained_files={'tokens': GLOVE_URL},
+                                      only_include_pretrained_words=True)
 
     data_iterator = BasicIterator()
     data_iterator.index_with(vocab)
@@ -53,14 +57,15 @@ def main():
     elif args.model == 'shortest_answer':
         model = ShortestAnswer(vocab)
     elif args.model == 'most_similar_answer':
-        # FIXME: when a word is not in GloVe, it assigns a random embedding, which is not good.
-
         # Use from_params because it does some extra stuff __init__ doesn't.
         embedder = Embedding.from_params(vocab, Params({
-          'pretrained_file': 'https://s3-us-west-2.amazonaws.com/allennlp/datasets/glove/glove.6B.300d.txt.gz',
+          'pretrained_file': GLOVE_URL,
           'embedding_dim': 300,
           'trainable': False,
         }))
+        embedder.weight[vocab.get_token_index(DEFAULT_OOV_TOKEN, 'tokens')].fill_(0)
+        embedder.weight[vocab.get_token_index(DEFAULT_PADDING_TOKEN, 'tokens')].fill_(0)
+
         text_field_embedder = BasicTextFieldEmbedder({'tokens': embedder})
 
         question_encoder = BagOfEmbeddingsEncoder(1)
