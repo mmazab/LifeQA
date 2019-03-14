@@ -127,10 +127,6 @@ class MostSimilarAnswer(SimpleBaseline):
         encoded_answers = self.answers_encoder(embedded_answers, answers_mask)
 
         batch_size, embed_dim = encoded_question.shape
-        num_answers = encoded_answers.shape[1]
         repeated_encoded_question = encoded_question.view(batch_size, 1, embed_dim)\
-            .expand(batch_size, num_answers, embed_dim)\
-            .contiguous()\
-            .view(batch_size * num_answers, embed_dim)
-        return self.cosine_similarity(tensor_1=repeated_encoded_question, tensor_2=encoded_answers,
-                                      pass_through=['tensor_1'])
+            .expand(*encoded_answers.shape)
+        return self.cosine_similarity(repeated_encoded_question, encoded_answers)
