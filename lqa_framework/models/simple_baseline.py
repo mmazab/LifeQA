@@ -127,6 +127,7 @@ class MostSimilarAnswer(SimpleBaseline):
         encoded_answers = self.answers_encoder(embedded_answers, answers_mask)
 
         batch_size, embed_dim = encoded_question.shape
-        repeated_encoded_question = encoded_question.view(batch_size, 1, embed_dim)\
-            .expand(*encoded_answers.shape)
-        return self.cosine_similarity(repeated_encoded_question, encoded_answers)
+        repeated_encoded_question = encoded_question.view(batch_size, 1, embed_dim).expand(encoded_answers.size())
+        logits = self.cosine_similarity(repeated_encoded_question, encoded_answers)
+        logits[torch.isnan(logits)] = 0
+        return logits
