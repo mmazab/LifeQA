@@ -6,6 +6,7 @@ from allennlp.common import Params
 from allennlp.common.file_utils import cached_path
 from allennlp.common.util import cleanup_global_logging, prepare_environment, prepare_global_logging
 from allennlp.data.iterators import BasicIterator
+from allennlp.data.token_indexers import SingleIdTokenIndexer
 from allennlp.data.vocabulary import DEFAULT_OOV_TOKEN, DEFAULT_PADDING_TOKEN, Vocabulary
 from allennlp.modules import Embedding
 from allennlp.modules.seq2vec_encoders import BagOfEmbeddingsEncoder
@@ -43,7 +44,8 @@ def main():
     # create_serialization_dir(Params({}), serialization_dir, False, True)
     # stdout_handler = prepare_global_logging(serialization_dir, False)
 
-    reader = LqaDatasetReader()
+    token_indexers = {'tokens': SingleIdTokenIndexer(lowercase_tokens=True)}
+    reader = LqaDatasetReader(token_indexers=token_indexers)
     validation_dataset = reader.read(cached_path('data/lqa_dev.json'))
 
     vocab = Vocabulary.from_instances(validation_dataset, pretrained_files={'tokens': GLOVE_URL},
