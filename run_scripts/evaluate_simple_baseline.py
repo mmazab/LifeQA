@@ -3,17 +3,10 @@ import argparse
 import logging
 
 from allennlp.common import Params
-from allennlp.common.file_utils import cached_path
-from allennlp.common.util import cleanup_global_logging, prepare_environment, prepare_global_logging
-from allennlp.data.iterators import BasicIterator
-from allennlp.data.token_indexers import SingleIdTokenIndexer
-from allennlp.data.vocabulary import DEFAULT_OOV_TOKEN, DEFAULT_PADDING_TOKEN, Vocabulary
-from allennlp.modules import Embedding
-from allennlp.modules.seq2vec_encoders import BagOfEmbeddingsEncoder
-from allennlp.modules.text_field_embedders import BasicTextFieldEmbedder
-from allennlp.training.util import create_serialization_dir, evaluate
-
-GLOVE_URL = 'https://s3-us-west-2.amazonaws.com/allennlp/datasets/glove/glove.6B.300d.txt.gz'
+from allennlp.common.util import prepare_environment
+from allennlp.data.vocabulary import DEFAULT_OOV_TOKEN, DEFAULT_PADDING_TOKEN
+from allennlp.training.trainer import TrainerPieces
+from allennlp.training.util import evaluate
 
 
 def parse_args():
@@ -30,53 +23,26 @@ def main():
     import sys
     sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-    from lqa_framework import LongestAnswer, LqaDatasetReader, MostSimilarAnswer, ShortestAnswer
+    from lqa_framework import MostSimilarAnswer
 
     args = parse_args()
 
-    prepare_environment(Params({}))
+    params = Params.from_file(f'lqa_framework/experiments/{args.model}.jsonnet')
+    prepare_environment(params)
 
-    # TODO: maybe the following code is useful to use `allennlp evaluate` instead of this file?
-    # serialization_dir = f'models/{args.model}'
-    # create_serialization_dir(Params({}), serialization_dir, False, True)
-    # stdout_handler = prepare_global_logging(serialization_dir, False)
+    serialization_dir = f'models/{args.model}'
 
-    token_indexers = {'tokens': SingleIdTokenIndexer(lowercase_tokens=True)}
-    reader = LqaDatasetReader(token_indexers=token_indexers)
-    validation_dataset = reader.read(cached_path('data/lqa_dev.json'))
+    trainer_pieces = TrainerPieces.from_params(params, serialization_dir)
 
-    vocab = Vocabulary.from_instances(validation_dataset, pretrained_files={'tokens': GLOVE_URL},
-                                      only_include_pretrained_words=True)
+    if isinstance(trainer_pieces.model, MostSimilarAnswer):
+        # noinspection PyProtectedMember
+        embedder = trainer_pieces.model.text_field_embedder._token_embedders['tokens']
 
-    data_iterator = BasicIterator()
-    data_iterator.index_with(vocab)
+        embedder.weight[trainer_pieces.model.vocab.get_token_index(DEFAULT_OOV_TOKEN, 'tokens')].fill_(0)
+        # Shouldn't be necessary, but just in case:
+        embedder.weight[trainer_pieces.model.vocab.get_token_index(DEFAULT_PADDING_TOKEN, 'tokens')].fill_(0)
 
-    if args.model == 'longest_answer':
-        model = LongestAnswer(vocab)
-    elif args.model == 'shortest_answer':
-        model = ShortestAnswer(vocab)
-    elif args.model == 'most_similar_answer':
-        # Use from_params because it does some extra stuff __init__ doesn't.
-        embedder = Embedding.from_params(vocab, Params({
-          'pretrained_file': GLOVE_URL,
-          'embedding_dim': 300,
-          'trainable': False,
-        }))
-        embedder.weight[vocab.get_token_index(DEFAULT_OOV_TOKEN, 'tokens')].fill_(0)
-        embedder.weight[vocab.get_token_index(DEFAULT_PADDING_TOKEN, 'tokens')].fill_(0)
-
-        text_field_embedder = BasicTextFieldEmbedder({'tokens': embedder})
-
-        question_encoder = BagOfEmbeddingsEncoder(1)
-        answers_encoder = BagOfEmbeddingsEncoder(1)  # FIXME: use only one encoder?
-
-        model = MostSimilarAnswer(vocab, text_field_embedder, question_encoder, answers_encoder)
-    else:
-        raise ValueError("Model name not recognized")
-
-    evaluate(model, validation_dataset, data_iterator, -1, '')
-
-    # cleanup_global_logging(stdout_handler)
+    evaluate(trainer_pieces.model, trainer_pieces.validation_dataset, trainer_pieces.iterator, -1, '')
 
 
 if __name__ == '__main__':

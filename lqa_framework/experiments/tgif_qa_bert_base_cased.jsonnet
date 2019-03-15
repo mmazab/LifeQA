@@ -7,7 +7,7 @@ config + {
   dataset_reader+: {
     token_indexers: {
       bert: {
-        type: 'bert-pretrained',,
+        type: 'bert-pretrained',
         pretrained_model: pretrained_model,
         do_lowercase: false,
       }

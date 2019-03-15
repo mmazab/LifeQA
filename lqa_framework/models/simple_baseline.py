@@ -18,7 +18,7 @@ class SimpleBaseline(Model):
                  regularizer: Optional[RegularizerApplicator] = None) -> None:
         super().__init__(vocab, regularizer)
 
-        self.loss = torch.nn.CrossEntropyLoss()
+        self.loss = torch.nn.CrossEntropyLoss()  # Dummy, to have some loss.
 
         self.metrics = {'accuracy': CategoricalAccuracy()}
 
