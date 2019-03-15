@@ -30,10 +30,7 @@ def main():
     import sys
     sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-    from lqa_framework import LqaDatasetReader
-    from lqa_framework import ShortestAnswer
-    from lqa_framework import MostSimilarAnswer
-    from lqa_framework import LongestAnswer
+    from lqa_framework import LongestAnswer, LqaDatasetReader, MostSimilarAnswer, ShortestAnswer
 
     args = parse_args()
 
