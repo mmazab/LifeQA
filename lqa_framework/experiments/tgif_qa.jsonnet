@@ -55,7 +55,6 @@ local feed_forward_hidden_size = rnn_hidden_size * rnn_num_layers;
   trainer: {
     num_epochs: 40,
     patience: 10,
-    cuda_device: 0,
     grad_clipping: 5.0,
     validation_metric: '+accuracy',
     optimizer: {
