@@ -18,6 +18,9 @@ params + {
     dropout: rnn_dropout,
   },
 
+  dataset_reader+: {
+    load_video_features: true
+  },
   model: {
     type: 'tgif_qa',
     text_field_embedder: {
