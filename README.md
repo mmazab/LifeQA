@@ -34,11 +34,13 @@ Then run `run_scripts/train_text_cnn.sh` or `run_scripts/train_text_lstm.sh`.
 
 3. Download [pretrained weights from Sports1M for C3D](http://imagelab.ing.unimore.it/files/c3d_pytorch/c3d.pickle)
 and save it in `data/features/c3d.pickle`.
-4. To extract the features and save them in heavy H5 files:
+4. To extract the features (e.g. from an ImageNet pretrained ResNet152) and save them in heavy H5 files:
 
     ```bash
-    python feature_extraction/extract_features.py
-    ``` 
+    mkdir data/features
+    python feature_extraction/extract_features.py resnet
+    ```
+
 5. Run `run_scripts/train_tgif_qa.sh`.
 
 ## Flux
