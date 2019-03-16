@@ -11,6 +11,8 @@ Download the videos from Google Drive to `data/videos`, placing the files there 
 
 ## Baselines
 
+There scripts under `run_scripts` provide example on how to run the baselines.
+
 ### Text
 
 Obtain the transcriptions. You can fetch them with (put the credentials and remember there's a charge for each API
