@@ -16,7 +16,9 @@ params + {
     }
   },
   vocabulary: {
-    # pretrained_file: pretrained_file,
+    pretrained_files: {
+        'tokens': pretrained_file
+    },
     only_include_pretrained_words: true,
   },
   model: {
