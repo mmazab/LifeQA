@@ -12,7 +12,11 @@ from allennlp.training.util import evaluate
 
 
 def parse_args():
-    parser = argparse.ArgumentParser()  # TODO
+    parser = argparse.ArgumentParser(description="Runs simple baselines that are parameterless. As they are"
+                                                 " parameterless, it makes little sense to 'train' them (and it fails"
+                                                 " because of that). But the allennlp's 'evaluate' subcommand needs a"
+                                                 " saved model and doesn't support config params. Hence, this script"
+                                                 " is necessary.")
     parser.add_argument('model', choices=['longest_answer', 'shortest_answer', 'most_similar_answer'],
                         help="model to run")
     return parser.parse_args()
