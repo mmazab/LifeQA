@@ -1,7 +1,7 @@
-local config = import 'tgif_qa.jsonnet';
+local params = import 'tgif_qa.jsonnet';
 local pretrained_model = 'bert-base-cased';
 
-config + {
+params + {
   embedding_size: 768,
 
   dataset_reader+: {

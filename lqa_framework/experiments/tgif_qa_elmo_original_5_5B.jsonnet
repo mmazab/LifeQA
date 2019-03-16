@@ -1,6 +1,6 @@
-local config = import 'tgif_qa_elmo.jsonnet';
+local params = import 'tgif_qa_elmo.jsonnet';
 
-config + {
+params + {
   model+: {
     text_field_embedder+: {
       token_embedders+: {

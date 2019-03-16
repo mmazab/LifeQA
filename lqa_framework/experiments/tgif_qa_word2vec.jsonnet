@@ -1,6 +1,6 @@
-local config = import 'tgif_qa.jsonnet';
+local params = import 'tgif_qa.jsonnet';
 
-config + {
+params + {
   model+: {
     text_field_embedder+: {
       token_embedders+: {

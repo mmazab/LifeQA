@@ -1,3 +1,5 @@
+local params = import 'lqa.libsonnet';
+
 local rnn_type = 'gru';
 local rnn_hidden_size = 100;
 local rnn_num_layers = 1;
@@ -5,7 +7,7 @@ local bidirectional = false;
 local rnn_dropout = 0.2;
 local feed_forward_hidden_size = rnn_hidden_size * rnn_num_layers;
 
-{
+params + {
   embedding_size:: 300,
   text_encoder:: {
     type: rnn_type,
@@ -16,13 +18,6 @@ local feed_forward_hidden_size = rnn_hidden_size * rnn_num_layers;
     dropout: rnn_dropout,
   },
 
-  dataset_reader: {
-    type: 'lqa',
-    load_video_features: true
-  },
-  train_data_path: 'data/lqa_train.json',
-  validation_data_path: 'data/lqa_dev.json',
-  test_data_path: 'data/lqa_test.json',
   model: {
     type: 'tgif_qa',
     text_field_embedder: {

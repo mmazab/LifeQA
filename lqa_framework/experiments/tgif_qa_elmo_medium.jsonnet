@@ -1,6 +1,6 @@
-local config = import 'tgif_qa_elmo.jsonnet';
+local params = import 'tgif_qa_elmo.jsonnet';
 
-config + {
+params + {
   embedding_size: 512,
 
   model+: {
