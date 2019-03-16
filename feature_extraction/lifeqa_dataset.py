@@ -64,6 +64,7 @@ class LifeQaDataset(torch.utils.data.Dataset):
             if frames is None:
                 # noinspection PyUnresolvedReferences
                 frames = torch.empty((self.frame_count_by_video_id[video_id], *frame.size()))
+            # noinspection PyUnresolvedReferences
             frames[i] = frame
 
         item['frames'] = frames
