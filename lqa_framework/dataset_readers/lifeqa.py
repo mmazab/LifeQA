@@ -46,7 +46,7 @@ class LqaDatasetReader(DatasetReader):
 
                     if self.load_video_features:
                         # noinspection PyUnboundLocalVariable
-                        video_features = features_file[video_id].value
+                        video_features = features_file[video_id][()]
                     else:
                         video_features = None
 
