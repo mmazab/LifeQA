@@ -1,10 +1,10 @@
 local params = import 'lqa.libsonnet';
 
 params + {
-  iterator: {  # dummy
-    type: 'basic',
+  iterator: {
+    type: 'basic'
   },
   trainer: {
-    optimizer: {},  # dummy
+    type: 'no_op'
   }
 }

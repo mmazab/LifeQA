@@ -1,6 +1,7 @@
 from typing import Dict, Optional
 
 from allennlp.data import Vocabulary
+from allennlp.data.vocabulary import DEFAULT_OOV_TOKEN
 from allennlp.models.model import Model
 from allennlp.modules import TextFieldEmbedder, Seq2VecEncoder, TimeDistributed
 from allennlp.modules.similarity_functions import CosineSimilarity
@@ -8,6 +9,7 @@ from allennlp.nn import InitializerApplicator, RegularizerApplicator, util
 from allennlp.training.metrics import CategoricalAccuracy
 from overrides import overrides
 import torch
+import torch.nn
 
 import lqa_framework.models
 
@@ -48,11 +50,13 @@ class SimpleBaseline(Model):
         key to the dictionary with the result. """
         logits = output_dict['logits']
 
+        # noinspection PyTypeChecker,PyUnresolvedReferences
         output_dict['class_probabilities'] = logits / logits.sum(dim=1)
 
         predicted_indices = torch.argmax(logits, dim=1)
-        output_dict['label'] = torch.Tensor([self.vocab.get_token_from_index(token_index, namespace='labels')
-                                             for token_index in predicted_indices])  # FIXME: namespace labels is wrong
+        # noinspection PyArgumentList,PyUnresolvedReferences
+        output_dict['label'] = torch.Tensor([self.vocab.get_token_from_index(token_index)
+                                             for token_index in predicted_indices])
 
         return output_dict
 
@@ -111,10 +115,16 @@ class MostSimilarAnswer(SimpleBaseline):
                  regularizer: Optional[RegularizerApplicator] = None) -> None:
         super().__init__(vocab, initializer, regularizer)
         self.text_field_embedder = text_field_embedder
+
+        oov_token_index = self.vocab.get_token_index(DEFAULT_OOV_TOKEN, 'tokens')
+        # noinspection PyProtectedMember
+        text_field_embedder._token_embedders['tokens'].weight[oov_token_index].fill_(0)
+
         self.question_encoder = question_encoder
         self.answers_encoder = TimeDistributed(answers_encoder)
         self.cosine_similarity = TimeDistributed(CosineSimilarity())
 
+    # noinspection PyCallingNonCallable
     @overrides
     def _compute_logits(self, question: Dict[str, torch.LongTensor],
                         answers: Dict[str, torch.LongTensor]) -> torch.Tensor:
