@@ -1,5 +1,5 @@
-#!/bin/bash
-#
+#!/usr/bin/env bash
+
 #SBATCH --job-name=c3d_feature_extraction
 #SBATCH --output=logs/c3d_feature_extraction
 #
@@ -15,5 +15,4 @@
 #
 #SBATCH --workdir=/data/home/stroud/LifeQA
 
-# launch run
-python feature_extraction/extract_features.py --network c3d
+python feature_extraction/extract_features.py c3d
