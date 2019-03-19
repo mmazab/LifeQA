@@ -1,6 +1,6 @@
-local config = import 'text_baseline.libsonnet';
+local params = import 'text_baseline.libsonnet';
 
-config + {
+params + {
   model+: {
     text_encoder:: {
       type: 'lstm',

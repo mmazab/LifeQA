@@ -61,17 +61,15 @@ class LqaDatasetReader(DatasetReader):
 
     @overrides
     def text_to_instance(self, question: str, answers: List[str], correct_index: Optional[int] = None,
-                         captions: Optional[Dict[str, Any]] = None, video_features: Optional[np.ndarray] = None,
+                         captions: Optional[List[Dict[str, Any]]] = None, video_features: Optional[np.ndarray] = None,
                          unroll: Optional[bool] = True) -> Instance:
         tokenized_question = self._tokenizer.tokenize(question)
         tokenized_answers = (self._tokenizer.tokenize(a) for a in answers)
 
         if captions:
             if unroll:
-                # noinspection PyTypeChecker
                 tokenized_captions = [self._tokenizer.tokenize(' '.join(caption['transcript'] for caption in captions))]
             else:
-                # noinspection PyTypeChecker
                 tokenized_captions = (self._tokenizer.tokenize(caption['transcript']) for caption in captions)
         else:
             tokenized_captions = [self._tokenizer.tokenize('')]
@@ -91,6 +89,6 @@ class LqaDatasetReader(DatasetReader):
             fields['frame_count'] = ArrayField(np.asarray(len(video_features), dtype=np.int32))
 
         if correct_index is not None:
-            fields['label'] = LabelField(str(correct_index))
+            fields['label'] = LabelField(correct_index, skip_indexing=True)
 
         return Instance(fields)

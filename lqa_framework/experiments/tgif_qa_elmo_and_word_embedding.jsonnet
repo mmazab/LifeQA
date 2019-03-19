@@ -1,7 +1,7 @@
 local original_config = import 'tgif_qa.jsonnet';
-local config = import 'tgif_qa_elmo.jsonnet';
+local params = import 'tgif_qa_elmo.jsonnet';
 
-config + {
+params + {
   word_embedding_size:: original_config.model.text_field_embedder.token_embedders.tokens.embedding_dim,
   embedding_size: super.embedding_size + self.word_embedding_size,
 

@@ -3,13 +3,15 @@
 This repo contains the code for the LifeQA project.
 
 Use Python 3.6 and Conda. Setup an environment from `environment.yml`, but also install torch 1.0.0, torchvision 0.2.1,
-and allennlp 0.8.1.
+and allennlp from command: `pip install git+https://github.com/allenai/allennlp@f8b10a9`.
 
 ## Data
 
 Download the videos from Google Drive to `data/videos`, placing the files there without subdirectories.
 
 ## Baselines
+
+There scripts under `run_scripts` provide example on how to run the baselines.
 
 ### Text
 

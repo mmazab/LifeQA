@@ -1,13 +1,13 @@
-local config = import 'tgif_qa.jsonnet';
+local params = import 'tgif_qa.jsonnet';
 local pretrained_model = 'bert-base-cased';
 
-config + {
+params + {
   embedding_size: 768,
 
   dataset_reader+: {
     token_indexers: {
       bert: {
-        type: 'bert-pretrained',,
+        type: 'bert-pretrained',
         pretrained_model: pretrained_model,
         do_lowercase: false,
       }

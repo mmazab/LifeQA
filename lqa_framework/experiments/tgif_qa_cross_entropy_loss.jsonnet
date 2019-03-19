@@ -1,6 +1,6 @@
-local config = import 'tgif_qa.jsonnet';
+local params = import 'tgif_qa.jsonnet';
 
-config + {
+params + {
   model+: {
     loss: 'cross-entropy',
   }
