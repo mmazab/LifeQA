@@ -18,18 +18,18 @@ def main():
 
     for sentence in sentences:
         if sentence[0]['form'].lower() == 'what':
-            # print(' '.join(token['form'] for token in sentence))  # DEBUG
-            # tree = sentence.to_tree()
-            # print("root: {}".format(tree.token['form']))  # DEBUG
+            print(' '.join(token['form'] for token in sentence))  # DEBUG
+            tree = sentence.to_tree()
+            print("root: {}".format(tree.token['form']))  # DEBUG
 
             # Inspect root's children.
-            # for child in tree.children:
-            #     token = child.token
-            #     print("    {}: {}".format(token['deprel'], token['form']))
+            for child in tree.children:
+                token = child.token
+                print("    {}: {}".format(token['deprel'], token['form']))
 
             # All NNs.
-            # print('\t'.join(lemmatizer.lemmatize(token['form'].lower())
-            #                 for token in sentence if token['upostag'].startswith('NN')))
+            print('\t'.join(lemmatizer.lemmatize(token['form'].lower())
+                            for token in sentence if token['upostag'].startswith('NN')))
 
             # First NN.
             for token in sentence:
@@ -40,7 +40,7 @@ def main():
                 without_nn += 1
                 print('')
             whats += 1
-            # print('')  # DEBUG
+            print('')  # DEBUG
         else:
             print('')
 

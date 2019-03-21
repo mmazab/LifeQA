@@ -33,29 +33,29 @@ def main():
         root = tree.token
         if root['upostag'].startswith('NN'):
             counter_be[lemmatizer.lemmatize(root['form'].lower())] += 1
-        else: # The root It's probably a verb
-            nsubj_id = [int(child.token['id']) for child in tree.children if child.token['deprel'].startswith('nsubj') and int(child.token['id']) > 1]
+        else:  # The root It's probably a verb
+            nsubj_id = [int(child.token['id']) for child in tree.children
+                        if child.token['deprel'].startswith('nsubj') and int(child.token['id']) > 1]
             if nsubj_id:
                 counter_be[lemmatizer.lemmatize(sentence[min(nsubj_id) - 1]['form'].lower())] += 1
             else:
                 prep_id = [int(child.token['id']) for child in tree.children if child.token['deprel'] == 'prep']
                 if prep_id:
                     prep_tree = [child for child in tree.children if int(child.token['id']) == min(prep_id)][0]
-                    pobj_id = [int(child.token['id']) for child in prep_tree.children if child.token['deprel'] == 'pobj']
+                    pobj_id = [int(child.token['id']) for child in prep_tree.children
+                               if child.token['deprel'] == 'pobj']
                     if pobj_id:
                         counter_be[lemmatizer.lemmatize(sentence[min(pobj_id) - 1]['form'].lower())] += 1
                     else:
                         # There is 1 case that falls here.
-                        # print(' '.join(token['form'] for token in sentence))
-                        # sentence.to_tree().print_tree()
-                        # print('')
-                        pass
+                        print(' '.join(token['form'] for token in sentence))
+                        sentence.to_tree().print_tree()
+                        print('')
                 else:
                     # There are 5 cases that fall here.
-                    # print(' '.join(token['form'] for token in sentence))
-                    # sentence.to_tree().print_tree()
-                    # print('')
-                    pass
+                    print(' '.join(token['form'] for token in sentence))
+                    sentence.to_tree().print_tree()
+                    print('')
     print(counter_be.most_common(20))
 
 
