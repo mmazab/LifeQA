@@ -7,16 +7,17 @@ from allennlp.common.checks import check_dimensions_match
 from allennlp.data import Vocabulary
 from allennlp.models.model import Model
 from allennlp.models.reading_comprehension.util import get_best_span
-from allennlp.modules import Highway
+from allennlp.modules import Highway,FeedForward
 from allennlp.modules import Seq2SeqEncoder, SimilarityFunction, TimeDistributed, TextFieldEmbedder
 from allennlp.modules.matrix_attention.legacy_matrix_attention import LegacyMatrixAttention
 from allennlp.nn import util, InitializerApplicator, RegularizerApplicator
 from allennlp.training.metrics import BooleanAccuracy, CategoricalAccuracy, SquadEmAndF1
+from overrides import overrides
 
 # logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
 
-@Model.register("bidaf")
+@Model.register("bidaf_baseline")
 class BidirectionalAttentionFlow(Model):
     """
     This class implements Minjoon Seo's `Bidirectional Attention Flow model
@@ -61,20 +62,22 @@ class BidirectionalAttentionFlow(Model):
     regularizer : ``RegularizerApplicator``, optional (default=``None``)
         If provided, will be used to calculate the regularization penalty during training.
     """
-    def __init__(self, vocab: Vocabulary,
+    def __init__(self,
+                 vocab: Vocabulary,
                  text_field_embedder: TextFieldEmbedder,
-                 num_highway_layers: int,
                  phrase_layer: Seq2SeqEncoder,
                  similarity_function: SimilarityFunction,
                  modeling_layer: Seq2SeqEncoder,
                  question_encoder: Seq2SeqEncoder,
                  answers_encoder: Seq2SeqEncoder,
                  captions_encoder: Seq2SeqEncoder,
+                 classifier_feedforward: FeedForward,
+                 num_highway_layers: int,
                  dropout: float = 0.2,
                  mask_lstms: bool = True,
                  initializer: InitializerApplicator = InitializerApplicator(),
-                 classifier_feedforward: FeedForward,
                  regularizer: Optional[RegularizerApplicator] = None) -> None:
+
         super(BidirectionalAttentionFlow, self).__init__(vocab, regularizer)
 
         self._text_field_embedder = text_field_embedder
