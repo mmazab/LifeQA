@@ -7,7 +7,7 @@ from allennlp.common.checks import check_dimensions_match
 from allennlp.data import Vocabulary
 from allennlp.models.model import Model
 from allennlp.models.reading_comprehension.util import get_best_span
-from allennlp.modules import Highway,FeedForward
+from allennlp.modules import Highway,FeedForward, similarity_functions
 from allennlp.modules import Seq2SeqEncoder, SimilarityFunction, TimeDistributed, TextFieldEmbedder
 from allennlp.modules.matrix_attention.legacy_matrix_attention import LegacyMatrixAttention
 from allennlp.nn import util, InitializerApplicator, RegularizerApplicator
@@ -66,7 +66,6 @@ class BidirectionalAttentionFlow(Model):
                  vocab: Vocabulary,
                  text_field_embedder: TextFieldEmbedder,
                  phrase_layer: Seq2SeqEncoder,
-                 similarity_function: SimilarityFunction,
                  modeling_layer: Seq2SeqEncoder,
                  question_encoder: Seq2SeqEncoder,
                  answers_encoder: Seq2SeqEncoder,
@@ -87,9 +86,8 @@ class BidirectionalAttentionFlow(Model):
         self.classifier_feedforward = classifier_feedforward
 
         self._phrase_layer = phrase_layer
-        self._matrix_attention = LegacyMatrixAttention(similarity_function)
+        self._matrix_attention = LegacyMatrixAttention(similarity_functions.cosine.CosineSimilarity)
         self._modeling_layer = modeling_layer
-        self._span_end_encoder = span_end_encoder
 
         encoding_dim = phrase_layer.get_output_dim()
         modeling_dim = modeling_layer.get_output_dim()
