@@ -86,7 +86,7 @@ class BidirectionalAttentionFlow(Model):
         self.classifier_feedforward = classifier_feedforward
 
         self._phrase_layer = phrase_layer
-        self._matrix_attention = LegacyMatrixAttention(similarity_functions.cosine.CosineSimilarity)
+        self._matrix_attention = LegacyMatrixAttention(similarity_functions.dot_product.DotProductSimilarity)
         self._modeling_layer = modeling_layer
 
         encoding_dim = phrase_layer.get_output_dim()
@@ -104,8 +104,8 @@ class BidirectionalAttentionFlow(Model):
                                "modeling layer input dim", "4 * encoding dim")
         check_dimensions_match(text_field_embedder.get_output_dim(), phrase_layer.get_input_dim(),
                                "text field embedder output dim", "phrase layer input dim")
-        check_dimensions_match(span_end_encoder.get_input_dim(), 4 * encoding_dim + 3 * modeling_dim,
-                               "span end encoder input dim", "4 * encoding dim + 3 * modeling dim")
+        # check_dimensions_match(span_end_encoder.get_input_dim(), 4 * encoding_dim + 3 * modeling_dim,
+        #                        "span end encoder input dim", "4 * encoding dim + 3 * modeling dim")
 
         
 
@@ -176,15 +176,22 @@ class BidirectionalAttentionFlow(Model):
         batch_size = embedded_question.size(0)
         passage_length = embedded_passage.size(1)
         question_mask = util.get_text_field_mask(question).float()
-        passage_mask = util.get_text_field_mask(passage).float()
+        passage_mask = util.get_text_field_mask(captions).float()
         question_lstm_mask = question_mask if self._mask_lstms else None
         passage_lstm_mask = passage_mask if self._mask_lstms else None
 
         encoded_question = self._dropout(self._phrase_layer(embedded_question, question_lstm_mask))
-        encoded_passage = self._dropout(self._phrase_layer(embedded_passage, passage_lstm_mask))
+
+        # print(embedded_question.shape)
+        # print(torch.squeeze(embedded_passage).shape)
+        encoded_passage = self._dropout(self._phrase_layer(torch.squeeze(embedded_passage, dim = 1), passage_lstm_mask))
         encoding_dim = encoded_question.size(-1)
 
         # Shape: (batch_size, passage_length, question_length)
+
+        print(encoded_question.shape)
+        print(encoded_passage.shape)
+
         passage_question_similarity = self._matrix_attention(encoded_passage, encoded_question)
         # Shape: (batch_size, passage_length, question_length)
         passage_question_attention = util.masked_softmax(passage_question_similarity, question_mask)
