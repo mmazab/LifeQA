@@ -2,10 +2,10 @@
 
 ## Setup
 
-1. Install the dependencies: `pip install -r requirements.txt`.
-2. Download the questions to a file named `questions.txt`, one questions per line.
-3. Tokenize it with `tokenizer.py`.
-4. Follow the installation procedure from [jPTDP](https://github.com/datquocnguyen/jPTDP) with the `model256` model to convert the file and predict the dependency parsing, placing the output in `output/questions`.
+1. Download the questions to a file named `questions.txt`, one questions per line.
+2. Tokenize it with `tokenizer.py`.
+3. Follow the installation procedure from [jPTDP](https://github.com/datquocnguyen/jPTDP) to
+convert the file with the `model256` model and predict the dependency parsing, placing the output in `output/questions`.
 
 ## Run
 
