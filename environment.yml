@@ -10,11 +10,11 @@ dependencies:
 
   - pip:
     # --- Pip direct dependencies: ---
-    - allennlp==git+https://github.com/allenai/allennlp@f8b10a9
+    - allennlp==0.8.3
     # apex is quite slow to compile, so we leave it out.
     #- git+https://github.com/NVIDIA/apex@74c06d8 --global-option="--cpp_ext" --global-option="--cuda_ext"
     - conllu==1.2.3  # Incompatible version for allennlp, but needed for the 'analysis'. So just change the version when
-    # running the analysis.
+    # needed.
     - google-cloud-speech==0.36.3
     - overrides==1.9
 
