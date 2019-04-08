@@ -23,6 +23,7 @@ class LqaDatasetReader(DatasetReader):
     FEATURES_PATH = pathlib.Path('data/features')
     MODEL_NAME_TO_PRETRAINED_FILE_DICT = {
         'c3d': FEATURES_PATH / 'LifeQA_C3D_fc7.hdf5',
+        'i3d': FEATURES_PATH / 'LifeQA_I3D_avg_pool.hdf5',
         'resnet': FEATURES_PATH / 'LifeQA_RESNET_pool5.hdf5',
     }
 
@@ -40,7 +41,7 @@ class LqaDatasetReader(DatasetReader):
     def _read(self, file_path: str) -> Iterable[Instance]:
         if self.video_features_to_load:
             logger.info("Reading video features of instances")
-            features_file = h5py.File(self.MODEL_NAME_TO_PRETRAINED_FILE_DICT[self.video_features_to_load])
+            features_file = h5py.File(self.MODEL_NAME_TO_PRETRAINED_FILE_DICT[self.video_features_to_load], 'r')
 
         with open(cached_path(file_path)) as data_file:
             logger.info("Reading instances in file at: %s", file_path)
