@@ -1,5 +1,6 @@
 import json
 import logging
+import pathlib
 from typing import Any, Dict, Iterable, List, Optional
 
 from allennlp.common.file_utils import cached_path
@@ -19,32 +20,38 @@ logger = logging.getLogger(__name__)
 class LqaDatasetReader(DatasetReader):
     """Reads a JSON file containing questions and answers, and creates a dataset suitable for QA. """
 
+    FEATURES_PATH = pathlib.Path('data/features')
+    MODEL_NAME_TO_PRETRAINED_FILE_DICT = {
+        'c3d': FEATURES_PATH / 'LifeQA_RESNET_pool5.hdf5',
+        'resnet': FEATURES_PATH / 'LifeQA_RESNET_pool5.hdf5',
+    }
+
     def __init__(self, lazy: bool = False, tokenizer: Optional[Tokenizer] = None,
                  token_indexers: Optional[Dict[str, TokenIndexer]] = None,
-                 load_video_features: Optional[bool] = False,
+                 video_features_to_load: Optional[str] = None,
                  check_missing_video_features: Optional[bool] = True) -> None:
         super().__init__(lazy=lazy)
         self._tokenizer = tokenizer or WordTokenizer()
         self._token_indexers = token_indexers or {'tokens': SingleIdTokenIndexer()}
-        self.load_video_features = load_video_features
+        self.video_features_to_load = video_features_to_load
         self.check_missing_video_features = check_missing_video_features
 
     @overrides
     def _read(self, file_path: str) -> Iterable[Instance]:
-        if self.load_video_features:
+        if self.video_features_to_load:
             logger.info("Reading video features of instances")
-            features_file = h5py.File('data/features/LifeQA_RESNET_pool5.hdf5')
+            features_file = h5py.File(self.MODEL_NAME_TO_PRETRAINED_FILE_DICT[self.video_features_to_load])
 
         with open(cached_path(file_path)) as data_file:
             logger.info("Reading instances in file at: %s", file_path)
             video_dict = json.load(data_file)
             for video_id in video_dict:
                 # noinspection PyUnboundLocalVariable
-                if not self.load_video_features or self.check_missing_video_features or video_id in features_file:
+                if not self.video_features_to_load or self.check_missing_video_features or video_id in features_file:
                     question_dicts = video_dict[video_id]['questions']
                     captions = video_dict[video_id]['captions']
 
-                    if self.load_video_features:
+                    if self.video_features_to_load:
                         # noinspection PyUnboundLocalVariable
                         video_features = features_file[video_id][()]
                     else:
@@ -56,7 +63,7 @@ class LqaDatasetReader(DatasetReader):
                         correct_index = question_dict['correct_index']
                         yield self.text_to_instance(question_text, answers, correct_index, captions, video_features)
 
-        if self.load_video_features:
+        if self.video_features_to_load:
             features_file.close()
 
     @overrides
