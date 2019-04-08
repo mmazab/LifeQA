@@ -22,9 +22,10 @@ class LqaDatasetReader(DatasetReader):
 
     FEATURES_PATH = pathlib.Path('data/features')
     MODEL_NAME_TO_PRETRAINED_FILE_DICT = {
-        'c3d': FEATURES_PATH / 'LifeQA_C3D_fc7.hdf5',
-        'i3d': FEATURES_PATH / 'LifeQA_I3D_avg_pool.hdf5',
-        'resnet': FEATURES_PATH / 'LifeQA_RESNET_pool5.hdf5',
+        'c3d-fc6': FEATURES_PATH / 'LifeQA_C3D_fc6.hdf5',
+        'c3d-fc7': FEATURES_PATH / 'LifeQA_C3D_fc7.hdf5',
+        'i3d-avg-pool': FEATURES_PATH / 'LifeQA_I3D_avg_pool.hdf5',
+        'resnet-pool5': FEATURES_PATH / 'LifeQA_RESNET_pool5.hdf5',
     }
 
     def __init__(self, lazy: bool = False, tokenizer: Optional[Tokenizer] = None,

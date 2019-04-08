@@ -19,7 +19,7 @@ params + {
   },
 
   dataset_reader+: {
-    video_features_to_load: 'resnet'
+    video_features_to_load: 'resnet-pool5'
   },
   model: {
     type: 'tgif_qa',
