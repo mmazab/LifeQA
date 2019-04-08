@@ -16,7 +16,7 @@ from lifeqa_dataset import LifeQaDataset
 
 # noinspection PyUnresolvedReferences
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-COMMON_NORMALIZATION_PARAMS = {'mean': [0.485, 0.456, 0.406], 'std': [0.229, 0.224, 0.225]}
+IMAGENET_NORMALIZATION_PARAMS = {'mean': [0.485, 0.456, 0.406], 'std': [0.229, 0.224, 0.225]}
 
 
 def pretrained_resnet152() -> torch.nn.Module:
@@ -48,7 +48,7 @@ def save_resnet_features():
         torchvision.transforms.Resize(256),
         torchvision.transforms.CenterCrop(224),
         torchvision.transforms.ToTensor(),
-        torchvision.transforms.Normalize(**COMMON_NORMALIZATION_PARAMS),
+        torchvision.transforms.Normalize(**IMAGENET_NORMALIZATION_PARAMS),
     ])
     dataset = LifeQaDataset(transform=transforms)
 
@@ -102,18 +102,18 @@ def save_c3d_features():
         torchvision.transforms.Resize(128),
         torchvision.transforms.CenterCrop(112),
         torchvision.transforms.ToTensor(),
-        torchvision.transforms.Normalize(**COMMON_NORMALIZATION_PARAMS),
+        torchvision.transforms.Normalize(**IMAGENET_NORMALIZATION_PARAMS),
     ])
     dataset = LifeQaDataset(transform=transforms)
 
     c3d = pretrained_c3d().to(DEVICE)
     filter_size = 16
 
-    with h5py.File(LifeQaDataset.features_file_path('c3d', 'fc7'), 'w') as fc7_features_file:
+    with h5py.File(LifeQaDataset.features_file_path('c3d', 'fc6'), 'w') as fc6_features_file:
         for video_id in dataset.video_ids:
             video_frame_count = dataset.frame_count_by_video_id[video_id]
             feature_count = video_frame_count - filter_size + 1
-            fc7_features_file.create_dataset(video_id, shape=(feature_count, 4096))
+            fc6_features_file.create_dataset(video_id, shape=(feature_count, 4096))
 
         for instance in tqdm(torch.utils.data.DataLoader(dataset), desc="Extracting C3D features"):
             video_id = instance['id'][0]
@@ -125,7 +125,7 @@ def save_c3d_features():
 
             for i in range(feature_count):
                 output = c3d.extract_features(frames[:, :, i:i + filter_size, :, :]).squeeze()
-                fc7_features_file[video_id][i, :] = output.cpu()
+                fc6_features_file[video_id][i, :] = output.cpu()
 
 
 def save_i3d_features():
@@ -133,7 +133,7 @@ def save_i3d_features():
         torchvision.transforms.Resize(256),
         torchvision.transforms.CenterCrop(224),
         torchvision.transforms.ToTensor(),
-        torchvision.transforms.Normalize(**COMMON_NORMALIZATION_PARAMS),
+        torchvision.transforms.Normalize(**IMAGENET_NORMALIZATION_PARAMS),
     ])
     dataset = LifeQaDataset(transform=transforms)
 
