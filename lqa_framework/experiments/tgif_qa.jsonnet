@@ -1,21 +1,14 @@
 local params = import 'lqa.libsonnet';
 
-local rnn_type = 'gru';
-local rnn_hidden_size = 100;
-local rnn_num_layers = 1;
-local bidirectional = false;
-local rnn_dropout = 0.2;
-local feed_forward_hidden_size = rnn_hidden_size * rnn_num_layers;
-
 params + {
   embedding_size:: 300,
   text_encoder:: {
-    type: rnn_type,
-    bidirectional: bidirectional,
+    type: 'gru',
+    bidirectional: false,
     input_size: $.embedding_size,
-    hidden_size: rnn_hidden_size,
-    num_layers: rnn_num_layers,
-    dropout: rnn_dropout,
+    hidden_size: 100,
+    num_layers: 1,
+    dropout: 0.2,
   },
 
   dataset_reader+: {
@@ -39,7 +32,7 @@ params + {
     question_encoder: $.text_encoder,
     answers_encoder: $.text_encoder,
     classifier_feedforward: {
-      input_dim: feed_forward_hidden_size,
+      input_dim: $.text_encoder.hidden_size * $.text_encoder.num_layers,
       num_layers: 1,
       hidden_dims: [1],
       activations: ['linear'],

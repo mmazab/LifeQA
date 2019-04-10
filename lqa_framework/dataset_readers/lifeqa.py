@@ -30,7 +30,7 @@ class LqaDatasetReader(DatasetReader):
 
     def __init__(self, lazy: bool = False, tokenizer: Optional[Tokenizer] = None,
                  token_indexers: Optional[Dict[str, TokenIndexer]] = None,
-                 video_features_to_load: Optional[str] = None,
+                 video_features_to_load: Optional[List[str]] = None,
                  check_missing_video_features: Optional[bool] = True) -> None:
         super().__init__(lazy=lazy)
         self._tokenizer = tokenizer or WordTokenizer()
@@ -42,20 +42,22 @@ class LqaDatasetReader(DatasetReader):
     def _read(self, file_path: str) -> Iterable[Instance]:
         if self.video_features_to_load:
             logger.info("Reading video features of instances")
-            features_file = h5py.File(self.MODEL_NAME_TO_PRETRAINED_FILE_DICT[self.video_features_to_load], 'r')
+            features_files = [h5py.File(self.MODEL_NAME_TO_PRETRAINED_FILE_DICT[video_feature], 'r')
+                              for video_feature in self.video_features_to_load]
 
         with open(cached_path(file_path)) as data_file:
             logger.info("Reading instances in file at: %s", file_path)
             video_dict = json.load(data_file)
             for video_id in video_dict:
                 # noinspection PyUnboundLocalVariable
-                if not self.video_features_to_load or self.check_missing_video_features or video_id in features_file:
+                if not self.video_features_to_load or self.check_missing_video_features or video_id in features_files:
                     question_dicts = video_dict[video_id]['questions']
                     captions = video_dict[video_id]['captions']
 
                     if self.video_features_to_load:
                         # noinspection PyUnboundLocalVariable
-                        video_features = features_file[video_id][()]
+                        # TODO
+                        video_features = features_files[video_id][()]
                     else:
                         video_features = None
 
@@ -66,7 +68,8 @@ class LqaDatasetReader(DatasetReader):
                         yield self.text_to_instance(question_text, answers, correct_index, captions, video_features)
 
         if self.video_features_to_load:
-            features_file.close()
+            for features_file in features_files:
+                features_file.close()
 
     @overrides
     def text_to_instance(self, question: str, answers: List[str], correct_index: Optional[int] = None,
