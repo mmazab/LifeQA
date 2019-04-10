@@ -26,17 +26,19 @@ class LqaDatasetReader(DatasetReader):
         'c3d-fc7': FEATURES_PATH / 'LifeQA_C3D_fc7.hdf5',
         'i3d-avg-pool': FEATURES_PATH / 'LifeQA_I3D_avg_pool.hdf5',
         'resnet-pool5': FEATURES_PATH / 'LifeQA_RESNET_pool5.hdf5',
+        'resnet-res5c': FEATURES_PATH / 'LifeQA_RESNET_res5c.hdf5',
     }
 
     def __init__(self, lazy: bool = False, tokenizer: Optional[Tokenizer] = None,
                  token_indexers: Optional[Dict[str, TokenIndexer]] = None,
-                 video_features_to_load: Optional[List[str]] = None,
-                 check_missing_video_features: Optional[bool] = True) -> None:
+                 video_features_to_load: Optional[List[str]] = None, check_missing_video_features: bool = True,
+                 frame_step: int = 1) -> None:
         super().__init__(lazy=lazy)
         self._tokenizer = tokenizer or WordTokenizer()
         self._token_indexers = token_indexers or {'tokens': SingleIdTokenIndexer()}
         self.video_features_to_load = video_features_to_load
         self.check_missing_video_features = check_missing_video_features
+        self.frame_step = frame_step
 
     @overrides
     def _read(self, file_path: str) -> Iterable[Instance]:
@@ -56,8 +58,7 @@ class LqaDatasetReader(DatasetReader):
 
                     if self.video_features_to_load:
                         # noinspection PyUnboundLocalVariable
-                        # TODO
-                        video_features = np.concatenate([features_file[video_id][()]
+                        video_features = np.concatenate([features_file[video_id][::self.frame_step]
                                                          for features_file in features_files], axis=1)
                     else:
                         video_features = None
