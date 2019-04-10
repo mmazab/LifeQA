@@ -38,7 +38,7 @@ class LifeQaDataset(torch.utils.data.Dataset):
 
     @staticmethod
     def features_file_path(model_name: str, layer_name: str) -> str:
-        return f"data/features/LifeQA_{model_name.upper()}_{layer_name}.hdf5"
+        return f'data/features/LifeQA_{model_name.upper()}_{layer_name}.hdf5'
 
     def __getitem__(self, index) -> Dict[str, object]:
         video_id = self.video_ids[index]
@@ -54,7 +54,9 @@ class LifeQaDataset(torch.utils.data.Dataset):
             item['captions'] = captions_dict
 
         frames = None
+        frame_count = self.frame_count_by_video_id[video_id]
 
+        # We're supposing an entire video fits in memory.
         video_folder_path = self._video_folder_path(video_id)
         for i, frame_file_name in enumerate(os.listdir(video_folder_path)):
             frame = PIL.Image.open(os.path.join(video_folder_path, frame_file_name))
@@ -62,12 +64,11 @@ class LifeQaDataset(torch.utils.data.Dataset):
                 frame = self.transform(frame)
 
             if frames is None:
-                # noinspection PyUnresolvedReferences
-                frames = torch.empty((self.frame_count_by_video_id[video_id], *frame.size()))
-            # noinspection PyUnresolvedReferences
+                frames = torch.empty((frame_count, *frame.size()))
             frames[i] = frame
 
         item['frames'] = frames
+        item['frame_count'] = frame_count
 
         return item
 

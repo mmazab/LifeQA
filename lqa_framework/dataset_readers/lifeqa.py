@@ -57,7 +57,8 @@ class LqaDatasetReader(DatasetReader):
                     if self.video_features_to_load:
                         # noinspection PyUnboundLocalVariable
                         # TODO
-                        video_features = features_files[video_id][()]
+                        video_features = np.concatenate([features_file[video_id][()]
+                                                         for features_file in features_files], axis=1)
                     else:
                         video_features = None
 
