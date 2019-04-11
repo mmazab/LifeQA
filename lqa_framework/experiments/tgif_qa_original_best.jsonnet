@@ -4,8 +4,14 @@ local config = import 'tgif_qa.jsonnet';
 
 config + {
   dataset_reader+: {
-    video_features_to_load: ['resnet-pool5', 'c3d-fc6'],
+    video_features_to_load: ['resnet-pool5', 'c3d-fc6'],  // TODO: ResOF
     frame_step: 4,
+    token_indexers: {
+      tokens: {
+        type: 'single_id',
+        lowercase_tokens: true,
+      }
+    },
   }
   vocabulary+: {
     max_vocab_size: 22852  // Ref: https://github.com/explosion/spaCy/issues/1341

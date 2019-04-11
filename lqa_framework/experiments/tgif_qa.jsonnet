@@ -27,7 +27,7 @@ params + {
       }
     },
     video_encoder: $.text_encoder + {
-      input_size: 2048,
+      input_size: 2048
     },
     question_encoder: $.text_encoder,
     answers_encoder: $.text_encoder,
@@ -49,7 +49,7 @@ params + {
     grad_clipping: 5.0,
     validation_metric: '+accuracy',
     optimizer: {
-      type: 'adagrad',
+      type: 'adagrad'
     },
   }
 }
