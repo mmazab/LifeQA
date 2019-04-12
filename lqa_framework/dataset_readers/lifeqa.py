@@ -1,6 +1,7 @@
 import json
 import logging
 import pathlib
+import random
 from typing import Any, Dict, Iterable, List, Optional
 
 from allennlp.common.file_utils import cached_path
@@ -32,13 +33,14 @@ class LqaDatasetReader(DatasetReader):
     def __init__(self, lazy: bool = False, tokenizer: Optional[Tokenizer] = None,
                  token_indexers: Optional[Dict[str, TokenIndexer]] = None,
                  video_features_to_load: Optional[List[str]] = None, check_missing_video_features: bool = True,
-                 frame_step: int = 1) -> None:
+                 frame_step: int = 1, small_sample: bool = False) -> None:
         super().__init__(lazy=lazy)
         self._tokenizer = tokenizer or WordTokenizer()
         self._token_indexers = token_indexers or {'tokens': SingleIdTokenIndexer()}
         self.video_features_to_load = video_features_to_load
         self.check_missing_video_features = check_missing_video_features
         self.frame_step = frame_step
+        self.small_sample = small_sample
 
     @overrides
     def _read(self, file_path: str) -> Iterable[Instance]:
@@ -50,6 +52,10 @@ class LqaDatasetReader(DatasetReader):
         with open(cached_path(file_path)) as data_file:
             logger.info("Reading instances in file at: %s", file_path)
             video_dict = json.load(data_file)
+
+            if self.small_sample:
+                video_dict = {key: video_dict[key] for key in random.sample(list(video_dict), 10)}
+
             for video_id in video_dict:
                 # noinspection PyUnboundLocalVariable
                 if not self.video_features_to_load or self.check_missing_video_features or video_id in features_files:
