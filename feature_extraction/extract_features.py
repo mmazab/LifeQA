@@ -83,7 +83,7 @@ def save_resnet_features():
             for batch in torch.utils.data.DataLoader(dataset):
                 video_ids = batch['id']
                 frames = batch['frames'].to(DEVICE)
-    
+
                 for video_id, video_frames in zip(video_ids, frames):
                     frame_batch_size = 32
                     for start_index in range(0, len(video_frames), frame_batch_size):
@@ -157,7 +157,7 @@ def save_i3d_features():
             for i_video, (video_id, video_frame_count) in enumerate(zip(video_ids, video_frame_counts)):
                 for i_frame in range(video_frame_count.item()):
                     output = i3d.extract_features(frames[[i_video], :, i_frame:i_frame + filter_size, :, :])
-                    features_file[video_id][i_frame, :] = output[i_video].cpu()
+                    features_file[video_id][i_frame, :] = output[i_video].squeeze().cpu()
 
 
 def parse_args():
