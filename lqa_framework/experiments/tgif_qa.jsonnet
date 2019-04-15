@@ -2,7 +2,7 @@ local params = import 'lqa.libsonnet';
 
 params + {
   embedding_size:: 300,
-  text_encoder:: {
+  encoder:: {
     type: 'lstm_patched',
     bidirectional: true,
     input_size: $.embedding_size,
@@ -16,7 +16,8 @@ params + {
   },
 
   dataset_reader+: {
-    video_features_to_load: ['resnet-pool5']
+    video_features_to_load: ['resnet-pool5'],
+    join_question_and_answers: true,
   },
   model: {
     type: 'tgif_qa',
@@ -30,21 +31,20 @@ params + {
         }
       }
     },
-    video_encoder: $.text_encoder + {
+    video_encoder: $.encoder + {
       input_size: 2048
     },
-    question_encoder: $.text_encoder,
-    answers_encoder: $.text_encoder,
+    text_encoder: $.encoder,
     classifier_feedforward: {
-      input_dim: $.text_encoder.num_layers * $.text_encoder.num_directions * $.text_encoder.hidden_size,
+      input_dim: $.encoder.num_layers * $.encoder.num_directions * $.encoder.hidden_size,
       num_layers: 1,
       hidden_dims: [1],
       activations: ['linear'],
     }
   },
   iterator: {
-    type: 'bucket',
-    sorting_keys: [['question', 'num_tokens']],  # TODO: How to put video_features here?
+    type: 'basic',  //bucket
+    //sorting_keys: [['question_and_answers', 'num_tokens']],  # TODO: How to put video_features here?
     batch_size: 64,
   },
   trainer: {

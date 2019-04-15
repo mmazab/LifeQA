@@ -17,7 +17,7 @@ config + {
     max_vocab_size: 22852  // Ref: https://github.com/explosion/spaCy/issues/1341
   }
   model+: {
-    text_encoder+: {
+    encoder+: {
       type: 'lstm',
       bidirectional: true,
       hidden_size: 256,

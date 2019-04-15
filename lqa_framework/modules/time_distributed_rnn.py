@@ -26,7 +26,8 @@ class TimeDistributedRNN(torch.nn.Module):
     """
     def __init__(self, module):
         super().__init__()
-        self._module = TimeDistributed(module, reshape_output=False)
+        self._module = module
+        self._time_distributed = TimeDistributed(module, reshape_output=False)
 
     # pylint: disable=arguments-differ
     @overrides
@@ -41,7 +42,7 @@ class TimeDistributedRNN(torch.nn.Module):
                 hidden_state_size = hidden_state.size()
                 hidden_state = hidden_state.reshape(hidden_state_size[0], -1, *hidden_state_size[3:])
 
-        output = self._module(inputs, mask, hidden_state=hidden_state, pass_through=['hidden_state'])
+        output = self._time_distributed(inputs, mask, hidden_state=hidden_state, pass_through=['hidden_state'])
 
         if len(output.size()) == 3:
             output = output.reshape(output.size()[0], *inputs.size()[:2], *output.size()[2:])

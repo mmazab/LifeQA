@@ -33,13 +33,14 @@ class LqaDatasetReader(DatasetReader):
     def __init__(self, lazy: bool = False, tokenizer: Optional[Tokenizer] = None,
                  token_indexers: Optional[Dict[str, TokenIndexer]] = None,
                  video_features_to_load: Optional[List[str]] = None, check_missing_video_features: bool = True,
-                 frame_step: int = 1, small_sample: bool = False) -> None:
+                 frame_step: int = 1, join_question_and_answers: bool = False, small_sample: bool = False) -> None:
         super().__init__(lazy=lazy)
         self._tokenizer = tokenizer or WordTokenizer()
         self._token_indexers = token_indexers or {'tokens': SingleIdTokenIndexer()}
         self.video_features_to_load = video_features_to_load
         self.check_missing_video_features = check_missing_video_features
         self.frame_step = frame_step
+        self.join_question_and_answers = join_question_and_answers
         self.small_sample = small_sample
 
     @overrides
@@ -94,15 +95,16 @@ class LqaDatasetReader(DatasetReader):
         else:
             tokenized_captions = [self._tokenizer.tokenize('')]
 
-        question_field = TextField(tokenized_question, self._token_indexers)
-        answers_field = ListField([TextField(answer, self._token_indexers) for answer in tokenized_answers])
-        captions_field = ListField([TextField(caption, self._token_indexers) for caption in tokenized_captions])
+        fields = {}
 
-        fields = {
-            'question': question_field,
-            'answers': answers_field,
-            'captions': captions_field,
-        }
+        if self.join_question_and_answers:
+            fields['question_and_answers'] = ListField([TextField(tokenized_question + answer, self._token_indexers)
+                                                       for answer in tokenized_answers])
+        else:
+            fields['question'] = TextField(tokenized_question, self._token_indexers)
+            fields['answers'] = ListField([TextField(answer, self._token_indexers) for answer in tokenized_answers])
+
+        fields['captions'] = ListField([TextField(caption, self._token_indexers) for caption in tokenized_captions])
 
         if video_features is not None:
             fields['video_features'] = ArrayField(video_features)
