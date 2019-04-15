@@ -2,7 +2,7 @@ from typing import Dict, Optional
 
 from allennlp.data import Vocabulary
 from allennlp.models.model import Model
-from allennlp.modules import FeedForward, Seq2VecEncoder, TextFieldEmbedder
+from allennlp.modules import FeedForward, Seq2VecEncoder, TextFieldEmbedder, TimeDistributed
 from allennlp.nn import InitializerApplicator, RegularizerApplicator, util
 from allennlp.training.metrics import CategoricalAccuracy
 import numpy as np
@@ -10,8 +10,7 @@ from overrides import overrides
 import torch
 import torch.nn.functional as F
 
-from lqa_framework.modules.time_distributed import TimeDistributed
-from lqa_framework.modules.time_distributed_rnn import TimeDistributedRNN
+from lqa_framework.modules.pytorch_seq2vec_wrapper_chain import PytorchSeq2VecWrapperChain
 
 
 @Model.register('tgif_qa')
@@ -30,25 +29,41 @@ class TgifQaClassifier(Model):
         self.text_field_embedder = text_field_embedder
 
         self.video_encoder = video_encoder
-        self.text_encoder = TimeDistributedRNN(text_encoder)
+        self.text_encoder = text_encoder
         self.classifier_feedforward = TimeDistributed(classifier_feedforward)
 
         # noinspection PyProtectedMember
-        self.hidden_size = self.text_encoder._module._module.hidden_size
+        self.hidden_size = self.text_encoder._module.hidden_size
         # noinspection PyProtectedMember
-        self.num_directions = self.text_encoder._module._num_directions()
+        self.num_directions = self.text_encoder._num_directions()
         # noinspection PyProtectedMember
-        self.num_layers = self.text_encoder._module._num_layers
-
-        if text_video_mode not in self.TEXT_VIDEO_MODE_OPTIONS:
-            raise ValueError(f"'text_video_mode' should be one of {self.TEXT_VIDEO_MODE_OPTIONS}")
+        self.num_layers = self.text_encoder._num_layers
         self.text_video_mode = text_video_mode
-
-        if text_video_mode == 'text-video':
-            self.video_encoder = TimeDistributedRNN(self.video_encoder)
 
         if video_encoder is None and text_video_mode != 'text':
             raise ValueError("'video_encoder' can be None only if 'text_video_mode' is set to 'text'")
+
+        if text_video_mode == 'video-text':
+            self.encoder = PytorchSeq2VecWrapperChain([self.video_encoder, self.text_encoder],
+                                                      return_all_hidden_states=True)
+        elif text_video_mode == 'text-video':
+            self.encoder = PytorchSeq2VecWrapperChain([self.text_encoder, self.video_encoder],
+                                                      return_all_hidden_states=True)
+        elif text_video_mode == 'parallel':
+            class Parallel(torch.nn.Module):
+                @overrides
+                def forward(self, video_features, embedded_question_and_answers,
+                            video_features_mask, question_and_answers_mask):
+                    encoded_video = self.video_encoder(video_features, embedded_question_and_answers)[0]
+                    encoded_text = self.text_encoder(embedded_question_and_answers, question_and_answers_mask)[0]
+                    return self.parallel_feedforward(torch.cat((encoded_video, encoded_text), 2)).unsqueeze(0)
+            self.encoder = Parallel()
+        elif text_video_mode == 'text':
+            self.encoder = self.text_encoder
+        else:
+            raise ValueError(f"'text_video_mode' should be one of {self.TEXT_VIDEO_MODE_OPTIONS}")
+
+        self.encoder = TimeDistributed(self.encoder)
 
         encoded_size = text_encoder.get_output_dim()
         self.parallel_feedforward = TimeDistributed(FeedForward(input_dim=encoded_size * 2, num_layers=1,
@@ -89,42 +104,36 @@ class TgifQaClassifier(Model):
         loss : torch.FloatTensor, optional
             A scalar loss to be optimised.
         """
-        # Grabs any of the dict values available (note it keys depend on the actual implementation).
-        batch_size = list(question_and_answers.values())[0].shape[0]
         # This supposes a fixed number of answers, by grabbing any of the dict values available.
         num_answers = list(question_and_answers.values())[0].shape[1]
 
+        video_features = video_features.unsqueeze(1).expand(-1, num_answers, -1, -1)
+        video_features_mask = util.get_mask_from_sequence_lengths(frame_count, int(max(frame_count).item())) \
+            .unsqueeze(1) \
+            .expand(-1, num_answers, -1)
+
+        embedded_question_and_answers = self.text_field_embedder(question_and_answers)
+        question_and_answers_mask = util.get_text_field_mask(question_and_answers, num_wrapping_dims=1)
+
         if self.text_video_mode == 'video-text':
-            encoded_video = self._encode_video(video_features, frame_count, batch_size) \
-                .reshape(-1, batch_size, self.num_layers * self.num_directions, self.hidden_size) \
-                .transpose(1, 2) \
-                .unsqueeze(3) \
-                .expand(-1, -1, -1, num_answers, -1) \
-                .squeeze(0)  # It may be 1, and in that case the model expects only one state in hidden_state.
-            if len(encoded_video.size()) == 5:
-                encoded_video = (encoded_video[0], encoded_video[1])
-            encoded_modalities = self._encode_text(question_and_answers, hidden_state=encoded_video)[0]
+            args = [video_features, embedded_question_and_answers]
+            kwargs = {'masks': [video_features_mask, question_and_answers_mask]}
         elif self.text_video_mode == 'text-video':
-            encoded_text = self._encode_text(question_and_answers) \
-                .reshape(-1, batch_size, self.num_layers * self.num_directions, self.hidden_size) \
-                .transpose(1, 2) \
-                .squeeze(0)  # It may be 1, and in that case the model expects only one state in hidden_state.
-            if len(encoded_text.size()) == 4:
-                encoded_text = (encoded_text[0], encoded_text[1])
-
-            video_features = video_features.unsqueeze(1).expand(-1, num_answers, -1, -1)
-
-            encoded_modalities = self._encode_video(video_features, frame_count, batch_size, hidden_state=encoded_text,
-                                                    time_expand_size=num_answers)[0]
+            args = [embedded_question_and_answers, video_features]
+            kwargs = {'masks': [question_and_answers_mask, video_features_mask]}
         elif self.text_video_mode == 'parallel':
-            encoded_video = self._encode_video(video_features, frame_count, batch_size)[0] \
-                .unsqueeze(1).expand(-1, num_answers, -1)
-            encoded_text = self._encode_text(question_and_answers)[0]
-            encoded_modalities = self.parallel_feedforward(torch.cat((encoded_video, encoded_text), 2))
+            args = [video_features, embedded_question_and_answers, video_features_mask, question_and_answers_mask]
+            kwargs = {}
         elif self.text_video_mode == 'text':
-            encoded_modalities = self._encode_text(question_and_answers)[0]
+            args = [embedded_question_and_answers]
+            kwargs = {'mask': question_and_answers_mask}
         else:
             raise ValueError(f"'text_video_mode' should be one of {self.TEXT_VIDEO_MODE_OPTIONS}")
+
+        encoded_modalities = self.encoder(*args, **kwargs)
+
+        if isinstance(encoded_modalities, tuple):
+            encoded_modalities = encoded_modalities[0]
 
         scores = self.classifier_feedforward(encoded_modalities).squeeze(2)
 
@@ -136,19 +145,6 @@ class TgifQaClassifier(Model):
                 metric(scores, label)
 
         return output_dict
-
-    def _encode_video(self, video_features: torch.Tensor, frame_count: torch.Tensor, batch_size: int,
-                      hidden_state: Optional[torch.Tensor] = None, time_expand_size: int = 1) -> torch.Tensor:
-        video_features_mask = util.get_mask_from_sequence_lengths(frame_count, int(max(frame_count).item()))
-        if time_expand_size > 1:
-            video_features_mask = video_features_mask.reshape(batch_size, 1, -1).expand(-1, time_expand_size, -1)
-        return self.video_encoder(video_features, video_features_mask, hidden_state=hidden_state)
-
-    def _encode_text(self, question_and_answers: Dict[str, torch.LongTensor],
-                     hidden_state: Optional[torch.Tensor] = None) -> torch.Tensor:
-        embedded_question_and_answers = self.text_field_embedder(question_and_answers)
-        question_and_answers_mask = util.get_text_field_mask(question_and_answers, num_wrapping_dims=1)
-        return self.text_encoder(embedded_question_and_answers, question_and_answers_mask, hidden_state=hidden_state)
 
     @overrides
     def decode(self, output_dict: Dict[str, torch.Tensor]) -> Dict[str, torch.Tensor]:

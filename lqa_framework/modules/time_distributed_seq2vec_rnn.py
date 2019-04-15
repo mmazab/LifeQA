@@ -11,7 +11,7 @@ import torch
 from .time_distributed import TimeDistributed
 
 
-class TimeDistributedRNN(torch.nn.Module):
+class TimeDistributedSeq2VecRNN(torch.nn.Module):
     """
     Given an input shaped like ``(batch_size, time_steps, [rest])`` and a ``RNNBase`` that takes
     inputs like ``(batch_size, [rest])``, ``TimeDistributedRNN`` reshapes the input to be
