@@ -23,6 +23,7 @@ class LqaDatasetReader(DatasetReader):
 
     FEATURES_PATH = pathlib.Path('data/features')
     MODEL_NAME_TO_PRETRAINED_FILE_DICT = {
+        'c3d-conv5b': FEATURES_PATH / 'LifeQA_C3D_conv5b.hdf5',
         'c3d-fc6': FEATURES_PATH / 'LifeQA_C3D_fc6.hdf5',
         'c3d-fc7': FEATURES_PATH / 'LifeQA_C3D_fc7.hdf5',
         'i3d-avg-pool': FEATURES_PATH / 'LifeQA_I3D_avg_pool.hdf5',

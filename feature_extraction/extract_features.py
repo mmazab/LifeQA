@@ -111,10 +111,12 @@ def save_c3d_features():
     filter_size = 16
     padding = (0, 0, 0, 0, math.ceil((filter_size - 1) / 2), (filter_size - 1) // 2)
 
-    with h5py.File(LifeQaDataset.features_file_path('c3d', 'fc6'), 'w') as features_file:
+    with h5py.File(LifeQaDataset.features_file_path('c3d', 'fc6'), 'w') as fc6_features_file, \
+            h5py.File(LifeQaDataset.features_file_path('c3d', 'conv5b'), 'w') as conv5b_features_file:
         for video_id in dataset.video_ids:
             video_frame_count = dataset.frame_count_by_video_id[video_id]
-            features_file.create_dataset(video_id, shape=(video_frame_count, 4096))
+            fc6_features_file.create_dataset(video_id, shape=(video_frame_count, 4096))
+            conv5b_features_file.create_dataset(video_id, shape=(video_frame_count, 1024, 7, 7))
 
         for batch in tqdm(torch.utils.data.DataLoader(dataset), desc="Extracting C3D features"):
             video_ids = batch['id']
@@ -125,8 +127,10 @@ def save_c3d_features():
 
             for i_video, (video_id, video_frame_count) in enumerate(zip(video_ids, video_frame_counts)):
                 for i_frame in range(video_frame_count.item()):
-                    output = c3d.extract_features(frames[[i_video], :, i_frame:i_frame + filter_size, :, :])
-                    features_file[video_id][i_frame, :] = output[i_video].cpu()
+                    fc6_output, conv5b_output = \
+                        c3d.extract_features(frames[[i_video], :, i_frame:i_frame + filter_size, :, :])
+                    fc6_features_file[video_id][i_frame] = fc6_output[i_video].cpu()
+                    conv5b_features_file[video_id][i_frame] = conv5b_output[i_video].cpu()
 
 
 def save_i3d_features():
@@ -157,7 +161,7 @@ def save_i3d_features():
             for i_video, (video_id, video_frame_count) in enumerate(zip(video_ids, video_frame_counts)):
                 for i_frame in range(video_frame_count.item()):
                     output = i3d.extract_features(frames[[i_video], :, i_frame:i_frame + filter_size, :, :])
-                    features_file[video_id][i_frame, :] = output[i_video].squeeze().cpu()
+                    features_file[video_id][i_frame] = output[i_video].squeeze().cpu()
 
 
 def parse_args():
