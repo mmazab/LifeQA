@@ -31,7 +31,7 @@ class TimeDistributedSeq2VecRNN(torch.nn.Module):
 
     # pylint: disable=arguments-differ
     @overrides
-    def forward(self, inputs: torch.Tensor, mask: torch.Tensor,
+    def forward(self, input_: torch.Tensor, mask: torch.Tensor,
                 hidden_state: Union[torch.Tensor, Tuple[torch.Tensor, torch.Tensor]] = None) -> torch.Tensor:
         if hidden_state is not None:
             if isinstance(hidden_state, tuple):  # LSTMs.
@@ -42,13 +42,13 @@ class TimeDistributedSeq2VecRNN(torch.nn.Module):
                 hidden_state_size = hidden_state.size()
                 hidden_state = hidden_state.reshape(hidden_state_size[0], -1, *hidden_state_size[3:])
 
-        output = self._time_distributed(inputs, mask, hidden_state=hidden_state, pass_through=['hidden_state'])
+        output = self._time_distributed(input_, mask, hidden_state=hidden_state, pass_through=['hidden_state'])
 
         if len(output.size()) == 3:
-            output = output.reshape(output.size()[0], *inputs.size()[:2], *output.size()[2:])
+            output = output.reshape(output.size()[0], *input_.size()[:2], *output.size()[2:])
         else:
             # Now get the output back into the right shape.
             # (batch_size, time_steps, **output_size)
-            output = output.reshape(inputs.size()[:2] + output.size()[1:])
+            output = output.reshape(input_.size()[:2] + output.size()[1:])
 
         return output

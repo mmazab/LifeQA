@@ -45,7 +45,7 @@ params + {
   iterator: {
     type: 'basic',  //bucket
     //sorting_keys: [['question_and_answers', 'num_tokens']],  # TODO: How to put video_features here?
-    batch_size: 64,
+    batch_size: 16,
   },
   trainer: {
     num_epochs: 40,
