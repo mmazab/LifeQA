@@ -2,7 +2,7 @@ from typing import Dict, List, Optional
 
 from allennlp.data import Vocabulary
 from allennlp.models.model import Model
-from allennlp.modules import FeedForward, Seq2VecEncoder, TextFieldEmbedder, TimeDistributed
+from allennlp.modules import FeedForward, Seq2VecEncoder, TextFieldEmbedder
 from allennlp.nn import InitializerApplicator, RegularizerApplicator, util
 from allennlp.training.metrics import CategoricalAccuracy
 import numpy as np
@@ -28,17 +28,9 @@ class TgifQaClassifier(Model):
         super().__init__(vocab, regularizer)
 
         self.text_field_embedder = text_field_embedder
-
         self.video_encoder = video_encoder
         self.text_encoder = text_encoder
-        self.classifier_feedforward = TimeDistributed(classifier_feedforward)
-
-        # noinspection PyProtectedMember
-        self.hidden_size = self.text_encoder._module.hidden_size
-        # noinspection PyProtectedMember
-        self.num_directions = self.text_encoder._num_directions()
-        # noinspection PyProtectedMember
-        self.num_layers = self.text_encoder._num_layers
+        self.classifier_feedforward = classifier_feedforward
         self.text_video_mode = text_video_mode
 
         if video_encoder is None and text_video_mode != 'text':
@@ -49,35 +41,23 @@ class TgifQaClassifier(Model):
         elif text_video_mode == 'text-video':
             self.encoder = PytorchSeq2VecWrapperChain([self.text_encoder, self.video_encoder])
         elif text_video_mode == 'parallel':
-            class Parallel(torch.nn.Module):
-                @overrides
-                def forward(self, video_features, embedded_question_and_answers, masks: List[torch.Tensor]):
-                    assert len(masks) == 2
-                    encoded_video = self.video_encoder(video_features, masks[0])[0]
-                    encoded_text = self.text_encoder(embedded_question_and_answers, masks[1])[0]
-                    return self.parallel_feedforward(torch.cat((encoded_video, encoded_text), 2)).unsqueeze(0)
-            self.encoder = Parallel()
+            self.encoder = ParallelModalities(text_encoder.get_output_dim(), self.video_encoder, self.text_encoder)
         elif text_video_mode == 'text':
             # Use PytorchSeq2VecWrapperChain for consistency when time-distributing.
             self.encoder = PytorchSeq2VecWrapperChain([self.text_encoder])
         else:
             raise ValueError(f"'text_video_mode' should be one of {self.TEXT_VIDEO_MODE_OPTIONS}")
 
-        self.encoder = TimeDistributedSeq2VecRNNChain(self.encoder)
-
-        encoded_size = text_encoder.get_output_dim()
-        self.parallel_feedforward = TimeDistributed(FeedForward(input_dim=encoded_size * 2, num_layers=1,
-                                                                hidden_dims=[encoded_size], activations=[lambda x: x]))
+        self.main_model = TimeDistributedSeq2VecRNNChain(MainModel(self.encoder, self.classifier_feedforward))
 
         self.metrics = {'accuracy': CategoricalAccuracy()}
 
-        if loss not in self.LOSS_OPTIONS:
-            raise ValueError(f"'loss' should be one of {self.LOSS_OPTIONS}")
-
         if loss == 'hinge':
             self.loss = torch.nn.MultiMarginLoss()
-        else:
+        elif loss == 'cross-entropy':
             self.loss = torch.nn.CrossEntropyLoss()
+        else:
+            raise ValueError(f"'loss' should be one of {self.LOSS_OPTIONS}")
 
         initializer(self)
 
@@ -127,9 +107,7 @@ class TgifQaClassifier(Model):
         else:
             raise ValueError(f"'text_video_mode' should be one of {self.TEXT_VIDEO_MODE_OPTIONS}")
 
-        encoded_modalities = self.encoder(*args, **kwargs)
-
-        scores = self.classifier_feedforward(encoded_modalities).squeeze(2)
+        scores = self.main_model(*args, **kwargs)
 
         output_dict = {'scores': scores}
 
@@ -156,3 +134,31 @@ class TgifQaClassifier(Model):
     @overrides
     def get_metrics(self, reset: Optional[bool] = False) -> Dict[str, float]:
         return {metric_name: metric.get_metric(reset) for metric_name, metric in self.metrics.items()}
+
+
+class MainModel(torch.nn.Module):
+    def __init__(self, encoder, classifier_feedforward):
+        super().__init__()
+        self.encoder = encoder
+        self.classifier_feedforward = classifier_feedforward
+
+    @overrides
+    def forward(self, *inputs, **kwargs):
+        encoded_modalities = self.encoder(*inputs, **kwargs)
+        return self.classifier_feedforward(encoded_modalities).squeeze(1)
+
+
+class ParallelModalities(torch.nn.Module):
+    def __init__(self, encoded_size, video_encoder, text_encoder):
+        super().__init__()
+        self.video_encoder = video_encoder
+        self.text_encoder = text_encoder
+        self.parallel_feedforward = FeedForward(input_dim=encoded_size * 2, num_layers=1,
+                                                hidden_dims=[encoded_size], activations=[lambda x: x])
+
+    @overrides
+    def forward(self, video_features, embedded_question_and_answers, masks: List[torch.Tensor]):
+        assert len(masks) == 2
+        encoded_video = self.video_encoder(video_features, masks[0])[0]
+        encoded_text = self.text_encoder(embedded_question_and_answers, masks[1])[0]
+        return self.parallel_feedforward(torch.cat((encoded_video, encoded_text), 2)).unsqueeze(0)
