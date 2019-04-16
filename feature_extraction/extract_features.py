@@ -130,7 +130,7 @@ def save_c3d_features():
                     fc6_output, conv5b_output = \
                         c3d.extract_features(frames[[i_video], :, i_frame:i_frame + filter_size, :, :])
                     fc6_features_file[video_id][i_frame] = fc6_output[i_video].cpu()
-                    conv5b_features_file[video_id][i_frame] = conv5b_output[i_video].cpu()
+                    conv5b_features_file[video_id][i_frame] = conv5b_output[i_video].reshape(1024, 7, 7).cpu()
 
 
 def save_i3d_features():
