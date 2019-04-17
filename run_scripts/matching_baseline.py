@@ -1,4 +1,4 @@
-# Model implemented from DREAM (Sun et. al 2018)
+# Matching baseline Model implemented from DREAM (Sun et. al 2018)
 import json
 import re
 import operator
@@ -23,7 +23,9 @@ def matching(question, answers):
 
     mx = max(matching_counts)
     all_maxes = [x for x in matching_counts if x == mx]
-    return choice(all_maxes)
+
+    result = choice(all_maxes)
+    return result
 
 
 
