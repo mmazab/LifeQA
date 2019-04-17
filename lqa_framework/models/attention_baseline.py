@@ -71,6 +71,7 @@ class BidirectionalAttentionFlow(Model):
                  answers_encoder: Seq2SeqEncoder,
                  captions_encoder: Seq2SeqEncoder,
                  classifier_feedforward: FeedForward,
+                 classifier_feedforward_answers: FeedForward,
                  num_highway_layers: int,
                  dropout: float = 0.2,
                  mask_lstms: bool = True,
@@ -84,9 +85,10 @@ class BidirectionalAttentionFlow(Model):
                                                       num_highway_layers))
 
         self.classifier_feedforward = classifier_feedforward
+        self.classifier_feedforward_answers = classifier_feedforward_answers
 
         self._phrase_layer = phrase_layer
-        self._matrix_attention = LegacyMatrixAttention(similarity_functions.dot_product.DotProductSimilarity)
+        self._matrix_attention = LegacyMatrixAttention(similarity_functions.dot_product.DotProductSimilarity())
         self._modeling_layer = modeling_layer
 
         encoding_dim = phrase_layer.get_output_dim()
@@ -117,6 +119,7 @@ class BidirectionalAttentionFlow(Model):
             self._dropout = lambda x: x
 
         self._mask_lstms = mask_lstms
+        self.loss = torch.nn.CrossEntropyLoss()
 
         initializer(self)
 
@@ -177,21 +180,16 @@ class BidirectionalAttentionFlow(Model):
         passage_length = embedded_passage.size(1)
         question_mask = util.get_text_field_mask(question).float()
         passage_mask = util.get_text_field_mask(captions).float()
-        question_lstm_mask = question_mask if self._mask_lstms else None
-        passage_lstm_mask = passage_mask if self._mask_lstms else None
+        question_lstm_mask = None #Change this
+        passage_lstm_mask = None #Change this
 
         encoded_question = self._dropout(self._phrase_layer(embedded_question, question_lstm_mask))
 
-        # print(embedded_question.shape)
-        # print(torch.squeeze(embedded_passage).shape)
-        encoded_passage = self._dropout(self._phrase_layer(torch.squeeze(embedded_passage, dim = 1), passage_lstm_mask))
+
+        encoded_passage = self._dropout(self._phrase_layer(torch.squeeze(embedded_passage), passage_lstm_mask))
         encoding_dim = encoded_question.size(-1)
 
         # Shape: (batch_size, passage_length, question_length)
-
-        print(encoded_question.shape)
-        print(encoded_passage.shape)
-
         passage_question_similarity = self._matrix_attention(encoded_passage, encoded_question)
         # Shape: (batch_size, passage_length, question_length)
         passage_question_attention = util.masked_softmax(passage_question_similarity, question_mask)
@@ -214,7 +212,7 @@ class BidirectionalAttentionFlow(Model):
                                                                                     passage_length,
                                                                                     encoding_dim)
 
-        Shape: (batch_size, passage_length, encoding_dim * 4)
+        # Shape: (batch_size, passage_length, encoding_dim * 4)
         final_merged_passage = torch.cat([encoded_passage,
                                           passage_question_vectors,
                                           encoded_passage * passage_question_vectors,
@@ -224,8 +222,17 @@ class BidirectionalAttentionFlow(Model):
         modeled_passage = self._dropout(self._modeling_layer(final_merged_passage, passage_lstm_mask))
         # modeling_dim = modeled_passage.size(-1)
 
-        fuse_cq = self.classifier_feedforward(modeled_passage, dim=-1)
-        logits = torch.bmm(encoded_answers, fuse_cq.unsqueeze(2)).squeeze(2)
+        #encode answers
+        embedded_answers =self._highway_layer(self._text_field_embedder(answers))
+        answers_mask = util.get_text_field_mask(answers, num_wrapping_dims=1)
+        encoded_answers = self.answers_encoder(embedded_answers, answers_mask)
+
+        print(modeled_passage.shape)
+        print(torch.reshape(modeled_passage, (64, 47600)).shape)
+
+        fuse_cq = self.classifier_feedforward(torch.reshape(modeled_passage, (64, 47600))) #(64, 238 x 200) -> (64, 200)
+        fuse_a = self.classifier_feedforward_answers(torch.reshape(encoded_answers, (64,4, 800)))# (64, 4, 4x200) -> (64, 4, 200)
+        logits = torch.bmm(fuse_a, fuse_cq.unsqueeze(2)).squeeze(2)
 
 
         output_dict = {'logits': logits}
