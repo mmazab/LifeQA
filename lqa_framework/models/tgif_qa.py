@@ -68,7 +68,7 @@ class TgifQaClassifier(Model):
         initializer(self)
 
     @overrides
-    def forward(self, question_and_answers: Dict[str, torch.LongTensor],
+    def forward(self, question: Dict[str, torch.LongTensor], question_and_answers: Dict[str, torch.LongTensor],
                 captions: Dict[str, torch.LongTensor], video_features: Optional[torch.Tensor] = None,
                 frame_count: Optional[torch.Tensor] = None,
                 label: Optional[torch.LongTensor] = None) -> Dict[str, torch.Tensor]:
@@ -76,6 +76,7 @@ class TgifQaClassifier(Model):
 
         Parameters
         ----------
+        question : Dict[str, Variable], required	The output of ``TextField.as_array()``.
         question_and_answers : Dict[str, Variable], required	The output of ``TextField.as_array()``.
         captions : Dict[str, Variable], required 	The output of ``TextField.as_array()``.
         video_features : torch.Tensor, required     The video features.
@@ -94,9 +95,20 @@ class TgifQaClassifier(Model):
         num_answers = list(question_and_answers.values())[0].shape[1]
 
         video_features = video_features.unsqueeze(1).expand(-1, num_answers, -1, -1)
-        video_features_mask = util.get_mask_from_sequence_lengths(frame_count, int(max(frame_count).item())) \
+        max_frame_count = int(max(frame_count).item())
+        video_features_mask = util.get_mask_from_sequence_lengths(frame_count, max_frame_count) \
             .unsqueeze(1) \
             .expand(-1, num_answers, -1)
+
+        if self.use_spatial_attention:
+            embedded_question = self.text_field_embedder(question)
+            question_mask = util.get_text_field_mask(question, num_wrapping_dims=1)
+            encoded_question = self.text_encoder(embedded_question, question_mask)
+            encoded_question = self.fc_question(encoded_question) \
+                .expand(-1, max_frame_count * 7 * 7) \
+                .reshape(-1, 512)
+
+            video_agg = video_features.reshape(-1, video_features.size()[-1])
 
         embedded_question_and_answers = self.text_field_embedder(question_and_answers)
         question_and_answers_mask = util.get_text_field_mask(question_and_answers, num_wrapping_dims=1)
