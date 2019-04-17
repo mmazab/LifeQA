@@ -24,7 +24,8 @@ class TgifQaClassifier(Model):
                  text_encoder: Seq2VecEncoder, classifier_feedforward: FeedForward,
                  initializer: InitializerApplicator = InitializerApplicator(),
                  regularizer: Optional[RegularizerApplicator] = None, text_video_mode: str = 'video-text',
-                 loss: str = 'hinge') -> None:
+                 loss: str = 'hinge', use_spatial_attention: bool = False,
+                 use_temporal_attention: bool = False) -> None:
         super().__init__(vocab, regularizer)
 
         self.text_field_embedder = text_field_embedder
@@ -32,9 +33,14 @@ class TgifQaClassifier(Model):
         self.text_encoder = text_encoder
         self.classifier_feedforward = classifier_feedforward
         self.text_video_mode = text_video_mode
+        self.use_spatial_attention = use_spatial_attention
+        self.use_temporal_attention = use_temporal_attention
 
         if video_encoder is None and text_video_mode != 'text':
             raise ValueError("'video_encoder' can be None only if 'text_video_mode' is set to 'text'")
+
+        if self.use_spatial_attention:
+            self.fc_question = torch.nn.Linear(self.video_encoder.get_input_dim(), 512)
 
         if text_video_mode == 'video-text':
             self.encoder = PytorchSeq2VecWrapperChain([self.video_encoder, self.text_encoder])
