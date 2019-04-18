@@ -2,6 +2,7 @@ name: lifeqa
 channels:
   - pytorch
   - defaults
+  - conda-forge
 dependencies:
   # The direct and indirect dependencies are pinned for reproducibility purposes.
   # However, some few indirect dependencies as well as all the dependency hashes are not kept so this file can be used
@@ -55,10 +56,11 @@ dependencies:
   # --- Conda direct dependencies: ---
   - cudatoolkit=10.0
   - cudnn=7.3.1
-  - ffmpeg=4.0
+  - ffmpeg=4.1.1
   - h5py=2.9.0
   - nltk=3.4
   - numpy=1.16.2
+  - opencv=4.1.0
   - pillow=5.4.1
   - pip=19.0.3
   - python=3.7.2

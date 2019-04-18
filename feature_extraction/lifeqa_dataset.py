@@ -5,6 +5,7 @@ from typing import Callable, Dict
 import PIL.Image
 import torch
 import torch.utils.data
+from tqdm import tqdm
 
 
 class LifeQaDataset(torch.utils.data.Dataset):
@@ -60,6 +61,8 @@ class LifeQaDataset(torch.utils.data.Dataset):
         video_folder_path = self._video_folder_path(video_id)
         for i, frame_file_name in enumerate(os.listdir(video_folder_path)):
             frame = PIL.Image.open(os.path.join(video_folder_path, frame_file_name))
+            assert frame.mode == 'RGB'
+
             if self.transform:
                 frame = self.transform(frame)
 
