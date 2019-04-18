@@ -2,10 +2,11 @@ local params = import 'lqa.libsonnet';
 
 params + {
   embedding_size:: 300,
+  video_channel_size:: 2048 + 1024,
   encoder:: {
     type: 'lstm_patched',
-    bidirectional: true,
-    input_size: $.embedding_size,
+    bidirectional: false,
+    input_size: error 'Must override',
     hidden_size: 50,
     num_layers: 2,
     dropout: 0.2,
@@ -13,11 +14,13 @@ params + {
     return_all_hidden_states: true,
 
     num_directions:: (if self.bidirectional then 2 else 1),
+    output_size:: $.encoder.num_layers * $.encoder.num_directions * $.encoder.hidden_size,
   },
 
   dataset_reader+: {
-    video_features_to_load: ['resnet-pool5'],
+    video_features_to_load: ['resnet-res5c', 'c3d-conv5b'],
     join_question_and_answers: true,
+    frame_step: 4,
   },
   model: {
     type: 'tgif_qa',
@@ -32,20 +35,26 @@ params + {
       }
     },
     video_encoder: $.encoder + {
-      input_size: 2048
+      input_size: $.video_channel_size
     },
-    text_encoder: $.encoder,
+    spatial_attention: {
+      type: 'spatial',
+      video_channel_size: $.video_channel_size,
+      encoded_question_size: $.encoder.output_size,
+    },
+    text_encoder: $.encoder + {
+      input_size: $.embedding_size
+    },
     classifier_feedforward: {
-      input_dim: $.encoder.num_layers * $.encoder.num_directions * $.encoder.hidden_size,
+      input_dim: $.encoder.output_size,
       num_layers: 1,
       hidden_dims: [1],
       activations: ['linear'],
     }
   },
   iterator: {
-    type: 'basic',  //bucket
-    //sorting_keys: [['question_and_answers', 'num_tokens']],  # TODO: How to put video_features here?
-    batch_size: 16,
+    sorting_keys: [['video_features', 'dimension_0']],
+    batch_size: 4,
   },
   trainer: {
     num_epochs: 40,

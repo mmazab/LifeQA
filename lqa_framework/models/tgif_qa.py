@@ -2,7 +2,7 @@ from typing import Dict, List, Optional
 
 from allennlp.data import Vocabulary
 from allennlp.models.model import Model
-from allennlp.modules import FeedForward, Seq2VecEncoder, TextFieldEmbedder
+from allennlp.modules import Attention, FeedForward, Seq2VecEncoder, TextFieldEmbedder
 from allennlp.nn import InitializerApplicator, RegularizerApplicator, util
 from allennlp.training.metrics import CategoricalAccuracy
 import numpy as np
@@ -10,8 +10,8 @@ from overrides import overrides
 import torch
 import torch.nn.functional as F
 
-from lqa_framework.modules.pytorch_seq2vec_wrapper_chain import PytorchSeq2VecWrapperChain
-from lqa_framework.modules.time_distributed_seq2vec_rnn_chain import TimeDistributedSeq2VecRNNChain
+from ..modules.pytorch_seq2vec_wrapper_chain import PytorchSeq2VecWrapperChain
+from ..modules.time_distributed_seq2vec_rnn_chain import TimeDistributedSeq2VecRNNChain
 
 
 @Model.register('tgif_qa')
@@ -24,8 +24,8 @@ class TgifQaClassifier(Model):
                  text_encoder: Seq2VecEncoder, classifier_feedforward: FeedForward,
                  initializer: InitializerApplicator = InitializerApplicator(),
                  regularizer: Optional[RegularizerApplicator] = None, text_video_mode: str = 'video-text',
-                 loss: str = 'hinge', use_spatial_attention: bool = False,
-                 use_temporal_attention: bool = False) -> None:
+                 loss: str = 'hinge', spatial_attention: Optional[Attention] = None,
+                 temporal_attention: Optional[Attention] = None) -> None:
         super().__init__(vocab, regularizer)
 
         self.text_field_embedder = text_field_embedder
@@ -33,14 +33,11 @@ class TgifQaClassifier(Model):
         self.text_encoder = text_encoder
         self.classifier_feedforward = classifier_feedforward
         self.text_video_mode = text_video_mode
-        self.use_spatial_attention = use_spatial_attention
-        self.use_temporal_attention = use_temporal_attention
+        self.spatial_attention = spatial_attention
+        self.temporal_attention = temporal_attention
 
         if video_encoder is None and text_video_mode != 'text':
             raise ValueError("'video_encoder' can be None only if 'text_video_mode' is set to 'text'")
-
-        if self.use_spatial_attention:
-            self.fc_question = torch.nn.Linear(self.video_encoder.get_input_dim(), 512)
 
         if text_video_mode == 'video-text':
             self.encoder = PytorchSeq2VecWrapperChain([self.video_encoder, self.text_encoder])
@@ -94,21 +91,27 @@ class TgifQaClassifier(Model):
         # This supposes a fixed number of answers, by grabbing any of the dict values available.
         num_answers = list(question_and_answers.values())[0].shape[1]
 
-        video_features = video_features.unsqueeze(1).expand(-1, num_answers, -1, -1)
-        max_frame_count = int(max(frame_count).item())
-        video_features_mask = util.get_mask_from_sequence_lengths(frame_count, max_frame_count) \
-            .unsqueeze(1) \
-            .expand(-1, num_answers, -1)
+        video_shape = video_features.size()
+        max_frame_count = video_shape[1]
+        video_features_mask = util.get_mask_from_sequence_lengths(frame_count, max_frame_count)
 
-        if self.use_spatial_attention:
+        if self.spatial_attention:
             embedded_question = self.text_field_embedder(question)
-            question_mask = util.get_text_field_mask(question, num_wrapping_dims=1)
-            encoded_question = self.text_encoder(embedded_question, question_mask)
-            encoded_question = self.fc_question(encoded_question) \
-                .expand(-1, max_frame_count * 7 * 7) \
-                .reshape(-1, 512)
+            question_mask = util.get_text_field_mask(question)
+            encoded_question = self.text_encoder(embedded_question, question_mask)[0]
 
-            video_agg = video_features.reshape(-1, video_features.size()[-1])
+            # In this case, video_features has shape (N, F, C, H, W)
+            video_features = video_features \
+                .reshape(*video_shape[:3], video_shape[3] * video_shape[4]) \
+                .transpose(-2, -1)
+
+            video_features_mask_same_shape = video_features_mask.unsqueeze(-1).unsqueeze(-1)
+            alpha = self.spatial_attention(encoded_question, video_features, video_features_mask_same_shape)
+
+            video_features = torch.sum(video_features * alpha, dim=2)
+
+        video_features = video_features.unsqueeze(1).expand(-1, num_answers, -1, -1)
+        video_features_mask = video_features_mask.unsqueeze(1).expand(-1, num_answers, -1)
 
         embedded_question_and_answers = self.text_field_embedder(question_and_answers)
         question_and_answers_mask = util.get_text_field_mask(question_and_answers, num_wrapping_dims=1)
@@ -164,6 +167,27 @@ class MainModel(torch.nn.Module):
     def forward(self, *inputs, **kwargs):
         encoded_modalities = self.encoder(*inputs, **kwargs)
         return self.classifier_feedforward(encoded_modalities).squeeze(1)
+
+
+@Attention.register('spatial')
+class SpatialAttention(Attention):
+    def __init__(self, video_channel_size: int, encoded_question_size: int, hidden_size: int = 512) -> None:
+        super().__init__(normalize=True)
+        self.fc_question = torch.nn.Linear(encoded_question_size, hidden_size)
+        self.fc_video = torch.nn.Linear(video_channel_size, hidden_size)
+
+        self.fc_output = torch.nn.Linear(hidden_size, 1)
+
+    @overrides
+    def _forward_internal(self, encoded_question: torch.Tensor, video_features: torch.Tensor) -> torch.Tensor:
+        """
+        :param encoded_question: shape ``(batch_size, encoded_question_size)``
+        :param video_features:   shape ``(batch_size, max_frame_count, video_filter_size, video_channel_size)``
+        :return:                 shape ``(batch_size, max_frame_count, video_filter_size)``
+        """
+        encoded_question = encoded_question.unsqueeze(1).unsqueeze(1)
+        hidden_layer = torch.tanh(self.fc_video(video_features) + self.fc_question(encoded_question))
+        return self.fc_output(hidden_layer)
 
 
 class ParallelModalities(torch.nn.Module):

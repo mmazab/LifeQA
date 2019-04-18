@@ -1,5 +1,4 @@
 import json
-import logging
 import pathlib
 import random
 from typing import Any, Dict, Iterable, List, Optional
@@ -13,8 +12,6 @@ from allennlp.data.token_indexers import TokenIndexer, SingleIdTokenIndexer
 import h5py
 import numpy as np
 from overrides import overrides
-
-logger = logging.getLogger(__name__)
 
 
 @DatasetReader.register('lqa')
@@ -47,12 +44,10 @@ class LqaDatasetReader(DatasetReader):
     @overrides
     def _read(self, file_path: str) -> Iterable[Instance]:
         if self.video_features_to_load:
-            logger.info("Reading video features of instances")
             features_files = [h5py.File(self.MODEL_NAME_TO_PRETRAINED_FILE_DICT[video_feature], 'r')
                               for video_feature in self.video_features_to_load]
 
         with open(cached_path(file_path)) as data_file:
-            logger.info("Reading instances in file at: %s", file_path)
             video_dict = json.load(data_file)
 
             if self.small_sample:
