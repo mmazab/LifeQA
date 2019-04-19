@@ -11,12 +11,10 @@ import torch
 import torch.nn.functional as F
 
 from ..modules.pytorch_seq2vec_wrapper_chain import PytorchSeq2VecWrapperChain
-from ..modules.time_distributed_seq2vec_rnn_chain import TimeDistributedSeq2VecRNNChain
 
 
 @Model.register('tgif_qa')
 class TgifQaClassifier(Model):
-    TEXT_VIDEO_MODE_OPTIONS = ['video-text', 'text-video', 'parallel', 'text']
     LOSS_OPTIONS = ['hinge', 'cross-entropy']
 
     def __init__(self, vocab: Vocabulary, text_field_embedder: TextFieldEmbedder,
@@ -29,30 +27,12 @@ class TgifQaClassifier(Model):
         super().__init__(vocab, regularizer)
 
         self.text_field_embedder = text_field_embedder
-        self.video_encoder = video_encoder
-        self.text_encoder = text_encoder
-        self.classifier_feedforward = classifier_feedforward
-        self.text_video_mode = text_video_mode
-        self.spatial_attention = TimeDistributed(spatial_attention) if spatial_attention else None
-        self.temporal_attention = temporal_attention
-
-        if video_encoder is None and text_video_mode != 'text':
-            raise ValueError("'video_encoder' can be None only if 'text_video_mode' is set to 'text'")
-
-        if text_video_mode == 'video-text':
-            self.encoder = PytorchSeq2VecWrapperChain([self.video_encoder, self.text_encoder])
-        elif text_video_mode == 'text-video':
-            self.encoder = PytorchSeq2VecWrapperChain([self.text_encoder, self.video_encoder])
-        elif text_video_mode == 'parallel':
-            self.encoder = ParallelModalities(text_encoder.get_output_dim(), self.video_encoder, self.text_encoder)
-        elif text_video_mode == 'text':
-            # Use PytorchSeq2VecWrapperChain for consistency when time-distributing.
-            self.encoder = PytorchSeq2VecWrapperChain([self.text_encoder])
-        else:
-            raise ValueError(f"'text_video_mode' should be one of {self.TEXT_VIDEO_MODE_OPTIONS}")
-
-        self.main_model = TimeDistributedSeq2VecRNNChain(MainModel(self.encoder, self.classifier_feedforward))
-
+        self.answer_scorer = TimeDistributed(_TgifQaAnswerScorer(video_encoder=video_encoder,
+                                                                 text_encoder=text_encoder,
+                                                                 spatial_attention=spatial_attention,
+                                                                 temporal_attention=temporal_attention,
+                                                                 classifier_feedforward=classifier_feedforward,
+                                                                 text_video_mode=text_video_mode))
         self.metrics = {'accuracy': CategoricalAccuracy()}
 
         if loss == 'hinge':
@@ -68,8 +48,7 @@ class TgifQaClassifier(Model):
     def forward(self, question_and_answers: Dict[str, torch.LongTensor], video_features: Optional[torch.Tensor] = None,
                 frame_count: Optional[torch.Tensor] = None,
                 label: Optional[torch.LongTensor] = None, **kwargs) -> Dict[str, torch.Tensor]:
-        """Does the forward pass.
-
+        """
         Parameters
         ----------
         question_and_answers : Dict[str, Variable], required	The output of ``TextField.as_array()``.
@@ -88,43 +67,15 @@ class TgifQaClassifier(Model):
         # This supposes a fixed number of answers, by grabbing any of the dict values available.
         num_answers = list(question_and_answers.values())[0].shape[1]
 
-        video_shape = video_features.size()
-        max_frame_count = video_shape[1]
-        video_features_mask = util.get_mask_from_sequence_lengths(frame_count, max_frame_count)
-
-        video_features = video_features.unsqueeze(1).expand(-1, num_answers, *[-1] * len(video_shape[1:]))
-        video_features_mask = video_features_mask.unsqueeze(1).expand(-1, num_answers, -1)
+        video_features = self._expand_to_num_answers(video_features, num_answers)
+        video_features_mask = self._expand_to_num_answers(
+            util.get_mask_from_sequence_lengths(frame_count, video_features.shape[2]), num_answers)
 
         embedded_question_and_answers = self.text_field_embedder(question_and_answers)
         question_and_answers_mask = util.get_text_field_mask(question_and_answers, num_wrapping_dims=1)
 
-        if self.spatial_attention:
-            encoded_question_and_answers = self.text_encoder(embedded_question_and_answers,
-                                                             question_and_answers_mask)[0]
-
-            # In this case, video_features has shape (N, A, F, C, H, W)
-            video_features = video_features \
-                .reshape(*video_shape[:-2], video_shape[-2] * video_shape[-1]) \
-                .transpose(-2, -1)
-
-            video_features_mask_same_shape = video_features_mask.unsqueeze(-1).unsqueeze(-1)
-            alpha = self.spatial_attention(encoded_question_and_answers, video_features, video_features_mask_same_shape)
-
-            video_features = torch.sum(video_features * alpha, dim=2)
-
-        if self.text_video_mode in ['video-text', 'parallel']:
-            args = [video_features, embedded_question_and_answers]
-            kwargs = {'masks': [video_features_mask, question_and_answers_mask]}
-        elif self.text_video_mode == 'text-video':
-            args = [embedded_question_and_answers, video_features]
-            kwargs = {'masks': [question_and_answers_mask, video_features_mask]}
-        elif self.text_video_mode == 'text':
-            args = [embedded_question_and_answers]
-            kwargs = {'masks': question_and_answers_mask}
-        else:
-            raise ValueError(f"'text_video_mode' should be one of {self.TEXT_VIDEO_MODE_OPTIONS}")
-
-        scores = self.main_model(*args, **kwargs)
+        scores = self.answer_scorer(video_features, video_features_mask,
+                                    embedded_question_and_answers, question_and_answers_mask)
 
         output_dict = {'scores': scores}
 
@@ -134,6 +85,10 @@ class TgifQaClassifier(Model):
                 metric(scores, label)
 
         return output_dict
+
+    @staticmethod
+    def _expand_to_num_answers(tensor: torch.Tensor, num_answers: int) -> torch.Tensor:
+        return tensor.unsqueeze(1).expand(-1, num_answers, *[-1] * len(tensor.shape[1:]))
 
     @overrides
     def decode(self, output_dict: Dict[str, torch.Tensor]) -> Dict[str, torch.Tensor]:
@@ -153,15 +108,64 @@ class TgifQaClassifier(Model):
         return {metric_name: metric.get_metric(reset) for metric_name, metric in self.metrics.items()}
 
 
-class MainModel(torch.nn.Module):
-    def __init__(self, encoder, classifier_feedforward):
+class _TgifQaAnswerScorer(torch.nn.Module):
+    """Scores a single question-answer pair."""
+
+    TEXT_VIDEO_MODE_OPTIONS = ['video-text', 'text-video', 'parallel', 'text']
+
+    def __init__(self, video_encoder, text_encoder, spatial_attention, temporal_attention, classifier_feedforward,
+                 text_video_mode):
         super().__init__()
-        self.encoder = encoder
+
+        self.video_decoder = video_encoder
+        self.text_encoder = text_encoder
+        self.spatial_attention = spatial_attention
+        self.temporal_attention = temporal_attention
         self.classifier_feedforward = classifier_feedforward
+        self.text_video_mode = text_video_mode
+
+        if text_video_mode == 'video-text':
+            self.encoder = PytorchSeq2VecWrapperChain([video_encoder, text_encoder])
+        elif text_video_mode == 'text-video':
+            self.encoder = PytorchSeq2VecWrapperChain([text_encoder, video_encoder])
+        elif text_video_mode == 'parallel':
+            self.encoder = ParallelModalities(text_encoder.get_output_dim(), video_encoder, text_encoder)
+        elif text_video_mode == 'text':
+            # Use PytorchSeq2VecWrapperChain for consistency when time-distributing.
+            self.encoder = PytorchSeq2VecWrapperChain([text_encoder])
+        else:
+            raise ValueError(f"'text_video_mode' should be one of {self.TEXT_VIDEO_MODE_OPTIONS}")
 
     @overrides
-    def forward(self, *inputs, **kwargs):
-        encoded_modalities = self.encoder(*inputs, **kwargs)
+    def forward(self, video_features, video_features_mask, embedded_question_and_answers, question_and_answers_mask):
+        if self.spatial_attention:
+            encoded_question_and_answers = self.text_encoder(embedded_question_and_answers,
+                                                             question_and_answers_mask)[0]
+
+            video_shape = video_features.shape
+            # In this case, video_features has shape (N, F, C, H, W)
+            video_features = video_features \
+                .reshape(*video_shape[:-2], video_shape[-2] * video_shape[-1]) \
+                .transpose(-2, -1)
+
+            video_features_mask_same_shape = video_features_mask.unsqueeze(-1).unsqueeze(-1)
+            alpha = self.spatial_attention(encoded_question_and_answers, video_features, video_features_mask_same_shape)
+
+            video_features = torch.sum(video_features * alpha, dim=2)
+
+        if self.text_video_mode in ['video-text', 'parallel']:
+            encoding_args = [video_features, embedded_question_and_answers]
+            encoding_kwargs = {'masks': [video_features_mask, question_and_answers_mask]}
+        elif self.text_video_mode == 'text-video':
+            encoding_args = [embedded_question_and_answers, video_features]
+            encoding_kwargs = {'masks': [question_and_answers_mask, video_features_mask]}
+        elif self.text_video_mode == 'text':
+            encoding_args = [embedded_question_and_answers]
+            encoding_kwargs = {'masks': question_and_answers_mask}
+        else:
+            raise ValueError(f"'text_video_mode' should be one of {self.TEXT_VIDEO_MODE_OPTIONS}")
+
+        encoded_modalities = self.encoder(*encoding_args, **encoding_kwargs)
         return self.classifier_feedforward(encoded_modalities).squeeze(1)
 
 

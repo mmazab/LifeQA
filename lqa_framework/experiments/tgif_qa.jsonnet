@@ -2,7 +2,7 @@ local params = import 'lqa.libsonnet';
 
 params + {
   embedding_size:: 300,
-  video_channel_size:: 2048 + 1024,
+  video_channel_size:: 1024,
   encoder:: {
     type: 'lstm_patched',
     bidirectional: false,
@@ -18,7 +18,7 @@ params + {
   },
 
   dataset_reader+: {
-    video_features_to_load: ['resnet-res5c', 'c3d-conv5b'],
+    video_features_to_load: ['c3d-conv5b'],
     join_question_and_answers: true,
     frame_step: 4,
   },

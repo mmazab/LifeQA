@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 """Script to extract ResNet features from video frames."""
 import argparse
-import itertools
 import math
 
 import cv2 as cv
@@ -16,7 +15,7 @@ from tqdm import tqdm
 
 from c3d import C3D
 from i3d import I3D
-from lifeqa_dataset import LifeQaDataset
+from lifeqa_dataset import LifeQaFrameDataset
 
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -60,13 +59,13 @@ def save_resnet_features():
         torchvision.transforms.ToTensor(),
         torchvision.transforms.Normalize(**IMAGENET_NORMALIZATION_PARAMS),
     ])
-    dataset = LifeQaDataset(transform=transform)
+    dataset = LifeQaFrameDataset(transform=transform)
 
     resnet = pretrained_resnet152().to(DEVICE)
     resnet.fc = Identity()  # Trick to avoid computing the fc1000 layer, as we don't need it here.
 
-    with h5py.File(LifeQaDataset.features_file_path('resnet', 'res5c'), 'w') as res5c_features_file, \
-            h5py.File(LifeQaDataset.features_file_path('resnet', 'pool5'), 'w') as pool5_features_file:
+    with h5py.File(LifeQaFrameDataset.features_file_path('resnet', 'res5c'), 'w') as res5c_features_file, \
+            h5py.File(LifeQaFrameDataset.features_file_path('resnet', 'pool5'), 'w') as pool5_features_file:
 
         for video_id in dataset.video_ids:
             video_frame_count = dataset.frame_count_by_video_id[video_id]
@@ -105,7 +104,7 @@ def save_resof_features():
         torchvision.transforms.ToTensor(),
         # Same as ResNet's, but without normalizing for ImageNet yet.
     ])
-    dataset = LifeQaDataset(transform=transform)
+    dataset = LifeQaFrameDataset(transform=transform)
 
     resnet = pretrained_resnet152().to(DEVICE)
     resnet.fc = Identity()  # Trick to avoid computing the fc1000 layer, as we don't need it here.
@@ -115,7 +114,7 @@ def save_resof_features():
 
     imagenet_normalization = torchvision.transforms.Normalize(**IMAGENET_NORMALIZATION_PARAMS)
 
-    with h5py.File(LifeQaDataset.features_file_path('resof', 'pool5'), 'w') as features_file:
+    with h5py.File(LifeQaFrameDataset.features_file_path('resof', 'pool5'), 'w') as features_file:
         for video_id in dataset.video_ids:
             video_frame_count = dataset.frame_count_by_video_id[video_id]
             features_file.create_dataset(video_id, shape=(video_frame_count, 2048))
@@ -166,14 +165,14 @@ def save_c3d_features():
         torchvision.transforms.ToTensor(),
         torchvision.transforms.Normalize(**IMAGENET_NORMALIZATION_PARAMS),
     ])
-    dataset = LifeQaDataset(transform=transform)
+    dataset = LifeQaFrameDataset(transform=transform)
 
     c3d = pretrained_c3d().to(DEVICE)
     filter_size = 16
     padding = (0, 0, 0, 0, math.ceil((filter_size - 1) / 2), (filter_size - 1) // 2)
 
-    with h5py.File(LifeQaDataset.features_file_path('c3d', 'fc6'), 'w') as fc6_features_file, \
-            h5py.File(LifeQaDataset.features_file_path('c3d', 'conv5b'), 'w') as conv5b_features_file:
+    with h5py.File(LifeQaFrameDataset.features_file_path('c3d', 'fc6'), 'w') as fc6_features_file, \
+            h5py.File(LifeQaFrameDataset.features_file_path('c3d', 'conv5b'), 'w') as conv5b_features_file:
         for video_id in dataset.video_ids:
             video_frame_count = dataset.frame_count_by_video_id[video_id]
             fc6_features_file.create_dataset(video_id, shape=(video_frame_count, 4096))
@@ -202,13 +201,13 @@ def save_i3d_features():
         torchvision.transforms.ToTensor(),
         torchvision.transforms.Normalize(**IMAGENET_NORMALIZATION_PARAMS),
     ])
-    dataset = LifeQaDataset(transform=transform)
+    dataset = LifeQaFrameDataset(transform=transform)
 
     i3d = pretrained_i3d().to(DEVICE)
     filter_size = 16
     padding = (0, 0, 0, 0, math.ceil((filter_size - 1) / 2), (filter_size - 1) // 2)
 
-    with h5py.File(LifeQaDataset.features_file_path('i3d', 'avg_pool'), 'w') as features_file:
+    with h5py.File(LifeQaFrameDataset.features_file_path('i3d', 'avg_pool'), 'w') as features_file:
         for video_id in dataset.video_ids:
             video_frame_count = dataset.frame_count_by_video_id[video_id]
             features_file.create_dataset(video_id, shape=(video_frame_count, 1024))
