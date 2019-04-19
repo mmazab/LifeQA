@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """Script to extract ResNet features from video frames."""
 import argparse
+import itertools
 import math
 
 import cv2 as cv
@@ -129,31 +130,33 @@ def save_resof_features():
             frames = torch.nn.ReplicationPad3d(padding)(frames)
             frames = frames.permute(0, 2, 3, 4, 1)  # OpenCV expects (H, W, C)
 
+            flow_images = torch.empty((frames.shape[0], frames.shape[1] - 1, *frames.shape[2:]))
+            hsv = np.empty_like(flow_images.numpy(), dtype=np.uint8)
+            hsv[..., 1] = 255
+
+            for i_video, video_frame_count in enumerate(video_frame_counts):
+                for i_frame_pair in range(video_frame_count.item() - 1):
+                    bw_frame1 = cv.cvtColor(frames[i_video, i_frame_pair].numpy(), cv.COLOR_RGB2GRAY)
+                    bw_frame2 = cv.cvtColor(frames[i_video, i_frame_pair + 1].numpy(), cv.COLOR_RGB2GRAY)
+
+                    flow = cv.calcOpticalFlowFarneback(bw_frame1, bw_frame2, None, 0.5, 3, 15, 3, 5, 1.2, 0)
+
+                    mag, ang = cv.cartToPolar(flow[..., 0], flow[..., 1])
+                    hsv[i_video, i_frame_pair, ..., 0] = ang * 180 / np.pi / 2
+                    hsv[i_video, i_frame_pair, ..., 2] = cv.normalize(mag, None, 0, 255, cv.NORM_MINMAX)
+
+                    flow_image = cv.cvtColor(hsv[i_video, i_frame_pair], cv.COLOR_HSV2RGB) / 255.0
+                    flow_images[i_video, i_frame_pair] = torch.from_numpy(flow_image)
+
+            flow_images = flow_images.permute(0, 1, 4, 2, 3)  # ResNet and the transformations expect (N, C, H, W)
+
             for i_video, (video_id, video_frame_count) in enumerate(zip(video_ids, video_frame_counts)):
+                for i_frame_pair in range(video_frame_count.item() - 1):
+                    flow_images[i_video, i_frame_pair] = imagenet_normalization(flow_images[i_video, i_frame_pair])
+
                 for i_frame in range(video_frame_count.item()):
-                    flow_images = torch.empty((filter_size - 1, *frames.shape[2:]))
-
-                    hsv = np.empty_like(flow_images.numpy(), dtype=np.uint8)
-                    hsv[..., 1] = 255
-
-                    frame_window = frames[i_video, i_frame:i_frame + filter_size, ...]
-                    for i_step, (frame1, frame2) in enumerate(zip(frame_window, frame_window[1:])):
-                        bw_frame1 = cv.cvtColor(frame1.numpy(), cv.COLOR_RGB2GRAY)
-                        bw_frame2 = cv.cvtColor(frame2.numpy(), cv.COLOR_RGB2GRAY)
-
-                        flow = cv.calcOpticalFlowFarneback(bw_frame1, bw_frame2, None, 0.5, 3, 15, 3, 5, 1.2, 0)
-
-                        mag, ang = cv.cartToPolar(flow[..., 0], flow[..., 1])
-                        hsv[i_step, ..., 0] = ang * 180 / np.pi / 2
-                        hsv[i_step, ..., 2] = cv.normalize(mag, None, 0, 255, cv.NORM_MINMAX)
-
-                        flow_images[i_step] = torch.from_numpy(cv.cvtColor(hsv[i_step], cv.COLOR_HSV2RGB) / 255.0)
-
-                    flow_images = flow_images.permute(0, 3, 1, 2)  # ResNet and the transformations expect (N, C, H, W)
-                    for i in range(len(flow_images)):
-                        flow_images[i] = imagenet_normalization(flow_images[i])
-
-                    features_file[video_id][i_frame] = resnet(flow_images.to(DEVICE)).max(dim=0)[0].cpu()
+                    frame_window = flow_images[i_video, i_frame:i_frame + filter_size - 1, ...]
+                    features_file[video_id][i_frame] = resnet(frame_window.to(DEVICE)).max(dim=0)[0].cpu()
 
 
 def save_c3d_features():
