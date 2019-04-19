@@ -67,12 +67,12 @@ class TgifQaClassifier(Model):
         # This supposes a fixed number of answers, by grabbing any of the dict values available.
         num_answers = list(question_and_answers.values())[0].shape[1]
 
-        if video_features:
+        if video_features is None:
+            video_features_mask = None
+        else:
             video_features = self._expand_to_num_answers(video_features, num_answers)
             video_features_mask = self._expand_to_num_answers(
                 util.get_mask_from_sequence_lengths(frame_count, video_features.shape[2]), num_answers)
-        else:
-            video_features_mask = None
 
         embedded_question_and_answers = self.text_field_embedder(question_and_answers)
         question_and_answers_mask = util.get_text_field_mask(question_and_answers, num_wrapping_dims=1)
@@ -140,7 +140,6 @@ class _TgifQaAnswerScorer(torch.nn.Module):
             raise ValueError(f"'text_video_mode' should be one of {self.TEXT_VIDEO_MODE_OPTIONS}")
 
         if self.temporal_attention:
-            # FIXME: first param?
             self.fc_temporal_attention = torch.nn.Linear(video_encoder.get_output_dim(), text_encoder.get_output_dim())
 
     @overrides
@@ -176,6 +175,7 @@ class _TgifQaAnswerScorer(torch.nn.Module):
         encoded_modalities = self.encoder(*encoding_args, **encoding_kwargs)
 
         if self.temporal_attention:
+            # FIXME: the original implementation grabs the state of each layer, not just the last one.
             alpha = self.temporal_attention(encoded_modalities, self.video_encoder.last_layer_output)
             a = torch.tanh(self.fc_temporal_attention(self.video_encoder.last_layer_output * alpha))
             encoded_modalities = torch.tanh(a + encoded_modalities)
@@ -196,10 +196,12 @@ class MlpAttention(Attention):
     def _forward_internal(self, vector: torch.Tensor, matrix: torch.Tensor) -> torch.Tensor:
         """
         :param vector: shape ``(N, vector_size)``
-        :param matrix: shape ``(N, A, B, matrix_size)``
-        :return:       shape ``(N, A, B)``
+        :param matrix: shape ``(N, *shape, matrix_size)``
+        :return:       shape ``(N, *shape)``
         """
-        vector = vector.unsqueeze(1).unsqueeze(1)
+        while vector.dim() < matrix.dim():
+            vector = vector.unsqueeze(1)
+
         hidden_layer = torch.tanh(self.fc_matrix(matrix) + self.fc_vector(vector))
         return self.fc_output(hidden_layer)
 

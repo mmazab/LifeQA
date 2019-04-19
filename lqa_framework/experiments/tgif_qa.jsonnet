@@ -18,6 +18,7 @@ params + {
   },
 
   dataset_reader+: {
+    lazy: true,
     video_features_to_load: ['c3d-conv5b'],
     join_question_and_answers: true,
     frame_step: 4,
@@ -44,7 +45,7 @@ params + {
     },
     temporal_attention: {
       type: 'mlp',
-      matrix_size: ,  // TODO
+      matrix_size: $.encoder.output_size,
       vector_size: $.encoder.output_size,
     },
     text_encoder: $.encoder + {
