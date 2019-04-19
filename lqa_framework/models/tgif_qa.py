@@ -2,7 +2,7 @@ from typing import Dict, List, Optional
 
 from allennlp.data import Vocabulary
 from allennlp.models.model import Model
-from allennlp.modules import Attention, FeedForward, Seq2VecEncoder, TextFieldEmbedder
+from allennlp.modules import Attention, FeedForward, Seq2VecEncoder, TextFieldEmbedder, TimeDistributed
 from allennlp.nn import InitializerApplicator, RegularizerApplicator, util
 from allennlp.training.metrics import CategoricalAccuracy
 import numpy as np
@@ -33,7 +33,7 @@ class TgifQaClassifier(Model):
         self.text_encoder = text_encoder
         self.classifier_feedforward = classifier_feedforward
         self.text_video_mode = text_video_mode
-        self.spatial_attention = spatial_attention
+        self.spatial_attention = TimeDistributed(spatial_attention) if spatial_attention else None
         self.temporal_attention = temporal_attention
 
         if video_encoder is None and text_video_mode != 'text':
@@ -65,17 +65,14 @@ class TgifQaClassifier(Model):
         initializer(self)
 
     @overrides
-    def forward(self, question: Dict[str, torch.LongTensor], question_and_answers: Dict[str, torch.LongTensor],
-                captions: Dict[str, torch.LongTensor], video_features: Optional[torch.Tensor] = None,
+    def forward(self, question_and_answers: Dict[str, torch.LongTensor], video_features: Optional[torch.Tensor] = None,
                 frame_count: Optional[torch.Tensor] = None,
-                label: Optional[torch.LongTensor] = None) -> Dict[str, torch.Tensor]:
+                label: Optional[torch.LongTensor] = None, **kwargs) -> Dict[str, torch.Tensor]:
         """Does the forward pass.
 
         Parameters
         ----------
-        question : Dict[str, Variable], required	The output of ``TextField.as_array()``.
         question_and_answers : Dict[str, Variable], required	The output of ``TextField.as_array()``.
-        captions : Dict[str, Variable], required 	The output of ``TextField.as_array()``.
         video_features : torch.Tensor, required     The video features.
         frame_count : torch.Tensor, required        The frame count.
         label : Variable, optional (default = None)	A variable representing the label for each instance in the batch.
@@ -95,26 +92,25 @@ class TgifQaClassifier(Model):
         max_frame_count = video_shape[1]
         video_features_mask = util.get_mask_from_sequence_lengths(frame_count, max_frame_count)
 
-        if self.spatial_attention:
-            embedded_question = self.text_field_embedder(question)
-            question_mask = util.get_text_field_mask(question)
-            encoded_question = self.text_encoder(embedded_question, question_mask)[0]
-
-            # In this case, video_features has shape (N, F, C, H, W)
-            video_features = video_features \
-                .reshape(*video_shape[:3], video_shape[3] * video_shape[4]) \
-                .transpose(-2, -1)
-
-            video_features_mask_same_shape = video_features_mask.unsqueeze(-1).unsqueeze(-1)
-            alpha = self.spatial_attention(encoded_question, video_features, video_features_mask_same_shape)
-
-            video_features = torch.sum(video_features * alpha, dim=2)
-
-        video_features = video_features.unsqueeze(1).expand(-1, num_answers, -1, -1)
+        video_features = video_features.unsqueeze(1).expand(-1, num_answers, *[-1] * len(video_shape[1:]))
         video_features_mask = video_features_mask.unsqueeze(1).expand(-1, num_answers, -1)
 
         embedded_question_and_answers = self.text_field_embedder(question_and_answers)
         question_and_answers_mask = util.get_text_field_mask(question_and_answers, num_wrapping_dims=1)
+
+        if self.spatial_attention:
+            encoded_question_and_answers = self.text_encoder(embedded_question_and_answers,
+                                                             question_and_answers_mask)[0]
+
+            # In this case, video_features has shape (N, A, F, C, H, W)
+            video_features = video_features \
+                .reshape(*video_shape[:-2], video_shape[-2] * video_shape[-1]) \
+                .transpose(-2, -1)
+
+            video_features_mask_same_shape = video_features_mask.unsqueeze(-1).unsqueeze(-1)
+            alpha = self.spatial_attention(encoded_question_and_answers, video_features, video_features_mask_same_shape)
+
+            video_features = torch.sum(video_features * alpha, dim=2)
 
         if self.text_video_mode in ['video-text', 'parallel']:
             args = [video_features, embedded_question_and_answers]

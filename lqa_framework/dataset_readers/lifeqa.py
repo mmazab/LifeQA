@@ -91,12 +91,13 @@ class LqaDatasetReader(DatasetReader):
         else:
             tokenized_captions = [self._tokenizer.tokenize('')]
 
-        fields = {'question': TextField(tokenized_question, self._token_indexers)}
+        fields = {}
 
         if self.join_question_and_answers:
             fields['question_and_answers'] = ListField([TextField(tokenized_question + answer, self._token_indexers)
                                                        for answer in tokenized_answers])
         else:
+            fields['question'] = TextField(tokenized_question, self._token_indexers)
             fields['answers'] = ListField([TextField(answer, self._token_indexers) for answer in tokenized_answers])
 
         fields['captions'] = ListField([TextField(caption, self._token_indexers) for caption in tokenized_captions])
