@@ -38,9 +38,14 @@ params + {
       input_size: $.video_channel_size
     },
     spatial_attention: {
-      type: 'spatial',
-      video_channel_size: $.video_channel_size,
-      encoded_question_size: $.encoder.output_size,
+      type: 'mlp',
+      matrix_size: $.video_channel_size,
+      vector_size: $.encoder.output_size,
+    },
+    temporal_attention: {
+      type: 'mlp',
+      matrix_size: ,  // TODO
+      vector_size: $.encoder.output_size,
     },
     text_encoder: $.encoder + {
       input_size: $.embedding_size

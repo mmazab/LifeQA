@@ -67,9 +67,12 @@ class TgifQaClassifier(Model):
         # This supposes a fixed number of answers, by grabbing any of the dict values available.
         num_answers = list(question_and_answers.values())[0].shape[1]
 
-        video_features = self._expand_to_num_answers(video_features, num_answers)
-        video_features_mask = self._expand_to_num_answers(
-            util.get_mask_from_sequence_lengths(frame_count, video_features.shape[2]), num_answers)
+        if video_features:
+            video_features = self._expand_to_num_answers(video_features, num_answers)
+            video_features_mask = self._expand_to_num_answers(
+                util.get_mask_from_sequence_lengths(frame_count, video_features.shape[2]), num_answers)
+        else:
+            video_features_mask = None
 
         embedded_question_and_answers = self.text_field_embedder(question_and_answers)
         question_and_answers_mask = util.get_text_field_mask(question_and_answers, num_wrapping_dims=1)
@@ -117,7 +120,7 @@ class _TgifQaAnswerScorer(torch.nn.Module):
                  text_video_mode):
         super().__init__()
 
-        self.video_decoder = video_encoder
+        self.video_encoder = video_encoder
         self.text_encoder = text_encoder
         self.spatial_attention = spatial_attention
         self.temporal_attention = temporal_attention
@@ -136,8 +139,13 @@ class _TgifQaAnswerScorer(torch.nn.Module):
         else:
             raise ValueError(f"'text_video_mode' should be one of {self.TEXT_VIDEO_MODE_OPTIONS}")
 
+        if self.temporal_attention:
+            # FIXME: first param?
+            self.fc_temporal_attention = torch.nn.Linear(video_encoder.get_output_dim(), text_encoder.get_output_dim())
+
     @overrides
-    def forward(self, video_features, video_features_mask, embedded_question_and_answers, question_and_answers_mask):
+    def forward(self, video_features: Optional[torch.Tensor], video_features_mask: Optional[torch.Tensor],
+                embedded_question_and_answers: torch.Tensor, question_and_answers_mask: torch.Tensor) -> torch.Tensor:
         if self.spatial_attention:
             encoded_question_and_answers = self.text_encoder(embedded_question_and_answers,
                                                              question_and_answers_mask)[0]
@@ -166,27 +174,33 @@ class _TgifQaAnswerScorer(torch.nn.Module):
             raise ValueError(f"'text_video_mode' should be one of {self.TEXT_VIDEO_MODE_OPTIONS}")
 
         encoded_modalities = self.encoder(*encoding_args, **encoding_kwargs)
+
+        if self.temporal_attention:
+            alpha = self.temporal_attention(encoded_modalities, self.video_encoder.last_layer_output)
+            a = torch.tanh(self.fc_temporal_attention(self.video_encoder.last_layer_output * alpha))
+            encoded_modalities = torch.tanh(a + encoded_modalities)
+
         return self.classifier_feedforward(encoded_modalities).squeeze(1)
 
 
-@Attention.register('spatial')
-class SpatialAttention(Attention):
-    def __init__(self, video_channel_size: int, encoded_question_size: int, hidden_size: int = 512) -> None:
+@Attention.register('mlp')
+class MlpAttention(Attention):
+    def __init__(self, matrix_size: int, vector_size: int, hidden_size: int = 512) -> None:
         super().__init__(normalize=True)
-        self.fc_question = torch.nn.Linear(encoded_question_size, hidden_size)
-        self.fc_video = torch.nn.Linear(video_channel_size, hidden_size)
+        self.fc_vector = torch.nn.Linear(vector_size, hidden_size)
+        self.fc_matrix = torch.nn.Linear(matrix_size, hidden_size)
 
         self.fc_output = torch.nn.Linear(hidden_size, 1)
 
     @overrides
-    def _forward_internal(self, encoded_question: torch.Tensor, video_features: torch.Tensor) -> torch.Tensor:
+    def _forward_internal(self, vector: torch.Tensor, matrix: torch.Tensor) -> torch.Tensor:
         """
-        :param encoded_question: shape ``(batch_size, encoded_question_size)``
-        :param video_features:   shape ``(batch_size, max_frame_count, video_filter_size, video_channel_size)``
-        :return:                 shape ``(batch_size, max_frame_count, video_filter_size)``
+        :param vector: shape ``(N, vector_size)``
+        :param matrix: shape ``(N, A, B, matrix_size)``
+        :return:       shape ``(N, A, B)``
         """
-        encoded_question = encoded_question.unsqueeze(1).unsqueeze(1)
-        hidden_layer = torch.tanh(self.fc_video(video_features) + self.fc_question(encoded_question))
+        vector = vector.unsqueeze(1).unsqueeze(1)
+        hidden_layer = torch.tanh(self.fc_matrix(matrix) + self.fc_vector(vector))
         return self.fc_output(hidden_layer)
 
 

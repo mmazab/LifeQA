@@ -17,6 +17,7 @@ class PytorchSeq2VecWrapper(Seq2VecEncoder):
         self._module = module
         self._return_all_layers = return_all_layers
         self._return_all_hidden_states = return_all_hidden_states
+        self.last_layer_output = None
         if not getattr(self._module, 'batch_first', True):
             raise ConfigurationError("Our encoder semantics assumes batch is always first!")
 
@@ -51,7 +52,7 @@ class PytorchSeq2VecWrapper(Seq2VecEncoder):
                 hidden_state: torch.Tensor = None) -> torch.Tensor:
         if mask is None:
             if self._return_all_layers:
-                state = self._module(inputs, hidden_state)[1]  # FIXME: needs reshape?
+                final_states = self._module(inputs, hidden_state)[1]  # FIXME: needs reshape?
             else:
                 # If a mask isn't passed, there is no padding in the batch of instances, so we can just
                 # return the last sequence output as the state.  This doesn't work in the case of
@@ -59,33 +60,33 @@ class PytorchSeq2VecWrapper(Seq2VecEncoder):
                 # at the end of the max sequence length, so we have to use the state of the RNN below.
 
                 # FIXME: take 1 instead of 0, to get (state, memory) if desired.
-                state = self._module(inputs, hidden_state)[0][:, -self._num_directions():, :]
+                final_states = self._module(inputs, hidden_state)[0][:, -self._num_directions():, :]
 
             if self._return_all_hidden_states:
-                if isinstance(state, tuple):
-                    return torch.stack(state)
+                if isinstance(final_states, tuple):
+                    return torch.stack(final_states)
                 else:
-                    return state.unsqueeze(0)
-            elif isinstance(state, tuple):
-                return state[0]
+                    return final_states.unsqueeze(0)
+            elif isinstance(final_states, tuple):
+                return final_states[0]
             else:
-                return state
+                return final_states
 
         batch_size = mask.size(0)
 
-        _, state, restoration_indices, = \
+        self.last_layer_output, final_states, restoration_indices, = \
             self.sort_and_run_forward(self._module, inputs, mask, hidden_state)
 
         # Deal with the fact the LSTM state is a tuple of (state, memory).
         # For consistency, we always add one dimension to the state and later decide if to drop it.
-        if isinstance(state, tuple) and self._return_all_hidden_states:
-            state = torch.stack(state)
+        if isinstance(final_states, tuple) and self._return_all_hidden_states:
+            final_states = torch.stack(final_states)
         else:
-            if isinstance(state, tuple):
-                state = state[0]
-            state = state.unsqueeze(0)
+            if isinstance(final_states, tuple):
+                final_states = final_states[0]
+            final_states = final_states.unsqueeze(0)
 
-        return self._restore_order_and_shape(batch_size, restoration_indices, state)
+        return self._restore_order_and_shape(batch_size, restoration_indices, final_states)
 
     def _restore_order_and_shape(self,
                                  batch_size: int,
