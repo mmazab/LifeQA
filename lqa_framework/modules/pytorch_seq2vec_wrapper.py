@@ -72,10 +72,16 @@ class PytorchSeq2VecWrapper(Seq2VecEncoder):
             else:
                 return final_states
 
-        batch_size = mask.size(0)
+        batch_size, total_sequence_length = mask.size()
 
-        self.last_layer_output, final_states, restoration_indices, = \
+        packed_sequence_output, final_states, restoration_indices, = \
             self.sort_and_run_forward(self._module, inputs, mask, hidden_state)
+
+        unpacked_sequence_output = torch.nn.utils.rnn.pad_packed_sequence(packed_sequence_output, batch_first=True)[0]
+        self.last_layer_output = self._restore_order_and_shape_sequence_output(batch_size,
+                                                                               total_sequence_length,
+                                                                               restoration_indices,
+                                                                               unpacked_sequence_output)
 
         # Deal with the fact the LSTM state is a tuple of (state, memory).
         # For consistency, we always add one dimension to the state and later decide if to drop it.
@@ -123,3 +129,28 @@ class PytorchSeq2VecWrapper(Seq2VecEncoder):
             return unsorted_state.contiguous().view([state_len, -1, self.get_output_dim()])
         else:
             return unsorted_state[0].contiguous().view([-1, self.get_output_dim()])
+
+    @staticmethod
+    def _restore_order_and_shape_sequence_output(batch_size: int,
+                                                 total_sequence_length: int,
+                                                 restoration_indices: torch.LongTensor,
+                                                 sequence_output: torch.Tensor) -> torch.Tensor:
+        num_valid = sequence_output.size(0)
+
+        # Add back invalid rows.
+        if num_valid < batch_size:
+            _, length, output_dim = sequence_output.size()
+            zeros = sequence_output.new_zeros(batch_size - num_valid, length, output_dim)
+            sequence_output = torch.cat([sequence_output, zeros], 0)
+
+        # It's possible to need to pass sequences which are padded to longer than the
+        # max length of the sequence to a Seq2SeqEncoder. However, packing and unpacking
+        # the sequences mean that the returned tensor won't include these dimensions, because
+        # the RNN did not need to process them. We add them back on in the form of zeros here.
+        sequence_length_difference = total_sequence_length - sequence_output.size(1)
+        if sequence_length_difference > 0:
+            zeros = sequence_output.new_zeros(batch_size, sequence_length_difference, sequence_output.size(-1))
+            sequence_output = torch.cat([sequence_output, zeros], 1)
+
+        # Restore the original indices and return the sequence.
+        return sequence_output.index_select(0, restoration_indices)

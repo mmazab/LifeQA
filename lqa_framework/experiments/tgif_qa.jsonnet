@@ -45,7 +45,8 @@ params + {
     },
     temporal_attention: {
       type: 'mlp',
-      matrix_size: $.encoder.output_size,
+      // FIXME: the original implementation takes the state for each layer, not just the last one.
+      matrix_size: $.encoder.output_size / $.encoder.num_layers,
       vector_size: $.encoder.output_size,
     },
     text_encoder: $.encoder + {
@@ -60,7 +61,7 @@ params + {
   },
   iterator: {
     sorting_keys: [['video_features', 'dimension_0']],
-    batch_size: 4,
+    batch_size: 2,
   },
   trainer: {
     num_epochs: 40,

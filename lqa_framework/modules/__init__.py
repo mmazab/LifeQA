@@ -5,7 +5,12 @@ from allennlp.common.checks import ConfigurationError
 from allennlp.modules import Seq2VecEncoder
 import torch
 
+from .mlp_attention import MlpAttention
 from .pytorch_seq2vec_wrapper import PytorchSeq2VecWrapper
+from .pytorch_seq2vec_wrapper_chain import PytorchSeq2VecWrapperChain
+from .time_distributed import TimeDistributed
+from .time_distributed_seq2vec_rnn import TimeDistributedSeq2VecRNN
+from .time_distributed_seq2vec_rnn_chain import TimeDistributedSeq2VecRNNChain
 
 
 class _Seq2VecWrapper:

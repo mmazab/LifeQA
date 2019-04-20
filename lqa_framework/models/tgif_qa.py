@@ -10,7 +10,7 @@ from overrides import overrides
 import torch
 import torch.nn.functional as F
 
-from ..modules.pytorch_seq2vec_wrapper_chain import PytorchSeq2VecWrapperChain
+from ..modules import PytorchSeq2VecWrapperChain
 
 
 @Model.register('tgif_qa')
@@ -132,7 +132,7 @@ class _TgifQaAnswerScorer(torch.nn.Module):
         elif text_video_mode == 'text-video':
             self.encoder = PytorchSeq2VecWrapperChain([text_encoder, video_encoder])
         elif text_video_mode == 'parallel':
-            self.encoder = ParallelModalities(text_encoder.get_output_dim(), video_encoder, text_encoder)
+            self.encoder = _ParallelModalities(text_encoder.get_output_dim(), video_encoder, text_encoder)
         elif text_video_mode == 'text':
             # Use PytorchSeq2VecWrapperChain for consistency when time-distributing.
             self.encoder = PytorchSeq2VecWrapperChain([text_encoder])
@@ -140,7 +140,10 @@ class _TgifQaAnswerScorer(torch.nn.Module):
             raise ValueError(f"'text_video_mode' should be one of {self.TEXT_VIDEO_MODE_OPTIONS}")
 
         if self.temporal_attention:
-            self.fc_temporal_attention = torch.nn.Linear(video_encoder.get_output_dim(), text_encoder.get_output_dim())
+            # FIXME: the original implementation takes the state for each layer, not just the last one.
+            # noinspection PyProtectedMember
+            self.fc_temporal_attention = torch.nn.Linear(video_encoder.get_output_dim() // video_encoder._num_layers,
+                                                         text_encoder.get_output_dim())
 
     @overrides
     def forward(self, video_features: Optional[torch.Tensor], video_features_mask: Optional[torch.Tensor],
@@ -175,38 +178,15 @@ class _TgifQaAnswerScorer(torch.nn.Module):
         encoded_modalities = self.encoder(*encoding_args, **encoding_kwargs)
 
         if self.temporal_attention:
-            # FIXME: the original implementation grabs the state of each layer, not just the last one.
+            # FIXME: the original implementation takes the state for each layer, not just the last one.
             alpha = self.temporal_attention(encoded_modalities, self.video_encoder.last_layer_output)
-            a = torch.tanh(self.fc_temporal_attention(self.video_encoder.last_layer_output * alpha))
-            encoded_modalities = torch.tanh(a + encoded_modalities)
+            attended_video_states = torch.sum(self.video_encoder.last_layer_output * alpha, dim=1)
+            encoded_modalities = encoded_modalities + torch.tanh(self.fc_temporal_attention(attended_video_states))
 
         return self.classifier_feedforward(encoded_modalities).squeeze(1)
 
 
-@Attention.register('mlp')
-class MlpAttention(Attention):
-    def __init__(self, matrix_size: int, vector_size: int, hidden_size: int = 512) -> None:
-        super().__init__(normalize=True)
-        self.fc_vector = torch.nn.Linear(vector_size, hidden_size)
-        self.fc_matrix = torch.nn.Linear(matrix_size, hidden_size)
-
-        self.fc_output = torch.nn.Linear(hidden_size, 1)
-
-    @overrides
-    def _forward_internal(self, vector: torch.Tensor, matrix: torch.Tensor) -> torch.Tensor:
-        """
-        :param vector: shape ``(N, vector_size)``
-        :param matrix: shape ``(N, *shape, matrix_size)``
-        :return:       shape ``(N, *shape)``
-        """
-        while vector.dim() < matrix.dim():
-            vector = vector.unsqueeze(1)
-
-        hidden_layer = torch.tanh(self.fc_matrix(matrix) + self.fc_vector(vector))
-        return self.fc_output(hidden_layer)
-
-
-class ParallelModalities(torch.nn.Module):
+class _ParallelModalities(torch.nn.Module):
     def __init__(self, encoded_size, video_encoder, text_encoder):
         super().__init__()
         self.video_encoder = video_encoder
