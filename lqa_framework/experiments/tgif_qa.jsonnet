@@ -8,7 +8,7 @@ params + {
     bidirectional: false,
     input_size: error 'Must override',
     hidden_size: 50,
-    num_layers: 1,
+    num_layers: 2,
     dropout: 0,
     return_all_layers: true,
     return_all_hidden_states: true,
@@ -20,7 +20,7 @@ params + {
   dataset_reader+: {
     video_features_to_load: ['resnet-pool5'],
     join_question_and_answers: true,
-    frame_step: 54,
+    frame_step: 1,
     token_indexers: {
       tokens: {
         type: 'single_id',
@@ -51,20 +51,11 @@ params + {
       num_layers: 1,
       hidden_dims: [1],
       activations: ['linear'],
-    },
-    regularizer: [
-      [
-        'weight',
-        {
-          type: 'l2',
-          alpha: 1.0,
-        }
-      ]
-    ]
+    }
   },
   iterator: {
     sorting_keys: [['video_features', 'dimension_0']],
-    batch_size: 64,
+    batch_size: 8,
   },
   trainer: {
     num_epochs: 40,

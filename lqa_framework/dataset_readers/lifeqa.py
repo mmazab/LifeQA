@@ -26,6 +26,7 @@ class LqaDatasetReader(DatasetReader):
         'i3d-avg-pool': FEATURES_PATH / 'LifeQA_I3D_avg_pool.hdf5',
         'resnet-pool5': FEATURES_PATH / 'LifeQA_RESNET_pool5.hdf5',
         'resnet-res5c': FEATURES_PATH / 'LifeQA_RESNET_res5c.hdf5',
+        'resof': FEATURES_PATH / 'LifeQA_RESOF_pool5.hdf5',
     }
 
     def __init__(self, lazy: bool = False, tokenizer: Optional[Tokenizer] = None,
