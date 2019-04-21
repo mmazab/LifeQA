@@ -18,11 +18,11 @@ config + {
   }
   model+: {
     encoder+: {
-      type: 'lstm',
-      bidirectional: true,
-      hidden_size: 256,
+      type: 'lstm_patched',
+      bidirectional: false,
+      hidden_size: 512,
       num_layers: 2,
-      dropout: [0.2, 0.2],
+      dropout: 0.2, // The original implementation uses dropout before and after every layer.
     },
     text_field_embedder+: {
       token_embedders+: {
@@ -36,7 +36,18 @@ config + {
     }
     video_encoder+: {
       input_size: 2048 + 4096
-    }
+    },
+    /*spatial_attention: {
+      type: 'mlp',
+      matrix_size: $.video_channel_size,
+      vector_size: $.encoder.output_size,
+    },*/
+    temporal_attention: {
+      type: 'mlp',
+      // Note: the original implementation takes the state for each layer, not just the last one.
+      matrix_size: $.encoder.output_size / $.encoder.num_layers,
+      vector_size: $.encoder.output_size,
+    },
   },
   iterator+: {
     batch_size: 32

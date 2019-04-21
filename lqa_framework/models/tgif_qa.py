@@ -140,7 +140,7 @@ class _TgifQaAnswerScorer(torch.nn.Module):
             raise ValueError(f"'text_video_mode' should be one of {self.TEXT_VIDEO_MODE_OPTIONS}")
 
         if self.temporal_attention:
-            # FIXME: the original implementation takes the state for each layer, not just the last one.
+            # Note: the original implementation takes the state for each layer, not just the last one.
             # noinspection PyProtectedMember
             self.fc_temporal_attention = torch.nn.Linear(video_encoder.get_output_dim() // video_encoder._num_layers,
                                                          text_encoder.get_output_dim())
@@ -178,7 +178,7 @@ class _TgifQaAnswerScorer(torch.nn.Module):
         encoded_modalities = self.encoder(*encoding_args, **encoding_kwargs)
 
         if self.temporal_attention:
-            # FIXME: the original implementation takes the state for each layer, not just the last one.
+            # Note: the original implementation takes the state for each layer, not just the last one.
             alpha = self.temporal_attention(encoded_modalities, self.video_encoder.last_layer_output)
             attended_video_states = torch.sum(self.video_encoder.last_layer_output * alpha, dim=1)
             encoded_modalities = encoded_modalities + torch.tanh(self.fc_temporal_attention(attended_video_states))

@@ -50,11 +50,15 @@ class LqaDatasetReader(DatasetReader):
             video_dict = json.load(data_file)
 
             if self.small_sample:
-                video_dict = {key: video_dict[key] for key in random.sample(list(video_dict), 10)}
+                video_dict = {key: video_dict[key] for key in random.sample(list(video_dict), 5)}
 
             for video_id in video_dict:
                 if not self.video_features_to_load or self.check_missing_video_features or video_id in features_files:
                     question_dicts = video_dict[video_id]['questions']
+                    if self.small_sample:
+                        question_dicts = random.sample(question_dicts, 3) \
+                            if len(question_dicts) > 3 else question_dicts
+
                     captions = video_dict[video_id]['captions']
 
                     if self.video_features_to_load:
@@ -92,7 +96,7 @@ class LqaDatasetReader(DatasetReader):
 
         if self.join_question_and_answers:
             fields['question_and_answers'] = ListField([TextField(tokenized_question + answer, self._token_indexers)
-                                                       for answer in tokenized_answers])
+                                                        for answer in tokenized_answers])
         else:
             fields['question'] = TextField(tokenized_question, self._token_indexers)
             fields['answers'] = ListField([TextField(answer, self._token_indexers) for answer in tokenized_answers])

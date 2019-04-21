@@ -2,14 +2,14 @@ local params = import 'lqa.libsonnet';
 
 params + {
   embedding_size:: 300,
-  video_channel_size:: 1024,
+  video_channel_size:: 2048,
   encoder:: {
     type: 'lstm_patched',
     bidirectional: false,
     input_size: error 'Must override',
     hidden_size: 50,
-    num_layers: 2,
-    dropout: 0.2,
+    num_layers: 1,
+    dropout: 0,
     return_all_layers: true,
     return_all_hidden_states: true,
 
@@ -18,10 +18,15 @@ params + {
   },
 
   dataset_reader+: {
-    lazy: true,
-    video_features_to_load: ['c3d-conv5b'],
+    video_features_to_load: ['resnet-pool5'],
     join_question_and_answers: true,
-    frame_step: 4,
+    frame_step: 16,
+    token_indexers: {
+      tokens: {
+        type: 'single_id',
+        lowercase_tokens: true,
+      }
+    },
   },
   model: {
     type: 'tgif_qa',
@@ -38,17 +43,6 @@ params + {
     video_encoder: $.encoder + {
       input_size: $.video_channel_size
     },
-    spatial_attention: {
-      type: 'mlp',
-      matrix_size: $.video_channel_size,
-      vector_size: $.encoder.output_size,
-    },
-    temporal_attention: {
-      type: 'mlp',
-      // FIXME: the original implementation takes the state for each layer, not just the last one.
-      matrix_size: $.encoder.output_size / $.encoder.num_layers,
-      vector_size: $.encoder.output_size,
-    },
     text_encoder: $.encoder + {
       input_size: $.embedding_size
     },
@@ -61,7 +55,7 @@ params + {
   },
   iterator: {
     sorting_keys: [['video_features', 'dimension_0']],
-    batch_size: 2,
+    batch_size: 64,
   },
   trainer: {
     num_epochs: 40,
