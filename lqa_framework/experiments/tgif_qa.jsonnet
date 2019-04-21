@@ -20,7 +20,7 @@ params + {
   dataset_reader+: {
     video_features_to_load: ['resnet-pool5'],
     join_question_and_answers: true,
-    frame_step: 16,
+    frame_step: 54,
     token_indexers: {
       tokens: {
         type: 'single_id',
@@ -51,7 +51,16 @@ params + {
       num_layers: 1,
       hidden_dims: [1],
       activations: ['linear'],
-    }
+    },
+    regularizer: [
+      [
+        'weight',
+        {
+          type: 'l2',
+          alpha: 1.0,
+        }
+      ]
+    ]
   },
   iterator: {
     sorting_keys: [['video_features', 'dimension_0']],
