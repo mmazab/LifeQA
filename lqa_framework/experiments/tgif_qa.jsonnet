@@ -1,10 +1,6 @@
 local params = import 'lqa.libsonnet';
 
 params + {
-  random_seed: 98353,
-  numpy_seed: 61280,
-  pytorch_seed: 68715,
-
   embedding_size:: 300,
   video_channel_size:: 2048,
   encoder:: {
@@ -12,8 +8,8 @@ params + {
     bidirectional: false,
     input_size: error 'Must override',
     hidden_size: 50,
-    num_layers: 1,
-    dropout: 0,
+    num_layers: 2,
+    dropout: 0.2,
     return_all_layers: true,
     return_all_hidden_states: true,
 
@@ -24,7 +20,7 @@ params + {
   dataset_reader+: {
     video_features_to_load: ['resnet-pool5'],
     join_question_and_answers: true,
-    frame_step: 8,
+    frame_step: 27,
     token_indexers: {
       tokens: {
         type: 'single_id',
@@ -55,7 +51,16 @@ params + {
       num_layers: 1,
       hidden_dims: [1],
       activations: ['linear'],
-    }
+    },
+    regularizer: [
+      [
+        'weight',
+        {
+          type: 'l2',
+          alpha: 0.001,
+        }
+      ]
+    ]
   },
   iterator: {
     sorting_keys: [['video_features', 'dimension_0']],

@@ -9,7 +9,7 @@ config + {
       input_size: 4096
     }
   },
-  iterator+: {
+  /*iterator+: {
     batch_size: 32
-  }
+  }*/
 }

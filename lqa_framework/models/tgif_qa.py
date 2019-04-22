@@ -77,8 +77,10 @@ class TgifQaClassifier(Model):
         embedded_question_and_answers = self.text_field_embedder(question_and_answers)
         question_and_answers_mask = util.get_text_field_mask(question_and_answers, num_wrapping_dims=1)
 
-        scores = self.answer_scorer(video_features, video_features_mask,
-                                    embedded_question_and_answers, question_and_answers_mask)
+        scores = self.answer_scorer(video_features=video_features,
+                                    video_features_mask=video_features_mask,
+                                    embedded_question_and_answers=embedded_question_and_answers,
+                                    question_and_answers_mask=question_and_answers_mask)
 
         output_dict = {'scores': scores}
 
@@ -171,7 +173,7 @@ class _TgifQaAnswerScorer(torch.nn.Module):
             encoding_kwargs = {'masks': [question_and_answers_mask, video_features_mask]}
         elif self.text_video_mode == 'text':
             encoding_args = [embedded_question_and_answers]
-            encoding_kwargs = {'masks': question_and_answers_mask}
+            encoding_kwargs = {'masks': [question_and_answers_mask]}
         else:
             raise ValueError(f"'text_video_mode' should be one of {self.TEXT_VIDEO_MODE_OPTIONS}")
 

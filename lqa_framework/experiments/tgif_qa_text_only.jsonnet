@@ -7,5 +7,9 @@ config + {
   model+: {
     video_encoder: null,
     text_video_mode: 'text'
+  },
+  iterator: {
+    type: 'basic',
+    batch_size: 8,
   }
 }
