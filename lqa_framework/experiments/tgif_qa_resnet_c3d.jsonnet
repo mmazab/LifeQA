@@ -8,8 +8,5 @@ config + {
     video_encoder+: {
       input_size: 2048 + 4096
     }
-  },
-  iterator+: {
-    batch_size: 16
   }
 }
