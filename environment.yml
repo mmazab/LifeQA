@@ -64,6 +64,8 @@ dependencies:
   - pip=19.0.3
   - python=3.7.2
   - pytorch=1.0.1
+  - tensorboard=1.13.1
+  - tensorflow=1.13.1  # For tensorboard
   - torchvision=0.2.2
   - tqdm=4.31.1
 
