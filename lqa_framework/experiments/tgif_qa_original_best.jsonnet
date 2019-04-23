@@ -20,12 +20,14 @@ config + {
   },
   model+: {
     // TODO: other dropouts?
-    encoder+: {
+    encoder+:: {
       type: 'lstm_patched',
       bidirectional: false,
       hidden_size: 512,
       num_layers: 2,
-      dropout: 0.2, // The original implementation uses dropout before and after every layer.
+      // The original implementation uses dropout before and after every layer, but this can only specify in between
+      // layers.
+      dropout: 0.2,
     },
     text_field_embedder+: {
       token_embedders+: {
@@ -34,7 +36,7 @@ config + {
           // GloVe embeddings from Common Crawl with a restricted vocabulary, I guess the uncased one. So the best idea
           // is to use the one that seems the same corpus (maybe the exact same embeddings) but restricting the
           // vocabulary.
-          pretrained_file: 'https://s3-us-west-2.amazonaws.com/allennlp/datasets/glove/glove.42B.300d.txt.gz'
+          pretrained_file: 'http://nlp.stanford.edu/data/glove.42B.300d.zip'
         }
       }
     },
@@ -44,19 +46,20 @@ config + {
       matrix_size: $.encoder.output_size / $.encoder.num_layers,
       vector_size: $.encoder.output_size,
     },
-    classifier_feedforward: {  // TODO: check the hyperparams here
+    classifier_feedforward: {
       input_dim: $.encoder.output_size,
-      num_layers: 2,
-      hidden_dims: [512],
-      activations: ['tanh', 'linear'],
+      num_layers: 1,
+      hidden_dims: [1],
+      activations: ['linear'],
     },
   },
   iterator: {
     type: 'basic',
-    batch_size: 64,
+    batch_size: 32,  // The original repo uses 64 for all GPUs.
   },
   trainer: {
     num_epochs: 40,
+    validation_metric: '+accuracy',
     optimizer: {
       type: 'adam'
     },
