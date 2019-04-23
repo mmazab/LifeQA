@@ -30,6 +30,6 @@ params + {
           requires_grad: true,
         }
       }
-    },
+    }
   }
 }

@@ -201,4 +201,4 @@ class _ParallelModalities(torch.nn.Module):
         assert len(masks) == 2
         encoded_video = self.video_encoder(video_features, masks[0])[0]
         encoded_text = self.text_encoder(embedded_question_and_answers, masks[1])[0]
-        return self.parallel_feedforward(torch.cat((encoded_video, encoded_text), 2)).unsqueeze(0)
+        return self.parallel_feedforward(torch.cat((encoded_video, encoded_text), 1))
