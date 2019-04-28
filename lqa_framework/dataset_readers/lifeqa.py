@@ -42,7 +42,7 @@ class LqaDatasetReader(DatasetReader):
                 # noinspection PyUnboundLocalVariable
                 if not self.load_video_features or self.check_missing_video_features or video_id in features_file:
                     question_dicts = video_dict[video_id]['questions']
-                    captions = video_dict[video_id]['captions']
+                    captions = video_dict[video_id].get('manual_captions') or video_dict[video_id]['automatic_captions']
 
                     if self.load_video_features:
                         # noinspection PyUnboundLocalVariable
