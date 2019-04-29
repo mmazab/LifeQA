@@ -7,7 +7,7 @@ The questions were originally written in a Google Sheet. Then, they were downloa
 [auto_captioned_data/lqa_data.json](auto_captioned_data/lqa_data.json)) from it, and divided into train, dev and test.
 Automatic captions were added to them. Then, these files were moved to the folder
 [auto_captioned_data/](auto_captioned_data), and new ones were created which contain both automatic and manual captions
-if available, otherwise only automatic data.
+if available, otherwise only automatic data. The parent_video_id was later added to each video.
 
 So, if any change is done to the dataset (e.g., fixing some question or answer), it should be done for the current
 file versions (directly under this directory) or else to all these files mentioned.
