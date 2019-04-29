@@ -1,10 +1,3 @@
-/data/closed_captions
-/data/compressed
-/data/features
-/data/frames
-/data/question
-/data/videos
-/data/lqa_trans
 /models
 *.DS_Store
 *.gz
