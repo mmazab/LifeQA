@@ -38,7 +38,7 @@ params + {
     },
     num_highway_layers: 2,
     classifier_feedforward: {
-      input_dim: 47600,
+      input_dim: 200,
       num_layers: 2,
       hidden_dims: [200, 200],
       activations: ['relu', 'linear'],
