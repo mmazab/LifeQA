@@ -7,7 +7,7 @@ from allennlp.common.checks import check_dimensions_match
 from allennlp.data import Vocabulary
 from allennlp.models.model import Model
 from allennlp.models.reading_comprehension.util import get_best_span
-from allennlp.modules import Highway,FeedForward, similarity_functions
+from allennlp.modules import Highway, FeedForward, similarity_functions, Seq2VecEncoder
 from allennlp.modules import Seq2SeqEncoder, SimilarityFunction, TimeDistributed, TextFieldEmbedder
 from allennlp.modules.matrix_attention.legacy_matrix_attention import LegacyMatrixAttention
 from allennlp.nn import util, InitializerApplicator, RegularizerApplicator
@@ -66,9 +66,9 @@ class BidirectionalAttentionFlow(Model):
                  vocab: Vocabulary,
                  text_field_embedder: TextFieldEmbedder,
                  phrase_layer: Seq2SeqEncoder,
-                 modeling_layer: Seq2SeqEncoder,
+                 modeling_layer: Seq2VecEncoder,
                  question_encoder: Seq2SeqEncoder,
-                 answers_encoder: Seq2SeqEncoder,
+                 answers_encoder: Seq2VecEncoder,
                  captions_encoder: Seq2SeqEncoder,
                  classifier_feedforward: FeedForward,
                  classifier_feedforward_answers: FeedForward,
@@ -228,13 +228,12 @@ class BidirectionalAttentionFlow(Model):
         answers_mask = util.get_text_field_mask(answers, num_wrapping_dims=1)
         encoded_answers = self.answers_encoder(embedded_answers, answers_mask)
 
-        print(modeled_passage.shape)
-        print(torch.reshape(modeled_passage, (64, 47600)).shape)
+        # print(modeled_passage.shape)
+        # print(torch.reshape(modeled_passage, (64, 47600)).shape)
 
-        fuse_cq = self.classifier_feedforward(torch.reshape(modeled_passage, (64, 47600))) #(64, 238 x 200) -> (64, 200)
-        fuse_a = self.classifier_feedforward_answers(torch.reshape(encoded_answers, (64,4, 800)))# (64, 4, 4x200) -> (64, 4, 200)
-        logits = torch.bmm(fuse_a, fuse_cq.unsqueeze(2)).squeeze(2)
-
+        fuse_cq = self.classifier_feedforward(modeled_passage) #(64, 238 x 200) -> (64, 200)
+        #fuse_a = self.classifier_feedforward_answers(encoded_answers)# (64, 4, 4x200) -> (64, 4, 200)
+        logits = torch.bmm(encoded_answers, fuse_cq.unsqueeze(2)).squeeze(2)
 
         output_dict = {'logits': logits}
         if label is not None:
