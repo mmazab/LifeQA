@@ -1,25 +1,32 @@
 local params = import 'lqa.libsonnet';
 
-local rnn_type = 'gru';
-local rnn_hidden_size = 100;
-local rnn_num_layers = 1;
-local bidirectional = false;
-local rnn_dropout = 0.2;
-local feed_forward_hidden_size = rnn_hidden_size * rnn_num_layers;
-
 params + {
   embedding_size:: 300,
-  text_encoder:: {
-    type: rnn_type,
-    bidirectional: bidirectional,
-    input_size: $.embedding_size,
-    hidden_size: rnn_hidden_size,
-    num_layers: rnn_num_layers,
-    dropout: rnn_dropout,
+  video_channel_size:: 2048,
+  encoder:: {
+    type: 'lstm_patched',
+    bidirectional: false,
+    input_size: error 'Must override',
+    hidden_size: 50,
+    num_layers: 2,
+    dropout: 0.2,
+    return_all_layers: true,
+    return_all_hidden_states: true,
+
+    num_directions:: (if self.bidirectional then 2 else 1),
+    output_size:: $.encoder.num_layers * $.encoder.num_directions * $.encoder.hidden_size,
   },
 
   dataset_reader+: {
-    load_video_features: true
+    video_features_to_load: ['resnet-pool5'],
+    join_question_and_answers: true,
+    frame_step: 27,
+    token_indexers: {
+      tokens: {
+        type: 'single_id',
+        lowercase_tokens: true,
+      }
+    },
   },
   model: {
     type: 'tgif_qa',
@@ -33,22 +40,31 @@ params + {
         }
       }
     },
-    video_encoder: $.text_encoder + {
-      input_size: 2048,
+    video_encoder: $.encoder + {
+      input_size: $.video_channel_size
     },
-    question_encoder: $.text_encoder,
-    answers_encoder: $.text_encoder,
+    text_encoder: $.encoder + {
+      input_size: $.embedding_size
+    },
     classifier_feedforward: {
-      input_dim: feed_forward_hidden_size,
+      input_dim: $.encoder.output_size,
       num_layers: 1,
       hidden_dims: [1],
       activations: ['linear'],
-    }
+    },
+    regularizer: [
+      [
+        'weight',
+        {
+          type: 'l2',
+          alpha: 0.001,
+        }
+      ]
+    ]
   },
   iterator: {
-    type: 'bucket',
-    sorting_keys: [['question', 'num_tokens']],  # TODO: How to put video_features here?
-    batch_size: 64,
+    sorting_keys: [['video_features', 'dimension_0']],
+    batch_size: 8,
   },
   trainer: {
     num_epochs: 40,
@@ -56,7 +72,7 @@ params + {
     grad_clipping: 5.0,
     validation_metric: '+accuracy',
     optimizer: {
-      type: 'adagrad',
+      type: 'adagrad'
     },
   }
 }

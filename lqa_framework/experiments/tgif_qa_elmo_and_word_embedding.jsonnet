@@ -9,7 +9,7 @@ params + {
     token_indexers+: {
       tokens: {
         type: 'single_id',
-        lowercase_tokens: false,
+        lowercase_tokens: true,
       }
     }
   },

@@ -1,5 +1,6 @@
 import json
-import logging
+import pathlib
+import random
 from typing import Any, Dict, Iterable, List, Optional
 
 from allennlp.common.file_utils import cached_path
@@ -12,41 +13,60 @@ import h5py
 import numpy as np
 from overrides import overrides
 
-logger = logging.getLogger(__name__)
-
 
 @DatasetReader.register('lqa')
 class LqaDatasetReader(DatasetReader):
     """Reads a JSON file containing questions and answers, and creates a dataset suitable for QA. """
 
+    FEATURES_PATH = pathlib.Path('data/features')
+    MODEL_NAME_TO_PRETRAINED_FILE_DICT = {
+        'c3d-conv5b': FEATURES_PATH / 'LifeQA_C3D_conv5b.hdf5',
+        'c3d-fc6': FEATURES_PATH / 'LifeQA_C3D_fc6.hdf5',
+        'c3d-fc7': FEATURES_PATH / 'LifeQA_C3D_fc7.hdf5',
+        'i3d-avg-pool': FEATURES_PATH / 'LifeQA_I3D_avg_pool.hdf5',
+        'resnet-pool5': FEATURES_PATH / 'LifeQA_RESNET_pool5.hdf5',
+        'resnet-res5c': FEATURES_PATH / 'LifeQA_RESNET_res5c.hdf5',
+        'resof': FEATURES_PATH / 'LifeQA_RESOF_pool5.hdf5',
+    }
+
     def __init__(self, lazy: bool = False, tokenizer: Optional[Tokenizer] = None,
                  token_indexers: Optional[Dict[str, TokenIndexer]] = None,
-                 load_video_features: Optional[bool] = False,
-                 check_missing_video_features: Optional[bool] = True) -> None:
+                 video_features_to_load: Optional[List[str]] = None, check_missing_video_features: bool = True,
+                 frame_step: int = 1, join_question_and_answers: bool = False, small_sample: bool = False) -> None:
         super().__init__(lazy=lazy)
         self._tokenizer = tokenizer or WordTokenizer()
         self._token_indexers = token_indexers or {'tokens': SingleIdTokenIndexer()}
-        self.load_video_features = load_video_features
+        self.video_features_to_load = video_features_to_load or []
         self.check_missing_video_features = check_missing_video_features
+        self.frame_step = frame_step
+        self.join_question_and_answers = join_question_and_answers
+        self.small_sample = small_sample
 
     @overrides
     def _read(self, file_path: str) -> Iterable[Instance]:
-        if self.load_video_features:
-            logger.info("Reading video features of instances")
-            features_file = h5py.File('data/features/LifeQA_RESNET_pool5.hdf5')
+        features_files = [h5py.File(self.MODEL_NAME_TO_PRETRAINED_FILE_DICT[video_feature], 'r')
+                          for video_feature in self.video_features_to_load]
 
         with open(cached_path(file_path)) as data_file:
-            logger.info("Reading instances in file at: %s", file_path)
             video_dict = json.load(data_file)
+
+            if self.small_sample:
+                video_dict = {key: video_dict[key] for key in random.sample(list(video_dict), 5)}
+
             for video_id in video_dict:
-                # noinspection PyUnboundLocalVariable
-                if not self.load_video_features or self.check_missing_video_features or video_id in features_file:
+                if not self.video_features_to_load or self.check_missing_video_features or video_id in features_files:
                     question_dicts = video_dict[video_id]['questions']
+
+                    if self.small_sample:
+                        question_dicts = random.sample(question_dicts, 3) \
+                            if len(question_dicts) > 3 else question_dicts
+
                     captions = video_dict[video_id].get('manual_captions') or video_dict[video_id]['automatic_captions']
 
-                    if self.load_video_features:
-                        # noinspection PyUnboundLocalVariable
-                        video_features = features_file[video_id][()]
+                    if self.video_features_to_load:
+                        initial_frame = random.randint(0, self.frame_step - 1)
+                        video_features = np.concatenate([features_file[video_id][initial_frame::self.frame_step]
+                                                         for features_file in features_files], axis=1)
                     else:
                         video_features = None
 
@@ -56,7 +76,7 @@ class LqaDatasetReader(DatasetReader):
                         correct_index = question_dict['correct_index']
                         yield self.text_to_instance(question_text, answers, correct_index, captions, video_features)
 
-        if self.load_video_features:
+        for features_file in features_files:
             features_file.close()
 
     @overrides
@@ -74,15 +94,14 @@ class LqaDatasetReader(DatasetReader):
         else:
             tokenized_captions = [self._tokenizer.tokenize('')]
 
-        question_field = TextField(tokenized_question, self._token_indexers)
-        answers_field = ListField([TextField(answer, self._token_indexers) for answer in tokenized_answers])
-        captions_field = ListField([TextField(caption, self._token_indexers) for caption in tokenized_captions])
+        fields = {'captions': ListField([TextField(caption, self._token_indexers) for caption in tokenized_captions])}
 
-        fields = {
-            'question': question_field,
-            'answers': answers_field,
-            'captions': captions_field,
-        }
+        if self.join_question_and_answers:
+            fields['question_and_answers'] = ListField([TextField(tokenized_question + answer, self._token_indexers)
+                                                        for answer in tokenized_answers])
+        else:
+            fields['question'] = TextField(tokenized_question, self._token_indexers)
+            fields['answers'] = ListField([TextField(answer, self._token_indexers) for answer in tokenized_answers])
 
         if video_features is not None:
             fields['video_features'] = ArrayField(video_features)

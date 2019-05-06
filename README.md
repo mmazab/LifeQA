@@ -31,6 +31,9 @@ Then run `run_scripts/train_text_cnn.sh` or `run_scripts/train_text_lstm.sh`.
 
 ### Video (TGIF-QA)
 
+You can [download the already extracted features](https://drive.google.com/drive/folders/1sV1IYoC1oIgjHfSVkIJ-p8GA2hOwx4u1?usp=sharing)
+or do the following to extract them yourself.
+
 1. Run `save_frames.sh` to extract the frames in the video files:
 
     ```bash

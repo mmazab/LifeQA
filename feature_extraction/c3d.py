@@ -4,11 +4,9 @@ import torch.nn as nn
 
 # Copied from https://github.com/DavideA/c3d-pytorch/
 class C3D(nn.Module):
-    """
-    The C3D network as described in [1].
-    """
+    """The C3D network as described in [1]."""
     def __init__(self, pretrained=False):
-        super(C3D, self).__init__()
+        super().__init__()
 
         self.conv1 = nn.Conv3d(3, 64, kernel_size=(3, 3, 3), padding=(1, 1, 1))
         self.pool1 = nn.MaxPool3d(kernel_size=(1, 2, 2), stride=(1, 2, 2))
@@ -41,7 +39,6 @@ class C3D(nn.Module):
             self.load_state_dict(torch.load('data/features/c3d.pickle'))
 
     def forward(self, x, extract_features=False):
-
         h = self.relu(self.conv1(x))
         h = self.pool1(h)
 
@@ -58,22 +55,20 @@ class C3D(nn.Module):
 
         h = self.relu(self.conv5a(h))
         h = self.relu(self.conv5b(h))
+        conv5b = h
         h = self.pool5(h)
 
         h = h.view(-1, 8192)
         h = self.relu(self.fc6(h))
+        if extract_features:
+            return h, conv5b
         h = self.dropout(h)
         h = self.relu(self.fc7(h))
         h = self.dropout(h)
-        if extract_features:
-            return h
 
         logits = self.fc8(h)
-        probs = self.softmax(logits)
+        return self.softmax(logits)
 
-        return probs
-
-    
     def extract_features(self, x):
         return self.forward(x, extract_features=True)
 
