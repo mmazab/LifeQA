@@ -5,68 +5,43 @@ from allennlp.data.vocabulary import DEFAULT_OOV_TOKEN
 from allennlp.models.model import Model
 from allennlp.modules import TextFieldEmbedder, Seq2VecEncoder, TimeDistributed
 from allennlp.modules.similarity_functions import CosineSimilarity
-from allennlp.nn import InitializerApplicator, RegularizerApplicator, util
-from allennlp.training.metrics import CategoricalAccuracy
+from allennlp.nn import RegularizerApplicator, util
 from overrides import overrides
 import torch
 import torch.nn
 
-import lqa_framework.models
+from .lqa import LqaModel
 
 
-class SimpleBaseline(Model):
-    def __init__(self, vocab: Vocabulary,
-                 initializer: InitializerApplicator = InitializerApplicator(),
-                 regularizer: Optional[RegularizerApplicator] = None) -> None:
-        super().__init__(vocab, regularizer)
-
-        self.loss = torch.nn.CrossEntropyLoss()  # Dummy, to have some loss.
-
-        self.metrics = {'accuracy': CategoricalAccuracy()}
-
-        initializer(self)
+class SimpleBaseline(LqaModel):
+    """A simple baseline base class for the LifeQA dataset that classifies based only on the question and/or the answers
+    and that does not need training.
+    """
 
     @overrides
-    def forward(self, question: Dict[str, torch.LongTensor], answers: Dict[str, torch.LongTensor],
-                label: Optional[torch.LongTensor] = None, **kwargs) -> Dict[str, torch.Tensor]:
-        logits = self._compute_logits(question, answers)
+    def forward(self, question: Dict[str, torch.Tensor], answers: Dict[str, torch.Tensor],
+                label: Optional[torch.Tensor] = None, **kwargs) -> Dict[str, torch.Tensor]:
+        """Computes the answer scores for the classification.
 
-        output_dict = {'logits': logits}
+        It does not return a loss value even if ``label`` is provided because this baseline is supposed not to have
+        trainable parameters.
+        """
+        scores = self._compute_scores(question, answers)
+
+        output_dict = {'scores': scores}
 
         if label is not None:
-            output_dict['loss'] = self.loss(logits, label)
             for metric in self.metrics.values():
-                metric(logits, label)
+                metric(scores, label)
 
         return output_dict
 
-    def _compute_logits(self, question: Dict[str, torch.LongTensor],
-                        answers: Dict[str, torch.LongTensor]) -> torch.Tensor:
+    def _compute_scores(self, question: Dict[str, torch.Tensor], answers: Dict[str, torch.Tensor]) -> torch.Tensor:
+        """Computes the answer scores for the classification."""
         raise NotImplementedError
 
-    @overrides
-    def decode(self, output_dict: Dict[str, torch.Tensor]) -> Dict[str, torch.Tensor]:
-        """Does a simple argmax over the class probabilities, converts indices to string labels, and adds a ``'label'``
-        key to the dictionary with the result. """
-        logits = output_dict['logits']
 
-        # noinspection PyTypeChecker,PyUnresolvedReferences
-        output_dict['class_probabilities'] = logits / logits.sum(dim=1)
-
-        predicted_indices = torch.argmax(logits, dim=1)
-        # noinspection PyArgumentList,PyUnresolvedReferences
-        output_dict['label'] = torch.Tensor([self.vocab.get_token_from_index(token_index)
-                                             for token_index in predicted_indices])
-
-        return output_dict
-
-    @overrides
-    def get_metrics(self, reset: Optional[bool] = False) -> Dict[str, float]:
-        return {metric_name: metric.get_metric(reset) for metric_name, metric in self.metrics.items()}
-
-
-def answers_lengths(answers: Dict[str, torch.LongTensor], vocab: Vocabulary):
-    # noinspection PyCallingNonCallable,PyUnresolvedReferences
+def answers_lengths(answers: Dict[str, torch.Tensor], vocab: Vocabulary):
     return torch.tensor([[sum(0 if token_index == 0
                               else 1 + len(vocab.get_token_from_index(token_index.item()))
                               for token_index in answer)
@@ -76,44 +51,30 @@ def answers_lengths(answers: Dict[str, torch.LongTensor], vocab: Vocabulary):
 
 @Model.register('longest_answer')
 class LongestAnswer(SimpleBaseline):
-    """This ``Model`` performs question answering. We assume we're given the video/question/set of answers and we
-    predict the correct answer.
-
-    The basic model structure: we take the answers and return the longest one (character-wise) as correct."""
+    """This ``Model`` returns the character-wise longest answer."""
 
     @overrides
-    def _compute_logits(self, question: Dict[str, torch.LongTensor],
-                        answers: Dict[str, torch.LongTensor]) -> torch.Tensor:
+    def _compute_scores(self, question: Dict[str, torch.Tensor], answers: Dict[str, torch.Tensor]) -> torch.Tensor:
         return answers_lengths(answers, self.vocab)
 
 
 @Model.register('shortest_answer')
 class ShortestAnswer(SimpleBaseline):
-    """This ``Model`` performs question answering. We assume we're given the video/question/set of answers and we
-    predict the correct answer.
-
-    The basic model structure: we take the answers and return the shortest one (character-wise) as correct."""
+    """This ``Model`` returns the character-wise shortest answer."""
 
     @overrides
-    def _compute_logits(self, question: Dict[str, torch.LongTensor],
-                        answers: Dict[str, torch.LongTensor]) -> torch.Tensor:
-        # noinspection PyProtectedMember
-        return - lqa_framework.models.simple_baseline.answers_lengths(answers, self.vocab)
+    def _compute_scores(self, question: Dict[str, torch.Tensor], answers: Dict[str, torch.Tensor]) -> torch.Tensor:
+        return - answers_lengths(answers, self.vocab)
 
 
 @Model.register('most_similar_answer')
 class MostSimilarAnswer(SimpleBaseline):
-    """This ``Model`` performs question answering. We assume we're given the video/question/set of answers and we
-    predict the correct answer.
-
-    The basic model structure: we take the answers and return the one closest in cosine similarity to the question
-    (by averaging the word embeddings)."""
+    """This ``Model`` returns the answer closest to the question in cosine similarity."""
 
     def __init__(self, vocab: Vocabulary, text_field_embedder: TextFieldEmbedder,
                  question_encoder: Seq2VecEncoder, answers_encoder: Seq2VecEncoder,
-                 initializer: InitializerApplicator = InitializerApplicator(),
                  regularizer: Optional[RegularizerApplicator] = None) -> None:
-        super().__init__(vocab, initializer, regularizer)
+        super().__init__(vocab, regularizer)
         self.text_field_embedder = text_field_embedder
 
         oov_token_index = self.vocab.get_token_index(DEFAULT_OOV_TOKEN, 'tokens')
@@ -124,10 +85,15 @@ class MostSimilarAnswer(SimpleBaseline):
         self.answers_encoder = TimeDistributed(answers_encoder)
         self.cosine_similarity = TimeDistributed(CosineSimilarity())
 
+        # Note that no initializer is needed. There is one parameter: the embedding layer weights, but they are loaded
+        # from a pretrained file and the OOV word embedding set to zeros. Also note that the latter cannot be done with
+        # an ``Initializer`` because it's done after loading the pretrained file, so it'd set everything to zero. We
+        # could possibly implement and register a custom initializer that does the same, but it's too much overkill;
+        # it's better to just do it here.
+
     # noinspection PyCallingNonCallable
     @overrides
-    def _compute_logits(self, question: Dict[str, torch.LongTensor],
-                        answers: Dict[str, torch.LongTensor]) -> torch.Tensor:
+    def _compute_scores(self, question: Dict[str, torch.Tensor], answers: Dict[str, torch.Tensor]) -> torch.Tensor:
         embedded_question = self.text_field_embedder(question)
         question_mask = util.get_text_field_mask(question)
         encoded_question = self.question_encoder(embedded_question, question_mask)
@@ -138,6 +104,6 @@ class MostSimilarAnswer(SimpleBaseline):
 
         batch_size, embed_dim = encoded_question.shape
         repeated_encoded_question = encoded_question.view(batch_size, 1, embed_dim).expand(encoded_answers.size())
-        logits = self.cosine_similarity(repeated_encoded_question, encoded_answers)
-        logits[torch.isnan(logits)] = 0
-        return logits
+        scores = self.cosine_similarity(repeated_encoded_question, encoded_answers)
+        scores[torch.isnan(scores)] = 0
+        return scores

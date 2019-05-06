@@ -4,17 +4,20 @@ from allennlp.data import Vocabulary
 from allennlp.models.model import Model
 from allennlp.modules import Attention, FeedForward, Seq2VecEncoder, TextFieldEmbedder, TimeDistributed
 from allennlp.nn import InitializerApplicator, RegularizerApplicator, util
-from allennlp.training.metrics import CategoricalAccuracy
-import numpy as np
 from overrides import overrides
 import torch
 import torch.nn.functional as F
 
+from .lqa import LqaModel
 from ..modules import PytorchSeq2VecWrapperChain
 
 
 @Model.register('tgif_qa')
-class TgifQaClassifier(Model):
+class TgifQaClassifier(LqaModel):
+    """This ``Model`` implements TGIF-QA from `TGIF-QA: Toward Spatio-Temporal Reasoning in Visual Question Answering
+    <http://openaccess.thecvf.com/content_cvpr_2017/papers/Jang_TGIF-QA_Toward_Spatio-Temporal_CVPR_2017_paper.pdf>`_
+    by Jang et al., 2017.`
+    """
     LOSS_OPTIONS = ['hinge', 'cross-entropy']
 
     def __init__(self, vocab: Vocabulary, text_field_embedder: TextFieldEmbedder,
@@ -33,7 +36,6 @@ class TgifQaClassifier(Model):
                                                                  temporal_attention=temporal_attention,
                                                                  classifier_feedforward=classifier_feedforward,
                                                                  text_video_mode=text_video_mode))
-        self.metrics = {'accuracy': CategoricalAccuracy()}
 
         if loss == 'hinge':
             self.loss = torch.nn.MultiMarginLoss()
@@ -48,22 +50,6 @@ class TgifQaClassifier(Model):
     def forward(self, question_and_answers: Dict[str, torch.LongTensor], video_features: Optional[torch.Tensor] = None,
                 frame_count: Optional[torch.Tensor] = None,
                 label: Optional[torch.LongTensor] = None, **kwargs) -> Dict[str, torch.Tensor]:
-        """
-        Parameters
-        ----------
-        question_and_answers : Dict[str, Variable], required	The output of ``TextField.as_array()``.
-        video_features : torch.Tensor, required     The video features.
-        frame_count : torch.Tensor, required        The frame count.
-        label : Variable, optional (default = None)	A variable representing the label for each instance in the batch.
-
-        Returns
-        -------
-        An output dictionary consisting of:
-        scores : torch.FloatTensor
-            A tensor of shape ``(batch_size, num_classes)`` representing the scores for each answer.
-        loss : torch.FloatTensor, optional
-            A scalar loss to be optimised.
-        """
         # This supposes a fixed number of answers, by grabbing any of the dict values available.
         num_answers = list(question_and_answers.values())[0].shape[1]
 
@@ -97,20 +83,12 @@ class TgifQaClassifier(Model):
 
     @overrides
     def decode(self, output_dict: Dict[str, torch.Tensor]) -> Dict[str, torch.Tensor]:
-        """Does a simple argmax over the class probabilities, converts indices to string labels, and adds a ``'label'``
-        key to the dictionary with the result. """
-        class_probabilities = F.softmax(output_dict['scores'], dim=-1)
-        output_dict['class_probabilities'] = class_probabilities
+        output_dict = super().decode(output_dict)
 
-        predictions = class_probabilities.cpu().data.numpy()
-        argmax_indices = np.argmax(predictions, axis=-1)
-        output_dict['label'] = torch.Tensor([self.vocab.get_token_from_index(x, namespace='labels')
-                                             for x in argmax_indices])
+        if isinstance(self.loss, torch.nn.CrossEntropyLoss):
+            output_dict['class_probabilities'] = F.softmax(output_dict['scores'], dim=1)
+
         return output_dict
-
-    @overrides
-    def get_metrics(self, reset: Optional[bool] = False) -> Dict[str, float]:
-        return {metric_name: metric.get_metric(reset) for metric_name, metric in self.metrics.items()}
 
 
 class _TgifQaAnswerScorer(torch.nn.Module):

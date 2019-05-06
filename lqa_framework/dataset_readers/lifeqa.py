@@ -16,7 +16,22 @@ from overrides import overrides
 
 @DatasetReader.register('lqa')
 class LqaDatasetReader(DatasetReader):
-    """Reads a JSON file containing questions and answers, and creates a dataset suitable for QA. """
+    """Provides a dataset suitable for VideoQA, called LifeQA.
+
+    Parameters
+    ----------
+    lazy : bool, optional (default=False)
+        If this is true, ``read()`` will return an object whose ``__iter__`` method
+        reloads the dataset each time it's called. Otherwise, ``read()`` returns a list.
+    tokenizer : Optional[Tokenizer], optional (default=WordTokenizer())
+        Tokenizer with which the question, answers and captions will be tokenized.
+    token_indexers : Optional[Dict[str, TokenIndexer]], optional (default={'tokens': SingleIdTokenIndexer()})
+        Dictionary of token indexers for the question, answers and captions.
+    load_video_features : Optional[bool], optional (default=False)
+        If this is true, it will load the features for the video frames.
+    check_missing_video_features : Optional[bool], optional (default=True)
+        If this is true, it will raise and exception if any video features cannot be loaded.
+    """
 
     FEATURES_PATH = pathlib.Path('data/features')
     MODEL_NAME_TO_PRETRAINED_FILE_DICT = {
