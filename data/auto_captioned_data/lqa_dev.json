@@ -1,6 +1,6 @@
 {
   "123": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8560221791267395,
         "transcript": "hello where we going",
@@ -407,7 +407,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=TGUYv10XdTI",
     "questions": [
       {
         "answers": [
@@ -511,7 +510,7 @@
     ]
   },
   "127": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9051294922828674,
         "transcript": "Terry Crew we just coming into y'all because the girls are getting ready for a vacation to San Antonio Riley why you hang around, sit down but occasionally San Antonio said are you about to pack their luggage they got they close spread it all the way out for what I don't know",
@@ -984,7 +983,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=W1_WorcmxPM",
     "questions": [
       {
         "answers": [
@@ -1088,7 +1086,7 @@
     ]
   },
   "128": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.7413965463638306,
         "transcript": "what do I do when I have mommy go get my phone",
@@ -1680,7 +1678,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=W1_WorcmxPM",
     "questions": [
       {
         "answers": [
@@ -1773,7 +1770,7 @@
     ]
   },
   "129": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9240259528160095,
         "transcript": "what kind of shirt is that",
@@ -2135,7 +2132,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=W1_WorcmxPM",
     "questions": [
       {
         "answers": [
@@ -2239,7 +2235,7 @@
     ]
   },
   "130": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9572325944900513,
         "transcript": "what you doing Shania",
@@ -2632,7 +2628,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=W1_WorcmxPM",
     "questions": [
       {
         "answers": [
@@ -2747,7 +2742,7 @@
     ]
   },
   "131": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8191505670547485,
         "transcript": "picture of put your darling now",
@@ -3165,7 +3160,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=W1_WorcmxPM",
     "questions": [
       {
         "answers": [
@@ -3280,7 +3274,7 @@
     ]
   },
   "132": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8846310377120972,
         "transcript": "awesome so Shania what are you doing",
@@ -3582,7 +3576,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=W1_WorcmxPM",
     "questions": [
       {
         "answers": [
@@ -3697,7 +3690,7 @@
     ]
   },
   "133": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8843351602554321,
         "transcript": "Zack pack everything how do you know did you have a checklist so I have a checklist",
@@ -4082,7 +4075,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=W1_WorcmxPM",
     "questions": [
       {
         "answers": [
@@ -4197,7 +4189,7 @@
     ]
   },
   "134": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9296193718910217,
         "transcript": "so so you have one outfit and then this is the outfit okay to",
@@ -4669,7 +4661,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=W1_WorcmxPM",
     "questions": [
       {
         "answers": [
@@ -4784,7 +4775,7 @@
     ]
   },
   "135": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9194508790969849,
         "transcript": "this is one outfit, underwear you do have your underwear but you need more",
@@ -5230,7 +5221,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=W1_WorcmxPM",
     "questions": [
       {
         "answers": [
@@ -5345,7 +5335,7 @@
     ]
   },
   "136": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.7948228120803833,
         "transcript": "close",
@@ -5554,7 +5544,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=W1_WorcmxPM",
     "questions": [
       {
         "answers": [
@@ -5658,7 +5647,7 @@
     ]
   },
   "206": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9147447347640991,
         "transcript": "battery doing Caitlin talent for doing the pop tart challenge we have 14 14 different flavor 1/2 half Parks we're going to taste them and guess which one is which",
@@ -6151,123 +6140,6 @@
         ]
       }
     ],
-    "manual_captions": [
-      {
-        "transcript": "[Background music plays]"
-      },
-      {
-        "transcript": "[Woman 1]: What are we doing Caitlyn?"
-      },
-      {
-        "transcript": "[Child 1]: We are doing the pop tart challenge"
-      },
-      {
-        "transcript": "[Woman 1]: We're doing tht pop tart challenge"
-      },
-      {
-        "transcript": "[Woman 1]: We have 14, 14 different flavors"
-      },
-      {
-        "transcript": "[Child 1]: One, two, three, four"
-      },
-      {
-        "transcript": "[Woman 1]: of pop tarts"
-      },
-      {
-        "transcript": "[Child 1]: One, two, three, four, five"
-      },
-      {
-        "transcript": "[Woman 1]: and we're going to taste and find out which one is which, so yeah"
-      },
-      {
-        "transcript": "[Man 1]: So how're we going to taste them?"
-      },
-      {
-        "transcript": "[Woman 1]: We;re going to have one on a plate, actually yeah one..."
-      },
-      {
-        "transcript": "[Man 1]: Are we wering blindfolds?"
-      },
-      {
-        "transcript": "[Woman 1]: Yeah, we're wearing blindfolds"
-      },
-      {
-        "transcript": "[Child 1]: Here are my blindfolds"
-      },
-      {
-        "transcript": "[Woman 1]: Blindfolds"
-      },
-      {
-        "transcript": "[Man 1]: Ohh!!"
-      },
-      {
-        "transcript": "[Child 1]: Yeah, here are my blindfolds!"
-      },
-      {
-        "transcript": "[Man 1]: Okay"
-      },
-      {
-        "transcript": "[Woman 1]: So yeah guys lets do this"
-      },
-      {
-        "transcript": "[Man 1]: Alright so"
-      },
-      {
-        "transcript": "[Woman 1]: [Whispering to child 1]"
-      },
-      {
-        "transcript": "[Man 1]: Alright so guess we start huh, so we can bring'em all over and uh.."
-      },
-      {
-        "transcript": "[Child 1]: Huh, that"
-      },
-      {
-        "transcript": "[Man 1]: try these"
-      },
-      {
-        "transcript": "[Woman 1]: Look at my mustache"
-      },
-      {
-        "transcript": "[Man 1]: Oh boy"
-      },
-      {
-        "transcript": "[Child 1]: Let me [indistinct]"
-      },
-      {
-        "transcript": "[Man 1]: I smell something, I smell something"
-      },
-      {
-        "transcript": "[Woman 1]: Hmmmmm"
-      },
-      {
-        "transcript": "[Man 1]: Alright, I'm ready for this"
-      },
-      {
-        "transcript": "[Woman 1]: You ready Caitlyn?"
-      },
-      {
-        "transcript": "[Child 1]: Yeah"
-      },
-      {
-        "transcript": "[Woman 1]: Lets bite into this Caitlyn"
-      },
-      {
-        "transcript": "[Child 1]: Mmmm"
-      },
-      {
-        "transcript": "[Woman 1]: Mmmmm"
-      },
-      {
-        "transcript": "[Child 1]: What flavor?"
-      },
-      {
-        "transcript": "[Man 1]: Mmm"
-      },
-      {
-        "transcript": "[Child 1]: What's inside?"
-      }
-    ],
-    "parent_video_id": "https://www.youtube.com/watch?v=2G5czNVhAJQ",
     "questions": [
       {
         "answers": [
@@ -6360,7 +6232,7 @@
     ]
   },
   "207": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9149971008300781,
         "transcript": "ready broken",
@@ -6902,99 +6774,6 @@
         ]
       }
     ],
-    "manual_captions": [
-      {
-        "transcript": "[Woman 1]: You Ready?"
-      },
-      {
-        "transcript": "[Girl 1]: Hmm.."
-      },
-      {
-        "transcript": "[Woman 1]: Brukin"
-      },
-      {
-        "transcript": "[Music playing in the background]"
-      },
-      {
-        "transcript": "[Man 1]: Hmm.. I like that"
-      },
-      {
-        "transcript": "[Woman 1]: Hmm"
-      },
-      {
-        "transcript": "[Child 1]: Hmm"
-      },
-      {
-        "transcript": "[Man 1]: I am trying not to smack my lips, really, seriously!"
-      },
-      {
-        "transcript": "[Man 1]: Hmm, hmm!!"
-      },
-      {
-        "transcript": "[Woman 1]: How about you try with your mouth closed, when you like chew it [Chewing sounds]"
-      },
-      {
-        "transcript": "[Man 1]: I can try, but then I can't really, I don't know, I feel like I need to.."
-      },
-      {
-        "transcript": "[Woman 1]: Not, you know how you go like [chewing sounds], but with your mouth closed [chewing sounds]"
-      },
-      {
-        "transcript": "[Man 1]: I don't know why, I can't taste it."
-      },
-      {
-        "transcript": "[Woman 1]: If you push it to the roof of your mouth and keep doing that, you can taste it."
-      },
-      {
-        "transcript": "[Man 1]: You know I just can't. I can't taste it as much."
-      },
-      {
-        "transcript": "[Man 1]: All right! you ready?"
-      },
-      {
-        "transcript": "[Woman 1]: Mmm Hmm.."
-      },
-      {
-        "transcript": "[Man 1]: One, two, three berry or something."
-      },
-      {
-        "transcript": "[Woman 1]: Berry."
-      },
-      {
-        "transcript": "[Man 1]: Some kind of berry, I don't know."
-      },
-      {
-        "transcript": "[Woman 1]: Hmm, mmm... [chewing]"
-      },
-      {
-        "transcript": "[Man 1]: All right, so we look now?"
-      },
-      {
-        "transcript": "[Woman 1]: Hmm, mmm... [chewing]"
-      },
-      {
-        "transcript": "[Girl 1]: Knock Knock!!"
-      },
-      {
-        "transcript": "[Man 1]: Blurberry!!, Oh no!!"
-      },
-      {
-        "transcript": "[Woman 1]: [Clapping]"
-      },
-      {
-        "transcript": "[Man 1]: Do I even get that one?"
-      },
-      {
-        "transcript": "[Man 1]: Do I get it? I don't know, I don't know because.."
-      },
-      {
-        "transcript": "[Woman 1]: Is it some kind of berry?"
-      },
-      {
-        "transcript": "[Man 1]: I just said some kind of berry or not, I wasn't very specific about what kind of berry."
-      }
-    ],
-    "parent_video_id": "https://www.youtube.com/watch?v=2G5czNVhAJQ",
     "questions": [
       {
         "answers": [
@@ -7109,7 +6888,7 @@
     ]
   },
   "208": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.7557491064071655,
         "transcript": "Maxwell Iowa you guys got yours",
@@ -7378,105 +7157,6 @@
         ]
       }
     ],
-    "manual_captions": [
-      {
-        "transcript": "[Background music playing]"
-      },
-      {
-        "transcript": "[Man 1]: Man I can smell that one, you guys got yours?"
-      },
-      {
-        "transcript": "[Child 1]: Yeah I got mine"
-      },
-      {
-        "transcript": "[Man 1]: Lets do this"
-      },
-      {
-        "transcript": "[Woman 1]: Mmm, its really good"
-      },
-      {
-        "transcript": "[Man 1]: [taking a bite] Mmmm"
-      },
-      {
-        "transcript": "[Child 1]: Mmmm, its tasty"
-      },
-      {
-        "transcript": "[Man 1]: [grunting]"
-      },
-      {
-        "transcript": "[Child 1]: Peanut butter"
-      },
-      {
-        "transcript": "[Man 1]: [grunting][laughing]"
-      },
-      {
-        "transcript": "[Woman 1]: Ah, you can't say it yet [talking to child]"
-      },
-      {
-        "transcript": "[Woman 1]: On the count of three"
-      },
-      {
-        "transcript": "[Child 1]: One"
-      },
-      {
-        "transcript": "[Woman 1]: Yeah"
-      },
-      {
-        "transcript": "[Man 1]: Are we ready?"
-      },
-      {
-        "transcript": "[Woman 1]: Mmm Hmm"
-      },
-      {
-        "transcript": "[Man 1]: One, two, three"
-      },
-      {
-        "transcript": "[Woman 1]: One, two, three"
-      },
-      {
-        "transcript": "[Man 1]: Peanut Butter!!"
-      },
-      {
-        "transcript": "[Woman 1]: Peanut Butter!!"
-      },
-      {
-        "transcript": "[Man 1]: Ready? Lets see"
-      },
-      {
-        "transcript": "[Woman 1]: Peanut butter"
-      },
-      {
-        "transcript": "[Man 1]: Its gone nutty, its gone nutty, peanut butter"
-      },
-      {
-        "transcript": "[Woman 1]: So is it right?"
-      },
-      {
-        "transcript": "[Man 1]: Yeah"
-      },
-      {
-        "transcript": "[Woman 1]: You know this like.."
-      },
-      {
-        "transcript": "[Man 1]: I love peanut butter, I love that stuff"
-      },
-      {
-        "transcript": "[Child 1]: I love peanut butter"
-      },
-      {
-        "transcript": "[Woman 1]: This called daddy, peanut butter flavor?"
-      },
-      {
-        "transcript": "[Woman 1]: And have those imprints on them, the lines, oooo"
-      },
-      {
-        "transcript": "[Man 1]: What are those?"
-      },
-      {
-        "transcript": "[Woman 1]: No, they're like cookies"
-      }
-    ],
-    "parent_video_id": "https://www.youtube.com/watch?v=2G5czNVhAJQ",
     "questions": [
       {
         "answers": [
@@ -7591,7 +7271,7 @@
     ]
   },
   "209": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8605124354362488,
         "transcript": "I was not your my gosh I smell something if you got if you got yours too I got mine you to everybody",
@@ -8199,111 +7879,6 @@
         ]
       }
     ],
-    "manual_captions": [
-      {
-        "transcript": "[background music plays]"
-      },
-      {
-        "transcript": "[Woman 1]: No, its not your chance"
-      },
-      {
-        "transcript": "[Man 1]: Oh my gosh, I smell something, you got, you got yours too?"
-      },
-      {
-        "transcript": "[Man 1]: I got mine, you got yours too?"
-      },
-      {
-        "transcript": "[Child 1]: yeah"
-      },
-      {
-        "transcript": "[Woman 1]: I can't smell anything"
-      },
-      {
-        "transcript": "[Woman 1]: You ready yet?"
-      },
-      {
-        "transcript": "[Man 1]: I'm ready"
-      },
-      {
-        "transcript": "[All three chewing]"
-      },
-      {
-        "transcript": "[Man 1]: Mmm"
-      },
-      {
-        "transcript": "[Woman 1]: I don't taste anything"
-      },
-      {
-        "transcript": "[Man 1]: I wish this doesn't have a lot of sodium or sugar because I've had pop tarts on a normal basis"
-      },
-      {
-        "transcript": "[Man 1]: What are we going to do with these pop tarts?"
-      },
-      {
-        "transcript": "[Woman 1]: Umm"
-      },
-      {
-        "transcript": "[Man 1]: What are we going to do with'em, umm, umm?"
-      },
-      {
-        "transcript": "[Man 1]: What are we doing to them?"
-      },
-      {
-        "transcript": "[Woman 1]: I don't know, save them for like"
-      },
-      {
-        "transcript": "[Woman 1]: I mean sometimes if I pack a lunch maybe, like take the healthiest one"
-      },
-      {
-        "transcript": "[Woman 1]: I don't know, cause the healthiest one"
-      },
-      {
-        "transcript": "[Man 1]: I don't know, I don't know, we don't, I don't know"
-      },
-      {
-        "transcript": "[Woman 1]: The unfrocked"
-      },
-      {
-        "transcript": "[Man 1]: We got, we got a lot of kid coming, they get pop tarts at school."
-      },
-      {
-        "transcript": "[Man 1]: We could figure it out"
-      },
-      {
-        "transcript": "[Woman 1]: I can pack some for my friends"
-      },
-      {
-        "transcript": "[Man 1]: yeah, so whats.."
-      },
-      {
-        "transcript": "[Woman 1]: They love pop tarts"
-      },
-      {
-        "transcript": "[Man 1]: Ready?"
-      },
-      {
-        "transcript": "[Child 1]: Yeah"
-      },
-      {
-        "transcript": "[Woman 1]: Chocolate Peanut Butter"
-      },
-      {
-        "transcript": "[Man 1]: Chocolate something, rather I'm not sure but chocolate or something."
-      },
-      {
-        "transcript": "[Woman 1]: It's gone, It's the chocolate peanut butter."
-      },
-      {
-        "transcript": "[Man 1]: Alright"
-      },
-      {
-        "transcript": "[Child 1]: You got to be.."
-      },
-      {
-        "transcript": "[Man 1]: Chocolate peanut butter, chocolate peanut butter"
-      }
-    ],
-    "parent_video_id": "https://www.youtube.com/watch?v=2G5czNVhAJQ",
     "questions": [
       {
         "answers": [
@@ -8418,7 +7993,7 @@
     ]
   },
   "210": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8572111129760742,
         "transcript": "alright let's do this",
@@ -8731,93 +8306,6 @@
         ]
       }
     ],
-    "manual_captions": [
-      {
-        "transcript": "[Background music plays]"
-      },
-      {
-        "transcript": "[Man 1]: Alright, lets do this"
-      },
-      {
-        "transcript": "[Woman 1]: Okay"
-      },
-      {
-        "transcript": "[Child 1]: you wanna hear?"
-      },
-      {
-        "transcript": "[Woman 1]: [eats treat] Mmmm!"
-      },
-      {
-        "transcript": "[Child 1]: [eats treat] Mmmm!"
-      },
-      {
-        "transcript": "[Man 1]: [eats treat] Mmmm!"
-      },
-      {
-        "transcript": "[Child 1]: [Indistinct]"
-      },
-      {
-        "transcript": "[Man 1]: Hey that's pretty good, what flavor do you think that is?"
-      },
-      {
-        "transcript": "[Man 1]: Uh, tell me what flavor is that?"
-      },
-      {
-        "transcript": "[Man 1]: [pointing to ear] right here, tell me, right here, what flavor?"
-      },
-      {
-        "transcript": "[Man 1]: Huh Huh, don't be afraid to tell me what flavor"
-      },
-      {
-        "transcript": "[Child 1]: Its [indistinct]"
-      },
-      {
-        "transcript": "[Man 1]: Alright, I'm ready"
-      },
-      {
-        "transcript": "[Woman 1]: Hmm hmm"
-      },
-      {
-        "transcript": "[Man 1]: Alright"
-      },
-      {
-        "transcript": "[Woman 1]: Okay"
-      },
-      {
-        "transcript": "[Man 1]: One, two, three, brown sugar"
-      },
-      {
-        "transcript": "[Woman 1]: Brown sugar cinnamon"
-      },
-      {
-        "transcript": "[Man 1]: Oh no! you just, you just topped it off with cinnamon, oh boy!!"
-      },
-      {
-        "transcript": "[Child 1]: What's that"
-      },
-      {
-        "transcript": "[Man 1]: Alright, let's look"
-      },
-      {
-        "transcript": "[Man 1]: Alrighty [Looks at the boxes]"
-      },
-      {
-        "transcript": "[Woman 1]: [Laughs]"
-      },
-      {
-        "transcript": "[Man 1]: Brown sugar cinnamon, she got, I didn't say cinnamon, I just said brown sugar."
-      },
-      {
-        "transcript": "[Man 1]: I don't know, I guess I don't get it or half of it"
-      },
-      {
-        "transcript": "[Child 1]: Oh, I like this"
-      },
-      {
-        "transcript": "[Man 1]: Okay [clapping hands]"
-      }
-    ],
-    "parent_video_id": "https://www.youtube.com/watch?v=2G5czNVhAJQ",
     "questions": [
       {
         "answers": [
@@ -8932,7 +8420,7 @@
     ]
   },
   "211": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9115284085273743,
         "transcript": "hey guys it's me with Brooklyn and Bailey and we started to be super fun if you guys got to know if the baby of the CJ's family or my family so here is my sister what's your name",
@@ -9520,111 +9008,6 @@
         ]
       }
     ],
-    "manual_captions": [
-      {
-        "transcript": "[Girl 1]: Hey guys its Bailey with Brooke'n Bailey"
-      },
-      {
-        "transcript": "[Girl 1]: And we thought it will be super fun if you guys got to know the baby og CGH family"
-      },
-      {
-        "transcript": "[Girl 1]: or my family, so here's my sister"
-      },
-      {
-        "transcript": "[Girl 1]: What's your name?"
-      },
-      {
-        "transcript": "[Child 1]: Paisy"
-      },
-      {
-        "transcript": "[Girl 1]: [whispering] Say it to the camera"
-      },
-      {
-        "transcript": "[Girl 1]: Say I'm"
-      },
-      {
-        "transcript": "[Child 1]: I'm"
-      },
-      {
-        "transcript": "[Girl 1]: What's your name?"
-      },
-      {
-        "transcript": "[Child 1]: Paisy"
-      },
-      {
-        "transcript": "[Girl 1]: and Paisly how old are you?"
-      },
-      {
-        "transcript": "[Child 1]: Good!"
-      },
-      {
-        "transcript": "[Girl 1]: You're good [laughing]"
-      },
-      {
-        "transcript": "[Girl 1]: No, how old? The number, hold up the number on your fingers"
-      },
-      {
-        "transcript": "[Girl 1]: You're?"
-      },
-      {
-        "transcript": "[Child 1]: [counnting on fingers] one"
-      },
-      {
-        "transcript": "[Girl 1]: No you're older than that,  yeah!"
-      },
-      {
-        "transcript": "[Child 1]: two, two!!"
-      },
-      {
-        "transcript": "[Girl 1]: You're three!!"
-      },
-      {
-        "transcript": "[Child 1]: Shree"
-      },
-      {
-        "transcript": "[Girl 1]: Say three"
-      },
-      {
-        "transcript": "[Child 1]: three"
-      },
-      {
-        "transcript": "[Girl 1]: Now Paisly, what is your favorite color, you know?"
-      },
-      {
-        "transcript": "[Child 1]: Pink, I love pink[jumping]"
-      },
-      {
-        "transcript": "[Child 1]: What you wuv?"
-      },
-      {
-        "transcript": "[Girl 1]: I love pink, ahh"
-      },
-      {
-        "transcript": "[Child 1]: uh huh, me too"
-      },
-      {
-        "transcript": "[Girl 1]: Really? Is there anyone wearing pink, I'm not wearing pink"
-      },
-      {
-        "transcript": "[Child 1]: I am"
-      },
-      {
-        "transcript": "[Girl 1]: You wearing pink? Where?"
-      },
-      {
-        "transcript": "[Child 1]: [signals to lips]"
-      },
-      {
-        "transcript": "[Girl 1]: Oh! your lips are pink, good one, give me a kiss."
-      },
-      {
-        "transcript": "[Child 1]: [kisses]"
-      },
-      {
-        "transcript": "[Girl 1]: Thank you"
-      }
-    ],
-    "parent_video_id": "https://www.youtube.com/watch?v=h0tC1cGMMXw",
     "questions": [
       {
         "answers": [
@@ -9706,7 +9089,7 @@
     ]
   },
   "212": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8922773599624634,
         "transcript": "what is your favorite animal Paisley orange you like orange orange what orange cat orange dogs get over here",
@@ -10273,7 +9656,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=h0tC1cGMMXw",
     "questions": [
       {
         "answers": [
@@ -10355,7 +9737,7 @@
     ]
   },
   "213": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.7574136257171631,
         "transcript": "good night cow what does a cow say",
@@ -10882,7 +10264,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=h0tC1cGMMXw",
     "questions": [
       {
         "answers": [
@@ -10986,7 +10367,7 @@
     ]
   },
   "214": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9298221468925476,
         "transcript": "you show me your arm movements do you like this how do you swim like my back and then you put your back under the water yeah cool can you show me your float how do you float I meant back you're on your back okay sit up and show me your on your back and you go work with your arms go",
@@ -11569,7 +10950,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=h0tC1cGMMXw",
     "questions": [
       {
         "answers": [
@@ -11651,7 +11031,7 @@
     ]
   },
   "215": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8693092465400696,
         "transcript": "how many siblings do you have how many brothers and sisters do have you have one more than one",
@@ -12157,7 +11537,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=h0tC1cGMMXw",
     "questions": [
       {
         "answers": [
@@ -12272,7 +11651,7 @@
     ]
   },
   "216": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8948062062263489,
         "transcript": "would you like about Daxton",
@@ -12880,7 +12259,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=h0tC1cGMMXw",
     "questions": [
       {
         "answers": [
@@ -12995,7 +12373,7 @@
     ]
   },
   "217": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8574960231781006,
         "transcript": "Paisley will you dance for me sweetie can you show me how you did on the couch",
@@ -13739,7 +13117,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=h0tC1cGMMXw",
     "questions": [
       {
         "answers": [
@@ -13843,7 +13220,7 @@
     ]
   },
   "218": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8109093308448792,
         "transcript": "so painfully are you ticklish no can we test that theory",
@@ -14085,7 +13462,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=h0tC1cGMMXw",
     "questions": [
       {
         "answers": [
@@ -14156,7 +13532,7 @@
     ]
   },
   "219": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8600566983222961,
         "transcript": "Richard Lee",
@@ -14707,7 +14083,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=h0tC1cGMMXw",
     "questions": [
       {
         "answers": [
@@ -14811,7 +14186,7 @@
     ]
   },
   "245": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.6902223825454712,
         "transcript": "Abby and the bee venom spider food in the Beatles",
@@ -15003,7 +14378,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=D5dkBifv7K0",
     "questions": [
       {
         "answers": [
@@ -15118,7 +14492,7 @@
     ]
   },
   "246": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.707830548286438,
         "transcript": "and how if you spell right",
@@ -15367,7 +14741,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=D5dkBifv7K0",
     "questions": [
       {
         "answers": [
@@ -15482,7 +14855,7 @@
     ]
   },
   "247": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8708834648132324,
         "transcript": "rectangle",
@@ -15579,7 +14952,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=D5dkBifv7K0",
     "questions": [
       {
         "answers": [
@@ -15694,7 +15066,7 @@
     ]
   },
   "248": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9320365786552429,
         "transcript": "okay then I said",
@@ -15830,7 +15202,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=D5dkBifv7K0",
     "questions": [
       {
         "answers": [
@@ -15945,7 +15316,7 @@
     ]
   },
   "249": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.976094663143158,
         "transcript": "okay and then do something else",
@@ -16097,7 +15468,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=D5dkBifv7K0",
     "questions": [
       {
         "answers": [
@@ -16212,7 +15582,7 @@
     ]
   },
   "250": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8513410091400146,
         "transcript": "can you ask Nick me",
@@ -16335,7 +15705,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=D5dkBifv7K0",
     "questions": [
       {
         "answers": [
@@ -16450,7 +15819,7 @@
     ]
   },
   "251": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.4893433749675751,
         "transcript": "can you say that in Spanish",
@@ -16561,7 +15930,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=D5dkBifv7K0",
     "questions": [
       {
         "answers": [
@@ -16676,7 +16044,7 @@
     ]
   },
   "252": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.609919548034668,
         "transcript": "it'll be fine.",
@@ -16814,7 +16182,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=D5dkBifv7K0",
     "questions": [
       {
         "answers": [
@@ -16907,7 +16274,7 @@
     ]
   },
   "258": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9304507374763489,
         "transcript": "Liana Lowenstein child and family therapist in Toronto Canada",
@@ -17801,7 +17168,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=dBB_OVkk6kw",
     "questions": [
       {
         "answers": [
@@ -17861,7 +17227,7 @@
     ]
   },
   "259": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9183404445648193,
         "transcript": "so you can ask me please may have the bubbles",
@@ -18462,7 +17828,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=dBB_OVkk6kw",
     "questions": [
       {
         "answers": [
@@ -18522,7 +17887,7 @@
     ]
   },
   "270": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8116497993469238,
         "transcript": "I need to do it tell me which one has more or if they haven't seen",
@@ -19027,7 +18392,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=R3U_T6C9NtU",
     "questions": [
       {
         "answers": [
@@ -19087,7 +18451,7 @@
     ]
   },
   "271": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.860853374004364,
         "transcript": "which one has more",
@@ -19530,7 +18894,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=R3U_T6C9NtU",
     "questions": [
       {
         "answers": [
@@ -19590,7 +18953,7 @@
     ]
   },
   "272": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8587964177131653,
         "transcript": "you just tell me nice or equal right now if I take this stuff important to here",
@@ -20173,7 +19536,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=R3U_T6C9NtU",
     "questions": [
       {
         "answers": [
@@ -20233,7 +19595,7 @@
     ]
   },
   "273": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9400694966316223,
         "transcript": "is this fair if we have like this if you have one and I have to",
@@ -20641,7 +20003,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=R3U_T6C9NtU",
     "questions": [
       {
         "answers": [
@@ -20701,8 +20062,7 @@
     ]
   },
   "279": {
-    "automatic_captions": null,
-    "parent_video_id": "https://www.youtube.com/watch?v=0FgFZIEt5YQ",
+    "captions": null,
     "questions": [
       {
         "answers": [
@@ -20762,8 +20122,7 @@
     ]
   },
   "280": {
-    "automatic_captions": null,
-    "parent_video_id": "https://www.youtube.com/watch?v=0FgFZIEt5YQ",
+    "captions": null,
     "questions": [
       {
         "answers": [

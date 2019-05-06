@@ -1,6 +1,6 @@
 {
   "097": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.49365007877349854,
         "transcript": "best friend",
@@ -144,93 +144,6 @@
         ]
       }
     ],
-    "manual_captions": [
-      {
-        "transcript": "[Child 1]: Did the"
-      },
-      {
-        "transcript": "[Child 2]: did the"
-      },
-      {
-        "transcript": "[Children]: S, A, O, O, N"
-      },
-      {
-        "transcript": "[Child 1]: and"
-      },
-      {
-        "transcript": "[Child 2]: Oh, and"
-      },
-      {
-        "transcript": "[Child 1]: and, it, to, is"
-      },
-      {
-        "transcript": "[Child 2]: is"
-      },
-      {
-        "transcript": "[Child 1]: he"
-      },
-      {
-        "transcript": "[Child 2]: he"
-      },
-      {
-        "transcript": "[Child 1]: it"
-      },
-      {
-        "transcript": "[Child 2]: it"
-      },
-      {
-        "transcript": "[Child 1]: I"
-      },
-      {
-        "transcript": "[Child 2]: I"
-      },
-      {
-        "transcript": "[Child 1]: the"
-      },
-      {
-        "transcript": "[Child 2]: the"
-      },
-      {
-        "transcript": "[Child 1]: De the"
-      },
-      {
-        "transcript": "[Child 2]: de the"
-      },
-      {
-        "transcript": "[Child 1]: was"
-      },
-      {
-        "transcript": "[Child 2]: was"
-      },
-      {
-        "transcript": "[Child 1]: a of, you finished all"
-      },
-      {
-        "transcript": "[Child 1]: now we've finished homework"
-      },
-      {
-        "transcript": "[Child 2]: [indistinct]"
-      },
-      {
-        "transcript": "[Child 2]: Can you?"
-      },
-      {
-        "transcript": "[Child 1]: So selma, Al Selma"
-      },
-      {
-        "transcript": "[Child 2]: Me, me"
-      },
-      {
-        "transcript": "[Child 1]: There's no you"
-      },
-      {
-        "transcript": "[Child 2]: Let's do me"
-      },
-      {
-        "transcript": "[Child 1]: No"
-      }
-    ],
-    "parent_video_id": "https://www.youtube.com/watch?v=yg0y30nWqd0",
     "questions": [
       {
         "answers": [
@@ -290,7 +203,7 @@
     ]
   },
   "098": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.860931396484375,
         "transcript": "what does what is this",
@@ -545,7 +458,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=yg0y30nWqd0",
     "questions": [
       {
         "answers": [
@@ -605,7 +517,7 @@
     ]
   },
   "099": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8470375537872314,
         "transcript": "I don't know how it is ABC ABC",
@@ -1031,7 +943,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=yg0y30nWqd0",
     "questions": [
       {
         "answers": [
@@ -1091,7 +1002,7 @@
     ]
   },
   "100": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8083621859550476,
         "transcript": "dad are you sad yeah",
@@ -1336,7 +1247,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=yg0y30nWqd0",
     "questions": [
       {
         "answers": [
@@ -1396,7 +1306,7 @@
     ]
   },
   "101": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9001156687736511,
         "transcript": "it's a rainy Saturday here in Brooklyn but I'm not going to let that get me down because I'm at the farmers market I'm about to get some Goods to make lobster three ways and then a bunch of friends are coming over perfect rainy day activity let's do it",
@@ -1906,7 +1816,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=IzCXyXXkjKE",
     "questions": [
       {
         "answers": [
@@ -2010,7 +1919,7 @@
     ]
   },
   "102": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9207215905189514,
         "transcript": "but we got a lot of cooking to do so should we get to it",
@@ -2325,7 +2234,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=IzCXyXXkjKE",
     "questions": [
       {
         "answers": [
@@ -2440,7 +2348,7 @@
     ]
   },
   "103": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9168002009391785,
         "transcript": "poacher here and then we're going to cut not all the way through but just left that over like this",
@@ -2874,7 +2782,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=IzCXyXXkjKE",
     "questions": [
       {
         "answers": [
@@ -2989,7 +2896,7 @@
     ]
   },
   "104": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9479841589927673,
         "transcript": "and now for the party the timing worked out perfectly",
@@ -3322,7 +3229,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=IzCXyXXkjKE",
     "questions": [
       {
         "answers": [
@@ -3437,7 +3343,7 @@
     ]
   },
   "145": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9619361758232117,
         "transcript": "there's so many things",
@@ -3854,7 +3760,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=ItAiqsVEA2c",
     "questions": [
       {
         "answers": [
@@ -3947,7 +3852,7 @@
     ]
   },
   "146": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8473435044288635,
         "transcript": "name Lois Griffin birthday credit card can hear my prayers we thank you Megan Griffin and Megan can you tell your name",
@@ -4437,7 +4342,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=ItAiqsVEA2c",
     "questions": [
       {
         "answers": [
@@ -4552,7 +4456,7 @@
     ]
   },
   "147": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.5169770121574402,
         "transcript": "laid off",
@@ -4855,7 +4759,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=JGTOwcd1Rf4",
     "questions": [
       {
         "answers": [
@@ -4948,7 +4851,7 @@
     ]
   },
   "148": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8914339542388916,
         "transcript": "okay",
@@ -5175,7 +5078,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=JGTOwcd1Rf4",
     "questions": [
       {
         "answers": [
@@ -5290,7 +5192,7 @@
     ]
   },
   "157": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9472028017044067,
         "transcript": "hey guys it's Paige and Brooke and that right here isn't here today because we don't live together so yeah and I'll be doing with Kenzie's hair say hi and she's already up cuz we're going to be spraying her with spray bottle to get her hair wet so I don't know what I'm going to drive maybe do braids or a bun with the",
@@ -5817,7 +5719,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
         "answers": [
@@ -5877,7 +5778,7 @@
     ]
   },
   "158": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9053044319152832,
         "transcript": "so yeah I'm just praying her hair",
@@ -6348,7 +6249,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
         "answers": [
@@ -6408,7 +6308,7 @@
     ]
   },
   "159": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.973599910736084,
         "transcript": "at the end of the video I will tell you what I used",
@@ -6692,7 +6592,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
         "answers": [
@@ -6752,7 +6651,7 @@
     ]
   },
   "160": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9591308236122131,
         "transcript": "so my dream job is",
@@ -7072,36 +6971,6 @@
         ]
       }
     ],
-    "manual_captions": [
-      {
-        "transcript": "[Child 1]: So my dream job is to actually do hair"
-      },
-      {
-        "transcript": "[Child 1]: I actually get and Bartelli"
-      },
-      {
-        "transcript": "[Child 1]: I watch them non-stop"
-      },
-      {
-        "transcript": "[Child 1]: Oh make sure you follow my friend on Youtube"
-      },
-      {
-        "transcript": "[Child 1]: Her name is Laxy girl, Laxy"
-      },
-      {
-        "transcript": "[Child 1]: Well her road name is Alexa"
-      },
-      {
-        "transcript": "[Child 1]: She, we're, we're really close friends"
-      },
-      {
-        "transcript": "[Child 1]: This way. Close your eyes"
-      },
-      {
-        "transcript": "[Child 1]: Think we're done"
-      }
-    ],
-    "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
         "answers": [
@@ -7161,7 +7030,7 @@
     ]
   },
   "161": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9165936708450317,
         "transcript": "I think we're done letting her hair so next I'm going to do the bones and ponytail and stuff",
@@ -7525,39 +7394,6 @@
         ]
       }
     ],
-    "manual_captions": [
-      {
-        "transcript": "[Child 1]: Sorry"
-      },
-      {
-        "transcript": "[Child 1]: I think we're done wetting her hair"
-      },
-      {
-        "transcript": "[Child 1]: So next, I'm gonna do a bow with a ponytail and stuff"
-      },
-      {
-        "transcript": "[Child 1]: Cause, I did braiding but I wasn't filming, so"
-      },
-      {
-        "transcript": "[Child 1]: I need three maybe two"
-      },
-      {
-        "transcript": "[Child 1]: okay, so"
-      },
-      {
-        "transcript": "[Child 1]: What're you doin?"
-      },
-      {
-        "transcript": "[Child 1]: So yeah, I have to decide on the ponytail"
-      },
-      {
-        "transcript": "[Child 1]: Oh wait, I want you guys to comment down below"
-      },
-      {
-        "transcript": "[Child 1]: Which hairstyle did you want me to do? I"
-      }
-    ],
-    "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
         "answers": [
@@ -7617,7 +7453,7 @@
     ]
   },
   "162": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8587800860404968,
         "transcript": "I was I just did now I'm just going to do the braid braided bun",
@@ -8163,7 +7999,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
         "answers": [
@@ -8223,7 +8058,7 @@
     ]
   },
   "163": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9446025490760803,
         "transcript": "I'm sorry I don't want to break your brush or your head",
@@ -8587,7 +8422,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
         "answers": [
@@ -8647,7 +8481,7 @@
     ]
   },
   "164": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8200863599777222,
         "transcript": "sorry guys if it's taking me so",
@@ -8896,7 +8730,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
         "answers": [
@@ -8956,7 +8789,7 @@
     ]
   },
   "165": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9013260006904602,
         "transcript": "I'm just going to put her hair up in a bun and then",
@@ -9134,7 +8967,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
         "answers": [
@@ -9194,7 +9026,7 @@
     ]
   },
   "166": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9562525153160095,
         "transcript": "her hair is pretty long especially really hard to breathe cuz her hair is a",
@@ -9398,7 +9230,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
         "answers": [
@@ -9458,7 +9289,7 @@
     ]
   },
   "167": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8182658553123474,
         "transcript": "tell her XOXO",
@@ -9651,7 +9482,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
         "answers": [
@@ -9711,7 +9541,7 @@
     ]
   },
   "187": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9207090139389038,
         "transcript": "we had a lot of suggestions to do the pizza challenge so here it is okay so I have my friend come over and do the challenge with me but you're not here so I'm going to the shower to play dad",
@@ -10512,51 +10342,6 @@
         ]
       }
     ],
-    "manual_captions": [
-      {
-        "transcript": "[Child 1]: We had a lot of suggestions to do the pizza challenge, so here it is"
-      },
-      {
-        "transcript": "[Child 2]: Yeah!!"
-      },
-      {
-        "transcript": "[Child 1]: Okay, so I was going to have my friend come over and do this challenge with me but she's not here"
-      },
-      {
-        "transcript": "[Child 2]: Pizza challenge"
-      },
-      {
-        "transcript": "[Child 1]: So I'm going to do this challenge with my dad!![claps hands] Woo"
-      },
-      {
-        "transcript": "[Child 1]: In this pizza challenge, in this cup we have 4 tickets on it like a piece of paper has this dough labelled on it."
-      },
-      {
-        "transcript": "[Child 1]: Two of each, I'm going to pick one and he's going to pick one and whichever dough I pick out of here"
-      },
-      {
-        "transcript": "[Child 1]: is the dough I'm going to use for my pizza, same for my dad."
-      },
-      {
-        "transcript": "[Child 1]: And then there's 18 labelled pieces of paper in here with things in these bags."
-      },
-      {
-        "transcript": "[Child 1]: Brittany wanted to store in these things and I've no idea what they are"
-      },
-      {
-        "transcript": "[Child 1]: but we'll pick like one of them and we'll put them on our pizza"
-      },
-      {
-        "transcript": "[Child 1]: So we have the sauce and the cheeses and we have the olive oil and everything that we need for the pizzas"
-      },
-      {
-        "transcript": "[Child 2]: [Repeatedly calls out daddy]"
-      },
-      {
-        "transcript": "[Child 1]: This challenge is going to be a lot of fun."
-      }
-    ],
-    "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
         "answers": [
@@ -10671,7 +10456,7 @@
     ]
   },
   "188": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9216335415840149,
         "transcript": "wow so we got like mystery mystery toppings in each bag and then we're going to pick a number and the number that's in there isn't is car spawns with the number on the bag and we take that bag and take whatever was in there out and put it on a pizza",
@@ -11220,147 +11005,6 @@
         ]
       }
     ],
-    "manual_captions": [
-      {
-        "transcript": "[Man 1]: Wow! We got like mystery toppings in each bag"
-      },
-      {
-        "transcript": "[Girl 1]: Mystery toppings"
-      },
-      {
-        "transcript": "[Man 1]: And then we are going to pick a number."
-      },
-      {
-        "transcript": "[Girl 1]: Yeah!"
-      },
-      {
-        "transcript": "[Man 1]: The number which corrosponds to the number on the bag, we are going to take that bag.."
-      },
-      {
-        "transcript": "[Man 1]: Take whatever is inside the bag and put it on our pizza."
-      },
-      {
-        "transcript": "[Girl 1]: Yes, that's true."
-      },
-      {
-        "transcript": "[Man 1]: Wow!"
-      },
-      {
-        "transcript": "[Girl 2]: I know"
-      },
-      {
-        "transcript": "[Man 1]: Caitlyn are you going to be a help in this challenge?"
-      },
-      {
-        "transcript": "[Girl 1]: yeah, I was about to say that, she's going to be our helper"
-      },
-      {
-        "transcript": "[Girl 2]: Yeah, yeah!"
-      },
-      {
-        "transcript": "[Man 1]: Yeah, that's going to be fun!"
-      },
-      {
-        "transcript": "[Girl 2]: You can [isdistinct]"
-      },
-      {
-        "transcript": "[Man 1]: Awesome!"
-      },
-      {
-        "transcript": "[Girl 1]: We're going to have fun, you're going to be our helper."
-      },
-      {
-        "transcript": "[Man 1]: Wow! Looks like a lot of fun"
-      },
-      {
-        "transcript": "[Girl 2]: You [indistinct]"
-      },
-      {
-        "transcript": "[Girl 1]: Oh, thank you!"
-      },
-      {
-        "transcript": "[Girl 2]: You're my beft friend"
-      },
-      {
-        "transcript": "[Girl 1]: [exclaiming] Oh my god, she is so cute!"
-      },
-      {
-        "transcript": "[Girl 2]: You ready, daddy?"
-      },
-      {
-        "transcript": "[Man 1]: Am I ready?"
-      },
-      {
-        "transcript": "[Girl 1]: Lets do this"
-      },
-      {
-        "transcript": "[Man 1]: Are you ready?"
-      },
-      {
-        "transcript": "[Girl 1]: Lets do this."
-      },
-      {
-        "transcript": "[Man 1]: We are going to do this."
-      },
-      {
-        "transcript": "[Girl 1]: [clapping hands]"
-      },
-      {
-        "transcript": "[Man 1]: This is the pizza challenge."
-      },
-      {
-        "transcript": "[Girl 1]: Pizza challenge"
-      },
-      {
-        "transcript": "[Man 1]: Alright so"
-      },
-      {
-        "transcript": "[Girl 1]: Okay"
-      },
-      {
-        "transcript": "[Man 1]: We're going to start with this."
-      },
-      {
-        "transcript": "[Girl 1]: Yeah!, shake that up"
-      },
-      {
-        "transcript": "[Man 1]: Shake it up, alright!"
-      },
-      {
-        "transcript": "[Girl 1]: Pick one out."
-      },
-      {
-        "transcript": "[Girl 1]: Pick one."
-      },
-      {
-        "transcript": "[Girl 2]: I'll pick one too!"
-      },
-      {
-        "transcript": "[Man 1]: I got precooked one"
-      },
-      {
-        "transcript": "[Girl 1]: I got precooked too"
-      },
-      {
-        "transcript": "[Man 1]: Okay"
-      },
-      {
-        "transcript": "[Girl 1]: Man! it'll be fun to get in Rhonda too"
-      },
-      {
-        "transcript": "[Girl 2]: Let me pick one too, let me pick.."
-      },
-      {
-        "transcript": "[Man 1]: You can pick one"
-      },
-      {
-        "transcript": "[Man 1]: just shake it"
-      },
-      {
-        "transcript": "[Girl 1]: Shake it!"
-      }
-    ],
-    "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
         "answers": [
@@ -11464,7 +11108,7 @@
     ]
   },
   "189": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8485560417175293,
         "transcript": "can you help us kick it like when you get us the door the pizza dough that's why I",
@@ -11748,156 +11392,6 @@
         ]
       }
     ],
-    "manual_captions": [
-      {
-        "transcript": "[Music playing in the background]"
-      },
-      {
-        "transcript": "[Man 1]: Can you help us, Caitlyn, can you get the dough, the pizza dough?"
-      },
-      {
-        "transcript": "[Girl 1]: This is like, never been fun to toss that."
-      },
-      {
-        "transcript": "[Girl 1]: Alright, can you?"
-      },
-      {
-        "transcript": "[Girl 2]: [handing over the pizza dough]"
-      },
-      {
-        "transcript": "[Man 1]: Yeah!!"
-      },
-      {
-        "transcript": "[Girl 1]: Thank you!"
-      },
-      {
-        "transcript": "[Man 1]: Alright, so we're both getting.."
-      },
-      {
-        "transcript": "[Girl 1]: Yeah, both get."
-      },
-      {
-        "transcript": "[Man 1]: How to open this thing?"
-      },
-      {
-        "transcript": "[Girl 1]: Okay"
-      },
-      {
-        "transcript": "[Man 1]: You know what, that's why they use a knife."
-      },
-      {
-        "transcript": "[Girl 1]: Okay"
-      },
-      {
-        "transcript": "[Girl 2]: What do [indistinct]."
-      },
-      {
-        "transcript": "[Girl 1]: If you use knives to open things, be careful."
-      },
-      {
-        "transcript": "[Man 1]: Yes, absolutely."
-      },
-      {
-        "transcript": "[Man 1]: We got one."
-      },
-      {
-        "transcript": "[Girl 1]: Thank you!"
-      },
-      {
-        "transcript": "[Man 1]: Oh!! We forgot the olive oil, right?"
-      },
-      {
-        "transcript": "[Girl 1]: Yeah I forgot, the olive oil [laughing]"
-      },
-      {
-        "transcript": "[Man 1]: [Pouring the oil]"
-      },
-      {
-        "transcript": "[Girl 1]: How do I do that?"
-      },
-      {
-        "transcript": "[Man 1]: Just do it like that.. and then[thud]"
-      },
-      {
-        "transcript": "[Girl 1]: Like that?"
-      },
-      {
-        "transcript": "[Man 1]: That's just it doesn't stick and then just slap it on there."
-      },
-      {
-        "transcript": "[Man 1]: Alright, Alright what we have to do now what else?"
-      },
-      {
-        "transcript": "[Girl 1]: Sauce it."
-      },
-      {
-        "transcript": "[Man 1]: Sauce it first?"
-      },
-      {
-        "transcript": "[Girl 1]: Yeah right?"
-      },
-      {
-        "transcript": "[Man 1]: Okay!"
-      },
-      {
-        "transcript": "[Girl 1]: Can we sauce it?"
-      },
-      {
-        "transcript": "[Man 1]: Yeah"
-      },
-      {
-        "transcript": "[Girl 1]: We get our sauces on here"
-      },
-      {
-        "transcript": "[Man 1]: Sauce it up [Making noises]"
-      },
-      {
-        "transcript": "[Girl 2]: What? What?"
-      },
-      {
-        "transcript": "[Girl 1]: God!!"
-      },
-      {
-        "transcript": "[Man 1]: Some product smells good"
-      },
-      {
-        "transcript": "[Girl 2]: What, What"
-      },
-      {
-        "transcript": "[Man 1]: Some product smells good, feels like more, more, more."
-      },
-      {
-        "transcript": "[Girl 1]: Some more"
-      },
-      {
-        "transcript": "[Man 1]: I think that's enough."
-      },
-      {
-        "transcript": "[Girl 1]: Well for yours."
-      },
-      {
-        "transcript": "[Girl 1]: More, more"
-      },
-      {
-        "transcript": "[Man 1]: Sauce right?"
-      },
-      {
-        "transcript": "[Girl 1]: This is enough?"
-      },
-      {
-        "transcript": "[Man 1]: Yeah!!"
-      },
-      {
-        "transcript": "[Girl 1]: For mine?"
-      },
-      {
-        "transcript": "[Man 1]: Well if you want, you can add more, if you want it saucier, more cheesy, I don't know."
-      },
-      {
-        "transcript": "[Girl 1]: Okay, I got it."
-      }
-    ],
-    "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
         "answers": [
@@ -12012,7 +11506,7 @@
     ]
   },
   "190": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8552154898643494,
         "transcript": "not what we had cheese pizza",
@@ -12433,123 +11927,6 @@
         ]
       }
     ],
-    "manual_captions": [
-      {
-        "transcript": "[Music playing in the background]"
-      },
-      {
-        "transcript": "[Man 1]: We add cheese now!!"
-      },
-      {
-        "transcript": "[Girl 1]: We add cheese on this pizza, it's good cheese."
-      },
-      {
-        "transcript": "[Man 1]: [Making sounds][Laughing]"
-      },
-      {
-        "transcript": "[Girl 2]: Let me help?"
-      },
-      {
-        "transcript": "[Girl 1]: Want to help? Are your hands washed Caitlyn?"
-      },
-      {
-        "transcript": "[Girl 2]: Ya"
-      },
-      {
-        "transcript": "[Girl 1]: Are you sure?"
-      },
-      {
-        "transcript": "[Girl 2]: Ya"
-      },
-      {
-        "transcript": "[Girl 1]: Are you sure you washed your hands?"
-      },
-      {
-        "transcript": "[Girl 2]: I washed my hands"
-      },
-      {
-        "transcript": "[Man 1]: I'm sure we prepared for this challenge right? I mean we washed our hands before we could help."
-      },
-      {
-        "transcript": "[Girl 2]: Damn, I washed my hands"
-      },
-      {
-        "transcript": "[Girl 1]: Here, not all in one spot"
-      },
-      {
-        "transcript": "[Man 1]: Okay, I got cheese in here, what do you think?"
-      },
-      {
-        "transcript": "[Girl 1]: Well, look, you like, like, it's hard to waste"
-      },
-      {
-        "transcript": "[Man 1]: That's not bad"
-      },
-      {
-        "transcript": "[Girl 1]: i could have dumped the whole thing in here."
-      },
-      {
-        "transcript": "[Girl 2]: Dump the whole thing."
-      },
-      {
-        "transcript": "[Man 1]: We are not pizza experts or anything right?"
-      },
-      {
-        "transcript": "[Girl 1]: Nooo! [Laughing]"
-      },
-      {
-        "transcript": "[Man 1]: Specially if we get it to make this way or.."
-      },
-      {
-        "transcript": "[Girl 1]: I got cheese on my lap, okay that's enough cheese."
-      },
-      {
-        "transcript": "[Man 1]: I don't already know what am I putting on my pizza yet."
-      },
-      {
-        "transcript": "[Girl 1]: That's enough cheese."
-      },
-      {
-        "transcript": "[Man 1]: Good job, Caitlyn!"
-      },
-      {
-        "transcript": "[Girl 1]: Thank you!"
-      },
-      {
-        "transcript": "[Girl 1]: There is cheese on my seat. I am sitting on cheese, feels really weird."
-      },
-      {
-        "transcript": "[Man 1]: Alright, now what do we do, who'll go first?"
-      },
-      {
-        "transcript": "[Girl 1]: Uhh"
-      },
-      {
-        "transcript": "[Girl 2]: Let me go first!"
-      },
-      {
-        "transcript": "[Man 1]: What do we do to you know, intiate, is it like rock paper scissors"
-      },
-      {
-        "transcript": "[Girl 2]: [Mumbling]"
-      },
-      {
-        "transcript": "[Man 1]: or some kind of"
-      },
-      {
-        "transcript": "[Girl 1]: I don't know"
-      },
-      {
-        "transcript": "[Woman 1]: Guess a number from 1 to 10"
-      },
-      {
-        "transcript": "[Girl 1]: 7"
-      },
-      {
-        "transcript": "[Man 1]: 5"
-      }
-    ],
-    "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
         "answers": [
@@ -12664,7 +12041,7 @@
     ]
   },
   "191": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.621129035949707,
         "transcript": "okay",
@@ -13105,174 +12482,6 @@
         ]
       }
     ],
-    "manual_captions": [
-      {
-        "transcript": "[Woman 1]: Uh Brianna got the nod.."
-      },
-      {
-        "transcript": "[Man 1]: Okay!"
-      },
-      {
-        "transcript": "[Girl 1]: Okay!!"
-      },
-      {
-        "transcript": "[Girl 2]: I got [indistinct]"
-      },
-      {
-        "transcript": "[Girl 1]: I always choose 7, because 7 is .."
-      },
-      {
-        "transcript": "[Girl 2]: Brianna, Brianna!![poking her shoulder]"
-      },
-      {
-        "transcript": "[Girl 1]: Yeah"
-      },
-      {
-        "transcript": "[Girl 2]: I pluck"
-      },
-      {
-        "transcript": "[Girl 1]: Okay!"
-      },
-      {
-        "transcript": "[Girl 2]: No I get pied!"
-      },
-      {
-        "transcript": "[Girl 1]: 17"
-      },
-      {
-        "transcript": "[Man 1]: 17"
-      },
-      {
-        "transcript": "[Girl 1]: 17 is all the way down there."
-      },
-      {
-        "transcript": "[Man 1]: Oh here, right here, here."
-      },
-      {
-        "transcript": "[Girl 1]: Thank you, Daddy!"
-      },
-      {
-        "transcript": "[Man 1]: Welcome"
-      },
-      {
-        "transcript": "[Girl 1]: Okay, let's see what's in here!"
-      },
-      {
-        "transcript": "[Man 1]: Oh boy!"
-      },
-      {
-        "transcript": "[Girl 1]: Oh, it's a bag..[Pulling out stuff from bag]"
-      },
-      {
-        "transcript": "[Man 1]: Grapes"
-      },
-      {
-        "transcript": "[Girl 1]: Ohh!!"
-      },
-      {
-        "transcript": "[Man 1]: Ohh!"
-      },
-      {
-        "transcript": "[Girl 1]: How yummy!"
-      },
-      {
-        "transcript": "[Girl 1]: Spits the burg"
-      },
-      {
-        "transcript": "[Man 1]: [Laughing]"
-      },
-      {
-        "transcript": "[Girl 1]: Did you know, if you take a grape, put it in microwave, cut it open and put a couple in, couple in, it can explode."
-      },
-      {
-        "transcript": "[Man 1]: Wow!"
-      },
-      {
-        "transcript": "[Girl 1]: Your microwave will literally fry them"
-      },
-      {
-        "transcript": "[Girl 1]: I won't try that, don't do that."
-      },
-      {
-        "transcript": "[Man 1]: You can eat them if you want, Caitlyn."
-      },
-      {
-        "transcript": "[Girl 1]: Okay!"
-      },
-      {
-        "transcript": "[Man 1]: Grapes, wow!!"
-      },
-      {
-        "transcript": "[Girl 1]: Grape idea [laughs]!"
-      },
-      {
-        "transcript": "[Girl 2]: I can eat'em"
-      },
-      {
-        "transcript": "[Man 1]: You can eat some of'em"
-      },
-      {
-        "transcript": "[Girl 1]: Eat some."
-      },
-      {
-        "transcript": "[Girl 2]: I am trying to space them out."
-      },
-      {
-        "transcript": "[Girl 1]: I can eat'em"
-      },
-      {
-        "transcript": "[Man 1]: I'm going to grab one, while you're doing that."
-      },
-      {
-        "transcript": "[Girl 1]: Alright"
-      },
-      {
-        "transcript": "[Man 1]: I'm going to grab one."
-      },
-      {
-        "transcript": "[Man 1]: Alright, 13, of course!!"
-      },
-      {
-        "transcript": "[Man 1]: Let's get to that number [opens bag]"
-      },
-      {
-        "transcript": "[Girl 1]: I am going to eat it. [sharing grapes with Girl 2]."
-      },
-      {
-        "transcript": "[Girl 2]: Cheerios?"
-      },
-      {
-        "transcript": "[Man 1]: [Laughing] Cheerios"
-      },
-      {
-        "transcript": "[Man 1]: Oh my gosh! Cheerios on my pizza?"
-      },
-      {
-        "transcript": "[Man 1]: [putting it over pizza], Wow!!"
-      },
-      {
-        "transcript": "[Woman 1]: The game has gone on farther"
-      },
-      {
-        "transcript": "[Man 1]: [Laughing]"
-      },
-      {
-        "transcript": "[Man 1]: Alright"
-      },
-      {
-        "transcript": "[Girl 1]: Okay what's up, what do I do next? Pick this stuff and.."
-      },
-      {
-        "transcript": "[Man 1]: Yeah, just bring the bag, I'll keep this bag behind you"
-      },
-      {
-        "transcript": "[Girl 1]: Okay"
-      },
-      {
-        "transcript": "[Girl 1]: I'll take the stem off, so.."
-      }
-    ],
-    "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
         "answers": [
@@ -13365,7 +12574,7 @@
     ]
   },
   "192": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.7211905717849731,
         "transcript": "2",
@@ -13924,7 +13133,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
         "answers": [
@@ -14039,7 +13247,7 @@
     ]
   },
   "193": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8457210063934326,
         "transcript": "okay but baseball",
@@ -14348,135 +13556,6 @@
         ]
       }
     ],
-    "manual_captions": [
-      {
-        "transcript": "[Music playing in the background]"
-      },
-      {
-        "transcript": "[Girl 1]: Okay!!"
-      },
-      {
-        "transcript": "[Girl 1]: [Picking up a chit from mug]"
-      },
-      {
-        "transcript": "[Woman 1]:  You got a face though!"
-      },
-      {
-        "transcript": "[Girl 1]: I know, I know, I got a really wierd face!"
-      },
-      {
-        "transcript": "[Girl 1]: Six"
-      },
-      {
-        "transcript": "[Girl 2]: I'll get six"
-      },
-      {
-        "transcript": "[Man 1]: [Laughing] Oh no!!"
-      },
-      {
-        "transcript": "[Girl 2]: Six"
-      },
-      {
-        "transcript": "[Girl 1]: [Opening the bag]"
-      },
-      {
-        "transcript": "[Girl 1]: All right!!"
-      },
-      {
-        "transcript": "[Man 1]: Onions?"
-      },
-      {
-        "transcript": "[Girl 1]: Onions!!"
-      },
-      {
-        "transcript": "[Man 1]: [Laughing]"
-      },
-      {
-        "transcript": "[Woman 1]: Ew! I'm not trying your [indistinct]"
-      },
-      {
-        "transcript": "[Man 1]: Oh my gosh!! Onions!!"
-      },
-      {
-        "transcript": "[Girl 1]: Bag didn't make it, that's okay. My hands are going to smell like.."
-      },
-      {
-        "transcript": "[Man 1]: 14"
-      },
-      {
-        "transcript": "[Girl 1]: I'm not touching these onions, Daddy!!"
-      },
-      {
-        "transcript": "[Man 1]: Sounds like somebody just got back from the gym!!"
-      },
-      {
-        "transcript": "[Man 1]: Oh my gosh!!"
-      },
-      {
-        "transcript": "[Girl 1]: What?"
-      },
-      {
-        "transcript": "[Man 1]: Jalapenos peppers!"
-      },
-      {
-        "transcript": "[Girl 1]: Oh my gosh!!"
-      },
-      {
-        "transcript": "[Man 1]: [Laughing]"
-      },
-      {
-        "transcript": "[Girl 1]: You are not going to try mine?"
-      },
-      {
-        "transcript": "[Woman 1]: I don't know, looks a bit nasty"
-      },
-      {
-        "transcript": "[Girl 1]: Well, see I have been getting all the nasty.."
-      },
-      {
-        "transcript": "[Man 1]: Get a knife, to cut'em up"
-      },
-      {
-        "transcript": "[Girl 1]: I'm getting the nasty flavour stuff."
-      },
-      {
-        "transcript": "[Man 1]: All right, I just need to dice'em up [chopping]."
-      },
-      {
-        "transcript": "[Girl 1]: Okay!!"
-      },
-      {
-        "transcript": "[Girl 2]: Let me open!!"
-      },
-      {
-        "transcript": "[Girl 1]: Let me get that right now, let me help."
-      },
-      {
-        "transcript": "[Man 1]: This is going to be spicy, peppery."
-      },
-      {
-        "transcript": "[Girl 1]: Your pizza like looks good, if it didn't have the cherry lying, it looks good."
-      },
-      {
-        "transcript": "[Girl 1]: Well, it's cooold, cold!!"
-      },
-      {
-        "transcript": "[Girl 1]: Got to open that wrap! [hiccupping]."
-      },
-      {
-        "transcript": "[Man 1]: Well, all right, well"
-      },
-      {
-        "transcript": "[Girl 2]: I found it."
-      },
-      {
-        "transcript": "[Man 1]: Now what, uh?"
-      },
-      {
-        "transcript": "[Girl 1]: Pick again."
-      }
-    ],
-    "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
         "answers": [
@@ -14536,7 +13615,7 @@
     ]
   },
   "194": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8830143809318542,
         "transcript": "did you pick up okay yeah",
@@ -14939,7 +14018,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
         "answers": [
@@ -15054,7 +14132,7 @@
     ]
   },
   "195": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.755886435508728,
         "transcript": "okay sorry it's okay one two three four",
@@ -15531,102 +14609,6 @@
         ]
       }
     ],
-    "manual_captions": [
-      {
-        "transcript": "[Background music plays]"
-      },
-      {
-        "transcript": "[Child 1]: Want some[licking fingers]"
-      },
-      {
-        "transcript": "[Child 2]: dough"
-      },
-      {
-        "transcript": "[Child 1]: lets pick it"
-      },
-      {
-        "transcript": "[Child 1]: its okay, wait 1,2,3,4, how many do we pick 9?"
-      },
-      {
-        "transcript": "[Man 1]: You got, you got 11, is that what yours is"
-      },
-      {
-        "transcript": "[Child 1]: Ya I got 11,\t11"
-      },
-      {
-        "transcript": "[Man 1]: Here"
-      },
-      {
-        "transcript": "[Child 1]: Thank you"
-      },
-      {
-        "transcript": "[Man 1]: Mine is 15"
-      },
-      {
-        "transcript": "[Child 2]: [Mumbling]"
-      },
-      {
-        "transcript": "[Child 1]: [opening the packets]"
-      },
-      {
-        "transcript": "[Man 1]: [opening the packets]"
-      },
-      {
-        "transcript": "[Child 1]: Pickled beets and onions"
-      },
-      {
-        "transcript": "[Woman 1]: For real"
-      },
-      {
-        "transcript": "[Man 1]: I got sardines in olive oil"
-      },
-      {
-        "transcript": "[Child 1]: [Laughing]"
-      },
-      {
-        "transcript": "[Child 1]: I have this fork, I know what we are going to need this for."
-      },
-      {
-        "transcript": "[Child 1]: [Smells the jar]"
-      },
-      {
-        "transcript": "[Man 1]: Thank you"
-      },
-      {
-        "transcript": "[Man 1]: I don't, I don't think there is a rule that you have to"
-      },
-      {
-        "transcript": "[Child 2]: [Mumbling]"
-      },
-      {
-        "transcript": "[Child 1]: Why am I getting all the disgusting stuff, I'm getting all the nasty stuff, food, eww"
-      },
-      {
-        "transcript": "[Child 1]: It smells like pickles"
-      },
-      {
-        "transcript": "[Man 1]: They do huh"
-      },
-      {
-        "transcript": "[Child 1]: Its pickled beets but they smell like pickles"
-      },
-      {
-        "transcript": "[Child 1]: Will you just give me my beet please"
-      },
-      {
-        "transcript": "[Child 1]: These suddenly smell like pickles"
-      },
-      {
-        "transcript": "[Man 1]: Probably [indistinct]"
-      },
-      {
-        "transcript": "[Child 1]: You know what, I put a fuckload on"
-      },
-      {
-        "transcript": "[Child 1]: Here we go, makes them look even"
-      }
-    ],
-    "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
         "answers": [
@@ -15741,7 +14723,7 @@
     ]
   },
   "196": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9024331569671631,
         "transcript": "dissipated",
@@ -16400,7 +15382,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
         "answers": [
@@ -16493,7 +15474,7 @@
     ]
   },
   "197": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.90288907289505,
         "transcript": "what next did you pick something you got the peppers",
@@ -16899,7 +15880,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
         "answers": [
@@ -17003,7 +15983,7 @@
     ]
   },
   "198": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8697901964187622,
         "transcript": "you got four",
@@ -17324,7 +16304,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
         "answers": [
@@ -17406,7 +16385,7 @@
     ]
   },
   "199": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8341069221496582,
         "transcript": "number 7",
@@ -17831,7 +16810,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
         "answers": [
@@ -17924,7 +16902,7 @@
     ]
   },
   "200": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8560877442359924,
         "transcript": "we're getting ready to put a pizza in the oven",
@@ -18323,7 +17301,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
         "answers": [
@@ -18438,7 +17415,7 @@
     ]
   },
   "201": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.7145760655403137,
         "transcript": "okay then",
@@ -18926,7 +17903,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
         "answers": [
@@ -19030,7 +18006,7 @@
     ]
   },
   "202": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8700732588768005,
         "transcript": "sewing needle suggestions suggested for my viewers write a lot of them that we have so many requests to do this",
@@ -19442,7 +18418,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
         "answers": [
@@ -19546,7 +18521,7 @@
     ]
   },
   "203": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.854983925819397,
         "transcript": "pictures of the hockey",
@@ -20065,7 +19040,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
         "answers": [
@@ -20169,7 +19143,7 @@
     ]
   },
   "204": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9389387369155884,
         "transcript": "the fun part is making the Visa the not-so-fun part is tasting the pizza I mean my pizza didn't taste that bad at first until I got into the garlic area and apartment or something cuz I hate beets and I hate garlic",
@@ -20804,117 +19778,6 @@
         ]
       }
     ],
-    "manual_captions": [
-      {
-        "transcript": "[Girl 1]: The fun part is making the pizza, te not so fun part is tasting the pizza"
-      },
-      {
-        "transcript": "[Girl 1]: I mean, my pizza didn't taste that bad at first until I got into the garlic area"
-      },
-      {
-        "transcript": "[Girl 1]: And the part with the beet"
-      },
-      {
-        "transcript": "[Girl 1]: because I hate beets and I hate garlic"
-      },
-      {
-        "transcript": "[Girl 2]: [indistinct]"
-      },
-      {
-        "transcript": "[Girl 1]: and so"
-      },
-      {
-        "transcript": "[Girl 2]: [indistinct]"
-      },
-      {
-        "transcript": "[Girl 1]: maybe isn't it fun but its not early"
-      },
-      {
-        "transcript": "[Girl 2]: [indistinct]"
-      },
-      {
-        "transcript": "[Girl 1]: Depends what you put on the pizza"
-      },
-      {
-        "transcript": "[Girl 2]: Daddy"
-      },
-      {
-        "transcript": "[Girl 1]: It might taste that good, uhh uhh"
-      },
-      {
-        "transcript": "[Girl 2]: Daddy, you get"
-      },
-      {
-        "transcript": "[Girl 1]: Does my breath smell bad?"
-      },
-      {
-        "transcript": "[Girl 2]: uhh huh"
-      },
-      {
-        "transcript": "[Girl 2]: are you playing daddy?"
-      },
-      {
-        "transcript": "[Man 1]: So like always, be careful, if you are allergic to something, obviously don't put it on your pizza"
-      },
-      {
-        "transcript": "[Man 1]: Don't have it in your challenge"
-      },
-      {
-        "transcript": "[Girl 1]: I'm going to throw up"
-      },
-      {
-        "transcript": "[Girl 2]: bite bite"
-      },
-      {
-        "transcript": "[Man 1]: Well you did, you did the requirement, you took the bite and you didn't spit it out"
-      },
-      {
-        "transcript": "[Girl 1]: [Coughing]"
-      },
-      {
-        "transcript": "[Man 1]: Right, Caitlyn?"
-      },
-      {
-        "transcript": "[Girl 1]: Can you bite your pizza?"
-      },
-      {
-        "transcript": "[Girl 2]: No, its okay, I don't like that"
-      },
-      {
-        "transcript": "[Man 1]: [laughing]"
-      },
-      {
-        "transcript": "[Girl 1]: No, then take it off, take it off"
-      },
-      {
-        "transcript": "[Girl 2]: bad"
-      },
-      {
-        "transcript": "[Girl 1]: Here you go"
-      },
-      {
-        "transcript": "[Girl 2]: [indistinct]"
-      },
-      {
-        "transcript": "[Girl 1]: Take that off then"
-      },
-      {
-        "transcript": "[Girl 2]: blow it, blow it"
-      },
-      {
-        "transcript": "[Girl 1]: [blows on it]"
-      },
-      {
-        "transcript": "[Girl 2]: blow it hard [blows]"
-      },
-      {
-        "transcript": "[Man 1]: Do you want to try the pizza?"
-      },
-      {
-        "transcript": "[Girl 2]: [makes sounds]"
-      }
-    ],
-    "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
         "answers": [
@@ -21007,7 +19870,7 @@
     ]
   },
   "205": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8402093648910522,
         "transcript": "Kevin it's not hot anymore to take a bite",
@@ -21183,129 +20046,6 @@
         ]
       }
     ],
-    "manual_captions": [
-      {
-        "transcript": "[Girl 1]: Caitlyn its not hot anymore just take a bite"
-      },
-      {
-        "transcript": "[Girl 2]: Just take a bite"
-      },
-      {
-        "transcript": "[Girl 2]: mmmm"
-      },
-      {
-        "transcript": "[Man 1]: Do you like it?"
-      },
-      {
-        "transcript": "[Girl 2]: a little"
-      },
-      {
-        "transcript": "[Girl 1]: What?"
-      },
-      {
-        "transcript": "[Girl 2]: looks like"
-      },
-      {
-        "transcript": "[Girl 1]: looks what?"
-      },
-      {
-        "transcript": "[Man 1]: What does is it look like?"
-      },
-      {
-        "transcript": "[Girl 2]: What is it?"
-      },
-      {
-        "transcript": "[Girl 1]: Is it good?"
-      },
-      {
-        "transcript": "[Girl 2]: What is it?"
-      },
-      {
-        "transcript": "[Girl 1]: Is it good?"
-      },
-      {
-        "transcript": "[Girl 2]: What is it?"
-      },
-      {
-        "transcript": "[Girl 1]: Is it good?"
-      },
-      {
-        "transcript": "[Girl 2]: What is it?"
-      },
-      {
-        "transcript": "[Man 1]: [Laughing]"
-      },
-      {
-        "transcript": "[Girl 1]: She's not going to answer"
-      },
-      {
-        "transcript": "[Girl 1]: Is it good?"
-      },
-      {
-        "transcript": "[Girl 2]: What is it?"
-      },
-      {
-        "transcript": "[Girl 1]: What, is it good?"
-      },
-      {
-        "transcript": "[Girl 2]: What is it?"
-      },
-      {
-        "transcript": "[Man 1]: Its a pizza"
-      },
-      {
-        "transcript": "[Girl 1]: Its a pizza, is it good?"
-      },
-      {
-        "transcript": "[Girl 2]: What is it?"
-      },
-      {
-        "transcript": "[Girl 1]: [Laughs]"
-      },
-      {
-        "transcript": "[Man 1]: [laughs]"
-      },
-      {
-        "transcript": "[Girl 1]: No, what's on it?"
-      },
-      {
-        "transcript": "[Girl 2]: What's on it?"
-      },
-      {
-        "transcript": "[Girl 1]: Cheese and uh toppings"
-      },
-      {
-        "transcript": "[Girl 2]: No, what's on it?"
-      },
-      {
-        "transcript": "[Girl 1]: That's what I just told you, there's toppings and cheese"
-      },
-      {
-        "transcript": "[Girl 2]: No this"
-      },
-      {
-        "transcript": "[Girl 1]: Oh, there's artichokes?"
-      },
-      {
-        "transcript": "[Girl 2]: No this"
-      },
-      {
-        "transcript": "[Girl 1]: [picking up the pizza] Oh you want another bite"
-      },
-      {
-        "transcript": "[Girl 2]: Yup[eating]"
-      },
-      {
-        "transcript": "[Girl 1]: Huh, sge just took a big bite of garlic"
-      },
-      {
-        "transcript": "[Girl 1]: [laughing]"
-      },
-      {
-        "transcript": "[Girl 2]: [spits out the food]"
-      }
-    ],
-    "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
         "answers": [
@@ -21420,7 +20160,7 @@
     ]
   },
   "228": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9269244074821472,
         "transcript": "can I please",
@@ -21511,7 +20251,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=BTQCIA-eChg",
     "questions": [
       {
         "answers": [
@@ -21626,7 +20365,7 @@
     ]
   },
   "229": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.6103695631027222,
         "transcript": "video",
@@ -21713,7 +20452,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=BTQCIA-eChg",
     "questions": [
       {
         "answers": [
@@ -21817,7 +20555,7 @@
     ]
   },
   "230": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.5838050842285156,
         "transcript": "Baron",
@@ -21916,7 +20654,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=BTQCIA-eChg",
     "questions": [
       {
         "answers": [
@@ -22031,7 +20768,7 @@
     ]
   },
   "231": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8012030124664307,
         "transcript": "we play the game takes them off",
@@ -22273,7 +21010,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=BTQCIA-eChg",
     "questions": [
       {
         "answers": [
@@ -22377,7 +21113,7 @@
     ]
   },
   "255": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8874691128730774,
         "transcript": "Mickey's big Teenage Mutant mind",
@@ -22504,7 +21240,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=fdZJiWnxhg0",
     "questions": [
       {
         "answers": [
@@ -22564,7 +21299,7 @@
     ]
   },
   "256": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8100978136062622,
         "transcript": "Disney honey Let It Go",
@@ -22744,7 +21479,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=fdZJiWnxhg0",
     "questions": [
       {
         "answers": [
@@ -22804,7 +21538,7 @@
     ]
   },
   "257": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8348121643066406,
         "transcript": "baby",
@@ -22875,27 +21609,6 @@
         ]
       }
     ],
-    "manual_captions": [
-      {
-        "transcript": "[Child 1]: [indistinct]"
-      },
-      {
-        "transcript": "[Child 2]: Hey, I didn't say put some in there"
-      },
-      {
-        "transcript": "[Child 2]: I can put on my own"
-      },
-      {
-        "transcript": "[Child 2]: Hey, you're taking from my spot"
-      },
-      {
-        "transcript": "[Child 2]: This is my own spot"
-      },
-      {
-        "transcript": "[Child 2]: I don't care, I made him [indistinct]"
-      }
-    ],
-    "parent_video_id": "https://www.youtube.com/watch?v=fdZJiWnxhg0",
     "questions": [
       {
         "answers": [
@@ -22955,7 +21668,7 @@
     ]
   },
   "263": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9102611541748047,
         "transcript": "who named Emily and how old are you going to do some little games okay what kind of games highlights okay what are these",
@@ -23462,7 +22175,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=v0hJuq-WKnM",
     "questions": [
       {
         "answers": [
@@ -23555,7 +22267,7 @@
     ]
   },
   "264": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.9093140959739685,
         "transcript": "so these are mine you got to make the same number as mine they just got to be the same number",
@@ -23868,7 +22580,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=v0hJuq-WKnM",
     "questions": [
       {
         "answers": [
@@ -23972,7 +22683,7 @@
     ]
   },
   "265": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8479139804840088,
         "transcript": "how long",
@@ -24395,7 +23106,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=v0hJuq-WKnM",
     "questions": [
       {
         "answers": [
@@ -24499,7 +23209,7 @@
     ]
   },
   "266": {
-    "automatic_captions": [
+    "captions": [
       {
         "confidence": 0.8979872465133667,
         "transcript": "I have your Sofia cards okay",
@@ -25079,7 +23789,6 @@
         ]
       }
     ],
-    "parent_video_id": "https://www.youtube.com/watch?v=v0hJuq-WKnM",
     "questions": [
       {
         "answers": [

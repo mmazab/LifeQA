@@ -56,11 +56,12 @@ class LqaDatasetReader(DatasetReader):
             for video_id in video_dict:
                 if not self.video_features_to_load or self.check_missing_video_features or video_id in features_files:
                     question_dicts = video_dict[video_id]['questions']
+
                     if self.small_sample:
                         question_dicts = random.sample(question_dicts, 3) \
                             if len(question_dicts) > 3 else question_dicts
 
-                    captions = video_dict[video_id]['captions']
+                    captions = video_dict[video_id].get('manual_captions') or video_dict[video_id]['automatic_captions']
 
                     if self.video_features_to_load:
                         initial_frame = random.randint(0, self.frame_step - 1)
