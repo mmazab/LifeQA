@@ -13,4 +13,4 @@
 if [ -n "$PBS_O_WORKDIR" ]; then cd $PBS_O_WORKDIR; fi
 
 source flux/flux_pre_steps.source
-feature_extraction/extract_features.py
+feature_extraction/extract_features.py resnet

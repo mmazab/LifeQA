@@ -8,12 +8,12 @@ from overrides import overrides
 import torch
 import torch.nn.functional as F
 
-from .lqa import LqaModel
+from .lqa import LqaClassifier
 from ..modules import PytorchSeq2VecWrapperChain
 
 
 @Model.register('tgif_qa')
-class TgifQaClassifier(LqaModel):
+class TgifQaClassifier(LqaClassifier):
     """This ``Model`` implements TGIF-QA from `TGIF-QA: Toward Spatio-Temporal Reasoning in Visual Question Answering
     <http://openaccess.thecvf.com/content_cvpr_2017/papers/Jang_TGIF-QA_Toward_Spatio-Temporal_CVPR_2017_paper.pdf>`_
     by Jang et al., 2017.`
@@ -48,7 +48,7 @@ class TgifQaClassifier(LqaModel):
 
     @overrides
     def forward(self, question_and_answers: Dict[str, torch.LongTensor], video_features: Optional[torch.Tensor] = None,
-                frame_count: Optional[torch.Tensor] = None,
+                frame_count: Optional[torch.LongTensor] = None,
                 label: Optional[torch.LongTensor] = None, **kwargs) -> Dict[str, torch.Tensor]:
         # This supposes a fixed number of answers, by grabbing any of the dict values available.
         num_answers = list(question_and_answers.values())[0].shape[1]

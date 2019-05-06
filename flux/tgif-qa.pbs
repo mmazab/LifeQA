@@ -13,4 +13,4 @@
 if [ -n "$PBS_O_WORKDIR" ]; then cd $PBS_O_WORKDIR; fi
 
 source flux/flux_pre_steps.source
-run_scripts/train_tgif_qa.sh
+scripts/train_tgif_qa.sh

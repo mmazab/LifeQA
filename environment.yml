@@ -10,7 +10,7 @@ dependencies:
 
   - pip:
     # --- Pip direct dependencies: ---
-    - allennlp==0.8.3
+    - git+https://github.com/bryant1410/allennlp@7beeda5  # See https://github.com/allenai/allennlp/pull/2805
     # apex is quite slow to compile, so we leave it out.
     #- git+https://github.com/NVIDIA/apex@74c06d8 --global-option="--cpp_ext" --global-option="--cuda_ext"
     - conllu==1.2.3  # Incompatible version for allennlp, but needed for the 'analysis'. So just change the version when
@@ -64,7 +64,7 @@ dependencies:
   - pillow=5.4.1
   - pip=19.0.3
   - python=3.7.3
-  - pytorch=1.0.1
+  - pytorch=1.1.0
   - tensorboard=1.13.1
   - tensorflow=1.13.1  # For tensorboard
   - torchvision=0.2.2
