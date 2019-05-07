@@ -6,29 +6,26 @@ import re
 RE_SYMBOLS = re.compile(r'[^\w\s]')  # TODO: consider _?
 
 
-def matching(question, answers):
-    tokens = set(RE_SYMBOLS.sub('', question.lower()).split())  # TODO: multiset?
+def index_of_max_overlapping(question, answers):
+    tokens = set(RE_SYMBOLS.sub('', question.lower()).split())
 
-    matching_counts = [0, 0, 0, 0]
+    overlap_counts = [sum(1 for token in RE_SYMBOLS.sub('', answer.lower()).split() if token in tokens)
+                      for answer in answers]
 
-    for i, answer in enumerate(answers):
-        for token in RE_SYMBOLS.sub('', answer.lower()).split():
-            if token in tokens:
-                matching_counts[i] += 1
+    max_count = max(overlap_counts)
 
-    mx = max(matching_counts)
-
-    return random.choice([x for x in matching_counts if x == mx])
+    return random.choice([count for count in overlap_counts if count == max_count])
 
 
 def main():
-    with open('data/lqa_dev.json') as file:
+    with open('data/folds/fold0_test.json') as file:
         video_dict = json.load(file)
 
     total = correct = 0
     for video in video_dict.values():
         for video_question in video['questions']:
-            if matching(video_question['question'], video_question['answers']) == video_question['correct_index']:
+            if index_of_max_overlapping(video_question['question'], video_question['answers']) \
+                    == video_question['correct_index']:
                 correct += 1
             total += 1
 

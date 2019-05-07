@@ -3,6 +3,7 @@ import pathlib
 import random
 from typing import Any, Dict, Iterable, List, Optional
 
+import _jsonnet
 from allennlp.common.file_utils import cached_path
 from allennlp.data.dataset_readers.dataset_reader import DatasetReader
 from allennlp.data.fields import ArrayField, LabelField, TextField, ListField
@@ -70,34 +71,33 @@ class LqaDatasetReader(DatasetReader):
         features_files = [h5py.File(self.MODEL_NAME_TO_PRETRAINED_FILE_DICT[video_feature], 'r')
                           for video_feature in self.video_features_to_load]
 
-        with open(cached_path(file_path)) as data_file:
-            video_dict = json.load(data_file)
+        video_dict = json.loads(_jsonnet.evaluate_file(cached_path(file_path)))
 
-            if self.small_sample:
-                video_dict = {key: video_dict[key] for key in random.sample(list(video_dict), 5)}
+        if self.small_sample:
+            video_dict = {key: video_dict[key] for key in random.sample(list(video_dict), 5)}
 
-            for video_id in video_dict:
-                if not self.video_features_to_load or self.check_missing_video_features or video_id in features_files:
-                    question_dicts = video_dict[video_id]['questions']
+        for video_id in video_dict:
+            if not self.video_features_to_load or self.check_missing_video_features or video_id in features_files:
+                question_dicts = video_dict[video_id]['questions']
 
-                    if self.small_sample:
-                        question_dicts = random.sample(question_dicts, 3) \
-                            if len(question_dicts) > 3 else question_dicts
+                if self.small_sample:
+                    question_dicts = random.sample(question_dicts, 3) \
+                        if len(question_dicts) > 3 else question_dicts
 
-                    captions = video_dict[video_id].get('manual_captions') or video_dict[video_id]['automatic_captions']
+                captions = video_dict[video_id].get('manual_captions') or video_dict[video_id]['automatic_captions']
 
-                    if self.video_features_to_load:
-                        initial_frame = random.randint(0, self.frame_step - 1)
-                        video_features = np.concatenate([features_file[video_id][initial_frame::self.frame_step]
-                                                         for features_file in features_files], axis=1)
-                    else:
-                        video_features = None
+                if self.video_features_to_load:
+                    initial_frame = random.randint(0, self.frame_step - 1)
+                    video_features = np.concatenate([features_file[video_id][initial_frame::self.frame_step]
+                                                     for features_file in features_files], axis=1)
+                else:
+                    video_features = None
 
-                    for question_dict in question_dicts:
-                        question_text = question_dict['question']
-                        answers = question_dict['answers']
-                        correct_index = question_dict['correct_index']
-                        yield self.text_to_instance(question_text, answers, correct_index, captions, video_features)
+                for question_dict in question_dicts:
+                    question_text = question_dict['question']
+                    answers = question_dict['answers']
+                    correct_index = question_dict['correct_index']
+                    yield self.text_to_instance(question_text, answers, correct_index, captions, video_features)
 
         for features_file in features_files:
             features_file.close()

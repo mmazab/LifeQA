@@ -1,10 +1,10 @@
-// This experiment tries to stick to the best configuration of the original implementation of TGIF-QA, from the CVPR paper.
+// This experiment tries to stick to the best configuration of the original implementation of TGIF-QA, journal submitted version.
 
 (import 'tgif_qa.jsonnet') + {
-  video_channel_size:: 2048 + 4096,
+  video_channel_size:: 2048 + 2048,
 
   dataset_reader+: {
-    video_features_to_load: ['resnet-pool5', 'c3d-fc6'],
+    video_features_to_load: ['resnet-pool5', 'resof'],
     frame_step: 4,
     token_indexers: {
       tokens: {
@@ -38,11 +38,6 @@
         }
       }
     },
-    spatial_attention: {
-      type: 'mlp',
-      matrix_size: $.video_channel_size,
-      vector_size: $.encoder.output_size,
-    },
     temporal_attention: {
       type: 'mlp',
       // Note: the original implementation takes the state for each layer, not just the last one.
@@ -58,7 +53,7 @@
   },
   iterator: {
     type: 'basic',
-    batch_size: 16,  // The original repo uses 64 for all GPUs.
+    batch_size: 32,  // The original repo uses 64 for all GPUs.
   },
   trainer: {
     num_epochs: 40,

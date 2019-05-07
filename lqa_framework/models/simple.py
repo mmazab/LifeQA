@@ -43,8 +43,8 @@ class SimpleClassifier(LqaClassifier):
 
 def answers_token_lengths(answers: Dict[str, torch.Tensor], vocab: Vocabulary):
     padding_index = vocab.get_token_index(DEFAULT_PADDING_TOKEN)
-    return torch.tensor([[sum(answer != padding_index) for answer in instance]
-                         for instance in answers['tokens']], dtype=torch.float)
+    return torch.tensor([[sum(answer != padding_index) for answer in instance] for instance in answers['tokens']],
+                        dtype=torch.float)
 
 
 @Model.register('longest_answer')
@@ -65,9 +65,12 @@ class ShortestAnswer(SimpleClassifier):
         return - answers_token_lengths(answers, self.vocab)
 
 
-@Model.register('matching')
-class Matching(SimpleClassifier):
-    """This ``Model`` returns TODO"""
+@Model.register('word_matching')
+class WordMatching(SimpleClassifier):
+    """This ``Model`` returns the answer that overlaps the most in number of words (unique tokens).
+
+    See DREAM (Sun et al., 2018).
+    """
 
     @overrides
     def _compute_scores(self, question: Dict[str, torch.Tensor], answers: Dict[str, torch.Tensor]) -> torch.Tensor:
