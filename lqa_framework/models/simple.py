@@ -41,7 +41,7 @@ class SimpleClassifier(LqaClassifier):
         raise NotImplementedError
 
 
-def answers_lengths(answers: Dict[str, torch.Tensor], vocab: Vocabulary):
+def answers_token_lengths(answers: Dict[str, torch.Tensor], vocab: Vocabulary):
     padding_index = vocab.get_token_index(DEFAULT_PADDING_TOKEN)
     return torch.tensor([[sum(answer != padding_index) for answer in instance]
                          for instance in answers['tokens']], dtype=torch.float)
@@ -49,20 +49,30 @@ def answers_lengths(answers: Dict[str, torch.Tensor], vocab: Vocabulary):
 
 @Model.register('longest_answer')
 class LongestAnswer(SimpleClassifier):
-    """This ``Model`` returns the character-wise longest answer."""
+    """This ``Model`` returns the token-wise longest answer."""
 
     @overrides
     def _compute_scores(self, question: Dict[str, torch.Tensor], answers: Dict[str, torch.Tensor]) -> torch.Tensor:
-        return answers_lengths(answers, self.vocab)
+        return answers_token_lengths(answers, self.vocab)
 
 
 @Model.register('shortest_answer')
 class ShortestAnswer(SimpleClassifier):
-    """This ``Model`` returns the character-wise shortest answer."""
+    """This ``Model`` returns the token-wise shortest answer."""
 
     @overrides
     def _compute_scores(self, question: Dict[str, torch.Tensor], answers: Dict[str, torch.Tensor]) -> torch.Tensor:
-        return - answers_lengths(answers, self.vocab)
+        return - answers_token_lengths(answers, self.vocab)
+
+
+@Model.register('matching')
+class Matching(SimpleClassifier):
+    """This ``Model`` returns TODO"""
+
+    @overrides
+    def _compute_scores(self, question: Dict[str, torch.Tensor], answers: Dict[str, torch.Tensor]) -> torch.Tensor:
+        # TODO
+        return ...
 
 
 @Model.register('most_similar_answer')
