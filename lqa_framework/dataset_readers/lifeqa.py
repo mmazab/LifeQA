@@ -27,10 +27,18 @@ class LqaDatasetReader(DatasetReader):
         Tokenizer with which the question, answers and captions will be tokenized.
     token_indexers : Optional[Dict[str, TokenIndexer]], optional (default={'tokens': SingleIdTokenIndexer()})
         Dictionary of token indexers for the question, answers and captions.
-    load_video_features : Optional[bool], optional (default=False)
-        If this is true, it will load the features for the video frames.
+    video_features_to_load : Optional[List[str]], optional (default=None)
+        List of feature names to load. They will be concatenated.
     check_missing_video_features : Optional[bool], optional (default=True)
         If this is true, it will raise and exception if any video features cannot be loaded.
+    frame_step : int, optional (default=1)
+        Step to take frames. For example, frame step 4 means that one frame out of four will be taken. The start index
+        is random.
+    join_question_and_answers : bool, optional (default=False)
+        If true, the ``read`` method returns the questions along with each of their answers in a TextField, instead of
+        separate.
+    small_sample : bool, optional (default=False)
+        If true, it returns a small random sample of the dataset instead of all the instances.
     """
 
     FEATURES_PATH = pathlib.Path('data/features')
