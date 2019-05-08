@@ -18,7 +18,7 @@ def index_of_max_overlapping(question, answers):
 
 
 def main():
-    with open('data/folds/fold0_test.json') as file:
+    with open('data/lqa_dev.json') as file:
         video_dict = json.load(file)
 
     total = correct = 0

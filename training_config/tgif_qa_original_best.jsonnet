@@ -38,11 +38,11 @@
         }
       }
     },
-    spatial_attention: {
-      type: 'mlp',
-      matrix_size: $.video_channel_size,
-      vector_size: $.encoder.output_size,
-    },
+//    spatial_attention: {
+//      type: 'mlp',
+//      matrix_size: $.video_channel_size,
+//      vector_size: $.encoder.output_size,
+//    },
     temporal_attention: {
       type: 'mlp',
       // Note: the original implementation takes the state for each layer, not just the last one.

@@ -4,7 +4,7 @@
   model: {
     text_encoder:: error 'Must override',
 
-    type: 'text_baseline',
+    type: 'text_only',
     text_field_embedder: {
       token_embedders: {
         tokens: {
