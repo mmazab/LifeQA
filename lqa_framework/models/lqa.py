@@ -1,4 +1,4 @@
-from typing import Dict, Optional
+from typing import Dict, List, Optional
 
 from allennlp.data import Vocabulary
 from allennlp.models.model import Model
@@ -23,7 +23,8 @@ class LqaClassifier(Model):
     def forward(self, question_and_answers: Dict[str, torch.LongTensor], question: Dict[str, torch.LongTensor],
                 answers: Dict[str, torch.LongTensor], captions: Dict[str, torch.LongTensor],
                 video_features: Optional[torch.Tensor] = None, frame_count: Optional[torch.LongTensor] = None,
-                label: Optional[torch.LongTensor] = None) -> Dict[str, torch.Tensor]:
+                label: Optional[torch.LongTensor] = None,
+                metadata: Optional[List[Dict[str, str]]] = None) -> Dict[str, torch.Tensor]:
         """Computes the answer scores for the classification, and optionally the loss value if the label is provided.
 
         Parameters
@@ -45,6 +46,8 @@ class LqaClassifier(Model):
             The frame count. It must be provided if ``video_features`` is provided.
         label : Optional[torch.LongTensor], optional (default=None)
             The index of the correct answer.
+        metadata : Optional[List[Dict[str, str]]], optional (default=None)
+            If present, it should contain the original question and answers, as well as their tokenized versions.
 
         Returns
         -------

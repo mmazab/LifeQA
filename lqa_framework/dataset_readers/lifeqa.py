@@ -6,7 +6,7 @@ from typing import Any, Dict, Iterable, List, Optional
 import _jsonnet
 from allennlp.common.file_utils import cached_path
 from allennlp.data.dataset_readers.dataset_reader import DatasetReader
-from allennlp.data.fields import ArrayField, LabelField, TextField, ListField
+from allennlp.data.fields import ArrayField, LabelField, ListField, MetadataField, TextField
 from allennlp.data.instance import Instance
 from allennlp.data.tokenizers import Tokenizer, WordTokenizer
 from allennlp.data.token_indexers import TokenIndexer, SingleIdTokenIndexer
@@ -40,6 +40,8 @@ class LqaDatasetReader(DatasetReader):
         separate.
     small_sample : bool, optional (default=False)
         If true, it returns a small random sample of the dataset instead of all the instances.
+    return_metadata : bool, optional (default=False)
+        If true, it returns metadata such as the original question and answers texts along with the tokenized versions.
     """
 
     FEATURES_PATH = pathlib.Path('data/features')
@@ -56,7 +58,8 @@ class LqaDatasetReader(DatasetReader):
     def __init__(self, lazy: bool = False, tokenizer: Optional[Tokenizer] = None,
                  token_indexers: Optional[Dict[str, TokenIndexer]] = None,
                  video_features_to_load: Optional[List[str]] = None, check_missing_video_features: bool = True,
-                 frame_step: int = 1, join_question_and_answers: bool = False, small_sample: bool = False) -> None:
+                 frame_step: int = 1, join_question_and_answers: bool = False, small_sample: bool = False,
+                 return_metadata: bool = False) -> None:
         super().__init__(lazy=lazy)
         self._tokenizer = tokenizer or WordTokenizer()
         self._token_indexers = token_indexers or {'tokens': SingleIdTokenIndexer()}
@@ -65,6 +68,7 @@ class LqaDatasetReader(DatasetReader):
         self.frame_step = frame_step
         self.join_question_and_answers = join_question_and_answers
         self.small_sample = small_sample
+        self.return_metadata = return_metadata
 
     @overrides
     def _read(self, file_path: str) -> Iterable[Instance]:
@@ -107,7 +111,7 @@ class LqaDatasetReader(DatasetReader):
                          captions: Optional[List[Dict[str, Any]]] = None, video_features: Optional[np.ndarray] = None,
                          unroll: Optional[bool] = True) -> Instance:
         tokenized_question = self._tokenizer.tokenize(question)
-        tokenized_answers = (self._tokenizer.tokenize(a) for a in answers)
+        tokenized_answers = [self._tokenizer.tokenize(a) for a in answers]
 
         if captions:
             if unroll:
@@ -118,6 +122,15 @@ class LqaDatasetReader(DatasetReader):
             tokenized_captions = [self._tokenizer.tokenize('')]
 
         fields = {'captions': ListField([TextField(caption, self._token_indexers) for caption in tokenized_captions])}
+
+        if self.return_metadata:
+            fields['metadata'] = MetadataField({
+                'original_question': question,
+                'original_answers': answers,
+                'tokenized_question': [token.text for token in tokenized_question],
+                'tokenized_answers': [[token.text for token in tokenized_answer]
+                                      for tokenized_answer in tokenized_answers],
+            })
 
         if self.join_question_and_answers:
             fields['question_and_answers'] = ListField([TextField(tokenized_question + answer, self._token_indexers)

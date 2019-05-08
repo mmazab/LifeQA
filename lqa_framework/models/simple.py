@@ -69,13 +69,26 @@ class ShortestAnswer(SimpleClassifier):
 class WordMatching(SimpleClassifier):
     """This ``Model`` returns the answer that overlaps the most in number of words (unique tokens).
 
-    See DREAM (Sun et al., 2018).
+    See `DREAM: A Challenge Dataset and Models for Dialogue-Based Reading Comprehension
+    <https://arxiv.org/abs/1902.00164>`_ for more information on this baseline.
     """
 
     @overrides
     def _compute_scores(self, question: Dict[str, torch.Tensor], answers: Dict[str, torch.Tensor]) -> torch.Tensor:
-        # TODO
-        return ...
+        padding_index = self.vocab.get_token_index(DEFAULT_PADDING_TOKEN)
+
+        batch_question_token_indices = [{token_index.item()
+                                         for token_index in token_indices if token_index != padding_index}
+                                        for token_indices in question['tokens']]
+        batch_answers_token_indices = [[{token_index.item()
+                                         for token_index in token_indices if token_index != padding_index}
+                                        for token_indices in answer] for answer in answers['tokens']]
+
+        return torch.tensor([[len(question_token_indices & answer_token_indices)
+                              for answer_token_indices in answers_token_indices]
+                             for question_token_indices, answers_token_indices in zip(batch_question_token_indices,
+                                                                                      batch_answers_token_indices)],
+                            dtype=torch.float)
 
 
 @Model.register('most_similar_answer')

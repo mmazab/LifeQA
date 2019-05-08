@@ -1,6 +1,5 @@
 import json
 import os
-import pathlib
 from typing import Callable, Dict
 
 from overrides import overrides
