@@ -55,11 +55,13 @@
     type: 'basic',
     batch_size: 32,  // The original repo uses 64 for all GPUs.
   },
-  trainer: {
-    num_epochs: 40,
-    validation_metric: '+accuracy',
-    optimizer: {
-      type: 'adam'
-    },
+  trainer+: {
+    trainer: {
+      num_epochs: 40,
+      validation_metric: '+accuracy',
+      optimizer: {
+        type: 'adam'
+      },
+    }
   }
 }

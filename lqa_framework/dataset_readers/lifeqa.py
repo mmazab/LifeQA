@@ -42,6 +42,8 @@ class LqaDatasetReader(DatasetReader):
         If true, it returns a small random sample of the dataset instead of all the instances.
     return_metadata : bool, optional (default=False)
         If true, it returns metadata such as the original question and answers texts along with the tokenized versions.
+    unroll_captions : bool, optional (default=True)
+        If true, it returns the caption lines as a single line (as if it were a single sentence).
     """
 
     FEATURES_PATH = pathlib.Path('data/features')
@@ -59,7 +61,7 @@ class LqaDatasetReader(DatasetReader):
                  token_indexers: Optional[Dict[str, TokenIndexer]] = None,
                  video_features_to_load: Optional[List[str]] = None, check_missing_video_features: bool = True,
                  frame_step: int = 1, join_question_and_answers: bool = False, small_sample: bool = False,
-                 return_metadata: bool = False) -> None:
+                 return_metadata: bool = False, unroll_captions: bool = True) -> None:
         super().__init__(lazy=lazy)
         self._tokenizer = tokenizer or WordTokenizer()
         self._token_indexers = token_indexers or {'tokens': SingleIdTokenIndexer()}
@@ -69,6 +71,7 @@ class LqaDatasetReader(DatasetReader):
         self.join_question_and_answers = join_question_and_answers
         self.small_sample = small_sample
         self.return_metadata = return_metadata
+        self.unroll_captions = unroll_captions
 
     @overrides
     def _read(self, file_path: str) -> Iterable[Instance]:
@@ -80,15 +83,16 @@ class LqaDatasetReader(DatasetReader):
         if self.small_sample:
             video_dict = {key: video_dict[key] for key in random.sample(list(video_dict), 5)}
 
-        for video_id in video_dict:
+        for video_id, video in video_dict.items():
             if not self.video_features_to_load or self.check_missing_video_features or video_id in features_files:
-                question_dicts = video_dict[video_id]['questions']
+                question_dicts = video['questions']
 
                 if self.small_sample:
                     question_dicts = random.sample(question_dicts, 3) \
                         if len(question_dicts) > 3 else question_dicts
 
-                captions = video_dict[video_id].get('manual_captions') or video_dict[video_id]['automatic_captions']
+                captions = video.get('manual_captions') or video['automatic_captions']
+                parent_video_id = video['parent_video_id']
 
                 if self.video_features_to_load:
                     initial_frame = random.randint(0, self.frame_step - 1)
@@ -101,27 +105,31 @@ class LqaDatasetReader(DatasetReader):
                     question_text = question_dict['question']
                     answers = question_dict['answers']
                     correct_index = question_dict['correct_index']
-                    yield self.text_to_instance(question_text, answers, correct_index, captions, video_features)
+                    yield self.text_to_instance(question_text, answers, parent_video_id, correct_index, captions,
+                                                video_features)
 
         for features_file in features_files:
             features_file.close()
 
     @overrides
-    def text_to_instance(self, question: str, answers: List[str], correct_index: Optional[int] = None,
-                         captions: Optional[List[Dict[str, Any]]] = None, video_features: Optional[np.ndarray] = None,
-                         unroll: Optional[bool] = True) -> Instance:
+    def text_to_instance(self, question: str, answers: List[str], parent_video_id: str,
+                         correct_index: Optional[int] = None, captions: Optional[List[Dict[str, Any]]] = None,
+                         video_features: Optional[np.ndarray] = None) -> Instance:
         tokenized_question = self._tokenizer.tokenize(question)
-        tokenized_answers = [self._tokenizer.tokenize(a) for a in answers]
+        tokenized_answers = [self._tokenizer.tokenize(answer) for answer in answers]
 
         if captions:
-            if unroll:
+            if self.unroll_captions:
                 tokenized_captions = [self._tokenizer.tokenize(' '.join(caption['transcript'] for caption in captions))]
             else:
                 tokenized_captions = (self._tokenizer.tokenize(caption['transcript']) for caption in captions)
         else:
             tokenized_captions = [self._tokenizer.tokenize('')]
 
-        fields = {'captions': ListField([TextField(caption, self._token_indexers) for caption in tokenized_captions])}
+        fields = {
+            'captions': ListField([TextField(caption, self._token_indexers) for caption in tokenized_captions]),
+            'parent_video_id': LabelField(parent_video_id, label_namespace='parent_video_id_labels'),
+        }
 
         if self.return_metadata:
             fields['metadata'] = MetadataField({

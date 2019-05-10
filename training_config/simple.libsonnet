@@ -1,6 +1,8 @@
 (import 'lqa.libsonnet') + {
   iterator: 'basic',
-  trainer: {
-    type: 'no_op'
+  trainer+: {
+    trainer: {
+      type: 'no_op'
+    }
   }
 }

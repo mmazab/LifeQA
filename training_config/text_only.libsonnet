@@ -31,13 +31,15 @@
     sorting_keys: [['captions', 'num_fields'], ['question', 'num_tokens']],
     batch_size: 64,
   },
-  trainer: {
-    num_epochs: 40,
-    patience: 10,
-    grad_clipping: 5.0,
-    validation_metric: '+accuracy',
-    optimizer: {
-      type: 'adagrad',
-    },
+  trainer+: {
+    trainer: {
+      num_epochs: 40,
+      patience: 10,
+      grad_clipping: 5.0,
+      validation_metric: '+accuracy',
+      optimizer: {
+        type: 'adagrad',
+      },
+    }
   }
 }
