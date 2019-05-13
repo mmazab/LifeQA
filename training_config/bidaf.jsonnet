@@ -1,6 +1,23 @@
 (import 'lqa.libsonnet') + {
-  embedding_size:: 300,
+  embedding_size:: 100 + 100,
 
+  dataset_reader+: {
+    token_indexers: {
+      tokens: {
+        type: 'single_id',
+        lowercase_tokens: true,
+      },
+      token_characters: {
+        type: 'characters',
+        character_tokenizer: {
+          byte_encoding: 'utf-8',
+          start_tokens: [259],
+          end_tokens: [260]
+        },
+        min_padding_length: 5
+      }
+    }
+  },
   model: {
     text_encoder:: {
       type: 'lstm',
@@ -15,9 +32,23 @@
       token_embedders: {
         tokens: {
           type: 'embedding',
-          pretrained_file: 'https://s3-us-west-2.amazonaws.com/allennlp/datasets/glove/glove.6B.300d.txt.gz',
-          embedding_dim: $.embedding_size,
+          pretrained_file: 'https://s3-us-west-2.amazonaws.com/allennlp/datasets/glove/glove.6B.100d.txt.gz',
+          embedding_dim: 100,
           trainable: false,
+        },
+        token_characters: {
+          type: 'character_encoding',
+          embedding: {
+            num_embeddings: 262,
+            embedding_dim: 16
+          },
+          encoder: {
+            type: 'cnn',
+            embedding_dim: 16,
+            num_filters: 100,
+            ngram_filter_sizes: [5]
+          },
+          dropout: 0.2
         }
       }
     },
