@@ -2,7 +2,13 @@
   embedding_size:: 300,
 
   model: {
-    text_encoder:: error 'Must override',
+    text_encoder:: {
+      type: 'lstm',
+      bidirectional: true,
+      input_size: $.embedding_size,
+      hidden_size: 100,
+      num_layers: 1,
+    },
 
     type: 'bidaf_lqa',
     text_field_embedder: {
