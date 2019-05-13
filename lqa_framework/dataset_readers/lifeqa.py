@@ -1,7 +1,7 @@
 import json
 import pathlib
 import random
-from typing import Any, Dict, Iterable, List, Optional
+from typing import Any, Dict, Generator, Iterable, List, Optional
 
 import _jsonnet
 from allennlp.common.file_utils import cached_path
@@ -13,6 +13,31 @@ from allennlp.data.token_indexers import TokenIndexer, SingleIdTokenIndexer
 import h5py
 import numpy as np
 from overrides import overrides
+
+
+class GeneratorWithSize:
+    # See https://stackoverflow.com/a/7460929/1165181
+    def __init__(self, gen: Generator, size: int) -> None:
+        self.gen = gen
+        self.size = size
+
+    def __len__(self) -> int:
+        return self.size
+
+    def __iter__(self) -> Generator:
+        return self.gen
+
+
+def generator_with_size(func):
+    def wrapper(*args):
+        result = func(*args)
+        size = next(result)
+        if size:
+            return GeneratorWithSize(result, size)
+        else:
+            return result
+
+    return wrapper
 
 
 @DatasetReader.register('lqa')
@@ -56,6 +81,8 @@ class LqaDatasetReader(DatasetReader):
         'resnet-res5c': FEATURES_PATH / 'LifeQA_RESNET_res5c.hdf5',
         'resof': FEATURES_PATH / 'LifeQA_RESOF_pool5.hdf5',
     }
+    SMALL_SAMPLE_VIDEO_COUNT = 5
+    SMALL_SAMPLE_Q_PER_VIDEO = 3
 
     def __init__(self, lazy: bool = False, tokenizer: Optional[Tokenizer] = None,
                  token_indexers: Optional[Dict[str, TokenIndexer]] = None,
@@ -73,6 +100,13 @@ class LqaDatasetReader(DatasetReader):
         self.return_metadata = return_metadata
         self.unroll_captions = unroll_captions
 
+    def _count_questions(self, video_dict: Dict[str, Any], features_files: Iterable[h5py.File]) -> int:
+        return sum(min(len(video['questions']), self.SMALL_SAMPLE_Q_PER_VIDEO)
+                   for video_id, video in video_dict.items()
+                   if not self.video_features_to_load or self.check_missing_video_features
+                   or video_id in features_files)
+
+    @generator_with_size
     @overrides
     def _read(self, file_path: str) -> Iterable[Instance]:
         features_files = [h5py.File(self.MODEL_NAME_TO_PRETRAINED_FILE_DICT[video_feature], 'r')
@@ -81,15 +115,18 @@ class LqaDatasetReader(DatasetReader):
         video_dict = json.loads(_jsonnet.evaluate_file(cached_path(file_path)))
 
         if self.small_sample:
-            video_dict = {key: video_dict[key] for key in random.sample(list(video_dict), 5)}
+            video_dict = {key: video_dict[key]
+                          for key in random.sample(list(video_dict), self.SMALL_SAMPLE_VIDEO_COUNT)}
+
+        yield self._count_questions(video_dict, features_files)
 
         for video_id, video in video_dict.items():
             if not self.video_features_to_load or self.check_missing_video_features or video_id in features_files:
                 question_dicts = video['questions']
 
                 if self.small_sample:
-                    question_dicts = random.sample(question_dicts, 3) \
-                        if len(question_dicts) > 3 else question_dicts
+                    question_dicts = random.sample(question_dicts, self.SMALL_SAMPLE_Q_PER_VIDEO) \
+                        if len(question_dicts) > self.SMALL_SAMPLE_Q_PER_VIDEO else question_dicts
 
                 captions = video.get('manual_captions') or video['automatic_captions']
                 parent_video_id = video['parent_video_id']
