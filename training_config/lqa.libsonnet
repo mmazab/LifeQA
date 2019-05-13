@@ -4,7 +4,8 @@
   },
   train_data_path: 'data/lqa_train.json',
   validation_data_path: 'data/lqa_dev.json',
-  //test_data_path: 'data/lqa_test.json', // Don't load test data for now so experiments are faster (it's not used).
+  test_data_path: 'data/lqa_test.json', // Comment this line if not used, so experiments are faster.
+  evaluate_on_test: true,
   trainer: {
     type: 'cross_validation',
     splitter: {
