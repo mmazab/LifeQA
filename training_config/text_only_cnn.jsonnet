@@ -1,4 +1,11 @@
 (import 'text_only.libsonnet') + {
+  dataset_reader+: {
+    token_indexers+: {
+      tokens+: {
+        token_min_padding_length: 3
+      }
+    }
+  },
   model+: {
     text_encoder:: {
       type: 'cnn',
