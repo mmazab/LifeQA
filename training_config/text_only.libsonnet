@@ -1,6 +1,14 @@
 (import 'lqa.libsonnet') + {
   embedding_size:: 300,
 
+  dataset_reader+: {
+    token_indexers: {
+      tokens: {
+        type: 'single_id',
+        lowercase_tokens: true,
+      }
+    }
+  },
   model: {
     text_encoder:: error 'Must override',
 
