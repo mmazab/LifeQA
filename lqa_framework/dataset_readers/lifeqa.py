@@ -102,6 +102,7 @@ class LqaDatasetReader(DatasetReader):
 
     def _count_questions(self, video_dict: Dict[str, Any], features_files: Iterable[h5py.File]) -> int:
         return sum(min(len(video['questions']), self.SMALL_SAMPLE_Q_PER_VIDEO)
+                   if self.small_sample else len(video['questions'])
                    for video_id, video in video_dict.items()
                    if not self.video_features_to_load or self.check_missing_video_features
                    or video_id in features_files)
