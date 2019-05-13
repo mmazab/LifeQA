@@ -4,6 +4,7 @@ import os
 from typing import Any, Dict, Iterable, List, Optional, Tuple, Type
 
 from allennlp.common import Params, Registrable
+from allennlp.common.checks import parse_cuda_device
 from allennlp.common.util import dump_metrics
 from allennlp.data import DataIterator, Instance
 from allennlp.models.model import Model
@@ -67,7 +68,9 @@ class CrossValidationTrainer(TrainerBase):
                  group_key: Optional[str] = None,
                  leave_model_trained: bool = False,
                  recover: bool = False) -> None:  # FIXME: does recover make sense? Maybe to continue the CV.
-        super().__init__(serialization_dir, cuda_device=-1)
+        # To use the same device as the subtrainers, in case `self._cuda_devices` is queried.
+        cuda_device = parse_cuda_device(subtrainer_params.get('cuda_device', -1))
+        super().__init__(serialization_dir, cuda_device=cuda_device)
         self.model = model
         self.train_dataset = train_dataset
         self.iterator = iterator
