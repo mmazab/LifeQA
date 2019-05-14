@@ -69,6 +69,8 @@ class LqaDatasetReader(DatasetReader):
         If true, it returns metadata such as the original question and answers texts along with the tokenized versions.
     unroll_captions : bool, optional (default=True)
         If true, it returns the caption lines as a single line (as if it were a single sentence).
+    use_manual_captions_if_available : bool, optional (default=False)
+        If true, it will use the manually annotated captions if they are available, or the automatic ones if not.
     """
 
     FEATURES_PATH = pathlib.Path('data/features')
@@ -88,7 +90,8 @@ class LqaDatasetReader(DatasetReader):
                  token_indexers: Optional[Dict[str, TokenIndexer]] = None,
                  video_features_to_load: Optional[List[str]] = None, check_missing_video_features: bool = True,
                  frame_step: int = 1, join_question_and_answers: bool = False, small_sample: bool = False,
-                 return_metadata: bool = False, unroll_captions: bool = True) -> None:
+                 return_metadata: bool = False, unroll_captions: bool = True,
+                 use_manual_captions_if_available: bool = False) -> None:
         super().__init__(lazy=lazy)
         self._tokenizer = tokenizer or WordTokenizer()
         self._token_indexers = token_indexers or {'tokens': SingleIdTokenIndexer()}
@@ -99,6 +102,7 @@ class LqaDatasetReader(DatasetReader):
         self.small_sample = small_sample
         self.return_metadata = return_metadata
         self.unroll_captions = unroll_captions
+        self.use_manual_captions_if_available = use_manual_captions_if_available
 
     def _count_questions(self, video_dict: Dict[str, Any], features_files: Iterable[h5py.File]) -> int:
         return sum(min(len(video['questions']), self.SMALL_SAMPLE_Q_PER_VIDEO)
@@ -129,7 +133,9 @@ class LqaDatasetReader(DatasetReader):
                     question_dicts = random.sample(question_dicts, self.SMALL_SAMPLE_Q_PER_VIDEO) \
                         if len(question_dicts) > self.SMALL_SAMPLE_Q_PER_VIDEO else question_dicts
 
-                captions = video.get('manual_captions') or video['automatic_captions']
+                captions = (video.get('manual_captions') if self.use_manual_captions_if_available else None) \
+                    or video['automatic_captions']
+
                 parent_video_id = video['parent_video_id']
 
                 if self.video_features_to_load:
