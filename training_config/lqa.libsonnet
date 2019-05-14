@@ -11,6 +11,7 @@
     splitter: {
       type: 'group_k_fold',
       n_splits: 5,
+      generate_validation_sets: true,
     },
     group_key: 'parent_video_id',
   }
