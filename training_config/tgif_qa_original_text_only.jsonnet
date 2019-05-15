@@ -1,10 +1,8 @@
 // This experiment tries to stick to the best configuration of the original implementation of TGIF-QA, from the CVPR paper.
 
 (import 'tgif_qa.jsonnet') + {
-  video_channel_size:: 2048 + 4096,
-
   dataset_reader+: {
-    video_features_to_load: ['resnet-pool5', 'c3d-fc6'],
+    video_features_to_load: null,
     frame_step: 4,
     token_indexers: {
       tokens: {
@@ -17,7 +15,8 @@
     max_vocab_size: 22852  // Ref: https://github.com/explosion/spaCy/issues/1341
   },
   model+: {
-    // TODO: other dropouts?
+    // TODO: other dropouts?,
+    text_video_mode: 'text',
     encoder+:: {
       type: 'lstm_patched',
       bidirectional: false,
@@ -27,6 +26,7 @@
       // layers.
       dropout: 0.2,
     },
+    video_encoder: null,
     text_field_embedder+: {
       token_embedders+: {
         tokens+: {
@@ -38,22 +38,10 @@
         }
       }
     },
-    temporal_attention: {
-      type: 'mlp',
-      // Note: the original implementation takes the state for each layer, not just the last one.
-      matrix_size: $.encoder.output_size / $.encoder.num_layers,
-      vector_size: $.encoder.output_size,
-    },
-    classifier_feedforward: {
-      input_dim: $.encoder.output_size,
-      num_layers: 1,
-      hidden_dims: [1],
-      activations: ['linear'],
-    },
   },
   iterator: {
     type: 'basic',
-    batch_size: 16,  // The original repo uses 64 for all GPUs.
+    batch_size: 64,  // The original repo uses 64 for all GPUs.
   },
   trainer+: {
     trainer: {
