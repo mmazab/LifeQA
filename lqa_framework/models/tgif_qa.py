@@ -60,7 +60,7 @@ class TgifQaClassifier(LqaClassifier):
             video_features_mask = self._expand_to_num_answers(
                 util.get_mask_from_sequence_lengths(frame_count, video_features.shape[2]), num_answers)
 
-        embedded_question_and_answers = self.text_field_embedder(question_and_answers)
+        embedded_question_and_answers = self.text_field_embedder(question_and_answers, num_wrapping_dims=1)
         question_and_answers_mask = util.get_text_field_mask(question_and_answers, num_wrapping_dims=1)
 
         scores = self.answer_scorer(video_features=video_features,
