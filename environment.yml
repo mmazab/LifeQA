@@ -10,7 +10,7 @@ dependencies:
 
   - pip:
     # --- Pip direct dependencies: ---
-    - git+https://github.com/bryant1410/allennlp@311a5a8  # See allenai/allennlp #2805 and #2835
+    - git+https://github.com/bryant1410/allennlp@7577857  # See allenai/allennlp #2805, #2835 and 'lqa' branch.
     # Optional. Takes some time to compile but may make the execution faster:
     #- git+https://github.com/NVIDIA/apex@4ff153c --global-option="--cpp_ext" --global-option="--cuda_ext"
     - conllu==1.2.3  # Incompatible version for allennlp, but needed for the 'analysis'. So just change the version when
