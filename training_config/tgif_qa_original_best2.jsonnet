@@ -58,7 +58,7 @@
   },
   iterator: {
     type: 'basic',
-    batch_size: 16,  // The original repo uses 64 for all GPUs.
+    batch_size: 1,  // The original repo uses 64 for all GPUs.
   },
   trainer+: {
     trainer: {
