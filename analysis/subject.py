@@ -1,11 +1,22 @@
 #!/usr/bin/env python
+import argparse
+from collections import Counter
 import sys
 
 from conllu import parse
 from nltk.stem.wordnet import WordNetLemmatizer
 
 
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--debug', action='store_true')
+    return parser.parse_args()
+
+
 def main():
+    args = parse_args()
+    debug = args.debug
+
     with open('output/questions') as questions_output_file:
         questions_output = questions_output_file.read()
 
@@ -16,33 +27,50 @@ def main():
 
     lemmatizer = WordNetLemmatizer()
 
+    counter = Counter()
+
     for sentence in sentences:
         if sentence[0]['form'].lower() == 'what':
-            print(' '.join(token['form'] for token in sentence))  # DEBUG
-            tree = sentence.to_tree()
-            print("root: {}".format(tree.token['form']))  # DEBUG
+            if debug:
+                print(' '.join(token['form'] for token in sentence))
 
-            # Inspect root's children.
-            for child in tree.children:
-                token = child.token
-                print("    {}: {}".format(token['deprel'], token['form']))
+            tree = sentence.to_tree()
+
+            if debug:
+                print("root: {}".format(tree.token['form']))
+
+                # Inspect root's children.
+                for child in tree.children:
+                    token = child.token
+                    print("    {}: {}".format(token['deprel'], token['form']))
 
             # All NNs.
-            print('\t'.join(lemmatizer.lemmatize(token['form'].lower())
-                            for token in sentence if token['upostag'].startswith('NN')))
+            for token in sentence:
+                if token['upostag'].startswith('NN'):
+                    lemma = lemmatizer.lemmatize(token['form'].lower())
+                    counter[lemma] += 1
+                    print(lemma, end=' ')
+            print('')
 
             # First NN.
             for token in sentence:
                 if token['upostag'].startswith('NN'):
-                    print(lemmatizer.lemmatize(token['form'].lower()))
+                    lemma = lemmatizer.lemmatize(token['form'].lower())
+                    if debug:
+                        print(lemma)
                     break
             else:
                 without_nn += 1
-                print('')
+                if debug:
+                    print('')
             whats += 1
-            print('')  # DEBUG
+
+            if debug:
+                print('')
         else:
             print('')
+
+    print(counter.most_common(20))
 
     sys.stderr.write("There were {}/{} 'what' questions without NNs\n".format(without_nn, whats))
 

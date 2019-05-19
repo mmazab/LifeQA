@@ -1,11 +1,21 @@
 #!/usr/bin/env python
+import argparse
 from collections import Counter
 
 from conllu import parse
 from nltk.stem.wordnet import WordNetLemmatizer
 
 
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--debug', action='store_true')
+    return parser.parse_args()
+
+
 def main():
+    args = parse_args()
+    debug = args.debug
+
     with open('output/questions') as questions_output_file:
         questions_output = questions_output_file.read()
 
@@ -48,14 +58,16 @@ def main():
                         counter_be[lemmatizer.lemmatize(sentence[min(pobj_id) - 1]['form'].lower())] += 1
                     else:
                         # There is 1 case that falls here.
+                        if debug:
+                            print(' '.join(token['form'] for token in sentence))
+                            sentence.to_tree().print_tree()
+                            print('')
+                else:
+                    # There are 5 cases that fall here.
+                    if debug:
                         print(' '.join(token['form'] for token in sentence))
                         sentence.to_tree().print_tree()
                         print('')
-                else:
-                    # There are 5 cases that fall here.
-                    print(' '.join(token['form'] for token in sentence))
-                    sentence.to_tree().print_tree()
-                    print('')
     print(counter_be.most_common(20))
 
 
