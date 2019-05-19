@@ -7,7 +7,8 @@
         type: 'single_id',
         lowercase_tokens: true,
       }
-    }
+    },
+    video_features_src: 'vcpt',
   },
   model: {
     text_encoder:: error 'Must override',

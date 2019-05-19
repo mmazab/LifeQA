@@ -86,6 +86,10 @@ class TextMemN2NClassifier(LqaClassifier):
 
         # ------ Layer of memory and attention interaction
         T_u = T_u + T_o # T_o after applying query to memories from caption
+        
+        #encoded_answers = torch.nn.functional.normalize( encoded_answers, p=2, dim=1 )
+        #T_u = torch.nn.functional.normalize( T_u, p=2, dim=1 )
+
         T_h = torch.bmm( encoded_answers, T_u.unsqueeze(2) )
         scores = torch.sum (T_h, dim=2)
         # ==============================================
