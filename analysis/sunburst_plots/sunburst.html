@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <style>
+        circle,
+        path {
+            cursor: pointer;
+            stroke-width: 1.8;
+            stroke: black;
+        }
+
+        circle {
+            fill: none;
+            pointer-events: all;
+        }
+
+        #tooltip {
+            background-color: white;
+            padding: 3px 5px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        html {
+            font-family: "Open Sans";
+            font-size: 12px;
+        }
+    </style>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://d3js.org/colorbrewer.v1.min.js"></script>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script>
+
+        var width = 960,
+            height = 700,
+            radius = (Math.min(width, height) / 2) - 10;
+
+        var formatNumber = d3.format(",d");
+
+        var x = d3.scaleLinear()
+            .range([0, 2 * Math.PI]);
+
+        var y = d3.scaleLinear()
+            .range([0, radius]);
+
+        // From: https://observablehq.com/@d3/color-schemes
+        rainbow = ["#6e40aa","#bf3caf","#fe4b83","#ff7847","#e2b72f","#aff05b","#52f667","#1ddfa3","#23abd8","#4c6edb","#6e40aa"];
+        sinebow = ["#ff4040","#e78d0b","#a7d503","#58fc2a","#18f472","#00bfbf","#1872f4","#582afc","#a703d5","#e70b8d","#ff4040"];
+        spectral = ["#9e0142","#d53e4f","#f46d43","#fdae61","#fee08b","#ffffbf","#e6f598","#abdda4","#66c2a5","#3288bd","#5e4fa2"];
+        viridis = ["#440154","#482475","#414487","#355f8d","#2a788e","#21918c","#22a884","#44bf70","#7ad151","#bddf26","#fde725"];
+
+        var partition = d3.partition();
+
+        var arc = d3.arc()
+            .startAngle(function (d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x0))); })
+            .endAngle(function (d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x1))); })
+            .innerRadius(function (d) { return Math.max(0, y(d.y0)); })
+            .outerRadius(function (d) { return Math.max(0, y(d.y1)); });
+
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", "translate(" + width / 2 + "," + (height / 2) + ")");
+
+        var text,
+            path;
+
+        function find_parent(node) {
+            return node.depth==1? node : find_parent(node.parent);
+        }
+
+        var filename = "sunburst_plot_data.json";
+        var threshold = 19;
+        function font_size(d) { return 7*Math.log10(d.value) + "px"; }
+        var color = d3.scaleOrdinal(sinebow);
+
+        d3.json(filename, function (error, root) {
+            if (error) throw error;
+
+            root = d3.hierarchy(root);
+            console.log(root);
+            root.sum(function (d) { return d.size; });
+
+            svg.selectAll("path")
+                .data(partition(root).descendants())
+                .enter().append("g").attr("class", "node");
+
+            path = svg.selectAll(".node")
+                .append("path")
+                .attr("d", arc)
+                .style("opacity", function(d) { return d.value<threshold? 0:0.25;})
+                .style("fill", function (d) { return (d.depth == 0 || d.value<threshold)? "#ffffff" : color(find_parent(d).data.name); }) //(d.data.name); }) //
+                .on("click", click);
+
+            text = svg.selectAll(".node")
+                .append("text")
+                .attr("transform", function (d) {
+                    return "rotate(" + computeTextRotation(d) + ")";
+                })
+                .attr("x", function (d) {
+                    return d.depth==0? y(d.y0)-50: y(d.y0);
+                })
+                .attr("dx", "5") // margin
+                .attr("dy", ".35em") // vertical-align
+                .attr("font-size", font_size)
+                .text(function (d) { return d.value>=threshold? d.data.name : ""; });
+        });
+
+        function click(d) {
+            //Hide text while Sunburst transitions
+            text.transition().attr("opacity", 0);
+
+            svg.transition()
+                .duration(750)
+                .tween("scale", function () {
+                    var xd = d3.interpolate(x.domain(), [d.x0, d.x1]),
+                        yd = d3.interpolate(y.domain(), [d.y0, 1]),
+                        yr = d3.interpolate(y.range(), [d.y0 ? 20 : 0, radius]);
+                    return function (t) { x.domain(xd(t)); y.domain(yd(t)).range(yr(t)); };
+                })
+                .selectAll("path")
+                .attrTween("d", function (d) { return function () { return arc(d); }; })
+                .on("end", function (e, i) {
+                    // check if the animated element's data e lies within the visible angle span given in d
+                    if (e.x0 > d.x0 && e.x0 < d.x1) {
+                        // get a selection of the associated text element
+                        var arcText = d3.select(this.parentNode).select("text");
+                        // fade in the text element and recalculate positions
+                        arcText.transition().duration(750)
+                            .attr("opacity", 1)
+                            .attr("class", "visible")
+                            .attr("transform", function () { return "rotate(" + computeTextRotation(e) + ")" })
+                            .attr("x", function (d) { return y(d.y0); })
+                            .text(function (d) { return d.data.name;  });
+                    }
+                });
+        }
+
+        function computeTextRotation(d) {
+            if (d.depth == 0) {
+                return 0;
+            }
+            return (x((d.x0 + d.x1) / 2) - Math.PI / 2) / Math.PI * 180;
+        }
+
+        d3.select(self.frameElement).style("height", height + "px");
+
+        function importSVG(sourceSVG, targetCanvas) {
+            // https://developer.mozilla.org/en/XMLSerializer
+            svg_xml = (new XMLSerializer()).serializeToString(sourceSVG);
+            var ctx = targetCanvas.getContext('2d');
+
+            // this is just a JavaScript (HTML) image
+            var img = new Image();
+            // http://en.wikipedia.org/wiki/SVG#Native_support
+            // https://developer.mozilla.org/en/DOM/window.btoa
+            img.src = "data:image/svg+xml;base64," + btoa(svg_xml);
+
+            img.onload = function () {
+                // after this, Canvas’ origin-clean is DIRTY
+                ctx.drawImage(img, 0, 0);
+            }
+        }
+
+
+    </script>
+</body>
+</html>

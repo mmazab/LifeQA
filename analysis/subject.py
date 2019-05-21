@@ -17,8 +17,8 @@ def main():
     args = parse_args()
     debug = args.debug
 
-    with open('output/questions') as questions_output_file:
-        questions_output = questions_output_file.read()
+    with open('output/questions') as file:
+        questions_output = file.read()
 
     sentences = parse(questions_output)
 
