@@ -9,3 +9,7 @@ python -m http.server
 ```
 
 Then go to http://localhost:8000/sunburst.html
+
+## Extract the SVG
+
+Use [SVG Crowbar](https://nytimes.github.io/svg-crowbar/).
