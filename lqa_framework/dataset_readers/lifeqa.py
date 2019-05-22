@@ -173,17 +173,18 @@ class LqaDatasetReader(DatasetReader):
                     video_features = None
 
                 for question_dict in question_dicts:  # FIXME: should iterate keys sorted, for determinism.
-                    question_text = question_dict['question']
+                    question = question_dict['question']
                     answers = question_dict['answers']
                     correct_index = question_dict['correct_index']
-                    yield self.text_to_instance(question_text, answers, parent_video_id, correct_index, captions,
-                                                video_features, objects)
+                    question_id = question_dict['q_id']
+                    yield self.text_to_instance(question, answers, question_id, parent_video_id, correct_index,
+                                                captions, video_features, objects)
 
         for features_file in features_files:
             features_file.close()
 
     @overrides
-    def text_to_instance(self, question: str, answers: List[str], parent_video_id: str,
+    def text_to_instance(self, question: str, answers: List[str], question_id: int, parent_video_id: str,
                          correct_index: Optional[int] = None, captions: Optional[List[Dict[str, Any]]] = None,
                          video_features: Optional[np.ndarray] = None,
                          objects: Optional[List[List[str]]] = None) -> Instance:
@@ -199,6 +200,7 @@ class LqaDatasetReader(DatasetReader):
             tokenized_captions = [self._tokenizer.tokenize('')]
 
         fields = {
+            'question_id': LabelField(question_id, skip_indexing=True),
             'captions': ListField([TextField(caption, self._token_indexers) for caption in tokenized_captions]),
             'parent_video_id': LabelField(parent_video_id, label_namespace='parent_video_id_labels'),
         }

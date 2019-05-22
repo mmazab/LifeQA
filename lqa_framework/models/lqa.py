@@ -21,9 +21,9 @@ class LqaClassifier(Model):
 
     @overrides
     def forward(self, question_and_answers: Dict[str, torch.LongTensor], question: Dict[str, torch.LongTensor],
-                answers: Dict[str, torch.LongTensor], captions: Dict[str, torch.LongTensor],
-                video_features: Optional[torch.Tensor] = None, frame_count: Optional[torch.LongTensor] = None,
-                label: Optional[torch.LongTensor] = None,
+                answers: Dict[str, torch.LongTensor], question_id: torch.LongTensor, parent_video_id: torch.LongTensor,
+                captions: Dict[str, torch.LongTensor], video_features: Optional[torch.Tensor] = None,
+                frame_count: Optional[torch.LongTensor] = None, label: Optional[torch.LongTensor] = None,
                 metadata: Optional[List[Dict[str, str]]] = None) -> Dict[str, torch.Tensor]:
         """Computes the answer scores for the classification, and optionally the loss value if the label is provided.
 
@@ -38,6 +38,10 @@ class LqaClassifier(Model):
         answers : Dict[str, torch.LongTensor], required
             The tensor representation of the answers for every token indexer of the dataset reader. The method can
             either receive this parameter along with `question, or `question_and_answers`.
+        question_id: torch.LongTensor, required
+            Question ID.
+        parent_video_id: torch.LongTensor, required
+            Label for the parent video ID.
         captions : Dict[str, torch.LongTensor], required
             The tensor representation of the captions for every token indexer of the dataset reader.
         video_features : torch.Tensor, optional (default=None)

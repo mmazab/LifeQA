@@ -85,6 +85,11 @@ Some other minor modifications have been done as well.
 
 ```bash
 python preprocessing.py --data_dir ../data/tvqa_format
+
+# TODO: for each
+python preprocessing.py --data_dir ../data/tvqa_format/fold${i}
+
+
 mkdir cache_lifeqa
 python tvqa_dataset.py \
   --input_streams sub \

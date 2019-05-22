@@ -171,6 +171,18 @@ class CrossValidationTrainer(TrainerBase):
             validation_dataset = [dataset[i] for i in validation_indices] or None
             test_dataset = [dataset[i] for i in test_indices]
 
+            # TODO: make it generic as a "fold consistency checking", in which the folder and field key is specified.
+            with open(f'data/folds/fold{fold_index}_train_ids', 'w') as file:
+                for instance in train_dataset:
+                    file.write(f'{instance["question_id"].as_tensor({}).item()}\n')
+            if validation_dataset:
+                with open(f'data/folds/fold{fold_index}_validation_ids', 'w') as file:
+                    for instance in validation_dataset:
+                        file.write(f'{instance["question_id"].as_tensor({}).item()}\n')
+            with open(f'data/folds/fold{fold_index}_test_ids', 'w') as file:
+                for instance in test_dataset:
+                    file.write(f'{instance["question_id"].as_tensor({}).item()}\n')
+
             model = copy.deepcopy(self.model)
             subtrainer = self._build_subtrainer(serialization_dir, model, train_dataset, validation_dataset)
 

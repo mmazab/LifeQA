@@ -72,12 +72,47 @@ def save_objects(output_path: str) -> None:
         pickle.dump(vcpt, file, protocol=2)
 
 
+def save_folds(all_datasets):
+    for fold_index in range(5):
+        with open(f'data/folds/fold{fold_index}_train_ids') as file:
+            train_question_ids = {int(id_) for id_ in file}
+        with open(f'data/folds/fold{fold_index}_validation_ids') as file:
+            validation_question_ids = {int(id_) for id_ in file}
+        with open(f'data/folds/fold{fold_index}_test_ids') as file:
+            test_question_ids = {int(id_) for id_ in file}
+
+        train_dataset = {video_id: video_dict for video_id, video_dict in all_datasets.items()
+                         if any(question_dict['q_id'] in train_question_ids
+                                for question_dict in video_dict['questions'])}
+        validation_dataset = {video_id: video_dict for video_id, video_dict in all_datasets.items()
+                              if any(question_dict['q_id'] in validation_question_ids
+                                     for question_dict in video_dict['questions'])}
+        test_dataset = {video_id: video_dict for video_id, video_dict in all_datasets.items()
+                        if any(question_dict['q_id'] in test_question_ids
+                               for question_dict in video_dict['questions'])}
+
+        assert not set(train_dataset.keys()) & set(validation_dataset.keys())
+        assert not set(train_dataset.keys()) & set(test_dataset.keys())
+        assert not set(validation_dataset.keys()) & set(test_dataset.keys())
+
+        save_tvqa_dataset(to_tvqa_format(train_dataset),
+                          os.path.join(TVQA_DATA_FOLDER, f'fold{fold_index}/tvqa_qa_release/train.jsonl'))
+        save_tvqa_dataset(to_tvqa_format(validation_dataset),
+                          os.path.join(TVQA_DATA_FOLDER, f'fold{fold_index}/tvqa_qa_release/validation.jsonl'))
+        save_tvqa_dataset(to_tvqa_format(test_dataset),
+                          os.path.join(TVQA_DATA_FOLDER, f'fold{fold_index}/tvqa_qa_release/test.jsonl'))
+
+
 def main() -> None:
     pathlib.Path(TVQA_DATA_FOLDER).mkdir(exist_ok=True)
     pathlib.Path(TVQA_DATA_FOLDER, 'tvqa_qa_release').mkdir(exist_ok=True)
     pathlib.Path(TVQA_DATA_FOLDER, 'tvqa_subtitles').mkdir(exist_ok=True)
 
+    all_datasets = {}
+
     for file_path, dataset in load_datasets():
+        all_datasets.update(dataset)
+
         output_file_path = file_path \
             .replace('data', os.path.join(TVQA_DATA_FOLDER, 'tvqa_qa_release')) \
             .replace('json', 'jsonl')
@@ -86,6 +121,8 @@ def main() -> None:
         save_subtitles(dataset, os.path.join(TVQA_DATA_FOLDER, 'tvqa_subtitles'))
 
     save_objects(os.path.join(TVQA_DATA_FOLDER, 'det_visual_concepts_hq.pickle'))
+
+    save_folds(all_datasets)
 
 
 if __name__ == '__main__':
