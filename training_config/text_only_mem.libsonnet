@@ -8,7 +8,7 @@
         lowercase_tokens: true,
       }
     },
-    "unroll_captions": false,
+    unroll_captions: false,
   },
   model: {
     text_encoder:: error 'Must override',
@@ -28,14 +28,12 @@
     captions_encoder: self.text_encoder,
     answers_encoder: self.text_encoder,
     projection_layer: {	
-	input_dim: $.embedding_size,
-	num_layers: 1,
-	hidden_dims: [$.embedding_size],
-	activations: ['relu'],
-	dropout: [0.2],
-      },
-
-
+      input_dim: $.embedding_size,
+      num_layers: 1,
+      hidden_dims: [$.embedding_size],
+      activations: ['relu'],
+      dropout: [0.2],
+    },
     classifier_feedforward: {
       input_dim: 400,
       num_layers: 2,

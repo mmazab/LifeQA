@@ -3,14 +3,13 @@ from typing import Dict, Optional
 from allennlp.data import Vocabulary
 from allennlp.models.model import Model
 from allennlp.modules import FeedForward, Seq2VecEncoder, TextFieldEmbedder, TimeDistributed
-from allennlp.modules.matrix_attention.linear_matrix_attention import LinearMatrixAttention
-from allennlp.nn import InitializerApplicator, RegularizerApplicator, util
+from allennlp.nn import InitializerApplicator, RegularizerApplicator
 from overrides import overrides
 import torch
 import torch.nn.functional as F
 
 from .lqa import LqaClassifier
-from IPython import embed
+
 
 @Model.register('text_memn2n')
 class TextMemN2NClassifier(LqaClassifier):
@@ -27,7 +26,7 @@ class TextMemN2NClassifier(LqaClassifier):
                  question_encoder: Seq2VecEncoder,
                  answers_encoder: Seq2VecEncoder,
                  captions_encoder: Seq2VecEncoder,
-                 projection_layer: FeedForward, 
+                 projection_layer: FeedForward,
                  classifier_feedforward: FeedForward,
                  initializer: InitializerApplicator = InitializerApplicator(),
                  regularizer: Optional[RegularizerApplicator] = None) -> None:
@@ -40,7 +39,6 @@ class TextMemN2NClassifier(LqaClassifier):
         self.answers_encoder = TimeDistributed(answers_encoder)
         self.captions_encoder = TimeDistributed(captions_encoder)
         self.classifier_feedforward = classifier_feedforward
-        # self.classifier_feedforward = TimeDistributed(classifier_feedforward)
 
         self.projection_layer = projection_layer
 
@@ -53,47 +51,45 @@ class TextMemN2NClassifier(LqaClassifier):
     def forward(self, question: Dict[str, torch.LongTensor], answers: Dict[str, torch.LongTensor],
                 captions: Dict[str, torch.LongTensor], label: Optional[torch.LongTensor] = None,
                 **kwargs) -> Dict[str, torch.Tensor]:
-
         embedded_question = self.text_field_embedder(question)
-        #question_mask = util.get_text_field_mask(question)
-        #encoded_question = self.question_encoder(embedded_question, question_mask)
+        # question_mask = util.get_text_field_mask(question)
+        # encoded_question = self.question_encoder(embedded_question, question_mask)
 
         embedded_answers = self.text_field_embedder(answers)
-        #answers_mask = util.get_text_field_mask(answers, num_wrapping_dims=1)
-        #encoded_answers = self.answers_encoder(embedded_answers, answers_mask)
+        # answers_mask = util.get_text_field_mask(answers, num_wrapping_dims=1)
+        # encoded_answers = self.answers_encoder(embedded_answers, answers_mask)
 
         embedded_captions = self.text_field_embedder(captions)
-        #captions_mask = util.get_text_field_mask(captions, num_wrapping_dims=1)
-        #encoded_captions = self.captions_encoder(embedded_captions, captions_mask)
-        #encoded_captions = encoded_captions.squeeze(1)
+        # captions_mask = util.get_text_field_mask(captions, num_wrapping_dims=1)
+        # encoded_captions = self.captions_encoder(embedded_captions, captions_mask)
+        # encoded_captions = encoded_captions.squeeze(1)
 
-        #mean pool, questions, answers and captions, we may also normalize
+        # mean pool, questions, answers and captions, we may also normalize
         encoded_question = torch.mean(embedded_question, 1)
-        encoded_question = self.projection_layer(encoded_question) # pass through linear layer
-        encoded_answers  = torch.mean(embedded_answers, 2)
-        encoded_answers = self.projection_layer(encoded_answers)    # pass through linear layer
+        encoded_question = self.projection_layer(encoded_question)  # pass through linear layer
+        encoded_answers = torch.mean(embedded_answers, 2)
+        encoded_answers = self.projection_layer(encoded_answers)  # pass through linear layer
         encoded_captions = torch.mean(embedded_captions, 2)
         encoded_captions = self.projection_layer(encoded_captions)  # pass through linear layer
-        
-        #T_u = self.T_B(encoded_question)   # batch * embedding dimension
+
+        # T_u = self.T_B(encoded_question)   # batch * embedding dimension
         T_u = encoded_question
 
-        #============
+        # ============
         # caption segment picker 
         softmax_l = torch.nn.Softmax()
         T_p = softmax_l(torch.bmm(encoded_captions, encoded_question.unsqueeze(2)))
         T_o = torch.sum(T_p.expand_as(encoded_captions) * encoded_captions, dim=1)
 
         # ------ Layer of memory and attention interaction
-        T_u = T_u + T_o # T_o after applying query to memories from caption
-        
-        #encoded_answers = torch.nn.functional.normalize( encoded_answers, p=2, dim=1 )
-        #T_u = torch.nn.functional.normalize( T_u, p=2, dim=1 )
+        T_u = T_u + T_o  # T_o after applying query to memories from caption
 
-        T_h = torch.bmm( encoded_answers, T_u.unsqueeze(2) )
-        scores = torch.sum (T_h, dim=2)
+        # encoded_answers = torch.nn.functional.normalize( encoded_answers, p=2, dim=1 )
+        # T_u = torch.nn.functional.normalize( T_u, p=2, dim=1 )
+
+        T_h = torch.bmm(encoded_answers, T_u.unsqueeze(2))
+        scores = torch.sum(T_h, dim=2)
         # ==============================================
-
 
         output_dict = {'scores': scores}
 

@@ -68,6 +68,12 @@ First:
 cd TVQA/
 ```
 
+##### Convert LifeQA dataset to TVQA format
+
+```bash
+python scripts/to_tvqa_format.py
+```
+
 ##### Train on LifeQA dataset from scratch
 
 ```bash

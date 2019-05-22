@@ -47,6 +47,15 @@ def answers_token_lengths(answers: Dict[str, torch.Tensor], vocab: Vocabulary):
                         dtype=torch.float)
 
 
+@Model.register('random')
+class Random(SimpleClassifier):
+    """This ``Model`` returns a random answer."""
+
+    @overrides
+    def _compute_scores(self, question: Dict[str, torch.Tensor], answers: Dict[str, torch.Tensor]) -> torch.Tensor:
+        return torch.rand(answers['tokens'].shape[:2])
+
+
 @Model.register('longest_answer')
 class LongestAnswer(SimpleClassifier):
     """This ``Model`` returns the token-wise longest answer."""
