@@ -47,10 +47,15 @@ if __name__ == "__main__":
     opt.vocab_size = len(dset.word2idx)
     model = ABC(opt)
 
-    model.to(opt.device)
-    cudnn.benchmark = True
+    if opt.new_word2idx_path_test:
+        print("The vocabulary needs to be extended.")
+        dset.extend_vocab(model, opt.new_word2idx_path_test, opt.glove_path)
+
     model_path = os.path.join("results", opt.model_dir, "best_valid.pth")
     model.load_state_dict(torch.load(model_path))
+
+    model.to(opt.device)
+    cudnn.benchmark = True
 
     all_qid2preds, all_qid2targets = test(opt, dset, model)
 

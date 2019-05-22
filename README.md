@@ -81,26 +81,33 @@ Some other minor modifications have been done as well.
     conda activate tvqa
     ```
 
-#### Train on LifeQA dataset from scratch
+4. Do some pre-processing:
+
+    ```bash
+    python preprocessing.py --data_dir ../data/tvqa_format
+
+    for i in 0 1 2 3 4; do
+       python preprocessing.py --data_dir ../data/tvqa_format/fold${i}
+    done
+
+    mkdir cache_lifeqa
+    python tvqa_dataset.py \
+      --input_streams sub \
+      --no_ts \
+      --vcpt_path ../data/tvqa_format/det_visual_concepts_hq.pickle \
+      --train_path ../data/tvqa_format/lqa_train_processed.json \
+      --valid_path ../data/tvqa_format/lqa_dev_processed.json \
+      --test_path ../data/tvqa_format/lqa_test_processed.json \
+      --word2idx_path cache_lifeqa/word2idx.pickle \
+      --idx2word_path cache_lifeqa/idx2word.pickle \
+      --vocab_embedding_path cache_lifeqa/vocab_embedding.pickle
+    ```
+
+#### Train and test on LifeQA dataset from scratch
+
+For train, dev and test partitions:
 
 ```bash
-python preprocessing.py --data_dir ../data/tvqa_format
-
-# TODO: for each
-python preprocessing.py --data_dir ../data/tvqa_format/fold${i}
-
-
-mkdir cache_lifeqa
-python tvqa_dataset.py \
-  --input_streams sub \
-  --no_ts \
-  --vcpt_path ../data/tvqa_format/det_visual_concepts_hq.pickle \
-  --train_path ../data/tvqa_format/lqa_train_processed.json \
-  --valid_path ../data/tvqa_format/lqa_dev_processed.json \
-  --test_path ../data/tvqa_format/lqa_test_processed.json \
-  --word2idx_path cache_lifeqa/word2idx.pickle \
-  --idx2word_path cache_lifeqa/idx2word.pickle \
-  --vocab_embedding_path cache_lifeqa/vocab_embedding.pickle
 python main.py \
   --input_streams sub vcpt \
   --no_ts \
@@ -111,12 +118,63 @@ python main.py \
   --word2idx_path cache_lifeqa/word2idx.pickle \
   --idx2word_path cache_lifeqa/idx2word.pickle \
   --vocab_embedding_path cache_lifeqa/vocab_embedding.pickle
-python test.py --model_dir [results_dir] --mode test
+
+python test.py --model_dir $(ls -t results/ | head -1) --mode test
 ```
 
-#### Train on TVQA dataset and then on LifeQA dataset
+For 5-fold cross-validation:
 
+```bash
+for i in 0 1 2 3 4; do
+    python main.py \
+      --input_streams sub vcpt \
+      --no_ts \
+      --vcpt_path ../data/tvqa_format/det_visual_concepts_hq.pickle \
+      --train_path ../data/tvqa_format/fold${i}/train_processed.json \
+      --valid_path ../data/tvqa_format/fold${i}/validation_processed.json \
+      --test_path ../data/tvqa_format/fold${i}/test_processed.json \
+      --word2idx_path cache_lifeqa/word2idx.pickle \
+      --idx2word_path cache_lifeqa/idx2word.pickle \
+      --vocab_embedding_path cache_lifeqa/vocab_embedding.pickle
 
+    python test.py --model_dir $(ls -t results/ | head -1) --mode test
+done
+```
+
+#### Train on TVQA dataset and then train and test on LifeQA dataset
+
+```bash
+python preprocessing.py
+
+mkdir cache_original
+python tvqa_dataset.py \
+  --input_streams sub \
+  --no_ts \
+  --word2idx_path cache_original/word2idx.pickle \
+  --idx2word_path cache_original/idx2word.pickle \
+  --vocab_embedding_path cache_lifeqa/vocab_embedding.pickle
+python main.py \
+  --input_streams sub vcpt \
+  --no_ts
+RESULTS_DIR=$(ls -t results/ | head -1)
+
+# TODO: preprocessing?
+
+python main.py \
+  --input_streams sub vcpt \
+  --no_ts \
+  --vcpt_path ../data/tvqa_format/det_visual_concepts_hq.pickle \
+  --train_path ../data/tvqa_format/lqa_train_processed.json \
+  --valid_path ../data/tvqa_format/lqa_dev_processed.json \
+  --test_path ../data/tvqa_format/lqa_test_processed.json \
+  --word2idx_path cache_original/word2idx.pickle \
+  --idx2word_path cache_original/idx2word.pickle \
+  --vocab_embedding_path cache_original/vocab_embedding.pickle \
+  --pretrained_model_dir ${RESULTS_DIR} \
+  --new_word2idx_path cache_lifeqa/word2idx.pickle
+
+# TODO: folds
+```
 
 ## Flux
 

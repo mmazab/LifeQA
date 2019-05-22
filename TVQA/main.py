@@ -1,3 +1,7 @@
+import numpy as np
+
+from utils import load_pickle
+
 __author__ = "Jie Lei"
 
 import os
@@ -111,10 +115,20 @@ if __name__ == "__main__":
     opt.vocab_size = len(dset.word2idx)
     model = ABC(opt)
     if not opt.no_glove:
+        print("Loading the embedding model into the model.")
         model.load_embedding(dset.vocab_embedding)
+
+    if opt.pretrained_model_dir:
+        print("Loading the pretrained model...")
+        model_path = os.path.join("results", opt.pretrained_model_dir, "best_valid.pth")
+        model.load_state_dict(torch.load(model_path))
+
+        print("The vocabulary needs to be extended.")
+        dset.extend_vocab(model, opt.new_word2idx_path, opt.glove_path)
 
     model.to(opt.device)
     cudnn.benchmark = True
+
     criterion = nn.CrossEntropyLoss(size_average=False).to(opt.device)
     optimizer = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()),
                                  lr=opt.lr, weight_decay=opt.wd)

@@ -64,6 +64,10 @@ class BaseOptions(object):
                                  help="idx2word cache path")
         self.parser.add_argument("--vocab_embedding_path", type=str, default="./cache/vocab_embedding.pickle",
                                  help="vocab_embedding cache path")
+
+        self.parser.add_argument("--pretrained_model_dir", type=str, help="dir contains the model file")
+        self.parser.add_argument("--new_word2idx_path", help="word2idx cache path of the new set")
+
         self.initialized = True
 
     def display_save(self, options, results_dir):
@@ -114,6 +118,8 @@ class TestOptions(BaseOptions):
         BaseOptions.initialize(self)
         self.parser.add_argument("--model_dir", type=str, help="dir contains the model file")
         self.parser.add_argument("--mode", type=str, default="valid", help="valid/test")
+
+        self.parser.add_argument("--new_word2idx_path_test", help="word2idx cache path of the new set")
 
 
 if __name__ == "__main__":

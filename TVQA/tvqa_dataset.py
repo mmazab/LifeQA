@@ -195,6 +195,29 @@ class TVQADataset(Dataset):
         save_pickle(glove_matrix, self.vocab_embedding_path)
         print("Building  vocabulary done.\n")
 
+    def extend_vocab(self, model, new_word2idx_path, glove_path):
+        print("Loading new word2idx...")
+        new_word2idx = set(load_pickle(new_word2idx_path))
+        print("Finding new words...")
+        new_words = new_word2idx - set(self.word2idx)
+        print("There are %d new words" % len(new_words))
+
+        print("Loading glove embedding at path : %s." % glove_path)
+        glove_full = self.load_glove(glove_path)
+        print("Glove Loaded.")
+        new_words_matrix = np.zeros([len(new_words), self.embedding_dim])
+
+        offset = len(self.idx2word)
+        for i, word in enumerate(tqdm(new_words)):
+            self.word2idx[word] = i + offset
+            self.idx2word[i + offset] = word
+            new_words_matrix[i, :] = glove_full.get(word.encode(), np.random.randn(self.embedding_dim) * 0.4)
+
+        self.vocab_embedding = np.concatenate([self.vocab_embedding, new_words_matrix], axis=0)
+
+        model.embedding = nn.Embedding(len(self.vocab_embedding), self.embedding_dim)
+        model.load_embedding(self.vocab_embedding)
+
 
 class Batch(object):
     def __init__(self):
