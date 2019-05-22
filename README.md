@@ -60,21 +60,28 @@ TVQA repo content from commit `2c98044` was copied into `TVQA/` folder.
 It has been changed to support 4 answer choices instead of 5.
 Some other minor modifications have been done as well.
 
-#### How to use
+#### Setup
 
-First:
+1. Convert LifeQA dataset to TVQA format
 
-```bash
-cd TVQA/
-```
+    ```bash
+    python scripts/to_tvqa_format.py
+    ```
 
-##### Convert LifeQA dataset to TVQA format
+2. Enter `TVQA/` directory:
 
-```bash
-python scripts/to_tvqa_format.py
-```
+    ```bash
+    cd TVQA/
+    ```
 
-##### Train on LifeQA dataset from scratch
+3. Setup the interpreter:
+
+    ```bash
+    conda env create -f environment.yml
+    conda activate tvqa
+    ```
+
+#### Train on LifeQA dataset from scratch
 
 ```bash
 python preprocessing.py --data_dir ../data/tvqa_format
@@ -102,7 +109,7 @@ python main.py \
 python test.py --model_dir [results_dir] --mode test
 ```
 
-##### Train on TVQA dataset and then on LifeQA dataset
+#### Train on TVQA dataset and then on LifeQA dataset
 
 
 
