@@ -143,7 +143,7 @@ class LqaDatasetReader(DatasetReader):
 
         yield self._count_questions(video_dict, features_files)
 
-        for video_id, video in video_dict.items():
+        for video_id, video in video_dict.items():  # FIXME: should iterate keys sorted, for determinism.
             objects = []
             if self.load_objects:
                 with open('data/lqa_objects/{video_id}.json') as vcpt_file:
@@ -172,7 +172,7 @@ class LqaDatasetReader(DatasetReader):
                 else:
                     video_features = None
 
-                for question_dict in question_dicts:
+                for question_dict in question_dicts:  # FIXME: should iterate keys sorted, for determinism.
                     question_text = question_dict['question']
                     answers = question_dict['answers']
                     correct_index = question_dict['correct_index']
