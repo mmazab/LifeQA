@@ -51,6 +51,55 @@ and save it in `data/features/c3d.pickle`.
 
 4. Run `run_scripts/train_tgif_qa.sh`.
 
+### TVQA
+
+TVQA repo content from commit `2c98044` was copied into `TVQA/` folder.
+
+#### Changes from upstream
+
+It has been changed to support 4 answer choices instead of 5.
+Some other minor modifications have been done as well.
+
+#### How to use
+
+First:
+
+```bash
+cd TVQA/
+```
+
+##### Train on LifeQA dataset from scratch
+
+```bash
+python preprocessing.py --data_dir ../data/tvqa_format
+mkdir cache_lifeqa
+python tvqa_dataset.py \
+  --input_streams sub \
+  --no_ts \
+  --vcpt_path ../data/tvqa_format/det_visual_concepts_hq.pickle \
+  --train_path ../data/tvqa_format/lqa_train_processed.json \
+  --valid_path ../data/tvqa_format/lqa_dev_processed.json \
+  --test_path ../data/tvqa_format/lqa_test_processed.json \
+  --word2idx_path cache_lifeqa/word2idx.pickle \
+  --idx2word_path cache_lifeqa/idx2word.pickle \
+  --vocab_embedding_path cache_lifeqa/vocab_embedding.pickle
+python main.py \
+  --input_streams sub vcpt \
+  --no_ts \
+  --vcpt_path ../data/tvqa_format/det_visual_concepts_hq.pickle \
+  --train_path ../data/tvqa_format/lqa_train_processed.json \
+  --valid_path ../data/tvqa_format/lqa_dev_processed.json \
+  --test_path ../data/tvqa_format/lqa_test_processed.json \
+  --word2idx_path cache_lifeqa/word2idx.pickle \
+  --idx2word_path cache_lifeqa/idx2word.pickle \
+  --vocab_embedding_path cache_lifeqa/vocab_embedding.pickle
+python test.py --model_dir [results_dir] --mode test
+```
+
+##### Train on TVQA dataset and then on LifeQA dataset
+
+
+
 ## Flux
 
-Run from this folder (cloned) the scripts under `flux`, such as: `qsub flux/tgif-qa.pbs`.
+Run from this folder (cloned) the scripts under `scripts/flux`, such as: `qsub scripts/flux/tgif-qa.pbs`.

@@ -1,1 +1,1 @@
-objects_vocab='objects_vocab.txt'
+objects_vocab = 'objects_vocab.txt'

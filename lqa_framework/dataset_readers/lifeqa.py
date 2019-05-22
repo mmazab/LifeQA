@@ -1,8 +1,10 @@
+from collections import Counter
 import json
 import pathlib
 import random
 from typing import Any, Dict, Generator, Iterable, List, Optional
 import os
+
 import _jsonnet
 from allennlp.common.file_utils import cached_path
 from allennlp.data.dataset_readers.dataset_reader import DatasetReader
@@ -13,9 +15,7 @@ from allennlp.data.token_indexers import TokenIndexer, SingleIdTokenIndexer
 import h5py
 import numpy as np
 from overrides import overrides
-from IPython import embed
-import config
-from collections import Counter
+
 
 class GeneratorWithSize:
     # See https://stackoverflow.com/a/7460929/1165181
@@ -55,12 +55,13 @@ class LqaDatasetReader(DatasetReader):
         Tokenizer with which the question, answers and captions will be tokenized.
     token_indexers : Optional[Dict[str, TokenIndexer]], optional (default={'tokens': SingleIdTokenIndexer()})
         Dictionary of token indexers for the question, answers and captions.
-    video_features_source: Optional[str], optional (default=None),
+    video_features_src: Optional[str], optional (default=None),
         String representing the video source to use. It can be (``vcpt``,``reg``)
     combine_nframes: Optional[int], optional (default=10)
         Number of frames to combine their objects/representation as a memory cell. 
     top_k_objects: Optional[int], optional (default=-1)
-        for every segment use the top ``k`` most common objects across frames to represent segment. ``-1`` means use all objects. 
+        For every segment use the top ``k`` most common objects across frames to represent segment. ``-1`` means use all
+        objects.
     video_features_to_load : Optional[List[str]], optional (default=None)
         List of feature names to load. They will be concatenated.
     check_missing_video_features : Optional[bool], optional (default=True)
@@ -116,7 +117,6 @@ class LqaDatasetReader(DatasetReader):
         self.combine_every_nframes = combine_nframes
         self.k_freq_objs = top_k_objects
 
-
     def _count_questions(self, video_dict: Dict[str, Any], features_files: Iterable[h5py.File]) -> int:
         return sum(min(len(video['questions']), self.SMALL_SAMPLE_Q_PER_VIDEO)
                    if self.small_sample else len(video['questions'])
@@ -139,22 +139,20 @@ class LqaDatasetReader(DatasetReader):
         yield self._count_questions(video_dict, features_files)
 
         for video_id, video in video_dict.items():
-
             vis_mem = None
             if self.video_features_src == 'vcpt':
-                with open( os.path.join(config.vcpt_path, video_id+'.json'), 'r' ) as vcpt_f:
-                    objects = json.load( vcpt_f )
-                
+                with open(os.path.join('data/lqa_objects', f'{video_id}.json')) as vcpt_file:
+                    objects = json.load(vcpt_file)
+
                 n_vis_mem_cells = len(objects) % self.combine_every_nframes
-                vis_mem = [] 
+                vis_mem = []
                 for i in range(n_vis_mem_cells):
-                    step_objs = objects [ i: i + self.combine_every_nframes ]
+                    step_objs = objects[i: i + self.combine_every_nframes]
                     unique_objects = Counter()
-                    for s in step_objs:  unique_objects.update ( s[1] )
-                    k =  self.k_freq_objs if 0 <= self.k_freq_objs < len(unique_objects) else len(unique_objects)
-                    vis_mem.append ( [ u[0] for u in unique_objects.most_common(k) ] )
-                    
-             
+                    for s in step_objs:
+                        unique_objects.update(s[1])
+                    k = self.k_freq_objs if 0 <= self.k_freq_objs < len(unique_objects) else len(unique_objects)
+                    vis_mem.append([u[0] for u in unique_objects.most_common(k)])
 
             if not self.video_features_to_load or self.check_missing_video_features or video_id in features_files:
                 question_dicts = video['questions']
@@ -189,11 +187,9 @@ class LqaDatasetReader(DatasetReader):
     def text_to_instance(self, question: str, answers: List[str], parent_video_id: str,
                          correct_index: Optional[int] = None, captions: Optional[List[Dict[str, Any]]] = None,
                          video_features: Optional[np.ndarray] = None,
-                         visual_objects: Optional[list] = None ) -> Instance:
+                         visual_objects: Optional[list] = None) -> Instance:
         tokenized_question = self._tokenizer.tokenize(question)
         tokenized_answers = [self._tokenizer.tokenize(answer) for answer in answers]
-
-
 
         if captions:
             if self.unroll_captions:
@@ -203,20 +199,18 @@ class LqaDatasetReader(DatasetReader):
         else:
             tokenized_captions = [self._tokenizer.tokenize('')]
 
-
         fields = {
             'captions': ListField([TextField(caption, self._token_indexers) for caption in tokenized_captions]),
             'parent_video_id': LabelField(parent_video_id, label_namespace='parent_video_id_labels'),
         }
 
-
         if self.video_features_src == 'vcpt':
             if visual_objects:
-                tokenized_vcpt = [ self._tokenizer.tokenize( ' '.join(vis_obj) )  for vis_obj in visual_objects]
+                tokenized_vcpt = [self._tokenizer.tokenize(' '.join(vis_obj)) for vis_obj in visual_objects]
             else:
-                tokenized_vcpt = [ self._tokenizer.tokenize('') ] 
-            fields['visual_cpts'] = ListField ( [ TextField ( scene_vcpt, self._token_indexers ) for scene_vcpt in tokenized_vcpt ])
-
+                tokenized_vcpt = [self._tokenizer.tokenize('')]
+            fields['visual_cpts'] = ListField([TextField(scene_vcpt, self._token_indexers)
+                                               for scene_vcpt in tokenized_vcpt])
 
         if self.return_metadata:
             fields['metadata'] = MetadataField({

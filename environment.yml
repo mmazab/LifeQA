@@ -16,6 +16,7 @@ dependencies:
     - conllu==1.2.3  # Incompatible version for allennlp, but needed for the 'analysis'. So just change the version when
     # needed.
     - google-cloud-speech==0.36.3
+    - jsonlines==1.2.0
     - jsonnet==0.12.1
     - overrides==1.9
 

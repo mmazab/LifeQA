@@ -6,11 +6,11 @@ import pandas as pd
 
 
 def load_data():
-    with open('lqa_train.json') as file:
+    with open('data/lqa_train.json') as file:
         lqa_train = json.load(file)
-    with open('lqa_dev.json') as file:
+    with open('data/lqa_dev.json') as file:
         lqa_dev = json.load(file)
-    with open('lqa_test.json') as file:
+    with open('data/lqa_test.json') as file:
         lqa_test = json.load(file)
 
     return lqa_train, lqa_dev, lqa_test
@@ -19,7 +19,7 @@ def load_data():
 def main():
     data_dicts = load_data()
 
-    df = pd.read_csv('sources.csv')
+    df = pd.read_csv('data/sources.csv')
 
     for _, row in df.iterrows():
         ids = row['Video IDs']
@@ -45,11 +45,11 @@ def main():
         f" {sorted(list(video_ids_without_parent))}"
 
     lqa_train, lqa_dev, lqa_test = data_dicts
-    with open('lqa_train.json', 'w') as f:
+    with open('data/lqa_train.json', 'w') as f:
         json.dump(lqa_train, f, sort_keys=True, indent=2)
-    with open('lqa_dev.json', 'w') as f:
+    with open('data/lqa_dev.json', 'w') as f:
         json.dump(lqa_dev, f, sort_keys=True, indent=2)
-    with open('lqa_test.json', 'w') as f:
+    with open('data/lqa_test.json', 'w') as f:
         json.dump(lqa_test, f, sort_keys=True, indent=2)
 
 
