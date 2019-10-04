@@ -16,8 +16,8 @@ import numpy as np
 from overrides import overrides
 
 
+# See https://stackoverflow.com/a/7460929/1165181
 class GeneratorWithSize:
-    # See https://stackoverflow.com/a/7460929/1165181
     def __init__(self, gen: Generator, size: int) -> None:
         self.gen = gen
         self.size = size

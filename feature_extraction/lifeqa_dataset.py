@@ -10,6 +10,7 @@ import torch.utils.data
 
 class LifeQaFrameDataset(torch.utils.data.Dataset):
     """Dataset of LifeQA video frames."""
+
     def __init__(self, transform: Callable = None, videos_data_path: str = 'data/lqa_data.json',
                  check_missing_videos: bool = True) -> None:
         self.transform = transform
