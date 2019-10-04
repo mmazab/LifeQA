@@ -21486,7 +21486,7 @@
         "question": "What's color of the hat?"
       },
       {
-        "answer_type": NaN,
+        "answer_type": "V",
         "answers": [
           "2",
           "4 ",
