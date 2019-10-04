@@ -1,23 +1,11 @@
 #!/usr/bin/env python
-import json
-import math
-
 import pandas as pd
 
-
-def load_data():
-    with open('data/lqa_train.json') as file:
-        lqa_train = json.load(file)
-    with open('data/lqa_dev.json') as file:
-        lqa_dev = json.load(file)
-    with open('data/lqa_test.json') as file:
-        lqa_test = json.load(file)
-
-    return lqa_train, lqa_dev, lqa_test
+import scripts.util
 
 
 def main():
-    data_dicts = load_data()
+    data_dicts = scripts.util.load_data()
 
     df = pd.read_csv('data/sources.csv')
 
@@ -44,13 +32,7 @@ def main():
     assert not video_ids_without_parent, f"{len(video_ids_without_parent)} videos don't have the parent video ID:" \
         f" {sorted(list(video_ids_without_parent))}"
 
-    lqa_train, lqa_dev, lqa_test = data_dicts
-    with open('data/lqa_train.json', 'w') as f:
-        json.dump(lqa_train, f, sort_keys=True, indent=2)
-    with open('data/lqa_dev.json', 'w') as f:
-        json.dump(lqa_dev, f, sort_keys=True, indent=2)
-    with open('data/lqa_test.json', 'w') as f:
-        json.dump(lqa_test, f, sort_keys=True, indent=2)
+    scripts.util.save_data(data_dicts)
 
 
 if __name__ == '__main__':

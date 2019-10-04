@@ -49,7 +49,7 @@ and save it in `data/features/c3d.pickle`.
     python feature_extraction/extract_features.py resnet
     ```
 
-4. Run `run_scripts/train_tgif_qa.sh`.
+4. Run `scripts/train_tgif_qa.sh`.
 
 ### TVQA
 

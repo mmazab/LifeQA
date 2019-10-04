@@ -14,8 +14,7 @@ class LqaClassifier(Model):
     video, question and set of candidate answers (among other things) and we predict the correct answer.
     """
 
-    def __init__(self, vocab: Vocabulary,
-                 regularizer: Optional[RegularizerApplicator] = None) -> None:
+    def __init__(self, vocab: Vocabulary, regularizer: Optional[RegularizerApplicator] = None) -> None:
         super().__init__(vocab, regularizer)
         self.metrics = {'accuracy': CategoricalAccuracy()}
 

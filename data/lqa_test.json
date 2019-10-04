@@ -233,6 +233,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=yg0y30nWqd0",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "books",
           "pens",
@@ -244,6 +245,7 @@
         "question": "Whare are they holding?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "shelves",
           "bag",
@@ -255,6 +257,7 @@
         "question": "Where is the folder with papers?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "7",
           "0",
@@ -266,6 +269,7 @@
         "question": "How many objects are on the table?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "bun",
           "pony tail",
@@ -277,6 +281,7 @@
         "question": "What is their hairstyle?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "songs",
           "poetry",
@@ -548,6 +553,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=yg0y30nWqd0",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "living room",
           "closet",
@@ -559,6 +565,7 @@
         "question": "Where are they?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "2",
@@ -570,6 +577,7 @@
         "question": "How many kids are?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "magenta",
           "blue",
@@ -581,6 +589,7 @@
         "question": "What color is the box on the table?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "M",
           "S",
@@ -592,6 +601,7 @@
         "question": "What is the last letter?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "Z",
           "S",
@@ -1034,6 +1044,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=yg0y30nWqd0",
     "questions": [
       {
+        "answer_type": "L",
         "answers": [
           "what is this?",
           "where is this?",
@@ -1045,6 +1056,7 @@
         "question": "What is the first question?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "table",
           "shelves",
@@ -1056,6 +1068,7 @@
         "question": "Where is the remote?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "homework",
           "cooking",
@@ -1067,6 +1080,7 @@
         "question": "Whare are they doing?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "4",
           "2",
@@ -1078,6 +1092,7 @@
         "question": "How many water bottles are?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "floor",
           "stand",
@@ -1339,6 +1354,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=yg0y30nWqd0",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "square",
           "diamond",
@@ -1350,6 +1366,7 @@
         "question": "What shape is the table?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "closet",
           "hospital",
@@ -1361,6 +1378,7 @@
         "question": "Where are they?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "paper",
           "tissues",
@@ -1372,6 +1390,7 @@
         "question": "What is in the box on the table?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "are you at home?",
           "who are you?",
@@ -1383,6 +1402,7 @@
         "question": "What is the first question?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "follow it again",
           "watch it again",
@@ -1909,6 +1929,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=IzCXyXXkjKE",
     "questions": [
       {
+        "answer_type": "L",
         "answers": [
           "Brooklyn",
           "Troy",
@@ -1920,6 +1941,7 @@
         "question": "What town is she in?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "Friday",
           "Wednesday",
@@ -1931,6 +1953,7 @@
         "question": "What day is it?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "school",
           "gym",
@@ -1942,6 +1965,7 @@
         "question": "Where is she?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "onions 3 ways",
           "lobster 3 ways",
@@ -1953,6 +1977,7 @@
         "question": "What does she plan to make?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "books",
           "vase",
@@ -1964,6 +1989,7 @@
         "question": "What is she holding?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "rainy",
           "wendy",
@@ -1975,6 +2001,7 @@
         "question": "What's the weather of today?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "pink",
           "white",
@@ -1986,6 +2013,7 @@
         "question": "What's the color of the woman's scarf?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "pink",
           "purple",
@@ -1997,6 +2025,7 @@
         "question": "What's the color of the woman's bag?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "1",
           "7",
@@ -2328,6 +2357,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=IzCXyXXkjKE",
     "questions": [
       {
+        "answer_type": "B",
         "answers": [
           "running",
           "reading",
@@ -2339,6 +2369,7 @@
         "question": "What are they doing?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "artichoke",
           "red potatoes",
@@ -2350,6 +2381,7 @@
         "question": "What are they cutting first?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "ginger",
           "corn",
@@ -2361,6 +2393,7 @@
         "question": "What is next to potatoes?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "2",
@@ -2372,6 +2405,7 @@
         "question": "How many women cook?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "4",
           "0",
@@ -2383,6 +2417,7 @@
         "question": "How many knives are used?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "playing basketball",
           "singing",
@@ -2394,6 +2429,7 @@
         "question": "What they are doing?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "shopping mall",
           "home",
@@ -2405,6 +2441,7 @@
         "question": "Where are they?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "8",
           "6",
@@ -2416,6 +2453,7 @@
         "question": "How many people are in the video?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "6",
           "8",
@@ -2427,6 +2465,7 @@
         "question": "How many dogs are in the video?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "6",
           "0",
@@ -2877,6 +2916,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=IzCXyXXkjKE",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "lobster",
           "artichoke",
@@ -2888,6 +2928,7 @@
         "question": "What is the woman cutting?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "ketchup",
           "butter ",
@@ -2899,6 +2940,7 @@
         "question": "What is the woman pouring on the lobster?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "blonde",
           "silver",
@@ -2910,6 +2952,7 @@
         "question": "What color is the hair of the woman wearing eyeglasses?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "scallops",
           "tomatoes",
@@ -2921,6 +2964,7 @@
         "question": "What are they cutting next after lobster?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "vanilla",
           "cinnamon",
@@ -2932,6 +2976,7 @@
         "question": "What seasoning are they adding?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "cooking",
           "dancing",
@@ -2943,6 +2988,7 @@
         "question": "What they are doing?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "7",
           "5",
@@ -2954,6 +3000,7 @@
         "question": "How many lobsters they cooked?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "6",
           "2",
@@ -2965,6 +3012,7 @@
         "question": "How many people are in the video?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "shopping mall",
           "park",
@@ -2976,6 +3024,7 @@
         "question": "Where are they?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "8",
           "0",
@@ -3325,6 +3374,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=IzCXyXXkjKE",
     "questions": [
       {
+        "answer_type": "B",
         "answers": [
           "after the last plate was washed",
           "after the last plate was broken",
@@ -3336,6 +3386,7 @@
         "question": "When did the guest start to arrive?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "shelves",
           "oven",
@@ -3347,6 +3398,7 @@
         "question": "Where are the plates?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "school",
           "hospital",
@@ -3358,6 +3410,7 @@
         "question": "Where are the people?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "necklace",
           "scarf",
@@ -3369,6 +3422,7 @@
         "question": "What do they get around their neck?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "violet",
           "silver",
@@ -3380,6 +3434,7 @@
         "question": "What color is the eyeglasses frame of the last woman?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "dancing",
           "singing",
@@ -3391,6 +3446,7 @@
         "question": "What they are doing?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "home",
           "zoo",
@@ -3402,6 +3458,7 @@
         "question": "Where are they?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "0",
           "7",
@@ -3413,6 +3470,7 @@
         "question": "How many dogs are in the video?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "for party",
           "to sell",
@@ -3424,6 +3482,7 @@
         "question": "Why they cooked?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "red",
           "purple",
@@ -3857,6 +3916,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=ItAiqsVEA2c",
     "questions": [
       {
+        "answer_type": "L",
         "answers": [
           "$1,000",
           "$40",
@@ -3868,6 +3928,7 @@
         "question": "What is the first price?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "black",
           "white",
@@ -3879,6 +3940,7 @@
         "question": "What colors are the hearts on the t-shirt?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "orange",
           "brown",
@@ -3890,6 +3952,7 @@
         "question": "What color is the chair?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "sit",
           "sing",
@@ -3901,6 +3964,7 @@
         "question": "What does the girl ask the other girl to do in the end?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "$ 35 million",
           "$ 2 million",
@@ -3912,6 +3976,7 @@
         "question": "What is the highest price?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "12:00",
           "5:04",
@@ -3923,6 +3988,7 @@
         "question": "What is the time now?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "4 ",
@@ -3934,6 +4000,7 @@
         "question": "How many clocks are in this room?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "pink",
           "white",
@@ -4440,6 +4507,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=ItAiqsVEA2c",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "1",
           "2",
@@ -4451,6 +4519,7 @@
         "question": "How many kids are in this room?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "5:25",
           "5:30",
@@ -4462,6 +4531,7 @@
         "question": "What time shows the clock?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "hair band",
           "eyeglasses",
@@ -4473,6 +4543,7 @@
         "question": "What is the girl putting on the head of the other girl?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "play",
           "sign",
@@ -4484,6 +4555,7 @@
         "question": "What does the girl ask the other girl to do in the beginning?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "blue and orange",
           "gray and violet",
@@ -4495,6 +4567,7 @@
         "question": "What color are the t-shirt stripes?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "hair style",
           "skirt style",
@@ -4506,6 +4579,7 @@
         "question": "What kind of make over does the girl want?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "brown",
           "pink",
@@ -4517,6 +4591,7 @@
         "question": "What's the color of the table?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "1",
@@ -4528,6 +4603,7 @@
         "question": "How many kids are in this room?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "4 ",
@@ -4539,6 +4615,7 @@
         "question": "How many girls are in this room?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "black",
           "brown",
@@ -4858,6 +4935,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=JGTOwcd1Rf4",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "4",
           "2",
@@ -4869,6 +4947,7 @@
         "question": "How many kids are?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "3",
@@ -4880,6 +4959,7 @@
         "question": "How many girls are?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "juice and wine",
           "cake",
@@ -4891,6 +4971,7 @@
         "question": "What do the kids say that can be made out of apple?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "blue",
           "green",
@@ -4902,6 +4983,7 @@
         "question": "What color is the boy's shirt?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "the TV stand",
           "pillows",
@@ -4913,6 +4995,7 @@
         "question": "What are the kids sitting on?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "pink",
           "red",
@@ -4924,6 +5007,7 @@
         "question": "What's the color of the sofa?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "black",
           "pink",
@@ -4935,6 +5019,7 @@
         "question": "What's the color of the wall?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "4 ",
@@ -5178,6 +5263,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=JGTOwcd1Rf4",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "flowers",
           "open box",
@@ -5189,6 +5275,7 @@
         "question": "What object is in the window?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "balcony",
           "bedroom",
@@ -5200,6 +5287,7 @@
         "question": "Where are they?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "silver",
           "white",
@@ -5211,6 +5299,7 @@
         "question": "What color is the couch?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "orange",
           "blue",
@@ -5222,6 +5311,7 @@
         "question": "What color is the floor matt?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "run",
           "count",
@@ -5233,6 +5323,7 @@
         "question": "What will they do?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "3",
@@ -5244,6 +5335,7 @@
         "question": "How many red head icons did they draw on the white board?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "1",
           "3",
@@ -5255,6 +5347,7 @@
         "question": "How many head icons did they draw on the white board?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "1",
@@ -5266,6 +5359,7 @@
         "question": "How many girls are in this room?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "2",
@@ -5277,6 +5371,7 @@
         "question": "How many letters \"A\" they wrote on the white board?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "4 ",
@@ -5820,6 +5915,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
+        "answer_type": "L",
         "answers": [
           "Paige",
           "Alaina",
@@ -5831,6 +5927,7 @@
         "question": "What is the name of the first girl?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "hair tie",
           "spray bottle",
@@ -5842,6 +5939,7 @@
         "question": "What is th girl going to use to get the hair wet?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "clean hair",
           "brush hair",
@@ -5853,6 +5951,7 @@
         "question": "What is the first step?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "make the hair wet",
           "make the hair glow",
@@ -5864,6 +5963,7 @@
         "question": "What does one have to make sure to do?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "they don't run together",
           "they are upset",
@@ -6351,6 +6451,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
+        "answer_type": "L",
         "answers": [
           "wash hair",
           "cut hair",
@@ -6362,6 +6463,7 @@
         "question": "What does the girl say she does in the beginning?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "it's easier",
           "it takes long",
@@ -6373,6 +6475,7 @@
         "question": "Why is she spraying hair?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "6",
@@ -6384,6 +6487,7 @@
         "question": "How many girls have earrings?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "red",
           "teal",
@@ -6395,6 +6499,7 @@
         "question": "What color is the small lamp?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "leave",
           "question of the day",
@@ -6695,6 +6800,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
+        "answer_type": "L",
         "answers": [
           "Her age",
           "What she sang.",
@@ -6706,6 +6812,7 @@
         "question": "What will she tell at the end of the video?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "To become doctor.",
           "To become famous.",
@@ -6717,6 +6824,7 @@
         "question": "What is the dream of the girl standing?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "To be a mother.",
           "To be a lawyer.",
@@ -6728,6 +6836,7 @@
         "question": "What is the dream of the second girl?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "1",
           "3",
@@ -6739,6 +6848,7 @@
         "question": "How many girls have curly hair?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "6",
@@ -7104,6 +7214,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
+        "answer_type": "L",
         "answers": [
           "sing",
           "do hair",
@@ -7115,6 +7226,7 @@
         "question": "What's the girl's dream job?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "Sandra",
           "Mia",
@@ -7126,6 +7238,7 @@
         "question": "Who is her close friend?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "close eyes",
           "wipe eyes",
@@ -7137,6 +7250,7 @@
         "question": "What does the girl asks the sitting girl to do?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "combs hair",
           "washes hair",
@@ -7148,6 +7262,7 @@
         "question": "What does the standing girl do?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "iPhone",
           "screen",
@@ -7560,6 +7675,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "pink",
           "beige",
@@ -7571,6 +7687,7 @@
         "question": "What color is the water bottle?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "washing hair",
           "cutting hair",
@@ -7582,6 +7699,7 @@
         "question": "What is the girl d1 doing?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "hair brush",
           "dye",
@@ -7593,6 +7711,7 @@
         "question": "What does the girl use on the hair?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "basket",
           "backpack",
@@ -7604,6 +7723,7 @@
         "question": "Where is the girl looking for things?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "scissors",
           "hair ties",
@@ -8166,6 +8286,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
+        "answer_type": "L",
         "answers": [
           "braided bun",
           "bob",
@@ -8177,6 +8298,7 @@
         "question": "What hairstyle is the girl going to do?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "aunt",
           "mother",
@@ -8188,6 +8310,7 @@
         "question": "For who does the girl say she does hair?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "a cat",
           "a ball",
@@ -8199,6 +8322,7 @@
         "question": "What is under the bed?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "brush on the side",
           "brush up",
@@ -8210,6 +8334,7 @@
         "question": "What does the girl like?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "brown",
           "red",
@@ -8590,6 +8715,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
+        "answer_type": "L",
         "answers": [
           "Did you brush your hair today?",
           "Did you wash your hair today?",
@@ -8601,6 +8727,7 @@
         "question": "What is the first question the girl asks?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "1",
           "7",
@@ -8612,6 +8739,7 @@
         "question": "What time did the girl get up?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "Put your head to the left.",
           "Put your head up.",
@@ -8623,6 +8751,7 @@
         "question": "What does the standing girl asks first?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "green",
           "pink",
@@ -8634,6 +8763,7 @@
         "question": "What color is the night sand?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "7:00 PM",
           "late",
@@ -8899,6 +9029,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "red",
           "orange",
@@ -8910,6 +9041,7 @@
         "question": "What color is the pillow from the bed?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "braided bun",
           "braids",
@@ -8921,6 +9053,7 @@
         "question": "What hairstyle does the standing girl do?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "red",
           "pink",
@@ -8932,6 +9065,7 @@
         "question": "What color are the walls?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "green",
           "peach",
@@ -8943,6 +9077,7 @@
         "question": "What color is the hair brush?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "on the couch",
           "at the table",
@@ -9137,6 +9272,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
+        "answer_type": "B",
         "answers": [
           "clean hair",
           "put hair up",
@@ -9148,6 +9284,7 @@
         "question": "What will the standing girl do first?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "green",
           "red",
@@ -9159,6 +9296,7 @@
         "question": "What color is the bed frame?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "braid the hair",
           "wash the hair",
@@ -9170,6 +9308,7 @@
         "question": "What will the standing girl do second?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "white",
           "orange",
@@ -9181,6 +9320,7 @@
         "question": "What color is the hair tie?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "5",
           "2",
@@ -9401,6 +9541,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "black",
           "brown",
@@ -9412,6 +9553,7 @@
         "question": "What color is the girl's hair?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "golden",
           "magenta",
@@ -9423,6 +9565,7 @@
         "question": "What color is the lava lamp?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "blue",
           "white",
@@ -9434,6 +9577,7 @@
         "question": "What color is the fan?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "blue",
           "beige",
@@ -9445,6 +9589,7 @@
         "question": "What color are the pants of the standing girl?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "folds clothes",
           "combs hair",
@@ -9654,6 +9799,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=jacyQPkeiZU",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "towel",
           "coat",
@@ -9665,6 +9811,7 @@
         "question": "What is the girl sitting down wearing?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "silver",
           "blue",
@@ -9676,6 +9823,7 @@
         "question": "What color is the top of the standing girl?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "arranges hair ",
           "washes hair",
@@ -9687,6 +9835,7 @@
         "question": "What does the standing girl do?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "ponny tail",
           "bun",
@@ -9698,6 +9847,7 @@
         "question": "What does the standing girl decide to do?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "bedroom",
           "bathroom",
@@ -10559,6 +10709,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
+        "answer_type": "L",
         "answers": [
           "4",
           "7",
@@ -10570,6 +10721,7 @@
         "question": "How many pieces of papers are in the first cup?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "5",
           "1",
@@ -10581,6 +10733,7 @@
         "question": "How many white containers are on the table?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "18",
           "16",
@@ -10592,6 +10745,7 @@
         "question": "How many pieces of papers are in the second cup?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "cheese challenge",
           "pizza challenge",
@@ -10603,6 +10757,7 @@
         "question": "What do the suggestions say to do?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "her dad",
           "her mother",
@@ -10614,6 +10769,7 @@
         "question": "With whom is the girl going to do the challenge?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "YOU SUCK.",
           "HAPPY.",
@@ -10625,6 +10781,7 @@
         "question": "What is the words on the cup?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "pizza challenge",
           "rock and roll",
@@ -10636,6 +10793,7 @@
         "question": "What are they doing?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "18",
           "10",
@@ -10647,6 +10805,7 @@
         "question": "How many bags are there?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "4",
           "2",
@@ -10658,6 +10817,7 @@
         "question": "How many people are there?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "15",
           "10",
@@ -11363,6 +11523,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
+        "answer_type": "L",
         "answers": [
           "guess a number",
           "pick a number",
@@ -11374,6 +11535,7 @@
         "question": "What do they start with?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "the old lady",
           "the big girl",
@@ -11385,6 +11547,7 @@
         "question": "Who is going to be the helper?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "orange",
           "green",
@@ -11396,6 +11559,7 @@
         "question": "What color are the tickets?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "roll dough",
           "take dough",
@@ -11407,6 +11571,7 @@
         "question": "What action it is written on the tickets?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "5",
           "1",
@@ -11418,6 +11583,7 @@
         "question": "How many people are there?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "cheese",
           "topping of the pizza",
@@ -11429,6 +11595,7 @@
         "question": "What is it in the bag?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "Kylie",
           "Pat",
@@ -11440,6 +11607,7 @@
         "question": "What is the name of the younger girl?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "rock paper scissors",
           "treat or trick",
@@ -11451,6 +11619,7 @@
         "question": "What is the name of the game they are playing?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "cornmeal dough",
           "precooked dough",
@@ -11900,6 +12069,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
+        "answer_type": "B",
         "answers": [
           "the olive oil",
           "the donught dough",
@@ -11911,6 +12081,7 @@
         "question": "What does the little girl give them?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "a glass cutter",
           "scissors",
@@ -11922,6 +12093,7 @@
         "question": "What does the man use to open the bag?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "olive oil",
           "grape juice",
@@ -11933,6 +12105,7 @@
         "question": "What do they first pour on the pan?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "6",
@@ -11944,6 +12117,7 @@
         "question": "How many pizzas does each 1 have?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "5",
@@ -11955,6 +12129,7 @@
         "question": "How many pizza pans are on the table?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "peanut oil",
           "coconut oil",
@@ -11966,6 +12141,7 @@
         "question": "What kind of oil do they use?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "for health reasons",
           "so that the pizza won't stick",
@@ -11977,6 +12153,7 @@
         "question": "Why do they put oil into the plate?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "4",
           "3",
@@ -11988,6 +12165,7 @@
         "question": "How many doughs are there?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "yellow",
           "blue",
@@ -11999,6 +12177,7 @@
         "question": "What is the color of the sauce?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "oval",
           "square",
@@ -12552,6 +12731,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
+        "answer_type": "B",
         "answers": [
           "spinach",
           "onions",
@@ -12563,6 +12743,7 @@
         "question": "What are they adding to the pizza?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "4",
           "1",
@@ -12574,6 +12755,7 @@
         "question": "How many cheese containers are?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "wash face",
           "put on gloves",
@@ -12585,6 +12767,7 @@
         "question": "How do you prepare for the challenge?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "pick a bag",
           "guess the day",
@@ -12596,6 +12779,7 @@
         "question": "What do they are asked to do at the end?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "1",
           "4",
@@ -12607,6 +12791,7 @@
         "question": "How many red sauce containers are?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "1",
@@ -12618,6 +12803,7 @@
         "question": "How many people are in this video?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "1",
           "3",
@@ -12629,6 +12815,7 @@
         "question": "How many men are in this video?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "3",
@@ -12640,6 +12827,7 @@
         "question": "How many girls are in this video?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "4 ",
@@ -12651,6 +12839,7 @@
         "question": "How many kids are in this video?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "laughing",
           "dancing",
@@ -13275,6 +13464,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
+        "answer_type": "L",
         "answers": [
           "18",
           "17",
@@ -13286,6 +13476,7 @@
         "question": "What number did the girl get?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "17",
           "13",
@@ -13297,6 +13488,7 @@
         "question": "What number did the man get?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "brown",
           "magenta",
@@ -13308,6 +13500,7 @@
         "question": "What color is the number ticket?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "8",
           "15",
@@ -13319,6 +13512,7 @@
         "question": "What is the first number they picked?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "grapes",
           "olive",
@@ -13330,6 +13524,7 @@
         "question": "What is it in the 17th bag?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "they will be more delicious",
           "they will be unhealthy",
@@ -13341,6 +13536,7 @@
         "question": "What will happen if you put grapes in microwave?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "13",
           "3",
@@ -13352,6 +13548,7 @@
         "question": "What is the second number the dad took?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "grapes",
           "cheerios",
@@ -13927,6 +14124,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
+        "answer_type": "L",
         "answers": [
           "Lily",
           "Tara",
@@ -13938,6 +14136,7 @@
         "question": "What is the name of the big girl?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "4",
           "8",
@@ -13949,6 +14148,7 @@
         "question": "What number did the girl get?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "5",
           "3",
@@ -13960,6 +14160,7 @@
         "question": "What number did the man get?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "olives",
           "jalape\u00f1o peppers",
@@ -13971,6 +14172,7 @@
         "question": "What is in the bag number 3?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "beige",
           "black",
@@ -13982,6 +14184,7 @@
         "question": "What color are the olives?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "4 ",
@@ -13993,6 +14196,7 @@
         "question": "How many girls in this video?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "4 ",
           "3",
@@ -14004,6 +14208,7 @@
         "question": "What words on the white mug?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "blue",
           "white",
@@ -14015,6 +14220,7 @@
         "question": "What is the color of the cabinet?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "white",
           "green",
@@ -14026,6 +14232,7 @@
         "question": "What is the color of the grapes?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "dancing",
           "singing",
@@ -14479,6 +14686,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
+        "answer_type": "L",
         "answers": [
           "8",
           "6",
@@ -14490,6 +14698,7 @@
         "question": "What number did the girl get?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "tuna",
           "sardines in olive oil",
@@ -14501,6 +14710,7 @@
         "question": "What is in the bag number 6?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "4",
           "14",
@@ -14512,6 +14722,7 @@
         "question": "What number did the man get?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "onions",
           "banana",
@@ -14523,6 +14734,7 @@
         "question": "What is in the bag number 14?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "throws it away",
           "chops it",
@@ -14942,6 +15154,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
+        "answer_type": "L",
         "answers": [
           "8",
           "18",
@@ -14953,6 +15166,7 @@
         "question": "What number did the girl get?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "4",
           "8",
@@ -14964,6 +15178,7 @@
         "question": "What number did the man get?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "sardines in olive oil",
           "tomatoes",
@@ -14975,6 +15190,7 @@
         "question": "What is in the bag number 8?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "sardines in olive oil",
           "onions",
@@ -14986,6 +15202,7 @@
         "question": "What is in the bag number 5?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "cooks it",
           "boils it",
@@ -14997,6 +15214,7 @@
         "question": "What does the man do with the banana before putting it on the pizza?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "7",
           "5",
@@ -15008,6 +15226,7 @@
         "question": "What is the first number the girl grabbed?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "1",
           "5",
@@ -15019,6 +15238,7 @@
         "question": "What is the first number the man grabbed?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "cheese",
           "apple",
@@ -15030,6 +15250,7 @@
         "question": "What is it in the 8th bag?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "cheese",
           "apple",
@@ -15041,6 +15262,7 @@
         "question": "What is it in the 5th bag?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "she does not like it",
           "she is neutral",
@@ -15629,6 +15851,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
+        "answer_type": "B",
         "answers": [
           "5",
           "15",
@@ -15640,6 +15863,7 @@
         "question": "What number did the man get?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "16",
           "11",
@@ -15651,6 +15875,7 @@
         "question": "What number did the girl get?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "pickled cucumbers",
           "pickled squash",
@@ -15662,6 +15887,7 @@
         "question": "What is in the bag number 11?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "tomatoes",
           "pickled beets and onion",
@@ -15673,6 +15899,7 @@
         "question": "What is in the bag number 15?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "slices them",
           "cooks them",
@@ -15684,6 +15911,7 @@
         "question": "What does the girl do with the pickled beets?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "1",
@@ -15695,6 +15923,7 @@
         "question": "How many men are in this video?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "singing",
           "laughing",
@@ -15706,6 +15935,7 @@
         "question": "Waht they are doing?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "2",
@@ -15717,6 +15947,7 @@
         "question": "How many kids are in this video?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "4 ",
@@ -15728,6 +15959,7 @@
         "question": "How many girls in this video?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "blue",
           "green",
@@ -16403,6 +16635,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
+        "answer_type": "B",
         "answers": [
           "5",
           "10",
@@ -16414,6 +16647,7 @@
         "question": "What number did the girl get?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "9",
           "10",
@@ -16425,6 +16659,7 @@
         "question": "What number did the man get?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "roasted peppers",
           "artichoke",
@@ -16436,6 +16671,7 @@
         "question": "What is in the bag number 9?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "avocado",
           "artichoke",
@@ -16447,6 +16683,7 @@
         "question": "What is in the bag number 10?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "a knife",
           "a spoon",
@@ -16458,6 +16695,7 @@
         "question": "What does the man us to take out the beans?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "pineapple",
           "orange",
@@ -16469,6 +16707,7 @@
         "question": "What is it in the 9th bag?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "pepper",
           "pepperoni",
@@ -16480,6 +16719,7 @@
         "question": "What is it in the 10th bag?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "she likes it",
           "she is neutral",
@@ -16902,6 +17142,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
+        "answer_type": "B",
         "answers": [
           "17",
           "16",
@@ -16913,6 +17154,7 @@
         "question": "What number did the girl get?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "4",
           "1",
@@ -16924,6 +17166,7 @@
         "question": "How many pizzas are on the table?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "20",
           "16",
@@ -16935,6 +17178,7 @@
         "question": "What number did the man get?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "pretzels",
           "avocado",
@@ -16946,6 +17190,7 @@
         "question": "What is in the bag number 12?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "pretzels",
           "avocado",
@@ -16957,6 +17202,7 @@
         "question": "What does the girl put on her pizza?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "she forgets",
           "she is scared",
@@ -16968,6 +17214,7 @@
         "question": "Why the girl doen't pick the pepper?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "gonna eat it becase he hates wasting food",
           "throws it away",
@@ -16979,6 +17226,7 @@
         "question": "What will the man do with the pizza?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "1",
           "3",
@@ -16990,6 +17238,7 @@
         "question": "How many kids are in this video?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "4 ",
           "2",
@@ -17327,6 +17576,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
+        "answer_type": "B",
         "answers": [
           "14",
           "18",
@@ -17338,6 +17588,7 @@
         "question": "What number did the girl get?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "14",
           "7",
@@ -17349,6 +17600,7 @@
         "question": "What number did the man get?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "pretzels",
           "an apple",
@@ -17360,6 +17612,7 @@
         "question": "What is in the bag number 8een?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "an avocado",
           "garlic",
@@ -17371,6 +17624,7 @@
         "question": "What is in the bag number 4 ?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "on the cupcake",
           "on the pizza",
@@ -17382,6 +17636,7 @@
         "question": "Where does the man put the pretzels on?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "she thinks it is not healthy",
           "she is neutral",
@@ -17393,6 +17648,7 @@
         "question": "What is the girl's attitude towards artichokes?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "5",
           "12",
@@ -17834,6 +18090,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
+        "answer_type": "B",
         "answers": [
           "10",
           "7",
@@ -17845,6 +18102,7 @@
         "question": "What is the first number?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "an avocado",
           "an orange",
@@ -17856,6 +18114,7 @@
         "question": "What is in the second bag?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "7",
           "2",
@@ -17867,6 +18126,7 @@
         "question": "What number is the dad requesting?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "orange",
           "black",
@@ -17878,6 +18138,7 @@
         "question": "What color is the mug?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "wash hands",
           "eat",
@@ -17889,6 +18150,7 @@
         "question": "What do they all go do at the end?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "1",
           "12",
@@ -17900,6 +18162,7 @@
         "question": "What is the first number that the man took?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "artichoke",
           "avocado",
@@ -17911,6 +18174,7 @@
         "question": "What is it in the 7th bag?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "hotdog",
           "eggs",
@@ -18326,6 +18590,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
+        "answer_type": "L",
         "answers": [
           "freeze the pizzas",
           "throw away the pizzas",
@@ -18337,6 +18602,7 @@
         "question": "What are they getting ready to do?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "third rack",
           "top rack",
@@ -18348,6 +18614,7 @@
         "question": "On which rack is she placing the pizza?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "in the living room",
           "in the kitchen",
@@ -18359,6 +18626,7 @@
         "question": "Where are they?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "black",
           "red",
@@ -18370,6 +18638,7 @@
         "question": "What color is the oven?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "blue",
           "pink",
@@ -18381,6 +18650,7 @@
         "question": "What color are the little girl's shorts?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "can't find her younger sister",
           "there are some cats in her house",
@@ -18392,6 +18662,7 @@
         "question": "Why the girl is very scared?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "1",
           "2",
@@ -18403,6 +18674,7 @@
         "question": "How many kids are in this video?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "3",
@@ -18414,6 +18686,7 @@
         "question": "How many girls in this video?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "black",
           "white",
@@ -18425,6 +18698,7 @@
         "question": "What's color of the younger sister's top?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "4 ",
@@ -18929,6 +19203,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "cardboard",
           "cooking pans",
@@ -18940,6 +19215,7 @@
         "question": "What is the pizza put on?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "put it in the oven",
           "freeze it",
@@ -18951,6 +19227,7 @@
         "question": "What do they do to the pizza before eating it?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "4",
           "1",
@@ -18962,6 +19239,7 @@
         "question": "How many pizza cutters they have?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "to be cut and tasted",
           "to be frozen",
@@ -18973,6 +19251,7 @@
         "question": "What are the pizzas ready for?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "1",
@@ -18984,6 +19263,7 @@
         "question": "How many bottles of water are in the room?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "fantastic",
           "disgusting",
@@ -18995,6 +19275,7 @@
         "question": "How does the older girl thinks of her pizza?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "1",
           "2",
@@ -19006,6 +19287,7 @@
         "question": "How many pizzas are there?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "grey",
           "black",
@@ -19017,6 +19299,7 @@
         "question": "What is the color of the man's shirt?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "because she is lazy",
           "because she does not want to ruin it",
@@ -19445,6 +19728,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
+        "answer_type": "L",
         "answers": [
           "the dad",
           "the viewers",
@@ -19456,6 +19740,7 @@
         "question": "Who suggested the toppings?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "1",
           "4",
@@ -19467,6 +19752,7 @@
         "question": "How many pieces of pizza will each grab?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "orange",
           "yellow",
@@ -19478,6 +19764,7 @@
         "question": "What color are the plates?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "the brother",
           "the cousin",
@@ -19489,6 +19776,7 @@
         "question": "Who is the man?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "the pizza is not undercooked",
           "the pizza is too hot",
@@ -19500,6 +19788,7 @@
         "question": "What does the little girl has to make sure of?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "4",
           "3",
@@ -19511,6 +19800,7 @@
         "question": "How many people are there?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "1",
           "2",
@@ -19522,6 +19812,7 @@
         "question": "How many pizzas are there?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "1",
           "4 ",
@@ -19533,6 +19824,7 @@
         "question": "How many men are in this video?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "4 ",
@@ -20068,6 +20360,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "1",
@@ -20079,6 +20372,7 @@
         "question": "How many people are in the room?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "gray",
           "green",
@@ -20090,6 +20384,7 @@
         "question": "What color is the man's top?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "hot peppers",
           "bananas",
@@ -20101,6 +20396,7 @@
         "question": "What food does the woman do not like?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "hot peppers",
           "beets and garlic",
@@ -20112,6 +20408,7 @@
         "question": "What food does the men have on his pizza?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "1",
           "4",
@@ -20123,6 +20420,7 @@
         "question": "How many pizzas are on the table?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "adorable",
           "disgusting",
@@ -20134,6 +20432,7 @@
         "question": "How does the older girl think of her pizza?"
       },
       {
+        "answer_type": NaN,
         "answers": [
           "no",
           "yes",
@@ -20145,6 +20444,7 @@
         "question": "Does the girl like garlic?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "because it is too hot",
           "because she does not like it",
@@ -20156,6 +20456,7 @@
         "question": "Why does not the younger girl eat the pizza?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "4",
           "3",
@@ -20917,6 +21218,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
+        "answer_type": "L",
         "answers": [
           "throwing out the pizza",
           "cooking the pizza",
@@ -20928,6 +21230,7 @@
         "question": "What is the fun part?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "take a bite and don't spit out",
           "take three bites",
@@ -20939,6 +21242,7 @@
         "question": "What is the requirement?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "1",
           "0",
@@ -20950,6 +21254,7 @@
         "question": "how many glasses are on the table?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "beets and onion",
           "beets and garlic",
@@ -20961,6 +21266,7 @@
         "question": "What food does the woman hate?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "1",
           "3",
@@ -20972,6 +21278,7 @@
         "question": "How many pizzas are on the table?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "cleaning the table",
           "making the pizza",
@@ -20983,6 +21290,7 @@
         "question": "What is the not so fun part?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "1",
           "4",
@@ -20994,6 +21302,7 @@
         "question": "How many people are there?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "4 ",
           "3",
@@ -21308,6 +21617,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=NqTTtwgOKeY",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "the man",
           "the woman",
@@ -21319,6 +21629,7 @@
         "question": "Who takes the first bite?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "scone",
           "pizza",
@@ -21330,6 +21641,7 @@
         "question": "What is the girl eating?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "on the couch",
           "on the floor",
@@ -21341,6 +21653,7 @@
         "question": "Where are they seated?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "1",
@@ -21352,6 +21665,7 @@
         "question": "How many white plates are on the table?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "violet",
           "red",
@@ -21363,6 +21677,7 @@
         "question": "What color is the little girl's top?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "yes",
           "",
@@ -21374,6 +21689,7 @@
         "question": "Is the pizza hot now?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "4",
@@ -21385,6 +21701,7 @@
         "question": "How many people are there?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "",
           "",
@@ -21396,6 +21713,7 @@
         "question": "Does the younger girl like the pizza?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "1",
@@ -21407,6 +21725,7 @@
         "question": "How many girls in this video?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "beef",
           "hotdog",
@@ -21514,6 +21833,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=BTQCIA-eChg",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "on the floor",
           "on the fireplace",
@@ -21525,6 +21845,7 @@
         "question": "Where is the flower vase?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "1",
           "6",
@@ -21536,6 +21857,7 @@
         "question": "How many paintings are on the wall?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "a pacifier",
           "an apple",
@@ -21547,6 +21869,7 @@
         "question": "What does the smallest girl has in her mouth?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "1",
           "2",
@@ -21558,6 +21881,7 @@
         "question": "How many soccer balls does the ornament have?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "to take it down",
           "to run away",
@@ -21569,6 +21893,7 @@
         "question": "What does the mother says in the end to the smallest girl?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "1",
@@ -21580,6 +21905,7 @@
         "question": "How many Christmas trees are there?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "singing",
           "decorating the tree",
@@ -21591,6 +21917,7 @@
         "question": "What are they doing?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "4",
           "1",
@@ -21602,6 +21929,7 @@
         "question": "How many girls are there?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "4",
           "3",
@@ -21613,6 +21941,7 @@
         "question": "How many women are there?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "in a cinema",
           "at a park",
@@ -21716,6 +22045,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=BTQCIA-eChg",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "black",
           "green",
@@ -21727,6 +22057,7 @@
         "question": "What color is the man's t-shirt?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "a old lady",
           "a man",
@@ -21738,6 +22069,7 @@
         "question": "Who is holding the little child?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "black and white",
           "green",
@@ -21749,6 +22081,7 @@
         "question": "What colors are the man's pants?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "a dog",
           "a gorilla",
@@ -21760,6 +22093,7 @@
         "question": "What ornament is the man hanging up? "
       },
       {
+        "answer_type": "V",
         "answers": [
           "down",
           "left",
@@ -21771,6 +22105,7 @@
         "question": "Where does the little girl ask the woman to put the ornament at the end?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "dancing",
           "cooking",
@@ -21782,6 +22117,7 @@
         "question": "Whay are they doing?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "parking lot",
           "playground",
@@ -21793,6 +22129,7 @@
         "question": "Where are they?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "3",
@@ -21804,6 +22141,7 @@
         "question": "How many kids are in this video?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "2",
@@ -21919,6 +22257,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=BTQCIA-eChg",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "white bear",
           "bell",
@@ -21930,6 +22269,7 @@
         "question": "What ornament did the little girl take off?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "low",
           "to the left",
@@ -21941,6 +22281,7 @@
         "question": "Where does the girl ask the women to put the ornament?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "white",
           "pink",
@@ -21952,6 +22293,7 @@
         "question": "What color is the woman's top?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "next to the couch",
           "on the table",
@@ -21963,6 +22305,7 @@
         "question": "Where is the Christmas tree?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "red and white",
           "red and green",
@@ -21974,6 +22317,7 @@
         "question": "What colors are the curtains"
       },
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "1",
@@ -21985,6 +22329,7 @@
         "question": "How many christmas trees are there?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "dancing",
           "cooking",
@@ -21996,6 +22341,7 @@
         "question": "What are they doing?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "2",
@@ -22007,6 +22353,7 @@
         "question": "How many girls are there?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "1",
@@ -22018,6 +22365,7 @@
         "question": "How many women are there?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "in a restaurant",
           "at a park",
@@ -22276,6 +22624,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=BTQCIA-eChg",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "a book",
           "a doll",
@@ -22287,6 +22636,7 @@
         "question": "What is the first thing the girl is showing the camera?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "cry",
           "decorate the tree",
@@ -22298,6 +22648,7 @@
         "question": "What do the kids do?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "purple",
           "pink",
@@ -22309,6 +22660,7 @@
         "question": "What color is the top of the smaller girl?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "1",
@@ -22320,6 +22672,7 @@
         "question": "How many kids are decorating the tree in total?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "Merry Christmas",
           "Happy Easter",
@@ -22331,6 +22684,7 @@
         "question": "What does the woman voice tells the kids to say to the camera?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "0",
           "1",
@@ -22342,6 +22696,7 @@
         "question": "How many christmas trees are there?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "4",
           "1",
@@ -22353,6 +22708,7 @@
         "question": "How many girls are there?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "singing",
           "trying to take them off",
@@ -22364,6 +22720,7 @@
         "question": "What is Lydia doing?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "at home",
           "in a cinema",
@@ -22507,6 +22864,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=fdZJiWnxhg0",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "3",
@@ -22518,6 +22876,7 @@
         "question": "How many kids are playing?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "3",
@@ -22529,6 +22888,7 @@
         "question": "How many girls are playing?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "white",
           "red",
@@ -22540,6 +22900,7 @@
         "question": "What color is the boy's funnel?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "mold clay",
           "pour beads",
@@ -22551,6 +22912,7 @@
         "question": "What are the children doing?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "blue",
           "orange",
@@ -22747,6 +23109,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=fdZJiWnxhg0",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "5",
@@ -22758,6 +23121,7 @@
         "question": "How many kids are at the table?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "blue",
           "blond",
@@ -22769,6 +23133,7 @@
         "question": "What color is the boy's hair?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "black",
           "red",
@@ -22780,6 +23145,7 @@
         "question": "What color is the container of beads?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "red and black",
           "red and blue",
@@ -22791,6 +23157,7 @@
         "question": "What color is the boy's top?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "white and pink",
           "pink and yellow",
@@ -22898,6 +23265,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=fdZJiWnxhg0",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "0",
           "4",
@@ -22909,6 +23277,7 @@
         "question": "How many kids are at the table in the beginning?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "5",
           "3",
@@ -22920,6 +23289,7 @@
         "question": "How many kids are at the table in the end?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "1",
@@ -22931,6 +23301,7 @@
         "question": "How many boys are in the video?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "4",
           "2",
@@ -22942,6 +23313,7 @@
         "question": "How many girls are in the video?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "run",
           "leave it on the table",
@@ -23465,6 +23837,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=v0hJuq-WKnM",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "7",
           "3",
@@ -23476,6 +23849,7 @@
         "question": "How many candies are in the first row?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "white",
           "green",
@@ -23487,6 +23861,7 @@
         "question": "What color is the woman's top?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "orange",
           "teal",
@@ -23498,6 +23873,7 @@
         "question": "What color is the girl's necklace?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "crackers",
           "apples",
@@ -23509,6 +23885,7 @@
         "question": "What is the woman putting on the table?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "7",
           "3",
@@ -23520,6 +23897,7 @@
         "question": "How old is the little girl?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "Lucy",
           "Pat",
@@ -23531,6 +23909,7 @@
         "question": "What is the girl's name?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "4",
@@ -23542,6 +23921,7 @@
         "question": "How many people are there?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "playing a game",
           "having a meal",
@@ -23871,6 +24251,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=v0hJuq-WKnM",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "butterflies",
           "maps",
@@ -23882,6 +24263,7 @@
         "question": "What is up on the walls?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "6",
@@ -23893,6 +24275,7 @@
         "question": "How many candy wrappers are on the table?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "9",
           "10",
@@ -23904,6 +24287,7 @@
         "question": "How many candies does the girl have to have?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "yellow",
           "green",
@@ -23915,6 +24299,7 @@
         "question": "What color is the table?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "yellow",
           "white",
@@ -23926,6 +24311,7 @@
         "question": "What color is the girl's top?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "5",
@@ -23937,6 +24323,7 @@
         "question": "How many people are there?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "6",
           "7",
@@ -23948,6 +24335,7 @@
         "question": "How many pills does the woman have?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "the same number with the woman's, 7",
           "6",
@@ -23959,6 +24347,7 @@
         "question": "How many pills should the kid put below?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "green",
           "pink",
@@ -24398,6 +24787,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=v0hJuq-WKnM",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "2",
           "4",
@@ -24409,6 +24799,7 @@
         "question": "How many rows of candies are on the table?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "3",
           "2",
@@ -24420,6 +24811,7 @@
         "question": "How many people are in the video?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "violet",
           "black",
@@ -24431,6 +24823,7 @@
         "question": "What color are the dots on the girl's top?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "8",
           "5",
@@ -24442,6 +24835,7 @@
         "question": "How many candies are in the second row?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "9",
           "7",
@@ -24453,6 +24847,7 @@
         "question": "How many candies does the girl count on the first row?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "blue",
           "green",
@@ -24464,6 +24859,7 @@
         "question": "What color is the woman's top?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "white",
           "yellow",
@@ -24475,6 +24871,7 @@
         "question": "What color is the table?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "4",
           "8",
@@ -24486,6 +24883,7 @@
         "question": "How many pills is the girl supposed to put on the table?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "green",
           "white",
@@ -25082,6 +25480,7 @@
     "parent_video_id": "https://www.youtube.com/watch?v=v0hJuq-WKnM",
     "questions": [
       {
+        "answer_type": "V",
         "answers": [
           "red cards",
           "Olaf cards",
@@ -25093,6 +25492,7 @@
         "question": "What kind of cards does the woman have?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "what to wish for",
           "who owns the cards",
@@ -25104,6 +25504,7 @@
         "question": "What is the girl going to tell the woman?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "sleeps",
           "runs",
@@ -25115,6 +25516,7 @@
         "question": "What did the child day that a living thing does?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "yellow",
           "white",
@@ -25126,6 +25528,7 @@
         "question": "What color is the rabbit card?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "real and unreal",
           "red and orange",
@@ -25137,6 +25540,7 @@
         "question": "What kind of thing are in the 2 separate stacks of cards?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "4",
           "3",
@@ -25148,6 +25552,7 @@
         "question": "How many people are there?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "white",
           "green",
@@ -25159,6 +25564,7 @@
         "question": "What color is the woman's top?"
       },
       {
+        "answer_type": "V",
         "answers": [
           "pink",
           "black",
@@ -25170,6 +25576,7 @@
         "question": "What color is the table?"
       },
       {
+        "answer_type": "B",
         "answers": [
           "playing a game",
           "having a meal",
@@ -25181,6 +25588,7 @@
         "question": "What are they doing?"
       },
       {
+        "answer_type": "L",
         "answers": [
           "yes",
           "",
