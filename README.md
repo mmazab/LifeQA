@@ -141,7 +141,7 @@ for i in 0 1 2 3 4; do
 done
 ```
 
-#### Train on TVQA dataset and then train and test on LifeQA dataset
+#### Train on TVQA dataset
 
 ```bash
 python preprocessing.py
@@ -156,10 +156,41 @@ python tvqa_dataset.py \
 python main.py \
   --input_streams sub vcpt \
   --no_ts
-RESULTS_DIR=$(ls -t results/ | head -1)
+RESULTS_FOLDER_NAME=$(ls -t results/ | head -1)
+```
 
-# TODO: preprocessing?
+The result from this part was saved in [results_2019_05_16_23_02_15](https://drive.google.com/drive/folders/1stvXP_38a4lLB22M8s1ye2pgbM23aoyA?usp=sharing).
+Note it corresponds to S+V+Q, with cpt as the video feature and w/o ts.
 
+##### Test on LifeQA dataset
+
+For the test partition:
+
+```bash
+python test.py \
+  --vcpt_path ../data/tvqa_format/det_visual_concepts_hq.pickle \
+  --test_path ../data/tvqa_format/lqa_test_processed.json \
+  --model_dir "${RESULTS_FOLDER_NAME}" \
+  --mode test
+```
+
+For 5-fold cross-validation:
+
+```bash
+for i in 0 1 2 3 4; do
+  python test.py \
+    --vcpt_path ../data/tvqa_format/det_visual_concepts_hq.pickle \
+    --test_path ../data/tvqa_format/fold${i}/test_processed.json \
+    --model_dir "${RESULTS_FOLDER_NAME}" \
+    --mode test
+done
+```
+
+##### Fine-tune on LifeQA dataset
+
+For train, dev and test partitions:
+
+```bash
 python main.py \
   --input_streams sub vcpt \
   --no_ts \
@@ -170,11 +201,28 @@ python main.py \
   --word2idx_path cache_original/word2idx.pickle \
   --idx2word_path cache_original/idx2word.pickle \
   --vocab_embedding_path cache_original/vocab_embedding.pickle \
-  --pretrained_model_dir ${RESULTS_DIR} \
+  --pretrained_model_dir "${RESULTS_FOLDER_NAME}" \
   --new_word2idx_path cache_lifeqa/word2idx.pickle
-
-# TODO: folds
 ```
+
+For 5-fold cross-validation:
+
+```bash
+python main.py \
+  --input_streams sub vcpt \
+  --no_ts \
+  --vcpt_path ../data/tvqa_format/det_visual_concepts_hq.pickle \
+  --train_path ../data/tvqa_format/fold${i}/train_processed.json \
+  --valid_path ../data/tvqa_format/fold${i}/validation_processed.json \
+  --test_path ../data/tvqa_format/fold${i}/test_processed.json \
+  --word2idx_path cache_original/word2idx.pickle \
+  --idx2word_path cache_original/idx2word.pickle \
+  --vocab_embedding_path cache_original/vocab_embedding.pickle \
+  --pretrained_model_dir "${RESULTS_FOLDER_NAME}" \
+  --new_word2idx_path cache_lifeqa/word2idx.pickle
+```
+
+TODO: where are these results saved? What result folder names?
 
 ## Flux
 

@@ -94,7 +94,8 @@ class BaseOptions(object):
         if isinstance(self, TestOptions):
             options = load_json(os.path.join("results", opt.model_dir, "opt.json"))
             for arg in options:
-                setattr(opt, arg, options[arg])
+                if arg not in {'test_path', 'vcpt_path'}:
+                    setattr(opt, arg, options[arg])
         else:
 
             os.makedirs(results_dir)

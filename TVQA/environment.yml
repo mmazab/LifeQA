@@ -6,6 +6,7 @@ channels:
 dependencies:
   - pip:
     - pysrt==1.1.1
+    - tensorboard==2.0.1
     - tensorboardX==1.6
   - cudatoolkit=10.0
   - cudnn=7.3.1
