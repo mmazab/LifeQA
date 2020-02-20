@@ -16,7 +16,7 @@ local text_encoder = {
   },
   vocabulary: {
     pretrained_files: {
-        'tokens': pretrained_file
+      'tokens': pretrained_file
     },
     only_include_pretrained_words: true,
   },
