@@ -1,13 +1,16 @@
 #!/usr/bin/env python
+import os
 from collections import Counter, defaultdict
-from subprocess import check_call, DEVNULL
-from typing import Iterable, Mapping, Tuple
+from subprocess import CalledProcessError, check_call, DEVNULL
+from typing import Iterable, Mapping, Tuple, Optional
 
 import numpy as np
 import scipy.fft
 import scipy.io.wavfile
 import scipy.signal
 import skimage.util
+
+import scripts.util
 
 
 # Part of the code was copied from VideoSync: https://github.com/allisonnicoledeal/VideoSync
@@ -55,6 +58,8 @@ def peaks(boxes: np.ndarray, samples_per_box: int) -> Mapping[int, Iterable[int]
 
 def audio_features(audio: np.ndarray, fft_bin_size: int, overlap: int, box_height: int, box_width: int,
                    samples_per_box: int) -> Mapping[int, Iterable[int]]:
+    if audio.ndim == 2:
+        audio = audio.mean(-1)
     bins_dict = make_horiz_bins(audio, fft_bin_size, overlap, box_height)
     boxes = make_vert_bins(bins_dict, box_width)
     return peaks(boxes, samples_per_box)
@@ -71,13 +76,19 @@ def resample(audio: np.ndarray, old_rate: int, new_rate: int) -> np.ndarray:
     return scipy.signal.resample(audio, new_sample_count)
 
 
-def find_start_time(audio_path1: str, audio_path2: str, fft_bin_size: int = 1024, overlap: int = 0,
-                    box_height: int = 512, box_width: int = 32, samples_per_box: int = 8) -> float:
-    """Finds the most likely start time of `audio_path2` within `audio_path1`, in seconds."""
+def find_timestamps(audio_path1: str, audio_path2: str, fft_bin_size: int = 1024, overlap: int = 0,
+                    box_height: int = 512, box_width: int = 32,
+                    samples_per_box: int = 8) -> Optional[Tuple[float, float]]:
+    """Finds the most likely start and end times of `audio_path2` within `audio_path1`, in seconds."""
     rate, audio1 = read_audio(audio_path1)
+    if not audio1.any():
+        return None
     features1 = audio_features(audio1, fft_bin_size, overlap, box_height, box_width, samples_per_box)
 
     rate2, audio2 = read_audio(audio_path2)
+    if not audio2.any():
+        return None
+    duration = len(audio2) / rate2
     if rate != rate2:
         audio2 = resample(audio2, rate2, rate)
     features2 = audio_features(audio2, fft_bin_size, overlap, box_height, box_width, samples_per_box)
@@ -86,12 +97,12 @@ def find_start_time(audio_path1: str, audio_path2: str, fft_bin_size: int = 1024
     samples_per_sec = rate / fft_bin_size
     delay_in_seconds = delay / samples_per_sec
 
-    if 0.1 < delay_in_seconds < 0:  # It's probably zero but there's an approximation error.
+    if -0.1 < delay_in_seconds < 0:  # It's probably zero but there's an approximation error.
         delay_in_seconds = abs(delay_in_seconds)
 
     assert delay_in_seconds >= 0
 
-    return delay_in_seconds
+    return delay_in_seconds, delay_in_seconds + duration
 
 
 def extract_and_save_audio(input_path: str, output_path: str) -> None:
@@ -100,13 +111,37 @@ def extract_and_save_audio(input_path: str, output_path: str) -> None:
 
 
 def main():
-    audio_path1 = "example2.wav"
+    data_dicts_splits = scripts.util.load_data()
+    data_dicts = {id_: data_dict for data_dicts in data_dicts_splits for id_, data_dict in data_dicts.items()}
 
-    # video_path2 = "example1.mp4"
-    audio_path2 = "example1.wav"
-    # extract_and_save_audio(video_path2, audio_path2)
+    for id_ in sorted(data_dicts):
+        data_dict = data_dicts[id_]
 
-    print(f"Start time: {find_start_time(audio_path1, audio_path2):.1f}s")
+        video_audio_path = f"data/audios/{id_}.wav"
+        if not os.path.isfile(video_audio_path):
+            video_path = f"data/videos/{id_}.mp4"
+            extract_and_save_audio(video_path, video_audio_path)
+
+        parent_video_url = data_dict["parent_video_id"]
+        parent_video_id = parent_video_url.split("=")[1]
+        parent_audio_path = f"data/parent_audios/{parent_video_id}.wav"
+        if not os.path.isfile(parent_audio_path):
+            try:
+                check_call(["youtube-dl", "-x", "--audio-format", "wav", "--audio-quality", "0",
+                            "-o", f"{parent_audio_path[:-4]}.%(ext)s", parent_video_url],
+                           stdout=DEVNULL, stderr=DEVNULL)
+            except CalledProcessError:
+                parent_audio_path = None
+
+        if parent_audio_path:
+            timestamps = find_timestamps(parent_audio_path, video_audio_path)
+            if timestamps:
+                start_time, end_time = timestamps
+                print(f"{id_} {start_time:.2f} - {end_time:.2f}")
+            else:
+                print(f"{id_} (empty audio)")
+        else:
+            print(f"{id_} (deleted video)")
 
 
 if __name__ == "__main__":

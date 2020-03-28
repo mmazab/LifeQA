@@ -1,8 +1,10 @@
+/audios
 /closed_captions
 /compressed
 /features
 /frames
 /lqa_trans
+/parent_audios
 /question
 /tvqa_format
 /videos
