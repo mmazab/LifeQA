@@ -1,10 +1,12 @@
 /models
 *.DS_Store
 *.gz
+*.mp4
 *.pdf
 *.pyc
 *.sw*
 *.tar
+*.wav
 *.zip
 /data/lqa_vreg_features
 # Flux output files:
