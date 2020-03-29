@@ -110,19 +110,19 @@ def extract_and_save_audio(input_path: str, output_path: str) -> None:
                stderr=DEVNULL)
 
 
-def main():
-    data_dicts_splits = scripts.util.load_data()
-    data_dicts = {id_: data_dict for data_dicts in data_dicts_splits for id_, data_dict in data_dicts.items()}
+def main() -> None:
+    video_dicts_split = scripts.util.load_video_dicts_split()
 
-    for id_ in sorted(data_dicts):
-        data_dict = data_dicts[id_]
-
+    for id_, video_dict in sorted(((id_, video_dict)
+                                   for video_dicts in video_dicts_split
+                                   for id_, video_dict in video_dicts.items()),
+                                  key=lambda t: t[0]):
         video_audio_path = f"data/audios/{id_}.wav"
         if not os.path.isfile(video_audio_path):
             video_path = f"data/videos/{id_}.mp4"
             extract_and_save_audio(video_path, video_audio_path)
 
-        parent_video_url = data_dict["parent_video_id"]
+        parent_video_url = video_dict["parent_video_id"]
         parent_video_id = parent_video_url.split("=")[1]
         parent_audio_path = f"data/parent_audios/{parent_video_id}.wav"
         if not os.path.isfile(parent_audio_path):
@@ -136,12 +136,18 @@ def main():
         if parent_audio_path:
             timestamps = find_timestamps(parent_audio_path, video_audio_path)
             if timestamps:
-                start_time, end_time = timestamps
-                print(f"{id_} {start_time:.2f} - {end_time:.2f}")
+                video_dict["start_time"], video_dict["end_time"] = timestamps
+                print(f"{id_} {video_dict['start_time']:.2f} - {video_dict['end_time']:.2f}")
             else:
+                video_dict.setdefault("start_time", None)
+                video_dict.setdefault("end_time", None)
                 print(f"{id_} (empty audio)")
         else:
+            video_dict.setdefault("start_time", None)
+            video_dict.setdefault("end_time", None)
             print(f"{id_} (deleted video)")
+
+    scripts.util.save_video_dicts_split(video_dicts_split)
 
 
 if __name__ == "__main__":

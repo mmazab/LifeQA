@@ -5,7 +5,7 @@ import scripts.util
 
 
 def main():
-    data_dicts = scripts.util.load_data()
+    data_dicts = scripts.util.load_video_dicts_split()
 
     df = pd.read_csv('data/sources.csv')
 
@@ -32,7 +32,7 @@ def main():
     assert not video_ids_without_parent, f"{len(video_ids_without_parent)} videos don't have the parent video ID:" \
         f" {sorted(list(video_ids_without_parent))}"
 
-    scripts.util.save_data(data_dicts)
+    scripts.util.save_video_dicts_split(data_dicts)
 
 
 if __name__ == '__main__':

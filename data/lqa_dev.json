@@ -407,6 +407,7 @@
         ]
       }
     ],
+    "end_time": 76.65066666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=TGUYv10XdTI",
     "questions": [
       {
@@ -517,7 +518,8 @@
         "q_id": 1019,
         "question": "What's the color of the man's hat?"
       }
-    ]
+    ],
+    "start_time": 19.328
   },
   "127": {
     "automatic_captions": [
@@ -993,6 +995,7 @@
         ]
       }
     ],
+    "end_time": 82.34666666666666,
     "parent_video_id": "https://www.youtube.com/watch?v=W1_WorcmxPM",
     "questions": [
       {
@@ -1103,7 +1106,8 @@
         "q_id": 1053,
         "question": "What color of top does the man wear?"
       }
-    ]
+    ],
+    "start_time": 21.418666666666667
   },
   "128": {
     "automatic_captions": [
@@ -1698,6 +1702,7 @@
         ]
       }
     ],
+    "end_time": 162.96533333333332,
     "parent_video_id": "https://www.youtube.com/watch?v=W1_WorcmxPM",
     "questions": [
       {
@@ -1796,7 +1801,8 @@
         "q_id": 1061,
         "question": "What is the name of the younger sister?"
       }
-    ]
+    ],
+    "start_time": 82.34666666666666
   },
   "129": {
     "automatic_captions": [
@@ -2161,6 +2167,7 @@
         ]
       }
     ],
+    "end_time": 254.76266666666663,
     "parent_video_id": "https://www.youtube.com/watch?v=W1_WorcmxPM",
     "questions": [
       {
@@ -2271,7 +2278,8 @@
         "q_id": 1070,
         "question": "What did the younger child get?"
       }
-    ]
+    ],
+    "start_time": 162.96533333333332
   },
   "130": {
     "automatic_captions": [
@@ -2667,6 +2675,7 @@
         ]
       }
     ],
+    "end_time": 320.4053333333333,
     "parent_video_id": "https://www.youtube.com/watch?v=W1_WorcmxPM",
     "questions": [
       {
@@ -2789,7 +2798,8 @@
         "q_id": 1080,
         "question": "What is the color of the top of the younger sister?"
       }
-    ]
+    ],
+    "start_time": 254.76266666666666
   },
   "131": {
     "automatic_captions": [
@@ -3210,6 +3220,7 @@
         ]
       }
     ],
+    "end_time": 382.2506666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=W1_WorcmxPM",
     "questions": [
       {
@@ -3332,7 +3343,8 @@
         "q_id": 1090,
         "question": "Where did the kid went through at home?"
       }
-    ]
+    ],
+    "start_time": 320.384
   },
   "132": {
     "automatic_captions": [
@@ -3637,6 +3649,7 @@
         ]
       }
     ],
+    "end_time": 447.552,
     "parent_video_id": "https://www.youtube.com/watch?v=W1_WorcmxPM",
     "questions": [
       {
@@ -3759,7 +3772,8 @@
         "q_id": 1100,
         "question": "How many boys are in this video?"
       }
-    ]
+    ],
+    "start_time": 382.2506666666667
   },
   "133": {
     "automatic_captions": [
@@ -4147,6 +4161,7 @@
         ]
       }
     ],
+    "end_time": 686.2080000000001,
     "parent_video_id": "https://www.youtube.com/watch?v=W1_WorcmxPM",
     "questions": [
       {
@@ -4269,7 +4284,8 @@
         "q_id": 1110,
         "question": "How many beds are in the room?"
       }
-    ]
+    ],
+    "start_time": 619.2
   },
   "134": {
     "automatic_captions": [
@@ -4744,6 +4760,7 @@
         ]
       }
     ],
+    "end_time": 752.64,
     "parent_video_id": "https://www.youtube.com/watch?v=W1_WorcmxPM",
     "questions": [
       {
@@ -4866,7 +4883,8 @@
         "q_id": 1120,
         "question": "How many kids are in this video?"
       }
-    ]
+    ],
+    "start_time": 686.1866666666666
   },
   "135": {
     "automatic_captions": [
@@ -5315,6 +5333,7 @@
         ]
       }
     ],
+    "end_time": 815.0613333333333,
     "parent_video_id": "https://www.youtube.com/watch?v=W1_WorcmxPM",
     "questions": [
       {
@@ -5437,7 +5456,8 @@
         "q_id": 1130,
         "question": "What's the color of the mother's clothes?"
       }
-    ]
+    ],
+    "start_time": 752.6186666666666
   },
   "136": {
     "automatic_captions": [
@@ -5649,6 +5669,7 @@
         ]
       }
     ],
+    "end_time": 908.3520000000001,
     "parent_video_id": "https://www.youtube.com/watch?v=W1_WorcmxPM",
     "questions": [
       {
@@ -5759,7 +5780,8 @@
         "q_id": 1139,
         "question": "What's the color of the door?"
       }
-    ]
+    ],
+    "start_time": 845.248
   },
   "206": {
     "automatic_captions": [
@@ -6255,6 +6277,7 @@
         ]
       }
     ],
+    "end_time": null,
     "manual_captions": [
       {
         "transcript": "[Background music plays]"
@@ -6469,7 +6492,8 @@
         "q_id": 1735,
         "question": "How many men are there?"
       }
-    ]
+    ],
+    "start_time": null
   },
   "207": {
     "automatic_captions": [
@@ -7014,6 +7038,7 @@
         ]
       }
     ],
+    "end_time": null,
     "manual_captions": [
       {
         "transcript": "[Woman 1]: You Ready?"
@@ -7228,7 +7253,8 @@
         "q_id": 1745,
         "question": "How many people are there?"
       }
-    ]
+    ],
+    "start_time": null
   },
   "208": {
     "automatic_captions": [
@@ -7500,6 +7526,7 @@
         ]
       }
     ],
+    "end_time": null,
     "manual_captions": [
       {
         "transcript": "[Background music playing]"
@@ -7720,7 +7747,8 @@
         "q_id": 1755,
         "question": "How many people are there?"
       }
-    ]
+    ],
+    "start_time": null
   },
   "209": {
     "automatic_captions": [
@@ -8331,6 +8359,7 @@
         ]
       }
     ],
+    "end_time": null,
     "manual_captions": [
       {
         "transcript": "[background music plays]"
@@ -8557,7 +8586,8 @@
         "q_id": 1765,
         "question": "Who is the winner?"
       }
-    ]
+    ],
+    "start_time": null
   },
   "210": {
     "automatic_captions": [
@@ -8873,6 +8903,7 @@
         ]
       }
     ],
+    "end_time": null,
     "manual_captions": [
       {
         "transcript": "[Background music plays]"
@@ -9081,7 +9112,8 @@
         "q_id": 1775,
         "question": "What is the man's answer?"
       }
-    ]
+    ],
+    "start_time": null
   },
   "211": {
     "automatic_captions": [
@@ -9672,6 +9704,7 @@
         ]
       }
     ],
+    "end_time": 73.792,
     "manual_captions": [
       {
         "transcript": "[Girl 1]: Hey guys its Bailey with Brooke'n Bailey"
@@ -9862,7 +9895,8 @@
         "q_id": 1782,
         "question": "How many people are there?"
       }
-    ]
+    ],
+    "start_time": 10.389333333333333
   },
   "212": {
     "automatic_captions": [
@@ -10432,6 +10466,7 @@
         ]
       }
     ],
+    "end_time": 135.104,
     "parent_video_id": "https://www.youtube.com/watch?v=h0tC1cGMMXw",
     "questions": [
       {
@@ -10518,7 +10553,8 @@
         "q_id": 1789,
         "question": "Waht do dogs say?"
       }
-    ]
+    ],
+    "start_time": 73.77066666666667
   },
   "213": {
     "automatic_captions": [
@@ -11048,6 +11084,7 @@
         ]
       }
     ],
+    "end_time": 210.09066666666666,
     "parent_video_id": "https://www.youtube.com/watch?v=h0tC1cGMMXw",
     "questions": [
       {
@@ -11158,7 +11195,8 @@
         "q_id": 1798,
         "question": "How many kids are in this video?"
       }
-    ]
+    ],
+    "start_time": 135.104
   },
   "214": {
     "automatic_captions": [
@@ -11744,6 +11782,7 @@
         ]
       }
     ],
+    "end_time": 467.264,
     "parent_video_id": "https://www.youtube.com/watch?v=h0tC1cGMMXw",
     "questions": [
       {
@@ -11830,7 +11869,8 @@
         "q_id": 1805,
         "question": "How many people are there?"
       }
-    ]
+    ],
+    "start_time": 412.608
   },
   "215": {
     "automatic_captions": [
@@ -12339,6 +12379,7 @@
         ]
       }
     ],
+    "end_time": 334.5706666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=h0tC1cGMMXw",
     "questions": [
       {
@@ -12461,7 +12502,8 @@
         "q_id": 1815,
         "question": "How many people are there?"
       }
-    ]
+    ],
+    "start_time": 264.74666666666667
   },
   "216": {
     "automatic_captions": [
@@ -13072,6 +13114,7 @@
         ]
       }
     ],
+    "end_time": 418.816,
     "parent_video_id": "https://www.youtube.com/watch?v=h0tC1cGMMXw",
     "questions": [
       {
@@ -13194,7 +13237,8 @@
         "q_id": 1825,
         "question": "What is Braidy?"
       }
-    ]
+    ],
+    "start_time": 334.5493333333333
   },
   "217": {
     "automatic_captions": [
@@ -13941,6 +13985,7 @@
         ]
       }
     ],
+    "end_time": 525.7813333333334,
     "parent_video_id": "https://www.youtube.com/watch?v=h0tC1cGMMXw",
     "questions": [
       {
@@ -14051,7 +14096,8 @@
         "q_id": 1834,
         "question": "How many people are there?"
       }
-    ]
+    ],
+    "start_time": 418.79466666666667
   },
   "218": {
     "automatic_captions": [
@@ -14296,6 +14342,7 @@
         ]
       }
     ],
+    "end_time": 598.72,
     "parent_video_id": "https://www.youtube.com/watch?v=h0tC1cGMMXw",
     "questions": [
       {
@@ -14370,7 +14417,8 @@
         "q_id": 1840,
         "question": "How did the kid answer at the first time?"
       }
-    ]
+    ],
+    "start_time": 525.76
   },
   "219": {
     "automatic_captions": [
@@ -14924,6 +14972,7 @@
         ]
       }
     ],
+    "end_time": 694.976,
     "parent_video_id": "https://www.youtube.com/watch?v=h0tC1cGMMXw",
     "questions": [
       {
@@ -15034,7 +15083,8 @@
         "q_id": 1849,
         "question": "What kind of animals are printed in the woman's top?"
       }
-    ]
+    ],
+    "start_time": 598.6986666666667
   },
   "245": {
     "automatic_captions": [
@@ -15229,6 +15279,7 @@
         ]
       }
     ],
+    "end_time": 70.74133333333333,
     "parent_video_id": "https://www.youtube.com/watch?v=D5dkBifv7K0",
     "questions": [
       {
@@ -15351,7 +15402,8 @@
         "q_id": 2056,
         "question": "How many TVs are in this house?"
       }
-    ]
+    ],
+    "start_time": 0.021333333333333333
   },
   "246": {
     "automatic_captions": [
@@ -15603,6 +15655,7 @@
         ]
       }
     ],
+    "end_time": 138.96533333333332,
     "parent_video_id": "https://www.youtube.com/watch?v=D5dkBifv7K0",
     "questions": [
       {
@@ -15725,7 +15778,8 @@
         "q_id": 2066,
         "question": "How many TVs are in the room?"
       }
-    ]
+    ],
+    "start_time": 70.67733333333334
   },
   "247": {
     "automatic_captions": [
@@ -15825,6 +15879,7 @@
         ]
       }
     ],
+    "end_time": 203.584,
     "parent_video_id": "https://www.youtube.com/watch?v=D5dkBifv7K0",
     "questions": [
       {
@@ -15947,7 +16002,8 @@
         "q_id": 2076,
         "question": "How many TVs are in this house?"
       }
-    ]
+    ],
+    "start_time": 138.944
   },
   "248": {
     "automatic_captions": [
@@ -16086,6 +16142,7 @@
         ]
       }
     ],
+    "end_time": 268.6933333333333,
     "parent_video_id": "https://www.youtube.com/watch?v=D5dkBifv7K0",
     "questions": [
       {
@@ -16208,7 +16265,8 @@
         "q_id": 2086,
         "question": "How many TVs are in the room?"
       }
-    ]
+    ],
+    "start_time": 203.584
   },
   "249": {
     "automatic_captions": [
@@ -16363,6 +16421,7 @@
         ]
       }
     ],
+    "end_time": 356.07466666666664,
     "parent_video_id": "https://www.youtube.com/watch?v=D5dkBifv7K0",
     "questions": [
       {
@@ -16485,7 +16544,8 @@
         "q_id": 2096,
         "question": "How many TVs are in the room?"
       }
-    ]
+    ],
+    "start_time": 288.0
   },
   "250": {
     "automatic_captions": [
@@ -16611,6 +16671,7 @@
         ]
       }
     ],
+    "end_time": 416.36266666666666,
     "parent_video_id": "https://www.youtube.com/watch?v=D5dkBifv7K0",
     "questions": [
       {
@@ -16733,7 +16794,8 @@
         "q_id": 2106,
         "question": "How many TVs are in the room?"
       }
-    ]
+    ],
+    "start_time": 356.05333333333334
   },
   "251": {
     "automatic_captions": [
@@ -16847,6 +16909,7 @@
         ]
       }
     ],
+    "end_time": 476.97066666666666,
     "parent_video_id": "https://www.youtube.com/watch?v=D5dkBifv7K0",
     "questions": [
       {
@@ -16969,7 +17032,8 @@
         "q_id": 2116,
         "question": "How many kids are in this video?"
       }
-    ]
+    ],
+    "start_time": 416.36266666666666
   },
   "252": {
     "automatic_captions": [
@@ -17110,6 +17174,7 @@
         ]
       }
     ],
+    "end_time": 571.8186666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=D5dkBifv7K0",
     "questions": [
       {
@@ -17208,7 +17273,8 @@
         "q_id": 2124,
         "question": "What number are they showing with fingers?"
       }
-    ]
+    ],
+    "start_time": 476.94933333333336
   },
   "258": {
     "automatic_captions": [
@@ -18105,6 +18171,7 @@
         ]
       }
     ],
+    "end_time": 98.13202721088435,
     "parent_video_id": "https://www.youtube.com/watch?v=dBB_OVkk6kw",
     "questions": [
       {
@@ -18167,7 +18234,8 @@
         "q_id": 2164,
         "question": "What color is the woman's top?"
       }
-    ]
+    ],
+    "start_time": 9.961360544217687
   },
   "259": {
     "automatic_captions": [
@@ -18771,6 +18839,7 @@
         ]
       }
     ],
+    "end_time": 202.182820861678,
     "parent_video_id": "https://www.youtube.com/watch?v=dBB_OVkk6kw",
     "questions": [
       {
@@ -18833,7 +18902,8 @@
         "q_id": 2169,
         "question": "What color are the woman's pants?"
       }
-    ]
+    ],
+    "start_time": 98.54548752834467
   },
   "270": {
     "automatic_captions": [
@@ -19341,6 +19411,7 @@
         ]
       }
     ],
+    "end_time": 91.584,
     "parent_video_id": "https://www.youtube.com/watch?v=R3U_T6C9NtU",
     "questions": [
       {
@@ -19403,7 +19474,8 @@
         "q_id": 2253,
         "question": "What is the first question the woman asks?"
       }
-    ]
+    ],
+    "start_time": 5.888
   },
   "271": {
     "automatic_captions": [
@@ -19849,6 +19921,7 @@
         ]
       }
     ],
+    "end_time": 186.64533333333333,
     "parent_video_id": "https://www.youtube.com/watch?v=R3U_T6C9NtU",
     "questions": [
       {
@@ -19911,7 +19984,8 @@
         "q_id": 2258,
         "question": "What color is the woman's nailpolish?"
       }
-    ]
+    ],
+    "start_time": 93.26933333333334
   },
   "272": {
     "automatic_captions": [
@@ -20497,6 +20571,7 @@
         ]
       }
     ],
+    "end_time": 248.46933333333334,
     "parent_video_id": "https://www.youtube.com/watch?v=R3U_T6C9NtU",
     "questions": [
       {
@@ -20559,7 +20634,8 @@
         "q_id": 2263,
         "question": "What does the woman do with the liquid?"
       }
-    ]
+    ],
+    "start_time": 186.624
   },
   "273": {
     "automatic_captions": [
@@ -20970,6 +21046,7 @@
         ]
       }
     ],
+    "end_time": 320.4906666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=R3U_T6C9NtU",
     "questions": [
       {
@@ -21032,10 +21109,12 @@
         "q_id": 2268,
         "question": "How many pieces of cracker are in front of the woman?"
       }
-    ]
+    ],
+    "start_time": 248.448
   },
   "279": {
     "automatic_captions": null,
+    "end_time": 94.93333333333334,
     "parent_video_id": "https://www.youtube.com/watch?v=0FgFZIEt5YQ",
     "questions": [
       {
@@ -21098,10 +21177,12 @@
         "q_id": 2321,
         "question": "What color is the girl's top?"
       }
-    ]
+    ],
+    "start_time": 7.744
   },
   "280": {
     "automatic_captions": null,
+    "end_time": 166.99733333333333,
     "parent_video_id": "https://www.youtube.com/watch?v=0FgFZIEt5YQ",
     "questions": [
       {
@@ -21164,6 +21245,7 @@
         "q_id": 2326,
         "question": "What coins are on the table?"
       }
-    ]
+    ],
+    "start_time": 99.11466666666666
   }
 }

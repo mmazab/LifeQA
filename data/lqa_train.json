@@ -1,6 +1,7 @@
 {
   "001": {
     "automatic_captions": null,
+    "end_time": 86.5,
     "manual_captions": [
       {
         "transcript": "[No speech]"
@@ -128,10 +129,12 @@
         "q_id": 10,
         "question": "What is the father's reaction to the late of his children?"
       }
-    ]
+    ],
+    "start_time": 28.5
   },
   "002": {
     "automatic_captions": null,
+    "end_time": 149.0,
     "manual_captions": [
       {
         "transcript": "[No sound]"
@@ -259,7 +262,8 @@
         "q_id": 20,
         "question": "Who is running after the car at the end of the video?"
       }
-    ]
+    ],
+    "start_time": 86.5
   },
   "003": {
     "automatic_captions": [
@@ -336,6 +340,7 @@
         ]
       }
     ],
+    "end_time": 60.608,
     "manual_captions": [
       {
         "transcript": "[Woman 1] : Tanvin just woken up"
@@ -469,7 +474,8 @@
         "q_id": 29,
         "question": "What are the feelings of the girls?"
       }
-    ]
+    ],
+    "start_time": 0.0
   },
   "004": {
     "automatic_captions": [
@@ -538,6 +544,7 @@
         ]
       }
     ],
+    "end_time": 124.05333333333333,
     "manual_captions": [
       {
         "transcript": "[Background music playing]"
@@ -698,7 +705,8 @@
         "q_id": 38,
         "question": "What is the number at the back of the girl's pullover?"
       }
-    ]
+    ],
+    "start_time": 60.608
   },
   "005": {
     "automatic_captions": [
@@ -746,6 +754,7 @@
         ]
       }
     ],
+    "end_time": 183.57333333333332,
     "manual_captions": [
       {
         "transcript": "[Background music plays]"
@@ -918,7 +927,8 @@
         "q_id": 48,
         "question": "Which sauce did they put on their breakfast?"
       }
-    ]
+    ],
+    "start_time": 124.032
   },
   "006": {
     "automatic_captions": [
@@ -1736,6 +1746,7 @@
         ]
       }
     ],
+    "end_time": 82.35885714285713,
     "manual_captions": [
       {
         "transcript": "[Woman 1]: This morning I decided to teach you new greeting"
@@ -1941,7 +1952,8 @@
         "q_id": 57,
         "question": "What is the job of the woman?"
       }
-    ]
+    ],
+    "start_time": 4.876190476190477
   },
   "007": {
     "automatic_captions": [
@@ -2343,6 +2355,7 @@
         ]
       }
     ],
+    "end_time": 155.08331972789114,
     "manual_captions": [
       {
         "transcript": "[Woman 1]: Everyone stand"
@@ -2530,7 +2543,8 @@
         "q_id": 67,
         "question": "How do the teacher measure time?"
       }
-    ]
+    ],
+    "start_time": 82.05931972789115
   },
   "008": {
     "automatic_captions": [
@@ -3259,6 +3273,7 @@
         ]
       }
     ],
+    "end_time": 71.71613605442177,
     "manual_captions": [
       {
         "transcript": "[Woman 1]: All right, today we're going to stand up"
@@ -3413,7 +3428,8 @@
         "q_id": 75,
         "question": "What are teachers' reaction to the girl's answer?"
       }
-    ]
+    ],
+    "start_time": 8.846802721088435
   },
   "009": {
     "automatic_captions": [
@@ -3895,6 +3911,7 @@
         ]
       }
     ],
+    "end_time": 131.24948752834467,
     "manual_captions": [
       {
         "transcript": "[Woman 1]: Zack?"
@@ -4004,7 +4021,8 @@
         "q_id": 80,
         "question": "What do they do after high 5?"
       }
-    ]
+    ],
+    "start_time": 71.23882086167801
   },
   "010": {
     "automatic_captions": [
@@ -4320,6 +4338,7 @@
         ]
       }
     ],
+    "end_time": 124.6548752834467,
     "manual_captions": [
       {
         "transcript": "[Man 1]: Alright, who's ready to dance"
@@ -4528,7 +4547,8 @@
         "q_id": 90,
         "question": "How many girls are there in the video?"
       }
-    ]
+    ],
+    "start_time": 63.85487528344671
   },
   "011": {
     "automatic_captions": [
@@ -4637,6 +4657,7 @@
         ]
       }
     ],
+    "end_time": 196.0862766439909,
     "manual_captions": [
       {
         "transcript": "[All]: One, two, three, four, come on Othelio"
@@ -4770,7 +4791,8 @@
         "q_id": 95,
         "question": "How many kids stand up?"
       }
-    ]
+    ],
+    "start_time": 124.59827664399093
   },
   "012": {
     "automatic_captions": [
@@ -5088,6 +5110,7 @@
         ]
       }
     ],
+    "end_time": 255.12939682539684,
     "parent_video_id": "https://www.youtube.com/watch?v=EM0XK8fTDDs",
     "questions": [
       {
@@ -5198,7 +5221,8 @@
         "q_id": 104,
         "question": "What do the person who is sharing need to do?"
       }
-    ]
+    ],
+    "start_time": 196.18539682539682
   },
   "013": {
     "automatic_captions": [
@@ -5545,6 +5569,7 @@
         ]
       }
     ],
+    "end_time": 317.19256235827663,
     "parent_video_id": "https://www.youtube.com/watch?v=EM0XK8fTDDs",
     "questions": [
       {
@@ -5607,7 +5632,8 @@
         "q_id": 109,
         "question": "Where did the boy go?"
       }
-    ]
+    ],
+    "start_time": 254.79256235827665
   },
   "014": {
     "automatic_captions": [
@@ -5854,6 +5880,7 @@
         ]
       }
     ],
+    "end_time": 376.09157369614513,
     "parent_video_id": "https://www.youtube.com/watch?v=EM0XK8fTDDs",
     "questions": [
       {
@@ -5976,7 +6003,8 @@
         "q_id": 119,
         "question": "What color of the clothes does the girl next to Lia is on?"
       }
-    ]
+    ],
+    "start_time": 317.2542403628118
   },
   "015": {
     "automatic_captions": [
@@ -6348,6 +6376,7 @@
         ]
       }
     ],
+    "end_time": 438.2495056689342,
     "parent_video_id": "https://www.youtube.com/watch?v=EM0XK8fTDDs",
     "questions": [
       {
@@ -6458,7 +6487,8 @@
         "q_id": 128,
         "question": "What color does the boy who is sharing wear?"
       }
-    ]
+    ],
+    "start_time": 375.9775056689342
   },
   "016": {
     "automatic_captions": [
@@ -6847,6 +6877,7 @@
         ]
       }
     ],
+    "end_time": 505.77414965986395,
     "parent_video_id": "https://www.youtube.com/watch?v=EM0XK8fTDDs",
     "questions": [
       {
@@ -6909,7 +6940,8 @@
         "q_id": 133,
         "question": "What does the teacher give them?"
       }
-    ]
+    ],
+    "start_time": 438.7874829931973
   },
   "017": {
     "automatic_captions": [
@@ -7110,6 +7142,7 @@
         ]
       }
     ],
+    "end_time": 570.2664126984128,
     "parent_video_id": "https://www.youtube.com/watch?v=EM0XK8fTDDs",
     "questions": [
       {
@@ -7172,7 +7205,8 @@
         "q_id": 138,
         "question": "What color is the teacher's top?"
       }
-    ]
+    ],
+    "start_time": 505.4984126984127
   },
   "019": {
     "automatic_captions": [
@@ -7502,6 +7536,7 @@
         ]
       }
     ],
+    "end_time": 786.1286893424036,
     "manual_captions": [
       {
         "transcript": "[Man 1]: Nicholas, quickly find the word is"
@@ -7650,7 +7685,8 @@
         "q_id": 143,
         "question": "What day is it?"
       }
-    ]
+    ],
+    "start_time": 722.2566893424037
   },
   "020": {
     "automatic_captions": [
@@ -7964,6 +8000,7 @@
         ]
       }
     ],
+    "end_time": 850.719492063492,
     "parent_video_id": "https://www.youtube.com/watch?v=EM0XK8fTDDs",
     "questions": [
       {
@@ -8026,7 +8063,8 @@
         "q_id": 148,
         "question": "what is the last word the kid says?"
       }
-    ]
+    ],
+    "start_time": 785.7168253968254
   },
   "022": {
     "automatic_captions": [
@@ -8222,6 +8260,7 @@
         ]
       }
     ],
+    "end_time": 1003.3162448979591,
     "manual_captions": [
       {
         "transcript": "[Man 1]: Alright, what're things"
@@ -8361,7 +8400,8 @@
         "q_id": 153,
         "question": "Where are they sitting?"
       }
-    ]
+    ],
+    "start_time": 932.7455782312925
   },
   "023": {
     "automatic_captions": [
@@ -9089,6 +9129,7 @@
         ]
       }
     ],
+    "end_time": 1124.2094875283447,
     "manual_captions": [
       {
         "transcript": "[Man 1]: What are verbs?"
@@ -9330,7 +9371,8 @@
         "q_id": 158,
         "question": "What are kids showing?"
       }
-    ]
+    ],
+    "start_time": 1003.078820861678
   },
   "024": {
     "automatic_captions": [
@@ -9795,6 +9837,7 @@
         ]
       }
     ],
+    "end_time": 56.128,
     "manual_captions": [
       {
         "transcript": "[Woman 1] : Hello, great job guys, to start off circle this morning we are going to practice our 1 2 3 4 four songs that we have to sing for mommies and daddies and our families for lunching."
@@ -9937,7 +9980,8 @@
         "q_id": 167,
         "question": "Who is crying at the end of the video?"
       }
-    ]
+    ],
+    "start_time": 0.021333333333333333
   },
   "026": {
     "automatic_captions": [
@@ -10082,6 +10126,7 @@
         ]
       }
     ],
+    "end_time": 177.728,
     "manual_captions": [
       {
         "transcript": "[Woman 1] : OK, let's try following these, ready!"
@@ -10266,7 +10311,8 @@
         "q_id": 177,
         "question": "How many baskets are there on the cabinet?"
       }
-    ]
+    ],
+    "start_time": 111.424
   },
   "027": {
     "automatic_captions": [
@@ -10479,6 +10525,7 @@
         ]
       }
     ],
+    "end_time": 238.52800000000002,
     "manual_captions": [
       {
         "transcript": "[Woman 1]: And our last one Gavin, is I am little turkey, ready?"
@@ -10639,7 +10686,8 @@
         "q_id": 185,
         "question": "Has the girl in pink dress had potatos before?"
       }
-    ]
+    ],
+    "start_time": 177.728
   },
   "030": {
     "automatic_captions": [
@@ -10867,6 +10915,7 @@
         ]
       }
     ],
+    "end_time": 427.62666666666667,
     "manual_captions": [
       {
         "transcript": "[Woman 1] : Guys right hand up!"
@@ -11027,10 +11076,12 @@
         "q_id": 194,
         "question": "How many kids are standing?"
       }
-    ]
+    ],
+    "start_time": 385.30133333333333
   },
   "031": {
     "automatic_captions": null,
+    "end_time": 60.869079365079365,
     "parent_video_id": "https://www.youtube.com/watch?v=8kQ8Td2KVUs",
     "questions": [
       {
@@ -11153,10 +11204,12 @@
         "q_id": 204,
         "question": "What is the color of the wall?"
       }
-    ]
+    ],
+    "start_time": 0.3250793650793651
   },
   "032": {
     "automatic_captions": null,
+    "end_time": 124.9454149659864,
     "parent_video_id": "https://www.youtube.com/watch?v=8kQ8Td2KVUs",
     "questions": [
       {
@@ -11219,7 +11272,8 @@
         "q_id": 209,
         "question": "What do they wear?"
       }
-    ]
+    ],
+    "start_time": 60.60408163265306
   },
   "033": {
     "automatic_captions": [
@@ -13021,6 +13075,7 @@
         ]
       }
     ],
+    "end_time": 104.08533333333332,
     "manual_captions": [
       {
         "transcript": "[Man 1] : Wassup everybody, I am Derek Deso and today I just got back from the BMW dealership"
@@ -13208,7 +13263,8 @@
         "q_id": 218,
         "question": "What color of the man's jacket?"
       }
-    ]
+    ],
+    "start_time": 0.021333333333333333
   },
   "034": {
     "automatic_captions": [
@@ -13794,6 +13850,7 @@
         ]
       }
     ],
+    "end_time": 208.49066666666667,
     "manual_captions": [
       {
         "transcript": "[Background music plays]"
@@ -13951,7 +14008,8 @@
         "q_id": 228,
         "question": "What's color of the pen?"
       }
-    ]
+    ],
+    "start_time": 147.84
   },
   "035": {
     "automatic_captions": [
@@ -14631,6 +14689,7 @@
         ]
       }
     ],
+    "end_time": 325.16266666666667,
     "manual_captions": [
       {
         "transcript": "[background music plays]"
@@ -14905,7 +14964,8 @@
         "q_id": 238,
         "question": "What is the name of the man?"
       }
-    ]
+    ],
+    "start_time": 224.0
   },
   "036": {
     "automatic_captions": [
@@ -15200,6 +15260,7 @@
         ]
       }
     ],
+    "end_time": 392.81066666666663,
     "manual_captions": [
       {
         "transcript": "[background music plays]"
@@ -15450,7 +15511,8 @@
         "q_id": 248,
         "question": "How many men are in this video?"
       }
-    ]
+    ],
+    "start_time": 325.1413333333333
   },
   "037": {
     "automatic_captions": [
@@ -15826,6 +15888,7 @@
         ]
       }
     ],
+    "end_time": 509.824,
     "manual_captions": [
       {
         "transcript": "[Woman 1]: Hot damn"
@@ -16145,7 +16208,8 @@
         "q_id": 257,
         "question": "How many women in black?"
       }
-    ]
+    ],
+    "start_time": 392.78933333333333
   },
   "038": {
     "automatic_captions": [
@@ -16387,6 +16451,7 @@
         ]
       }
     ],
+    "end_time": 548.352,
     "manual_captions": [
       {
         "transcript": "[Man 1]: how do you like it mom"
@@ -16571,7 +16636,8 @@
         "q_id": 266,
         "question": "What is the color of the man's top?"
       }
-    ]
+    ],
+    "start_time": 499.0933333333333
   },
   "039": {
     "automatic_captions": [
@@ -17336,6 +17402,7 @@
         ]
       }
     ],
+    "end_time": 80.79121995464853,
     "manual_captions": [
       {
         "transcript": "[background music plays]"
@@ -17583,7 +17650,8 @@
         "q_id": 276,
         "question": "How many fwomen are in this video?"
       }
-    ]
+    ],
+    "start_time": 0.023219954648526078
   },
   "040": {
     "automatic_captions": [
@@ -17803,6 +17871,7 @@
         ]
       }
     ],
+    "end_time": 116.51149206349207,
     "parent_video_id": "https://www.youtube.com/watch?v=kE1BpSp5ZVg",
     "questions": [
       {
@@ -17865,7 +17934,8 @@
         "q_id": 281,
         "question": "What color is the girls' hair?"
       }
-    ]
+    ],
+    "start_time": 0.6501587301587302
   },
   "041": {
     "automatic_captions": [
@@ -17986,6 +18056,7 @@
         ]
       }
     ],
+    "end_time": 61.18588662131519,
     "parent_video_id": "https://www.youtube.com/watch?v=gtTf3vZEwQw",
     "questions": [
       {
@@ -18048,7 +18119,8 @@
         "q_id": 286,
         "question": "How many gifts they open?"
       }
-    ]
+    ],
+    "start_time": 0.023219954648526078
   },
   "042": {
     "automatic_captions": [
@@ -18361,6 +18433,7 @@
         ]
       }
     ],
+    "end_time": 123.47675283446712,
     "manual_captions": [
       {
         "transcript": "[Child 1]: Oh Daddy, you have a present"
@@ -18494,7 +18567,8 @@
         "q_id": 291,
         "question": "Who is comforting the kid?"
       }
-    ]
+    ],
+    "start_time": 61.695419501133784
   },
   "043": {
     "automatic_captions": [
@@ -19017,6 +19091,7 @@
         ]
       }
     ],
+    "end_time": 183.98432653061224,
     "manual_captions": [
       {
         "transcript": "[Child 2]: My dream is this"
@@ -19153,7 +19228,8 @@
         "q_id": 296,
         "question": "What is the name of the boy holding the dog?"
       }
-    ]
+    ],
+    "start_time": 122.94965986394558
   },
   "044": {
     "automatic_captions": [
@@ -19688,6 +19764,7 @@
         ]
       }
     ],
+    "end_time": 473.77066666666667,
     "manual_captions": [
       {
         "transcript": "[Man 1]: Sorry sir"
@@ -19857,7 +19934,8 @@
         "q_id": 304,
         "question": "What is the color of the left man's shirt?"
       }
-    ]
+    ],
+    "start_time": 402.752
   },
   "045": {
     "automatic_captions": [
@@ -20680,6 +20758,7 @@
         ]
       }
     ],
+    "end_time": 550.4,
     "manual_captions": [
       {
         "transcript": "[Man 2]: two bags, that's the way to go"
@@ -20867,7 +20946,8 @@
         "q_id": 314,
         "question": "How many people showed up in this video?"
       }
-    ]
+    ],
+    "start_time": 473.7493333333333
   },
   "046": {
     "automatic_captions": [
@@ -21337,6 +21417,7 @@
         ]
       }
     ],
+    "end_time": 610.944,
     "manual_captions": [
       {
         "transcript": "[Man 3]: See[laughs]"
@@ -21509,7 +21590,8 @@
         "q_id": 323,
         "question": "What's color of the grass?"
       }
-    ]
+    ],
+    "start_time": 550.4
   },
   "047": {
     "automatic_captions": [
@@ -22058,6 +22140,7 @@
         ]
       }
     ],
+    "end_time": null,
     "manual_captions": [
       {
         "transcript": "[background music plays]"
@@ -22269,7 +22352,8 @@
         "q_id": 332,
         "question": "What is the color of the woman's top?"
       }
-    ]
+    ],
+    "start_time": null
   },
   "048": {
     "automatic_captions": [
@@ -23121,6 +23205,7 @@
         ]
       }
     ],
+    "end_time": null,
     "manual_captions": [
       {
         "transcript": "[background music plays]"
@@ -23317,7 +23402,8 @@
         "q_id": 342,
         "question": "What is the color of the room door?"
       }
-    ]
+    ],
+    "start_time": null
   },
   "049": {
     "automatic_captions": [
@@ -23888,6 +23974,7 @@
         ]
       }
     ],
+    "end_time": null,
     "manual_captions": [
       {
         "transcript": "[background music plays]"
@@ -24072,7 +24159,8 @@
         "q_id": 352,
         "question": "How many people speaking in this video?"
       }
-    ]
+    ],
+    "start_time": null
   },
   "050": {
     "automatic_captions": [
@@ -24384,6 +24472,7 @@
         ]
       }
     ],
+    "end_time": null,
     "manual_captions": [
       {
         "transcript": "[background music plays]"
@@ -24571,7 +24660,8 @@
         "q_id": 362,
         "question": "What is the color of the woman's top?"
       }
-    ]
+    ],
+    "start_time": null
   },
   "051": {
     "automatic_captions": [
@@ -25398,6 +25488,7 @@
         ]
       }
     ],
+    "end_time": null,
     "manual_captions": [
       {
         "transcript": "[Woman 1]: Okay so we made it to the last and final area"
@@ -25576,7 +25667,8 @@
         "q_id": 372,
         "question": "How many men are in this video?"
       }
-    ]
+    ],
+    "start_time": null
   },
   "052": {
     "automatic_captions": [
@@ -26123,6 +26215,7 @@
         ]
       }
     ],
+    "end_time": null,
     "manual_captions": [
       {
         "transcript": "[Woman 1]: I'm actually going to put all their toys, middle toys in the bag"
@@ -26286,7 +26379,8 @@
         "q_id": 382,
         "question": "What is the color of the women's hair?"
       }
-    ]
+    ],
+    "start_time": null
   },
   "053": {
     "automatic_captions": [
@@ -26773,6 +26867,7 @@
         ]
       }
     ],
+    "end_time": 219.49866666666668,
     "manual_captions": [
       {
         "transcript": "[Child 1]: Hey guys, welcome back, this"
@@ -27002,7 +27097,8 @@
         "q_id": 392,
         "question": "What are they trying to do?"
       }
-    ]
+    ],
+    "start_time": 127.40266666666666
   },
   "054": {
     "automatic_captions": [
@@ -27516,6 +27612,7 @@
         ]
       }
     ],
+    "end_time": 280.12800000000004,
     "manual_captions": [
       {
         "transcript": "[Man 1]: So basically what we gotta do, we need to get inside"
@@ -27682,7 +27779,8 @@
         "q_id": 401,
         "question": "What's color of the table?"
       }
-    ]
+    ],
+    "start_time": 219.49866666666668
   },
   "055": {
     "automatic_captions": [
@@ -28099,6 +28197,7 @@
         ]
       }
     ],
+    "end_time": 357.20533333333333,
     "manual_captions": [
       {
         "transcript": "[Man 1]: Lets try this guy"
@@ -28292,7 +28391,8 @@
         "q_id": 411,
         "question": "How many people are wearing glasses?"
       }
-    ]
+    ],
+    "start_time": 280.128
   },
   "056": {
     "automatic_captions": [
@@ -28975,6 +29075,7 @@
         ]
       }
     ],
+    "end_time": 471.488,
     "parent_video_id": "https://www.youtube.com/watch?v=SVyaKQHvyJ8",
     "questions": [
       {
@@ -29097,7 +29198,8 @@
         "q_id": 421,
         "question": "How many bikes are there?"
       }
-    ]
+    ],
+    "start_time": 357.20533333333333
   },
   "057": {
     "automatic_captions": [
@@ -29713,6 +29815,7 @@
         ]
       }
     ],
+    "end_time": 540.16,
     "parent_video_id": "https://www.youtube.com/watch?v=SVyaKQHvyJ8",
     "questions": [
       {
@@ -29823,7 +29926,8 @@
         "q_id": 430,
         "question": "How many dogs are in this video?"
       }
-    ]
+    ],
+    "start_time": 471.488
   },
   "058": {
     "automatic_captions": [
@@ -30060,6 +30164,7 @@
         ]
       }
     ],
+    "end_time": 59.968,
     "parent_video_id": "https://www.youtube.com/watch?v=5jFtfJNr4Nc",
     "questions": [
       {
@@ -30122,7 +30227,8 @@
         "q_id": 435,
         "question": "What is the boy using?"
       }
-    ]
+    ],
+    "start_time": 0.0
   },
   "059": {
     "automatic_captions": [
@@ -30820,6 +30926,7 @@
         ]
       }
     ],
+    "end_time": 100.50133333333333,
     "parent_video_id": "https://www.youtube.com/watch?v=BzUf5o7DlXY",
     "questions": [
       {
@@ -30942,7 +31049,8 @@
         "q_id": 445,
         "question": "How many cats in this video?"
       }
-    ]
+    ],
+    "start_time": 19.584
   },
   "060": {
     "automatic_captions": [
@@ -31108,6 +31216,7 @@
         ]
       }
     ],
+    "end_time": 157.03466666666668,
     "parent_video_id": "https://www.youtube.com/watch?v=BzUf5o7DlXY",
     "questions": [
       {
@@ -31230,7 +31339,8 @@
         "q_id": 455,
         "question": "What is the color of the cats?"
       }
-    ]
+    ],
+    "start_time": 100.50133333333333
   },
   "061": {
     "automatic_captions": [
@@ -31875,6 +31985,7 @@
         ]
       }
     ],
+    "end_time": 224.55466666666666,
     "parent_video_id": "https://www.youtube.com/watch?v=BzUf5o7DlXY",
     "questions": [
       {
@@ -31997,7 +32108,8 @@
         "q_id": 465,
         "question": "What's the color of the litter box?"
       }
-    ]
+    ],
+    "start_time": 157.03466666666668
   },
   "062": {
     "automatic_captions": [
@@ -32460,6 +32572,7 @@
         ]
       }
     ],
+    "end_time": 312.02133333333336,
     "parent_video_id": "https://www.youtube.com/watch?v=BzUf5o7DlXY",
     "questions": [
       {
@@ -32582,7 +32695,8 @@
         "q_id": 475,
         "question": "Where are they?"
       }
-    ]
+    ],
+    "start_time": 224.53333333333333
   },
   "063": {
     "automatic_captions": [
@@ -33163,6 +33277,7 @@
         ]
       }
     ],
+    "end_time": 379.072,
     "parent_video_id": "https://www.youtube.com/watch?v=BzUf5o7DlXY",
     "questions": [
       {
@@ -33285,7 +33400,8 @@
         "q_id": 485,
         "question": "How many dogs there?"
       }
-    ]
+    ],
+    "start_time": 312.02133333333336
   },
   "064": {
     "automatic_captions": [
@@ -33799,6 +33915,7 @@
         ]
       }
     ],
+    "end_time": 446.5706666666666,
     "parent_video_id": "https://www.youtube.com/watch?v=BzUf5o7DlXY",
     "questions": [
       {
@@ -33921,7 +34038,8 @@
         "q_id": 495,
         "question": "How many frogs are there?"
       }
-    ]
+    ],
+    "start_time": 379.05066666666664
   },
   "065": {
     "automatic_captions": [
@@ -34257,6 +34375,7 @@
         ]
       }
     ],
+    "end_time": 514.1973333333333,
     "parent_video_id": "https://www.youtube.com/watch?v=BzUf5o7DlXY",
     "questions": [
       {
@@ -34379,7 +34498,8 @@
         "q_id": 505,
         "question": "How many litter boxes are there?"
       }
-    ]
+    ],
+    "start_time": 446.5493333333333
   },
   "066": {
     "automatic_captions": [
@@ -34661,6 +34781,7 @@
         ]
       }
     ],
+    "end_time": 579.0079999999999,
     "parent_video_id": "https://www.youtube.com/watch?v=BzUf5o7DlXY",
     "questions": [
       {
@@ -34771,7 +34892,8 @@
         "q_id": 514,
         "question": "Where are those people?"
       }
-    ]
+    ],
+    "start_time": 514.1973333333333
   },
   "067": {
     "automatic_captions": [
@@ -35036,6 +35158,7 @@
         ]
       }
     ],
+    "end_time": 624.1066666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=BzUf5o7DlXY",
     "questions": [
       {
@@ -35146,7 +35269,8 @@
         "q_id": 523,
         "question": "How many dogs are there?"
       }
-    ]
+    ],
+    "start_time": 578.9866666666667
   },
   "068": {
     "automatic_captions": [
@@ -35373,6 +35497,7 @@
         ]
       }
     ],
+    "end_time": 81.30133333333333,
     "parent_video_id": "https://www.youtube.com/watch?v=VdRr_cLhZxM",
     "questions": [
       {
@@ -35495,7 +35620,8 @@
         "q_id": 533,
         "question": "What's the color of the car?"
       }
-    ]
+    ],
+    "start_time": 8.789333333333333
   },
   "069": {
     "automatic_captions": [
@@ -35981,6 +36107,7 @@
         ]
       }
     ],
+    "end_time": 150.2506666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=VdRr_cLhZxM",
     "questions": [
       {
@@ -36103,7 +36230,8 @@
         "q_id": 543,
         "question": "What are they doing?"
       }
-    ]
+    ],
+    "start_time": 81.28
   },
   "070": {
     "automatic_captions": [
@@ -36448,6 +36576,7 @@
         ]
       }
     ],
+    "end_time": 223.97866666666664,
     "parent_video_id": "https://www.youtube.com/watch?v=VdRr_cLhZxM",
     "questions": [
       {
@@ -36570,7 +36699,8 @@
         "q_id": 553,
         "question": "What is the boy holding at the end of the video?"
       }
-    ]
+    ],
+    "start_time": 150.25066666666666
   },
   "071": {
     "automatic_captions": [
@@ -36762,6 +36892,7 @@
         ]
       }
     ],
+    "end_time": 290.79466666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=VdRr_cLhZxM",
     "questions": [
       {
@@ -36872,7 +37003,8 @@
         "q_id": 562,
         "question": "How many people are there?"
       }
-    ]
+    ],
+    "start_time": 223.95733333333334
   },
   "072": {
     "automatic_captions": [
@@ -37125,6 +37257,7 @@
         ]
       }
     ],
+    "end_time": 355.712,
     "parent_video_id": "https://www.youtube.com/watch?v=VdRr_cLhZxM",
     "questions": [
       {
@@ -37223,7 +37356,8 @@
         "q_id": 570,
         "question": "What is the color of the car?"
       }
-    ]
+    ],
+    "start_time": 290.79466666666667
   },
   "073": {
     "automatic_captions": [
@@ -37561,6 +37695,7 @@
         ]
       }
     ],
+    "end_time": 429.8026666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=VdRr_cLhZxM",
     "questions": [
       {
@@ -37623,7 +37758,8 @@
         "q_id": 575,
         "question": "What color are the boy's pants?"
       }
-    ]
+    ],
+    "start_time": 355.6906666666667
   },
   "074": {
     "automatic_captions": [
@@ -37870,6 +38006,7 @@
         ]
       }
     ],
+    "end_time": 547.6693333333333,
     "parent_video_id": "https://www.youtube.com/watch?v=VdRr_cLhZxM",
     "questions": [
       {
@@ -37980,7 +38117,8 @@
         "q_id": 584,
         "question": "What are the words on the lisence plate of the car?"
       }
-    ]
+    ],
+    "start_time": 429.80266666666665
   },
   "075": {
     "automatic_captions": [
@@ -38987,6 +39125,7 @@
         ]
       }
     ],
+    "end_time": 98.38933333333333,
     "parent_video_id": "https://www.youtube.com/watch?v=oxzA7O597a8",
     "questions": [
       {
@@ -39109,7 +39248,8 @@
         "q_id": 594,
         "question": "How many kids are there?"
       }
-    ]
+    ],
+    "start_time": 33.984
   },
   "076": {
     "automatic_captions": [
@@ -39370,6 +39510,7 @@
         ]
       }
     ],
+    "end_time": 161.51466666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=oxzA7O597a8",
     "questions": [
       {
@@ -39480,7 +39621,8 @@
         "q_id": 603,
         "question": "What is the color of the boy's shirt?"
       }
-    ]
+    ],
+    "start_time": 98.432
   },
   "077": {
     "automatic_captions": [
@@ -39881,6 +40023,7 @@
         ]
       }
     ],
+    "end_time": 228.43733333333336,
     "parent_video_id": "https://www.youtube.com/watch?v=oxzA7O597a8",
     "questions": [
       {
@@ -39991,7 +40134,8 @@
         "q_id": 612,
         "question": "What will they do next?"
       }
-    ]
+    ],
+    "start_time": 161.42933333333335
   },
   "078": {
     "automatic_captions": [
@@ -40347,6 +40491,7 @@
         ]
       }
     ],
+    "end_time": 299.41333333333336,
     "parent_video_id": "https://www.youtube.com/watch?v=oxzA7O597a8",
     "questions": [
       {
@@ -40457,7 +40602,8 @@
         "q_id": 621,
         "question": "How many people are in the video?"
       }
-    ]
+    ],
+    "start_time": 228.37333333333333
   },
   "079": {
     "automatic_captions": [
@@ -40698,6 +40844,7 @@
         ]
       }
     ],
+    "end_time": 358.42133333333334,
     "parent_video_id": "https://www.youtube.com/watch?v=oxzA7O597a8",
     "questions": [
       {
@@ -40820,7 +40967,8 @@
         "q_id": 631,
         "question": "What's the relationship of those 3 people?"
       }
-    ]
+    ],
+    "start_time": 299.34933333333333
   },
   "080": {
     "automatic_captions": [
@@ -41039,6 +41187,7 @@
         ]
       }
     ],
+    "end_time": 431.95733333333334,
     "manual_captions": [
       {
         "transcript": "[Woman 1]: we had such a great, relaxing morning. Was it good, Brent?"
@@ -41259,7 +41408,8 @@
         "q_id": 640,
         "question": "What's the color of the woman's hair?"
       }
-    ]
+    ],
+    "start_time": 358.336
   },
   "081": {
     "automatic_captions": [
@@ -41563,6 +41713,7 @@
         ]
       }
     ],
+    "end_time": 489.57866666666666,
     "manual_captions": [
       {
         "transcript": "[Woman 1]: Ollie! You're with papa and Karma, we missed you guys!"
@@ -41768,7 +41919,8 @@
         "q_id": 650,
         "question": "Where are those people?"
       }
-    ]
+    ],
+    "start_time": 431.872
   },
   "082": {
     "automatic_captions": [
@@ -42043,6 +42195,7 @@
         ]
       }
     ],
+    "end_time": 561.0026666666666,
     "manual_captions": [
       {
         "transcript": "[Man 1]: Happy papa's day, that's how they wrap things here."
@@ -42254,7 +42407,8 @@
         "q_id": 660,
         "question": "What's the color of the wall?"
       }
-    ]
+    ],
+    "start_time": 489.49333333333334
   },
   "083": {
     "automatic_captions": [
@@ -42851,6 +43005,7 @@
         ]
       }
     ],
+    "end_time": 629.312,
     "manual_captions": [
       {
         "transcript": "[Woman 1]: He fell asleep on the way here, boys are actually of to see Jurassic park"
@@ -43014,7 +43169,8 @@
         "q_id": 667,
         "question": "What is the color of the boy's shirt?"
       }
-    ]
+    ],
+    "start_time": 560.9386666666667
   },
   "084": {
     "automatic_captions": [
@@ -43584,6 +43740,7 @@
         ]
       }
     ],
+    "end_time": 692.928,
     "manual_captions": [
       {
         "transcript": "[Man 1]: We are now the little play area inside the mall"
@@ -43774,7 +43931,8 @@
         "q_id": 677,
         "question": "What's the color of the mom's eyes?"
       }
-    ]
+    ],
+    "start_time": 629.248
   },
   "085": {
     "automatic_captions": [
@@ -44236,6 +44394,7 @@
         ]
       }
     ],
+    "end_time": 778.688,
     "manual_captions": [
       {
         "transcript": "[crowd noises]"
@@ -44390,7 +44549,8 @@
         "q_id": 682,
         "question": "Where is the smartphone?"
       }
-    ]
+    ],
+    "start_time": 692.8213333333333
   },
   "086": {
     "automatic_captions": [
@@ -44854,6 +45014,7 @@
         ]
       }
     ],
+    "end_time": 96.08533333333334,
     "manual_captions": [
       {
         "transcript": "[Man 1]: Good morning guys, it is sunday and it is Valentine's day"
@@ -45074,7 +45235,8 @@
         "q_id": 692,
         "question": "What's the color of the table?"
       }
-    ]
+    ],
+    "start_time": 35.008
   },
   "087": {
     "automatic_captions": [
@@ -45471,6 +45633,7 @@
         ]
       }
     ],
+    "end_time": 156.52266666666668,
     "manual_captions": [
       {
         "transcript": "[Man 1]: before I go on my ver elaborate sure scavenger hunt.."
@@ -45682,7 +45845,8 @@
         "q_id": 701,
         "question": "How many TVs are shown in the video?"
       }
-    ]
+    ],
+    "start_time": 96.02133333333333
   },
   "088": {
     "automatic_captions": [
@@ -46033,6 +46197,7 @@
         ]
       }
     ],
+    "end_time": 221.35466666666667,
     "manual_captions": [
       {
         "transcript": "[Woman 1]: Its like so much pressure when I open boxes like these"
@@ -46253,7 +46418,8 @@
         "q_id": 710,
         "question": "What's the color of the table?"
       }
-    ]
+    ],
+    "start_time": 156.43733333333333
   },
   "089": {
     "automatic_captions": [
@@ -46763,6 +46929,7 @@
         ]
       }
     ],
+    "end_time": 302.10133333333334,
     "manual_captions": [
       {
         "transcript": "[Man 1]: Its scavenger hunt time"
@@ -46992,7 +47159,8 @@
         "q_id": 720,
         "question": "How many different colors are on the little gift card?"
       }
-    ]
+    ],
+    "start_time": 221.248
   },
   "090": {
     "automatic_captions": [
@@ -47453,6 +47621,7 @@
         ]
       }
     ],
+    "end_time": 377.216,
     "manual_captions": [
       {
         "transcript": "[background music plays]"
@@ -47670,7 +47839,8 @@
         "q_id": 729,
         "question": "Where are they?"
       }
-    ]
+    ],
+    "start_time": 302.0373333333333
   },
   "091": {
     "automatic_captions": [
@@ -48186,6 +48356,7 @@
         ]
       }
     ],
+    "end_time": 452.26666666666665,
     "manual_captions": [
       {
         "transcript": "[background music plays]"
@@ -48400,7 +48571,8 @@
         "q_id": 739,
         "question": "What's the color of the dinosaur toy?"
       }
-    ]
+    ],
+    "start_time": 377.152
   },
   "092": {
     "automatic_captions": [
@@ -48939,6 +49111,7 @@
         ]
       }
     ],
+    "end_time": 539.456,
     "manual_captions": [
       {
         "transcript": "[background music plays]"
@@ -49204,7 +49377,8 @@
         "q_id": 749,
         "question": "What's the color of the guitar's case?"
       }
-    ]
+    ],
+    "start_time": 452.1813333333333
   },
   "093": {
     "automatic_captions": [
@@ -50371,6 +50545,7 @@
         ]
       }
     ],
+    "end_time": 601.088,
     "parent_video_id": "https://www.youtube.com/watch?v=IFwAJPN27AE",
     "questions": [
       {
@@ -50493,7 +50668,8 @@
         "q_id": 759,
         "question": "What's the color of the sofa?"
       }
-    ]
+    ],
+    "start_time": 539.3493333333333
   },
   "094": {
     "automatic_captions": [
@@ -51014,6 +51190,7 @@
         ]
       }
     ],
+    "end_time": 711.1039999999999,
     "parent_video_id": "https://www.youtube.com/watch?v=IFwAJPN27AE",
     "questions": [
       {
@@ -51136,7 +51313,8 @@
         "q_id": 769,
         "question": "How many females in the video?"
       }
-    ]
+    ],
+    "start_time": 600.9813333333333
   },
   "095": {
     "automatic_captions": [
@@ -51608,6 +51786,7 @@
         ]
       }
     ],
+    "end_time": 793.0666666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=IFwAJPN27AE",
     "questions": [
       {
@@ -51730,7 +51909,8 @@
         "q_id": 779,
         "question": "What's the color of the little boy's hair?"
       }
-    ]
+    ],
+    "start_time": 710.9973333333334
   },
   "096": {
     "automatic_captions": [
@@ -52230,6 +52410,7 @@
         ]
       }
     ],
+    "end_time": 999.2746666666667,
     "manual_captions": [
       {
         "transcript": "[Man 1]: You guys, Missy made me lemon bars"
@@ -52393,7 +52574,8 @@
         "q_id": 788,
         "question": "What's the color sofa?"
       }
-    ]
+    ],
+    "start_time": 956.416
   },
   "105": {
     "automatic_captions": [
@@ -52562,6 +52744,7 @@
         ]
       }
     ],
+    "end_time": 67.456,
     "parent_video_id": "https://www.youtube.com/watch?v=osjTfOQe7Rw",
     "questions": [
       {
@@ -52684,7 +52867,8 @@
         "q_id": 857,
         "question": "What's the girl's hairstyle?"
       }
-    ]
+    ],
+    "start_time": 0.021333333333333333
   },
   "106": {
     "automatic_captions": [
@@ -52828,6 +53012,7 @@
         ]
       }
     ],
+    "end_time": 140.13866666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=osjTfOQe7Rw",
     "questions": [
       {
@@ -52950,7 +53135,8 @@
         "q_id": 867,
         "question": "How many people are in the video?"
       }
-    ]
+    ],
+    "start_time": 67.41333333333333
   },
   "107": {
     "automatic_captions": [
@@ -54021,6 +54207,7 @@
         ]
       }
     ],
+    "end_time": 94.78399999999999,
     "parent_video_id": "https://www.youtube.com/watch?v=W1dY7omecSw",
     "questions": [
       {
@@ -54143,7 +54330,8 @@
         "q_id": 877,
         "question": "What's the color of the wall?"
       }
-    ]
+    ],
+    "start_time": 0.021333333333333333
   },
   "108": {
     "automatic_captions": [
@@ -54940,6 +55128,7 @@
         ]
       }
     ],
+    "end_time": 182.144,
     "parent_video_id": "https://www.youtube.com/watch?v=W1dY7omecSw",
     "questions": [
       {
@@ -55062,7 +55251,8 @@
         "q_id": 887,
         "question": "What's the color of the door?"
       }
-    ]
+    ],
+    "start_time": 94.74133333333333
   },
   "109": {
     "automatic_captions": [
@@ -55734,6 +55924,7 @@
         ]
       }
     ],
+    "end_time": 271.9146666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=W1dY7omecSw",
     "questions": [
       {
@@ -55856,7 +56047,8 @@
         "q_id": 897,
         "question": "Waht's the color of the little boy's top?"
       }
-    ]
+    ],
+    "start_time": 192.192
   },
   "110": {
     "automatic_captions": [
@@ -56972,6 +57164,7 @@
         ]
       }
     ],
+    "end_time": 369.36533333333335,
     "parent_video_id": "https://www.youtube.com/watch?v=W1dY7omecSw",
     "questions": [
       {
@@ -57094,7 +57287,8 @@
         "q_id": 907,
         "question": "Where are they?"
       }
-    ]
+    ],
+    "start_time": 271.9146666666667
   },
   "111": {
     "automatic_captions": [
@@ -57719,6 +57913,7 @@
         ]
       }
     ],
+    "end_time": 434.624,
     "parent_video_id": "https://www.youtube.com/watch?v=W1dY7omecSw",
     "questions": [
       {
@@ -57841,7 +58036,8 @@
         "q_id": 917,
         "question": "How many times do they high 5?"
       }
-    ]
+    ],
+    "start_time": 369.344
   },
   "112": {
     "automatic_captions": [
@@ -58816,6 +59012,7 @@
         ]
       }
     ],
+    "end_time": 531.8826666666666,
     "parent_video_id": "https://www.youtube.com/watch?v=W1dY7omecSw",
     "questions": [
       {
@@ -58878,7 +59075,8 @@
         "q_id": 922,
         "question": "Up to which number should the boy count?"
       }
-    ]
+    ],
+    "start_time": 434.60266666666666
   },
   "113": {
     "automatic_captions": [
@@ -59396,6 +59594,7 @@
         ]
       }
     ],
+    "end_time": 601.1733333333333,
     "parent_video_id": "https://www.youtube.com/watch?v=W1dY7omecSw",
     "questions": [
       {
@@ -59518,7 +59717,8 @@
         "q_id": 932,
         "question": "What is the color of the carpet?"
       }
-    ]
+    ],
+    "start_time": 531.8613333333333
   },
   "114": {
     "automatic_captions": [
@@ -60532,6 +60732,7 @@
         ]
       }
     ],
+    "end_time": 100.88533333333332,
     "parent_video_id": "https://www.youtube.com/watch?v=EwDyECw3grA",
     "questions": [
       {
@@ -60642,7 +60843,8 @@
         "q_id": 941,
         "question": "How long have the man wore this boots?"
       }
-    ]
+    ],
+    "start_time": 9.856
   },
   "115": {
     "automatic_captions": [
@@ -61077,6 +61279,7 @@
         ]
       }
     ],
+    "end_time": 161.36533333333333,
     "parent_video_id": "https://www.youtube.com/watch?v=EwDyECw3grA",
     "questions": [
       {
@@ -61175,7 +61378,8 @@
         "q_id": 949,
         "question": "What is the color of the 5 rings?"
       }
-    ]
+    ],
+    "start_time": 100.88533333333334
   },
   "116": {
     "automatic_captions": [
@@ -61663,6 +61867,7 @@
         ]
       }
     ],
+    "end_time": 252.8,
     "parent_video_id": "https://www.youtube.com/watch?v=EwDyECw3grA",
     "questions": [
       {
@@ -61773,7 +61978,8 @@
         "q_id": 958,
         "question": "What's the problem with the boots?"
       }
-    ]
+    ],
+    "start_time": 182.016
   },
   "117": {
     "automatic_captions": [
@@ -62103,6 +62309,7 @@
         ]
       }
     ],
+    "end_time": 327.31733333333335,
     "parent_video_id": "https://www.youtube.com/watch?v=EwDyECw3grA",
     "questions": [
       {
@@ -62225,7 +62432,8 @@
         "q_id": 968,
         "question": "What is the color of the boots?"
       }
-    ]
+    ],
+    "start_time": 252.8
   },
   "118": {
     "automatic_captions": [
@@ -62752,6 +62960,7 @@
         ]
       }
     ],
+    "end_time": 448.4266666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=EwDyECw3grA",
     "questions": [
       {
@@ -62862,7 +63071,8 @@
         "q_id": 977,
         "question": "What is the color of the snowboard the man is holding?"
       }
-    ]
+    ],
+    "start_time": 327.296
   },
   "119": {
     "automatic_captions": [
@@ -63565,6 +63775,7 @@
         ]
       }
     ],
+    "end_time": 138.28266666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=8gamPx-DHAw",
     "questions": [
       {
@@ -63675,7 +63886,8 @@
         "q_id": 986,
         "question": "What is the color of the boy's shirt?"
       }
-    ]
+    ],
+    "start_time": 68.672
   },
   "120": {
     "automatic_captions": [
@@ -64315,6 +64527,7 @@
         ]
       }
     ],
+    "end_time": 218.24,
     "parent_video_id": "https://www.youtube.com/watch?v=8gamPx-DHAw",
     "questions": [
       {
@@ -64425,7 +64638,8 @@
         "q_id": 995,
         "question": "What is the problem of the shoes the kid tries on?"
       }
-    ]
+    ],
+    "start_time": 138.28266666666667
   },
   "121": {
     "automatic_captions": [
@@ -64973,6 +65187,7 @@
         ]
       }
     ],
+    "end_time": 292.16,
     "parent_video_id": "https://www.youtube.com/watch?v=8gamPx-DHAw",
     "questions": [
       {
@@ -65095,7 +65310,8 @@
         "q_id": 1005,
         "question": "What is the brand of the man's jacket?"
       }
-    ]
+    ],
+    "start_time": 218.21866666666668
   },
   "122": {
     "automatic_captions": [
@@ -65450,6 +65666,7 @@
         ]
       }
     ],
+    "end_time": 142.54933333333335,
     "parent_video_id": "https://www.youtube.com/watch?v=E0QxxHxeTlI",
     "questions": [
       {
@@ -65512,7 +65729,8 @@
         "q_id": 1010,
         "question": "What are they doing?"
       }
-    ]
+    ],
+    "start_time": 3.776
   },
   "124": {
     "automatic_captions": [
@@ -65810,6 +66028,7 @@
         ]
       }
     ],
+    "end_time": null,
     "parent_video_id": "https://www.youtube.com/watch?v=aaweXw03kQI",
     "questions": [
       {
@@ -65920,7 +66139,8 @@
         "q_id": 1028,
         "question": "What's the color of the teacher's boots?"
       }
-    ]
+    ],
+    "start_time": null
   },
   "125": {
     "automatic_captions": [
@@ -66587,6 +66807,7 @@
         ]
       }
     ],
+    "end_time": null,
     "parent_video_id": "https://www.youtube.com/watch?v=aaweXw03kQI",
     "questions": [
       {
@@ -66697,7 +66918,8 @@
         "q_id": 1037,
         "question": "What is the \"big word\"?"
       }
-    ]
+    ],
+    "start_time": null
   },
   "126": {
     "automatic_captions": [
@@ -67342,6 +67564,7 @@
         ]
       }
     ],
+    "end_time": null,
     "parent_video_id": "https://www.youtube.com/watch?v=aaweXw03kQI",
     "questions": [
       {
@@ -67428,7 +67651,8 @@
         "q_id": 1044,
         "question": "What did they talk about yesterday?"
       }
-    ]
+    ],
+    "start_time": null
   },
   "137": {
     "automatic_captions": [
@@ -67970,6 +68194,7 @@
         ]
       }
     ],
+    "end_time": 63.40832653061225,
     "parent_video_id": "https://www.youtube.com/watch?v=CzC6q-tUVVI",
     "questions": [
       {
@@ -68080,7 +68305,8 @@
         "q_id": 1148,
         "question": "How many kids wearing a flower on their heads?"
       }
-    ]
+    ],
+    "start_time": 0.06965986394557823
   },
   "138": {
     "automatic_captions": [
@@ -68530,6 +68756,7 @@
         ]
       }
     ],
+    "end_time": 134.66136961451247,
     "parent_video_id": "https://www.youtube.com/watch?v=CzC6q-tUVVI",
     "questions": [
       {
@@ -68652,7 +68879,8 @@
         "q_id": 1158,
         "question": "How many eggs they need?"
       }
-    ]
+    ],
+    "start_time": 63.344036281179136
   },
   "139": {
     "automatic_captions": [
@@ -69181,6 +69409,7 @@
         ]
       }
     ],
+    "end_time": 232.17168253968254,
     "parent_video_id": "https://www.youtube.com/watch?v=CzC6q-tUVVI",
     "questions": [
       {
@@ -69303,7 +69532,8 @@
         "q_id": 1168,
         "question": "How many kids are in this video?"
       }
-    ]
+    ],
+    "start_time": 135.2330158730159
   },
   "140": {
     "automatic_captions": [
@@ -69727,6 +69957,7 @@
         ]
       }
     ],
+    "end_time": 295.8995736961451,
     "parent_video_id": "https://www.youtube.com/watch?v=CzC6q-tUVVI",
     "questions": [
       {
@@ -69849,7 +70080,8 @@
         "q_id": 1178,
         "question": "Who is the last one to stir?"
       }
-    ]
+    ],
+    "start_time": 231.92090702947846
   },
   "141": {
     "automatic_captions": [
@@ -70460,6 +70692,7 @@
         ]
       }
     ],
+    "end_time": 356.61278911564625,
     "parent_video_id": "https://www.youtube.com/watch?v=CzC6q-tUVVI",
     "questions": [
       {
@@ -70570,7 +70803,8 @@
         "q_id": 1187,
         "question": "How many red bowls on the table?"
       }
-    ]
+    ],
+    "start_time": 295.7061224489796
   },
   "142": {
     "automatic_captions": [
@@ -71409,6 +71643,7 @@
         ]
       }
     ],
+    "end_time": 429.1842902494331,
     "parent_video_id": "https://www.youtube.com/watch?v=CzC6q-tUVVI",
     "questions": [
       {
@@ -71531,7 +71766,8 @@
         "q_id": 1197,
         "question": "How many cats are in this video?"
       }
-    ]
+    ],
+    "start_time": 356.5656235827664
   },
   "143": {
     "automatic_captions": [
@@ -72165,6 +72401,7 @@
         ]
       }
     ],
+    "end_time": 518.1306485260772,
     "parent_video_id": "https://www.youtube.com/watch?v=CzC6q-tUVVI",
     "questions": [
       {
@@ -72263,7 +72500,8 @@
         "q_id": 1205,
         "question": "What's the color of the sofa?"
       }
-    ]
+    ],
+    "start_time": 429.12798185941045
   },
   "144": {
     "automatic_captions": [
@@ -72652,6 +72890,7 @@
         ]
       }
     ],
+    "end_time": 606.3628480725623,
     "parent_video_id": "https://www.youtube.com/watch?v=CzC6q-tUVVI",
     "questions": [
       {
@@ -72774,7 +73013,8 @@
         "q_id": 1215,
         "question": "What's the material of the wall in the bedroom?"
       }
-    ]
+    ],
+    "start_time": 518.1068480725623
   },
   "149": {
     "automatic_captions": [
@@ -73194,6 +73434,7 @@
         ]
       }
     ],
+    "end_time": 138.14857142857142,
     "parent_video_id": "https://www.youtube.com/watch?v=5-yGA_lTljA",
     "questions": [
       {
@@ -73304,7 +73545,8 @@
         "q_id": 1260,
         "question": "How many boys are in this room?"
       }
-    ]
+    ],
+    "start_time": 76.06857142857143
   },
   "150": {
     "automatic_captions": [
@@ -73847,6 +74089,7 @@
         ]
       }
     ],
+    "end_time": 202.1781768707483,
     "parent_video_id": "https://www.youtube.com/watch?v=5-yGA_lTljA",
     "questions": [
       {
@@ -73969,7 +74212,8 @@
         "q_id": 1270,
         "question": "How many girls are in this room?"
       }
-    ]
+    ],
+    "start_time": 138.13551020408164
   },
   "151": {
     "automatic_captions": [
@@ -74665,6 +74909,7 @@
         ]
       }
     ],
+    "end_time": 294.49491156462585,
     "parent_video_id": "https://www.youtube.com/watch?v=5-yGA_lTljA",
     "questions": [
       {
@@ -74775,7 +75020,8 @@
         "q_id": 1279,
         "question": "What's the color of the wall?"
       }
-    ]
+    ],
+    "start_time": 202.2922448979592
   },
   "152": {
     "automatic_captions": [
@@ -74948,6 +75194,7 @@
         ]
       }
     ],
+    "end_time": 354.70570521541947,
     "parent_video_id": "https://www.youtube.com/watch?v=5-yGA_lTljA",
     "questions": [
       {
@@ -75070,7 +75317,8 @@
         "q_id": 1289,
         "question": "How many girls are in this room?"
       }
-    ]
+    ],
+    "start_time": 294.2897052154195
   },
   "153": {
     "automatic_captions": [
@@ -75333,6 +75581,7 @@
         ]
       }
     ],
+    "end_time": 419.0387664399093,
     "parent_video_id": "https://www.youtube.com/watch?v=5-yGA_lTljA",
     "questions": [
       {
@@ -75443,7 +75692,8 @@
         "q_id": 1298,
         "question": "What's the color of the wall?"
       }
-    ]
+    ],
+    "start_time": 355.1027664399093
   },
   "154": {
     "automatic_captions": [
@@ -75619,6 +75869,7 @@
         ]
       }
     ],
+    "end_time": 491.6025759637188,
     "parent_video_id": "https://www.youtube.com/watch?v=5-yGA_lTljA",
     "questions": [
       {
@@ -75741,7 +75992,8 @@
         "q_id": 1308,
         "question": "What's the color of the wall?"
       }
-    ]
+    ],
+    "start_time": 421.9065759637188
   },
   "155": {
     "automatic_captions": [
@@ -76114,6 +76366,7 @@
         ]
       }
     ],
+    "end_time": 566.609560090703,
     "manual_captions": [
       {
         "transcript": "[Woman 2]: Want me to put it."
@@ -76295,7 +76548,8 @@
         "q_id": 1317,
         "question": "How many girls are in this room?"
       }
-    ]
+    ],
+    "start_time": 491.47356009070296
   },
   "156": {
     "automatic_captions": [
@@ -76519,6 +76773,7 @@
         ]
       }
     ],
+    "end_time": 666.2352108843538,
     "manual_captions": [
       {
         "transcript": "[Woman 1]: This is the end result"
@@ -76739,7 +76994,8 @@
         "q_id": 1327,
         "question": "What are the last words the Asian girl said?"
       }
-    ]
+    ],
+    "start_time": 588.3472108843538
   },
   "168": {
     "automatic_captions": [
@@ -76937,6 +77193,7 @@
         ]
       }
     ],
+    "end_time": 79.872,
     "manual_captions": [
       {
         "transcript": "[Background music plays]"
@@ -77130,7 +77387,8 @@
         "q_id": 1392,
         "question": "How many boxs they have?"
       }
-    ]
+    ],
+    "start_time": 13.653333333333334
   },
   "169": {
     "automatic_captions": [
@@ -77522,6 +77780,7 @@
         ]
       }
     ],
+    "end_time": 139.69066666666666,
     "manual_captions": [
       {
         "transcript": "[Woman 1]: Are you guys ready for the challenge?"
@@ -77697,7 +77956,8 @@
         "q_id": 1402,
         "question": "How many kids are in this video?"
       }
-    ]
+    ],
+    "start_time": 79.616
   },
   "170": {
     "automatic_captions": [
@@ -78185,6 +78445,7 @@
         ]
       }
     ],
+    "end_time": 213.84533333333331,
     "manual_captions": [
       {
         "transcript": "[Woman 1]: Alright daddy, what do you have there?"
@@ -78435,7 +78696,8 @@
         "q_id": 1415,
         "question": "What's the problem with the boy's chair?"
       }
-    ]
+    ],
+    "start_time": 139.69066666666666
   },
   "171": {
     "automatic_captions": [
@@ -79054,6 +79316,7 @@
         ]
       }
     ],
+    "end_time": 320.34133333333335,
     "manual_captions": [
       {
         "transcript": "[Background music plays]"
@@ -79295,7 +79558,8 @@
         "q_id": 1425,
         "question": "What kind of chairs did the dad built?"
       }
-    ]
+    ],
+    "start_time": 213.824
   },
   "172": {
     "automatic_captions": [
@@ -80025,6 +80289,7 @@
         ]
       }
     ],
+    "end_time": 440.87466666666666,
     "parent_video_id": "https://www.youtube.com/watch?v=Agcy3mMdNUc",
     "questions": [
       {
@@ -80147,7 +80412,8 @@
         "q_id": 1435,
         "question": "What they should build in the round 3?"
       }
-    ]
+    ],
+    "start_time": 320.32
   },
   "173": {
     "automatic_captions": [
@@ -80754,6 +81020,7 @@
         ]
       }
     ],
+    "end_time": 510.528,
     "manual_captions": [
       {
         "transcript": "[Background music playing]"
@@ -80941,7 +81208,8 @@
         "q_id": 1444,
         "question": "What's the relationship between those 3 people?"
       }
-    ]
+    ],
+    "start_time": 440.87466666666666
   },
   "174": {
     "automatic_captions": [
@@ -81224,6 +81492,7 @@
         ]
       }
     ],
+    "end_time": 593.28,
     "parent_video_id": "https://www.youtube.com/watch?v=Agcy3mMdNUc",
     "questions": [
       {
@@ -81334,7 +81603,8 @@
         "q_id": 1453,
         "question": "What kind of curtains they used?"
       }
-    ]
+    ],
+    "start_time": 510.528
   },
   "175": {
     "automatic_captions": [
@@ -81442,6 +81712,7 @@
         ]
       }
     ],
+    "end_time": 246.74133333333333,
     "manual_captions": [
       {
         "transcript": "[background music playing]"
@@ -81611,7 +81882,8 @@
         "q_id": 1463,
         "question": "What did the younger sister got?"
       }
-    ]
+    ],
+    "start_time": 169.57866666666666
   },
   "176": {
     "automatic_captions": [
@@ -81942,6 +82214,7 @@
         ]
       }
     ],
+    "end_time": 326.464,
     "manual_captions": [
       {
         "transcript": "[Background music plays]"
@@ -82093,7 +82366,8 @@
         "q_id": 1473,
         "question": "How many boys are in the room?"
       }
-    ]
+    ],
+    "start_time": 246.74133333333333
   },
   "177": {
     "automatic_captions": [
@@ -82277,6 +82551,7 @@
         ]
       }
     ],
+    "end_time": 391.18933333333337,
     "manual_captions": [
       {
         "transcript": "[background music playing]"
@@ -82443,7 +82718,8 @@
         "q_id": 1483,
         "question": "How many kids are in the room?"
       }
-    ]
+    ],
+    "start_time": 326.464
   },
   "178": {
     "automatic_captions": [
@@ -82649,6 +82925,7 @@
         ]
       }
     ],
+    "end_time": 458.02666666666664,
     "manual_captions": [
       {
         "transcript": "[Background sounds playing]"
@@ -82812,7 +83089,8 @@
         "q_id": 1493,
         "question": "What is the color of the sofa?"
       }
-    ]
+    ],
+    "start_time": 391.168
   },
   "179": {
     "automatic_captions": [
@@ -83036,6 +83314,7 @@
         ]
       }
     ],
+    "end_time": 520.5333333333333,
     "manual_captions": [
       {
         "transcript": "[Girl 2]: Look at these two cupcake dolls"
@@ -83199,7 +83478,8 @@
         "q_id": 1503,
         "question": "How many adults are in the room?"
       }
-    ]
+    ],
+    "start_time": 458.00533333333334
   },
   "180": {
     "automatic_captions": [
@@ -83751,6 +84031,7 @@
         ]
       }
     ],
+    "end_time": 591.1466666666666,
     "manual_captions": [
       {
         "transcript": "[background music playing]"
@@ -83926,7 +84207,8 @@
         "q_id": 1513,
         "question": "How many trees are in the room?"
       }
-    ]
+    ],
+    "start_time": 520.5333333333333
   },
   "181": {
     "automatic_captions": [
@@ -84528,6 +84810,7 @@
         ]
       }
     ],
+    "end_time": 680.0213333333332,
     "manual_captions": [
       {
         "transcript": "[Background music plays]"
@@ -84703,7 +84986,8 @@
         "q_id": 1523,
         "question": "How many kids are in the room?"
       }
-    ]
+    ],
+    "start_time": 591.1253333333333
   },
   "182": {
     "automatic_captions": [
@@ -85043,6 +85327,7 @@
         ]
       }
     ],
+    "end_time": 745.9200000000001,
     "manual_captions": [
       {
         "transcript": "[Girl 1]: Now for our last surprises"
@@ -85203,7 +85488,8 @@
         "q_id": 1532,
         "question": "How many boys are in the room?"
       }
-    ]
+    ],
+    "start_time": 680.0213333333334
   },
   "183": {
     "automatic_captions": [
@@ -85282,6 +85568,7 @@
         ]
       }
     ],
+    "end_time": 91.85233560090703,
     "parent_video_id": "https://www.youtube.com/watch?v=nSFMDGRAb1w",
     "questions": [
       {
@@ -85344,7 +85631,8 @@
         "q_id": 1537,
         "question": "What does the girl with long hair hold in her hand?"
       }
-    ]
+    ],
+    "start_time": 12.49233560090703
   },
   "184": {
     "automatic_captions": [
@@ -85512,6 +85800,7 @@
         ]
       }
     ],
+    "end_time": 158.20292063492064,
     "manual_captions": [
       {
         "transcript": "[Child 1]: Close your eyes, close your eyes"
@@ -85606,7 +85895,8 @@
         "q_id": 1542,
         "question": "Where is the sippycup? "
       }
-    ]
+    ],
+    "start_time": 91.83492063492064
   },
   "185": {
     "automatic_captions": [
@@ -85751,6 +86041,7 @@
         ]
       }
     ],
+    "end_time": 83.13977324263038,
     "parent_video_id": "https://www.youtube.com/watch?v=2Utw8B03Nww",
     "questions": [
       {
@@ -85873,7 +86164,8 @@
         "q_id": 1552,
         "question": "What is the color of the cup?"
       }
-    ]
+    ],
+    "start_time": 0.046439909297052155
   },
   "186": {
     "automatic_captions": [
@@ -86240,6 +86532,7 @@
         ]
       }
     ],
+    "end_time": 160.8096507936508,
     "manual_captions": [
       {
         "transcript": "[Man 1]: Do we need some milk?"
@@ -86418,7 +86711,8 @@
         "q_id": 1558,
         "question": "Do they need any paper towel?"
       }
-    ]
+    ],
+    "start_time": 83.22031746031746
   },
   "220": {
     "automatic_captions": [
@@ -87186,6 +87480,7 @@
         ]
       }
     ],
+    "end_time": 81.13066666666666,
     "parent_video_id": "https://www.youtube.com/watch?v=P1y743dvmSs",
     "questions": [
       {
@@ -87296,7 +87591,8 @@
         "q_id": 1858,
         "question": "If the audiences think the kid did a great job, what should they do?"
       }
-    ]
+    ],
+    "start_time": 19.690666666666665
   },
   "221": {
     "automatic_captions": [
@@ -87968,6 +88264,7 @@
         ]
       }
     ],
+    "end_time": 168.96,
     "parent_video_id": "https://www.youtube.com/watch?v=P1y743dvmSs",
     "questions": [
       {
@@ -88090,7 +88387,8 @@
         "q_id": 1868,
         "question": "What color is the girl's top?"
       }
-    ]
+    ],
+    "start_time": 81.13066666666667
   },
   "222": {
     "automatic_captions": [
@@ -88523,6 +88821,7 @@
         ]
       }
     ],
+    "end_time": 230.95466666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=P1y743dvmSs",
     "questions": [
       {
@@ -88645,7 +88944,8 @@
         "q_id": 1878,
         "question": "How many kids are there?"
       }
-    ]
+    ],
+    "start_time": 168.93866666666668
   },
   "223": {
     "automatic_captions": [
@@ -89201,6 +89501,7 @@
         ]
       }
     ],
+    "end_time": 288.9386666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=P1y743dvmSs",
     "questions": [
       {
@@ -89323,7 +89624,8 @@
         "q_id": 1888,
         "question": "Who is the model for the hair style?"
       }
-    ]
+    ],
+    "start_time": 226.19733333333335
   },
   "224": {
     "automatic_captions": [
@@ -89802,6 +90104,7 @@
         ]
       }
     ],
+    "end_time": 348.07466666666664,
     "parent_video_id": "https://www.youtube.com/watch?v=P1y743dvmSs",
     "questions": [
       {
@@ -89924,7 +90227,8 @@
         "q_id": 1898,
         "question": "What color is the girl's top?"
       }
-    ]
+    ],
+    "start_time": 287.296
   },
   "225": {
     "automatic_captions": [
@@ -90439,6 +90743,7 @@
         ]
       }
     ],
+    "end_time": 413.7386666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=P1y743dvmSs",
     "questions": [
       {
@@ -90561,7 +90866,8 @@
         "q_id": 1908,
         "question": "Who is the model for the hair style?"
       }
-    ]
+    ],
+    "start_time": 348.05333333333334
   },
   "226": {
     "automatic_captions": [
@@ -91330,6 +91636,7 @@
         ]
       }
     ],
+    "end_time": 516.1386666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=P1y743dvmSs",
     "questions": [
       {
@@ -91452,7 +91759,8 @@
         "q_id": 1918,
         "question": "Who is the model for the hair style?"
       }
-    ]
+    ],
+    "start_time": 413.71733333333333
   },
   "227": {
     "automatic_captions": [
@@ -91805,6 +92113,7 @@
         ]
       }
     ],
+    "end_time": 567.0613333333333,
     "parent_video_id": "https://www.youtube.com/watch?v=P1y743dvmSs",
     "questions": [
       {
@@ -91927,7 +92236,8 @@
         "q_id": 1928,
         "question": "What are they doing?"
       }
-    ]
+    ],
+    "start_time": 506.3466666666667
   },
   "232": {
     "automatic_captions": [
@@ -92205,6 +92515,7 @@
         ]
       }
     ],
+    "end_time": 98.64533333333334,
     "parent_video_id": "https://www.youtube.com/watch?v=AmWVlA5EZnA",
     "questions": [
       {
@@ -92327,7 +92638,8 @@
         "q_id": 1976,
         "question": "What's the color of the wall?"
       }
-    ]
+    ],
+    "start_time": 10.154666666666667
   },
   "233": {
     "automatic_captions": [
@@ -92569,6 +92881,7 @@
         ]
       }
     ],
+    "end_time": 193.792,
     "parent_video_id": "https://www.youtube.com/watch?v=AmWVlA5EZnA",
     "questions": [
       {
@@ -92691,7 +93004,8 @@
         "q_id": 1986,
         "question": "What color is the wall?"
       }
-    ]
+    ],
+    "start_time": 98.64533333333334
   },
   "234": {
     "automatic_captions": [
@@ -92865,6 +93179,7 @@
         ]
       }
     ],
+    "end_time": 298.6453333333333,
     "parent_video_id": "https://www.youtube.com/watch?v=AmWVlA5EZnA",
     "questions": [
       {
@@ -92987,7 +93302,8 @@
         "q_id": 1996,
         "question": "Where are they?"
       }
-    ]
+    ],
+    "start_time": 193.77066666666667
   },
   "235": {
     "automatic_captions": [
@@ -93854,6 +94170,7 @@
         ]
       }
     ],
+    "end_time": 88.68266666666668,
     "parent_video_id": "https://www.youtube.com/watch?v=6j-CG9i7Xj4",
     "questions": [
       {
@@ -93916,7 +94233,8 @@
         "q_id": 2001,
         "question": "How many rings does the woman have?"
       }
-    ]
+    ],
+    "start_time": 3.9466666666666668
   },
   "236": {
     "automatic_captions": [
@@ -94466,6 +94784,7 @@
         ]
       }
     ],
+    "end_time": 152.34133333333332,
     "parent_video_id": "https://www.youtube.com/watch?v=6j-CG9i7Xj4",
     "questions": [
       {
@@ -94528,7 +94847,8 @@
         "q_id": 2006,
         "question": "What animal toy is the girl in the back holding?"
       }
-    ]
+    ],
+    "start_time": 88.66133333333333
   },
   "237": {
     "automatic_captions": [
@@ -94810,6 +95130,7 @@
         ]
       }
     ],
+    "end_time": 68.02779138321995,
     "manual_captions": [
       {
         "transcript": "[Child 1]: You mean this green stuff?"
@@ -94937,7 +95258,8 @@
         "q_id": 2011,
         "question": "What color is the water recipient?"
       }
-    ]
+    ],
+    "start_time": 4.4117913832199545
   },
   "238": {
     "automatic_captions": [
@@ -95338,6 +95660,7 @@
         ]
       }
     ],
+    "end_time": 133.13436734693877,
     "manual_captions": [
       {
         "transcript": "[Woman 1]: And press down"
@@ -95492,7 +95815,8 @@
         "q_id": 2016,
         "question": "What color water the child requests?"
       }
-    ]
+    ],
+    "start_time": 67.91836734693878
   },
   "239": {
     "automatic_captions": [
@@ -96129,6 +96453,7 @@
         ]
       }
     ],
+    "end_time": 194.80032653061224,
     "parent_video_id": "https://www.youtube.com/watch?v=Lq5-tJA1GTA",
     "questions": [
       {
@@ -96191,7 +96516,8 @@
         "q_id": 2021,
         "question": "Where does the woman put the silver on the table?"
       }
-    ]
+    ],
+    "start_time": 133.18965986394556
   },
   "240": {
     "automatic_captions": [
@@ -96827,6 +97153,7 @@
         ]
       }
     ],
+    "end_time": 72.192,
     "manual_captions": [
       {
         "transcript": "[Woman 1]: Alright, we're gonna check her temperature okay?"
@@ -96981,7 +97308,8 @@
         "q_id": 2026,
         "question": "What color is the tape measure?"
       }
-    ]
+    ],
+    "start_time": 4.416
   },
   "241": {
     "automatic_captions": [
@@ -97634,6 +97962,7 @@
         ]
       }
     ],
+    "end_time": 140.3093333333333,
     "parent_video_id": "https://www.youtube.com/watch?v=e6Eaj50AR54",
     "questions": [
       {
@@ -97696,7 +98025,8 @@
         "q_id": 2031,
         "question": "What is in the bottle?"
       }
-    ]
+    ],
+    "start_time": 72.17066666666666
   },
   "242": {
     "automatic_captions": [
@@ -98101,6 +98431,7 @@
         ]
       }
     ],
+    "end_time": 202.21866666666668,
     "parent_video_id": "https://www.youtube.com/watch?v=e6Eaj50AR54",
     "questions": [
       {
@@ -98163,7 +98494,8 @@
         "q_id": 2036,
         "question": "What color is the girl's scarf?"
       }
-    ]
+    ],
+    "start_time": 140.30933333333334
   },
   "243": {
     "automatic_captions": [
@@ -98234,6 +98566,7 @@
         ]
       }
     ],
+    "end_time": 265.1306666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=e6Eaj50AR54",
     "questions": [
       {
@@ -98296,7 +98629,8 @@
         "q_id": 2041,
         "question": "What is the shape of the object on the child's head?"
       }
-    ]
+    ],
+    "start_time": 202.21866666666668
   },
   "244": {
     "automatic_captions": [
@@ -98999,6 +99333,7 @@
         ]
       }
     ],
+    "end_time": 90.688,
     "parent_video_id": "https://www.youtube.com/watch?v=GpPNlOmziXo",
     "questions": [
       {
@@ -99061,7 +99396,8 @@
         "q_id": 2046,
         "question": "What is the first number the girl is pointing to?"
       }
-    ]
+    ],
+    "start_time": 3.7546666666666666
   },
   "253": {
     "automatic_captions": [
@@ -99520,6 +99856,7 @@
         ]
       }
     ],
+    "end_time": 114.048,
     "parent_video_id": "https://www.youtube.com/watch?v=x0ElnSEgJW0",
     "questions": [
       {
@@ -99642,7 +99979,8 @@
         "q_id": 2134,
         "question": "Where is the laytop?"
       }
-    ]
+    ],
+    "start_time": 44.885333333333335
   },
   "254": {
     "automatic_captions": [
@@ -100372,6 +100710,7 @@
         ]
       }
     ],
+    "end_time": 229.56799999999998,
     "parent_video_id": "https://www.youtube.com/watch?v=x0ElnSEgJW0",
     "questions": [
       {
@@ -100494,7 +100833,8 @@
         "q_id": 2144,
         "question": "Did the man succeed at first?"
       }
-    ]
+    ],
+    "start_time": 113.984
   },
   "260": {
     "automatic_captions": [
@@ -101230,6 +101570,7 @@
         ]
       }
     ],
+    "end_time": 106.112,
     "parent_video_id": "https://www.youtube.com/watch?v=fy0tPeMA2E0",
     "questions": [
       {
@@ -101328,7 +101669,8 @@
         "q_id": 2177,
         "question": "How many different colors do the tables have?"
       }
-    ]
+    ],
+    "start_time": 8.405333333333333
   },
   "261": {
     "automatic_captions": [
@@ -101664,6 +102006,7 @@
         ]
       }
     ],
+    "end_time": 204.94933333333333,
     "parent_video_id": "https://www.youtube.com/watch?v=fy0tPeMA2E0",
     "questions": [
       {
@@ -101786,7 +102129,8 @@
         "q_id": 2187,
         "question": "How many women are there?"
       }
-    ]
+    ],
+    "start_time": 106.112
   },
   "262": {
     "automatic_captions": [
@@ -102373,6 +102717,7 @@
         ]
       }
     ],
+    "end_time": 302.31466666666665,
     "parent_video_id": "https://www.youtube.com/watch?v=fy0tPeMA2E0",
     "questions": [
       {
@@ -102495,7 +102840,8 @@
         "q_id": 2197,
         "question": "What's the name of the kid?"
       }
-    ]
+    ],
+    "start_time": 204.94933333333333
   },
   "267": {
     "automatic_captions": [
@@ -102916,6 +103262,7 @@
         ]
       }
     ],
+    "end_time": 53.84533333333333,
     "parent_video_id": "https://www.youtube.com/watch?v=gnArvcWaH6I",
     "questions": [
       {
@@ -102978,7 +103325,8 @@
         "q_id": 2238,
         "question": "What kind of coins are on the table?"
       }
-    ]
+    ],
+    "start_time": 0.021333333333333333
   },
   "268": {
     "automatic_captions": [
@@ -103651,6 +103999,7 @@
         ]
       }
     ],
+    "end_time": 136.89600000000002,
     "parent_video_id": "https://www.youtube.com/watch?v=gnArvcWaH6I",
     "questions": [
       {
@@ -103713,7 +104062,8 @@
         "q_id": 2243,
         "question": "How many sticks are on the table?"
       }
-    ]
+    ],
+    "start_time": 53.80266666666667
   },
   "269": {
     "automatic_captions": [
@@ -104154,6 +104504,7 @@
         ]
       }
     ],
+    "end_time": 197.67466666666667,
     "parent_video_id": "https://www.youtube.com/watch?v=gnArvcWaH6I",
     "questions": [
       {
@@ -104216,7 +104567,8 @@
         "q_id": 2248,
         "question": "What is the first question the woman asks?"
       }
-    ]
+    ],
+    "start_time": 136.87466666666666
   },
   "274": {
     "automatic_captions": [
@@ -104893,6 +105245,7 @@
         ]
       }
     ],
+    "end_time": 126.592,
     "parent_video_id": "https://www.youtube.com/watch?v=SrBp1Ojt5Z0",
     "questions": [
       {
@@ -105015,7 +105368,8 @@
         "q_id": 2278,
         "question": "How many girls are there?"
       }
-    ]
+    ],
+    "start_time": 17.962666666666667
   },
   "275": {
     "automatic_captions": [
@@ -105625,6 +105979,7 @@
         ]
       }
     ],
+    "end_time": 225.664,
     "parent_video_id": "https://www.youtube.com/watch?v=SrBp1Ojt5Z0",
     "questions": [
       {
@@ -105723,7 +106078,8 @@
         "q_id": 2286,
         "question": "Does James think that there is the same amount of water then?"
       }
-    ]
+    ],
+    "start_time": 136.53333333333333
   },
   "276": {
     "automatic_captions": [
@@ -106118,6 +106474,7 @@
         ]
       }
     ],
+    "end_time": 55.12301133786848,
     "parent_video_id": "https://www.youtube.com/watch?v=R9lkOjLNzU4",
     "questions": [
       {
@@ -106240,7 +106597,8 @@
         "q_id": 2296,
         "question": "How many people are there?"
       }
-    ]
+    ],
+    "start_time": 11.261678004535147
   },
   "277": {
     "automatic_captions": [
@@ -107089,6 +107447,7 @@
         ]
       }
     ],
+    "end_time": 174.40101587301587,
     "parent_video_id": "https://www.youtube.com/watch?v=R9lkOjLNzU4",
     "questions": [
       {
@@ -107211,7 +107570,8 @@
         "q_id": 2306,
         "question": "What is the color of the lion?"
       }
-    ]
+    ],
+    "start_time": 107.9263492063492
   },
   "278": {
     "automatic_captions": [
@@ -108415,6 +108775,7 @@
         ]
       }
     ],
+    "end_time": 352.8765532879819,
     "parent_video_id": "https://www.youtube.com/watch?v=R9lkOjLNzU4",
     "questions": [
       {
@@ -108537,6 +108898,7 @@
         "q_id": 2316,
         "question": "Does the girl think the 2 glasses have same amount of the cranberry juice in the beginning?"
       }
-    ]
+    ],
+    "start_time": 225.30321995464854
   }
 }

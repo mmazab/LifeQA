@@ -5,7 +5,7 @@ import scripts.util
 
 
 def main():
-    data_dicts = scripts.util.load_data()
+    data_dicts = scripts.util.load_video_dicts_split()
 
     df = pd.read_csv('data/answer_types.csv')
 
@@ -17,7 +17,7 @@ def main():
                 q_id = question_dict['q_id']
                 question_dict['answer_type'] = q_id_to_answer_type[q_id]
 
-    scripts.util.save_data(data_dicts)
+    scripts.util.save_video_dicts_split(data_dicts)
 
 
 if __name__ == '__main__':
