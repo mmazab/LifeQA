@@ -1,0 +1,31 @@
+[Child 1]: Did the
+[Child 2]: did the
+[Children]: S, A, O, O, N
+[Child 1]: and
+[Child 2]: Oh, and
+[Child 1]: and, it, to, is
+[Child 2]: is
+[Child 1]: he
+[Child 2]: he
+[Child 1]: it
+[Child 2]: it
+[Child 1]: I
+[Child 2]: I
+[Child 1]: the
+[Child 2]: the
+[Child 1]: De the
+[Child 2]: de the
+[Child 1]: was
+[Child 2]: was
+[Child 1]: a of, you finished all
+[Child 1]: now we've finished homework
+[Child 2]: [indistinct]
+[Child 2]: Can you?
+[Child 1]: So selma, Al Selma
+[Child 2]: Me, me
+[Child 1]: There's no you
+[Child 2]: Let's do me
+[Child 1]: No
+
+
+

@@ -1,0 +1,64 @@
+[Man 1]: What are verbs?
+[Children]: Anything
+[Man 1]: No
+[Children]: Things we can do
+[Man 1]: What are verbs?
+[Child 1]: Something you can do
+[Man 1]: Something you can 
+[Children]: Dooo
+[Man 1]: It's been a while since we have done this
+[Man 1]: Alright Analicia, give me a verb
+[Child 2]: Something you do while Jumping jack
+[Man 1]: So what you doing when doing jumping jack
+[Man 1]: Jump, can you get up and jump?
+[Children]: Yes
+[Man 1]: Analicia show us
+[Man 1]: Very good. Vamia, hold on
+[Man 1]: Vamia
+[Child 3]: Running?
+[Man 1]: Run. Can you run?
+[Children]: Yes
+[Man 1]: Show us
+[Man 1]: Hurry, run
+[Child 3]: [muttering]
+[Man 1]: Just run, can you do it?
+[Child 3]: Yes
+[Man 1]: Show me
+[Child 4]: [indistinct]
+[Man 1]: Caitlyn, show us
+[Man 1]: Alright, anyone
+[Children]: Me
+[Child 5]: I will
+[Man 1]: Have a seat
+[Child 5]: [indistinct]
+[Man 1]: Have a seat
+[Man 1]: Alright, whats another verb? Joshua
+[Child 6]: Spin
+[Man 1]: Spin, show us, can you spin?
+[Children]: Yes
+[Man 1]: Very good, thank you Joshua
+[Man 1]: Lia
+[Child 7]: Walk
+[Man 1]: Walk, can you walk?
+[Children]: Yes
+[Man 1]: Show us
+[Child 8]: Sleepwalk
+[Man 1]: Thank you Lia
+[Man 1]: Ah, Bearmont
+[Child 9]: [indistinct] go in a room?
+[Man 1]: So, what is your verb?
+[Child 9]: Go in a room
+[Man 1]: Go, can you go?
+[Man 1]: Alright, thank you Bearmont
+[Man 1]: One more verb, lets get Caitlyn or Carrie
+[Man 1]: Nicolas, Antonio somebody who hasn't answered today
+[Child 10]: Jump
+[Man 1]: You said jump, Carrie? Caitlyn?
+[Child 11]: Clap
+[Man 1]: Clap, show me Carrie
+[Man 1]: Very good, Alright
+
+
+
+
+

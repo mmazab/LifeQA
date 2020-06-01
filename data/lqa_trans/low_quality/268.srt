@@ -1,0 +1,32 @@
+1
+00:00:00,000 --> 00:00:15,220
+[woman] ok so we have 2 sticks is this stick longer  is this stick longer or are they the same ? [boy]  the same  [woman] the same? What about now is this stick longer  is this stick longer or are they the same ?
+
+2
+00:00:15,220 --> 00:00:19,106
+[woman] this stick is longer  [boy] yeah  [woman] can you tell me why 
+
+3
+00:00:19,106 --> 00:00:21,100
+[boy] because you moved it over 
+
+4
+00:00:21,100 --> 00:00:23,100
+[woman] so now it’s longer [boy] yeah  [woman] ok
+
+5
+00:00:23,100 --> 00:00:32,888
+ [woman] ok tell me I’m gonna pour blue water in each of these cups so then you tell me when they have when they have the same amount ok
+
+6
+00:00:32,880 --> 00:01:02,958
+[woman] ok tell me when this one is the same  [boy]  the same  [woman] the same? Those 2 are the same now [boy] yeah  [woman] ok the same good [boy] the same now [woman] ok good now watch this  we're gonna take the blue water from this glass
+
+7
+00:01:02,958 --> 00:01:04,950
+ [woman] I’m gonna pour it in this glass 
+
+8
+00:01:04,950 --> 00:01:06,950
+[woman] now does this glass have more water does this glass have more water or are they the same ?  [boy] this one has more water [woman]  this one has more water [boy] yeah [woman] can you tell me why [boy] because that one is higher than that [woman] that one is higher than that one right 
+

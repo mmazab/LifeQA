@@ -1,0 +1,48 @@
+1
+00:00:00,000 --> 00:00:00,831
+ [boy1] hi
+
+2
+00:00:00,830 --> 00:00:03,327
+ [boy2] hi  [boy1] hi there [boy2] hi there  hi there 
+
+3
+00:00:03,327 --> 00:00:05,320
+[inaudible]
+
+4
+00:00:05,320 --> 00:00:07,320
+[boy1] the tire
+
+5
+00:00:07,320 --> 00:00:09,320
+[boy1] I'm going to inflate the tire
+
+6
+00:00:11,315 --> 00:00:30,237
+[boy1] it's strong enough but even now I probably get my dad all right [boy2] [inaudible] oh [inaudible] my dad I'm fixing my mom's bicycle I will get my dad fix my mom's bicycle 
+
+7
+00:00:30,230 --> 00:00:34,702
+[inaudible]
+
+8
+00:00:34,702 --> 00:00:36,700
+[boy1] and I forgot where we [inaudible] 
+
+9
+00:00:36,700 --> 00:00:43,761
+[boy1]  [inaudible] help me get this pumping [inaudible] let me  hold it tight
+
+10
+00:00:43,761 --> 00:00:45,760
+[boy2] ok
+
+11
+00:00:45,760 --> 00:00:55,832
+[boy 2] this happened [boy1] let me get out of the way whoa
+
+12
+00:00:55,832 --> 00:00:57,830
+[boy1] I'm not strong enough
+

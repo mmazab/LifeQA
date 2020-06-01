@@ -1,0 +1,32 @@
+1
+00:00:00,000 --> 00:00:05,000
+[woman] So I’m going to make 2 rows of quarters
+
+2
+00:00:05,000 --> 00:00:15,355
+ [woman] ok does this row have more quarters  does this row have more quarters or are they the same ? 
+
+3
+00:00:15,355 --> 00:00:17,350
+[boy]  the same [woman] the same? Ok 
+
+4
+00:00:17,350 --> 00:00:25,219
+[woman] now watch now does this row have more quarters  does this row have more quarters or are they the same ? 
+
+5
+00:00:25,219 --> 00:00:27,210
+[boy] that one has more quarters 
+
+6
+00:00:27,210 --> 00:00:29,210
+[woman] that one has more quarters? [boy] yeah [woman] Why is that
+
+7
+00:00:29,210 --> 00:00:42,920
+[woman]  have more quarters  [boy] because it’s stretched out  [woman] because it’s stretched out [boy] yeah [woman] ok now how many are in this row?  [boy]  1 2 3 4 5  [woman] ok now how many are in this row? 
+
+8
+00:00:42,920 --> 00:00:44,920
+[boy]  1 2 3 4 5 [woman] so are there more in this row, this row or are they the same [boy] the same [woman] the same? [boy] yeah Ok
+

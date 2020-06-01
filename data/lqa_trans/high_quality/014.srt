@@ -1,0 +1,81 @@
+1
+00:00:00,001 --> 00:00:01,570
+[girl1] this
+
+2
+00:00:01,570 --> 00:00:05,728
+ [man] what did you buy, can you show us? What is that?
+
+3
+00:00:05,720 --> 00:00:10,408
+[girl1] a watch
+
+4
+00:00:10,408 --> 00:00:10,411
+[man] great questions for Lia about her watch
+[girl1] a watch
+
+5
+00:00:10,411 --> 00:00:13,063
+[man] great questions for Lia about her watch
+
+6
+00:00:13,063 --> 00:00:15,060
+ [girl2] where did you get the watch?
+
+7
+00:00:15,060 --> 00:00:18,038
+[girl1] [inaudible]
+
+8
+00:00:18,030 --> 00:00:19,622
+[man] where did you get it?
+
+9
+00:00:19,622 --> 00:00:21,620
+[girl1] I don't know
+
+10
+00:00:21,620 --> 00:00:23,620
+ [girl3] what time is it?
+
+11
+00:00:23,620 --> 00:00:25,620
+[girl1] [inaudible]
+
+12
+00:00:25,620 --> 00:00:27,688
+[man] any more questions?
+
+13
+00:00:27,688 --> 00:00:29,680
+[man] for Lia about her watch
+
+14
+00:00:29,680 --> 00:00:36,337
+[boy1] where did you get the watch from off the ground or off the floor?
+
+15
+00:00:36,337 --> 00:00:38,330
+[girl1] I buy it
+
+16
+00:00:38,330 --> 00:00:43,333
+[man] thanks you Lee, good question, let's get one more boy, Antonio
+
+17
+00:00:43,330 --> 00:00:46,896
+[boy2] no
+
+18
+00:00:48,885 --> 00:00:51,915
+[boy 1] I  [inaudible] outside
+
+19
+00:00:51,915 --> 00:00:53,910
+[man] what were you doing outside?
+
+20
+00:00:53,910 --> 00:00:55,910
+ [inaudible] [boy1] playing
+

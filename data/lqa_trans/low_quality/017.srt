@@ -1,0 +1,84 @@
+1
+00:00:00,000 --> 00:00:04,204
+[man] reading it really loud
+
+2
+00:00:04,200 --> 00:00:07,995
+[kid1] I have 16 who has one less
+
+3
+00:00:07,990 --> 00:00:10,961
+[kid2] I have 15 [inaudible]
+
+4
+00:00:10,961 --> 00:00:12,960
+[man] I have 14 who has one less?
+
+5
+00:00:12,960 --> 00:00:17,991
+[inaudible]
+
+6
+00:00:17,990 --> 00:00:20,382
+[man] I have 14 who has one less?
+
+7
+00:00:20,380 --> 00:00:23,345
+[kid3] I have 13 who has one less
+
+8
+00:00:23,340 --> 00:00:27,170
+[kid4] I have 12 who has one less
+
+9
+00:00:27,170 --> 00:00:30,241
+[kid5] I have 11 who has one less
+
+10
+00:00:30,240 --> 00:00:33,945
+[inaudible]
+
+11
+00:00:33,940 --> 00:00:37,333
+[kid6] I have 10 who has one less
+
+12
+00:00:37,330 --> 00:00:39,145
+[kid7] I have 9 who has one less
+
+13
+00:00:39,145 --> 00:00:41,140
+[kid8] I have 8 who has one less
+
+14
+00:00:41,140 --> 00:00:43,140
+[kid9] I have 7 who has one less
+
+15
+00:00:43,140 --> 00:00:45,696
+[kid10] I have 6 who has one less
+
+16
+00:00:45,690 --> 00:00:48,611
+[kid11] I have 5 who has one less
+
+17
+00:00:48,611 --> 00:00:50,610
+[kid12] I have 4 who has one less
+
+18
+00:00:50,610 --> 00:00:54,040
+[man] I have 3 who has one less
+
+19
+00:00:54,040 --> 00:00:58,291
+[kid13] I have 2 who has one less
+
+20
+00:00:58,290 --> 00:01:02,441
+[kid14] I have I have 1 who has one less
+
+21
+00:01:02,441 --> 00:01:04,440
+[inaudible]
+

@@ -1,6 +1,6 @@
-# LifeQA code
+# LifeQA data and code
 
-PyTorch code that accompanies our LREC 2020 paper:
+This repo contains the data and PyTorch code that accompanies our LREC 2020 paper:
 
 [LifeQA: A Real-life Dataset for Video Question Answering](https://www.aclweb.org/anthology/2020.lrec-1.536/)
 
