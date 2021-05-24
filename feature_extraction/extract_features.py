@@ -199,6 +199,7 @@ def save_i3d_features():
         torchvision.transforms.Resize(256),
         torchvision.transforms.CenterCrop(224),
         torchvision.transforms.ToTensor(),
+        # FIXME: normalization shouldn't be done for I3D.
         torchvision.transforms.Normalize(**IMAGENET_NORMALIZATION_PARAMS),
     ])
     dataset = LifeQaFrameDataset(transform=transform)
