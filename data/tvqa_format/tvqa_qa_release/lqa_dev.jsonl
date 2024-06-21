@@ -1,0 +1,344 @@
+{"vid_name": "123", "qid": 1011, "q": "How many people are in the car?", "answer_idx": 2, "a0": "11", "a1": "4", "a2": "2", "a3": "7"}
+{"vid_name": "123", "qid": 1012, "q": "What color is the man's hat?", "answer_idx": 2, "a0": "silver", "a1": "golden", "a2": "blue", "a3": "red"}
+{"vid_name": "123", "qid": 1013, "q": "Where are they?", "answer_idx": 3, "a0": "restroom", "a1": "train", "a2": "bedroom", "a3": "car"}
+{"vid_name": "123", "qid": 1014, "q": "Where are they going?", "answer_idx": 3, "a0": "class", "a1": "restroom", "a2": "party", "a3": "mall"}
+{"vid_name": "123", "qid": 1015, "q": "Where does she want to go to first?", "answer_idx": 3, "a0": "Aldo", "a1": "home", "a2": "Zara", "a3": "Forever XXI"}
+{"vid_name": "123", "qid": 1016, "q": "Where are they?", "answer_idx": 1, "a0": "restroom", "a1": "car", "a2": "restaurant ", "a3": "park"}
+{"vid_name": "123", "qid": 1017, "q": "How many people are in the video?", "answer_idx": 2, "a0": "6", "a1": "8", "a2": "2", "a3": "7"}
+{"vid_name": "123", "qid": 1018, "q": "Why the girl want to go to mall?", "answer_idx": 1, "a0": "go to cinema", "a1": "buy clothes", "a2": "buy food", "a3": "see her friends"}
+{"vid_name": "123", "qid": 1019, "q": "What's the color of the man's hat?", "answer_idx": 2, "a0": "black", "a1": "brown", "a2": "blue", "a3": "white"}
+{"vid_name": "127", "qid": 1045, "q": "What are the girls getting ready for?", "answer_idx": 3, "a0": "homework", "a1": "yard work", "a2": "ballroom", "a3": "vacation"}
+{"vid_name": "127", "qid": 1046, "q": "Where are the girls going?", "answer_idx": 0, "a0": "San Antonio", "a1": "San Francisco", "a2": "Chicago", "a3": "San Juan"}
+{"vid_name": "127", "qid": 1047, "q": "What are the girls about to do?", "answer_idx": 1, "a0": "play", "a1": "pack", "a2": "sleep", "a3": "read"}
+{"vid_name": "127", "qid": 1048, "q": "Who is the man?", "answer_idx": 0, "a0": "their father", "a1": "their uncle", "a2": "their brother", "a3": "their cousin"}
+{"vid_name": "127", "qid": 1049, "q": "What does the man have on the shoulder?", "answer_idx": 1, "a0": "bag", "a1": "tattoo", "a2": "scar", "a3": "butterfly"}
+{"vid_name": "127", "qid": 1050, "q": "Where will they go for vocation?", "answer_idx": 3, "a0": "London", "a1": "New York", "a2": "San Francisco", "a3": "San Antonio"}
+{"vid_name": "127", "qid": 1051, "q": "How many kids are there?", "answer_idx": 0, "a0": "2", "a1": "1", "a2": "4", "a3": "3"}
+{"vid_name": "127", "qid": 1052, "q": "What is the color of the top of the younger sister?", "answer_idx": 3, "a0": "red", "a1": "brown", "a2": "yellow", "a3": "blue"}
+{"vid_name": "127", "qid": 1053, "q": "What color of top does the man wear?", "answer_idx": 2, "a0": "black", "a1": "yellow", "a2": "gray", "a3": "blue"}
+{"vid_name": "128", "qid": 1054, "q": "What kind of luggage does the first girl have?", "answer_idx": 2, "a0": "shiny luggage", "a1": "heavy luggage", "a2": "emoji luggage", "a3": "dirty luggage"}
+{"vid_name": "128", "qid": 1055, "q": "What is the first question that the man asks?", "answer_idx": 2, "a0": "What kind of cat do you have?", "a1": "What kind of flight do you have?", "a2": "What kind of luggage do you have?", "a3": "What kind of book do you have?"}
+{"vid_name": "128", "qid": 1056, "q": "What color is the back of the emoji luggage?", "answer_idx": 3, "a0": "fuchsia", "a1": "blue", "a2": "beige", "a3": "pink"}
+{"vid_name": "128", "qid": 1057, "q": "How many people are there?", "answer_idx": 1, "a0": "3", "a1": "2", "a2": "5", "a3": "10"}
+{"vid_name": "128", "qid": 1058, "q": "What kind of luggage does the first girl have?", "answer_idx": 1, "a0": "Kevin", "a1": "Dory", "a2": "Mickey", "a3": "Princess"}
+{"vid_name": "128", "qid": 1059, "q": "Why does her have an emoji luggage?", "answer_idx": 3, "a0": "no reason", "a1": " her mom likes it", "a2": "it is affordable to her", "a3": "she loves emoji"}
+{"vid_name": "128", "qid": 1060, "q": "What did Riley put in her luggage?", "answer_idx": 0, "a0": "her baby doll", "a1": "homework", "a2": "clothes", "a3": "book"}
+{"vid_name": "128", "qid": 1061, "q": "What is the name of the younger sister?", "answer_idx": 2, "a0": "Roy", "a1": "Chanel", "a2": "Riley", "a3": "Pat"}
+{"vid_name": "129", "qid": 1062, "q": "What does the first t-shirt say?", "answer_idx": 3, "a0": "totally happy", "a1": "totally green", "a2": "orange tropical", "a3": "totally tropical"}
+{"vid_name": "129", "qid": 1063, "q": "What does the second t-shirt say?", "answer_idx": 1, "a0": "today", "a1": "love", "a2": "happy", "a3": "green"}
+{"vid_name": "129", "qid": 1064, "q": "What is the first question the man asks?", "answer_idx": 1, "a0": "what does the t-shirt go?", "a1": "what does the t-shirt say?", "a2": "what is the t-shirt?", "a3": "who bought the t-shirts?"}
+{"vid_name": "129", "qid": 1065, "q": "What color are the walls?", "answer_idx": 2, "a0": "beige", "a1": "fuchsia", "a2": "white", "a3": "black"}
+{"vid_name": "129", "qid": 1066, "q": "Where is the TV?", "answer_idx": 1, "a0": "box", "a1": "fireplace", "a2": "shelves", "a3": "floor"}
+{"vid_name": "129", "qid": 1067, "q": "What is the elder sister's name?", "answer_idx": 0, "a0": "Chanel", "a1": "Coco", "a2": "Patty", "a3": "Kris"}
+{"vid_name": "129", "qid": 1068, "q": "What are they doing?", "answer_idx": 0, "a0": "pack their suitcase", "a1": "cook a meal", "a2": "play chess", "a3": "sing"}
+{"vid_name": "129", "qid": 1069, "q": "What is the name of the younger sister?", "answer_idx": 2, "a0": "Roy", "a1": "Ron", "a2": "Riley", "a3": "Lily"}
+{"vid_name": "129", "qid": 1070, "q": "What did the younger child get?", "answer_idx": 3, "a0": "a doll", "a1": "a suitcase", "a2": "a pet", "a3": "a shirt"}
+{"vid_name": "130", "qid": 1071, "q": "What is the bigger girl doing?", "answer_idx": 0, "a0": "folding clothes", "a1": "cleaning clothes", "a2": "ironing clothes", "a3": "folding chairs"}
+{"vid_name": "130", "qid": 1072, "q": "Where is the doll?", "answer_idx": 3, "a0": "in the box", "a1": "on the bed", "a2": "on the oven", "a3": "in the luggage"}
+{"vid_name": "130", "qid": 1073, "q": "What color is the t-shirt of the small girl?", "answer_idx": 0, "a0": "blue", "a1": "white", "a2": "fuchsia", "a3": "brown"}
+{"vid_name": "130", "qid": 1074, "q": "What is in the corner of the living room?", "answer_idx": 3, "a0": "cinema", "a1": "flower", "a2": "cat", "a3": "fireplace"}
+{"vid_name": "130", "qid": 1075, "q": "What pair does the little girl need?", "answer_idx": 3, "a0": "skirts", "a1": "scissors", "a2": "gloves", "a3": "pants"}
+{"vid_name": "130", "qid": 1076, "q": "What is Chanel doing first?", "answer_idx": 1, "a0": "cleaning her room", "a1": "folding her clothes", "a2": "washing her clothes", "a3": "doing her homework"}
+{"vid_name": "130", "qid": 1077, "q": "What is Riley doing first?", "answer_idx": 1, "a0": "folding her clothes", "a1": "putting her clothes in the luggage", "a2": "washing her clothes", "a3": "cleaning her room"}
+{"vid_name": "130", "qid": 1078, "q": "What is the name of the younger sister?", "answer_idx": 1, "a0": "Lily", "a1": "Riley", "a2": "Ron", "a3": "Roy"}
+{"vid_name": "130", "qid": 1079, "q": "What is the name of the elder sister?", "answer_idx": 1, "a0": "Jenny", "a1": "Chanel", "a2": "Kitty", "a3": "Kris"}
+{"vid_name": "130", "qid": 1080, "q": "What is the color of the top of the younger sister?", "answer_idx": 3, "a0": "white", "a1": "brown", "a2": "red", "a3": "blue"}
+{"vid_name": "131", "qid": 1081, "q": "What is he telling the girl to put in?", "answer_idx": 3, "a0": "the book", "a1": "the dictionary", "a2": "the laces", "a3": "the doll"}
+{"vid_name": "131", "qid": 1082, "q": "Where is the girl's towel?", "answer_idx": 2, "a0": "on the bed", "a1": "in the box", "a2": "in the luggage", "a3": "on the table"}
+{"vid_name": "131", "qid": 1083, "q": "What color is the towell?", "answer_idx": 0, "a0": "pink", "a1": "blue", "a2": "brown", "a3": "white"}
+{"vid_name": "131", "qid": 1084, "q": "What does the girl have to teach us?", "answer_idx": 2, "a0": "how to clean the luggage", "a1": "how to buy the luggage", "a2": "how to close the luggage", "a3": "how to find the luggage"}
+{"vid_name": "131", "qid": 1085, "q": "How many pieces of luggage are on the floor?", "answer_idx": 3, "a0": "13", "a1": "6", "a2": "3", "a3": "2"}
+{"vid_name": "131", "qid": 1086, "q": "What covers the floor?", "answer_idx": 0, "a0": "carpet", "a1": "wood", "a2": "marble", "a3": "tile"}
+{"vid_name": "131", "qid": 1087, "q": "How many kids are in this video?", "answer_idx": 2, "a0": "3", "a1": "1", "a2": "2", "a3": "4 "}
+{"vid_name": "131", "qid": 1088, "q": "What's the color of the doll's cloth?", "answer_idx": 3, "a0": "blue", "a1": "red", "a2": "pink", "a3": "yellow"}
+{"vid_name": "131", "qid": 1089, "q": "How many fish patterns are on the cover of the little sister's luggage?", "answer_idx": 2, "a0": "1", "a1": "4 ", "a2": "2", "a3": "3"}
+{"vid_name": "131", "qid": 1090, "q": "Where did the kid went through at home?", "answer_idx": 2, "a0": "bathroom", "a1": "bedroom", "a2": "kitchen and living room", "a3": "balcony"}
+{"vid_name": "132", "qid": 1091, "q": "What color is the carpet?", "answer_idx": 0, "a0": "beige", "a1": "black", "a2": "fuchsia", "a3": "white"}
+{"vid_name": "132", "qid": 1092, "q": "Who is asking questions?", "answer_idx": 1, "a0": "aunt", "a1": "father", "a2": "grandmother", "a3": "brother"}
+{"vid_name": "132", "qid": 1093, "q": "What color is the couch?", "answer_idx": 3, "a0": "red", "a1": "purple", "a2": "magenta", "a3": "beige"}
+{"vid_name": "132", "qid": 1094, "q": "What is the girl showing?", "answer_idx": 0, "a0": "how the luggage works", "a1": "how the phone works", "a2": "how the TV works", "a3": "how the luggage breaks"}
+{"vid_name": "132", "qid": 1095, "q": "Where are they?", "answer_idx": 0, "a0": "living room", "a1": "yard", "a2": "cinema", "a3": "farm"}
+{"vid_name": "132", "qid": 1096, "q": "What's the color of the older sister's luggage?", "answer_idx": 2, "a0": "yellow", "a1": "blue", "a2": "pink", "a3": "red"}
+{"vid_name": "132", "qid": 1097, "q": "What is the relationship between those 3 people?", "answer_idx": 0, "a0": "father and daughters", "a1": "mother and daughters", "a2": "teacher and students", "a3": "friends"}
+{"vid_name": "132", "qid": 1098, "q": "How many kids are in this video?", "answer_idx": 0, "a0": "2", "a1": "3", "a2": "1", "a3": "4 "}
+{"vid_name": "132", "qid": 1099, "q": "How many kids wearing glasses in this video?", "answer_idx": 1, "a0": "3", "a1": "1", "a2": "4 ", "a3": "2"}
+{"vid_name": "132", "qid": 1100, "q": "How many boys are in this video?", "answer_idx": 3, "a0": "2", "a1": "3", "a2": "1", "a3": "0"}
+{"vid_name": "133", "qid": 1101, "q": "What is the first question the woman asks?", "answer_idx": 1, "a0": "Did you pack the books?", "a1": "Did you pack everything?", "a2": "Did you write everything?", "a3": "Did you read everything?"}
+{"vid_name": "133", "qid": 1102, "q": "Where are the girls?", "answer_idx": 2, "a0": "theater", "a1": "bathtub", "a2": "on the floor", "a3": "balcony"}
+{"vid_name": "133", "qid": 1103, "q": "What color is the beach towel?", "answer_idx": 3, "a0": "beige", "a1": "fuchsia", "a2": "yellow", "a3": "light green"}
+{"vid_name": "133", "qid": 1104, "q": "How many more night clothes she still needs?", "answer_idx": 3, "a0": "3", "a1": "0", "a2": "6", "a3": "1"}
+{"vid_name": "133", "qid": 1105, "q": "What color are the doors?", "answer_idx": 1, "a0": "magenta", "a1": "white", "a2": "yellow", "a3": "red"}
+{"vid_name": "133", "qid": 1106, "q": "How many kids got the beach towels in their luggages?", "answer_idx": 3, "a0": "4 ", "a1": "1", "a2": "3", "a3": "2"}
+{"vid_name": "133", "qid": 1107, "q": "How many nightclothes the older sister has in her luggage?", "answer_idx": 2, "a0": "3", "a1": "4 ", "a2": "2", "a3": "1"}
+{"vid_name": "133", "qid": 1108, "q": "What's the color of the wall?", "answer_idx": 1, "a0": "yellow", "a1": "white", "a2": "blue", "a3": "red"}
+{"vid_name": "133", "qid": 1109, "q": "What is the relationship between those 3 people?", "answer_idx": 1, "a0": "teacher and students", "a1": "mother and daughters", "a2": "friends", "a3": "father and daughters"}
+{"vid_name": "133", "qid": 1110, "q": "How many beds are in the room?", "answer_idx": 3, "a0": "2", "a1": "4 ", "a2": "3", "a3": "1"}
+{"vid_name": "134", "qid": 1111, "q": "Where is the tablet?", "answer_idx": 0, "a0": "floor", "a1": "table", "a2": "shelves", "a3": "TV stand"}
+{"vid_name": "134", "qid": 1112, "q": "What color is the eyeglasses frame?", "answer_idx": 1, "a0": "golden", "a1": "black", "a2": "white", "a3": "pink"}
+{"vid_name": "134", "qid": 1113, "q": "What color is the life vest?", "answer_idx": 3, "a0": "beige", "a1": "red", "a2": "yellow", "a3": "pink"}
+{"vid_name": "134", "qid": 1114, "q": "How many swim suits does the second girl have?", "answer_idx": 3, "a0": "5", "a1": "1", "a2": "3", "a3": "2"}
+{"vid_name": "134", "qid": 1115, "q": "Where will she need the swim suit?", "answer_idx": 0, "a0": "school", "a1": "yard", "a2": "cinema", "a3": "farm"}
+{"vid_name": "134", "qid": 1116, "q": "What's the color of the mother's nails?", "answer_idx": 2, "a0": "yellow", "a1": "pink", "a2": "white", "a3": "blue"}
+{"vid_name": "134", "qid": 1117, "q": "What's the color of the wall?", "answer_idx": 2, "a0": "yellow", "a1": "blue", "a2": "white", "a3": "red"}
+{"vid_name": "134", "qid": 1118, "q": "What's the words on the white pillow?", "answer_idx": 3, "a0": "coolest girl ever", "a1": "please fly with me", "a2": "I don't know", "a3": "messy hair don't care"}
+{"vid_name": "134", "qid": 1119, "q": "How many beds are in the room?", "answer_idx": 3, "a0": "3", "a1": "2", "a2": "4 ", "a3": "1"}
+{"vid_name": "134", "qid": 1120, "q": "How many kids are in this video?", "answer_idx": 1, "a0": "1", "a1": "2", "a2": "3", "a3": "4 "}
+{"vid_name": "135", "qid": 1121, "q": "What color is the inside of the luggage?", "answer_idx": 1, "a0": "pink", "a1": "blue", "a2": "green", "a3": "white"}
+{"vid_name": "135", "qid": 1122, "q": "How many nightgowns do they pack?", "answer_idx": 2, "a0": "5", "a1": "6", "a2": "1", "a3": "10"}
+{"vid_name": "135", "qid": 1123, "q": "What is the girl bringing?", "answer_idx": 0, "a0": "underwear", "a1": "gloves", "a2": "tie", "a3": "paper"}
+{"vid_name": "135", "qid": 1124, "q": "What color are the shoes in the luggage?", "answer_idx": 2, "a0": "black", "a1": "white", "a2": "pink", "a3": "golden"}
+{"vid_name": "135", "qid": 1125, "q": "Who is checking on their packing?", "answer_idx": 3, "a0": "cousin", "a1": "aunt", "a2": "brother", "a3": "mother"}
+{"vid_name": "135", "qid": 1126, "q": "How many dolls on the floor?", "answer_idx": 1, "a0": "2", "a1": "1", "a2": "4 ", "a3": "3"}
+{"vid_name": "135", "qid": 1127, "q": "How many pairs of shoes in the little sister's luggage?", "answer_idx": 3, "a0": "3", "a1": "2", "a2": "4 ", "a3": "1"}
+{"vid_name": "135", "qid": 1128, "q": "How many underwear does the little sister need to find?", "answer_idx": 2, "a0": "4 ", "a1": "3", "a2": "2", "a3": "1"}
+{"vid_name": "135", "qid": 1129, "q": "What is the relationship between those people?", "answer_idx": 1, "a0": "friends", "a1": "mother and daughters", "a2": "father and daughters", "a3": "teacher and students"}
+{"vid_name": "135", "qid": 1130, "q": "What's the color of the mother's clothes?", "answer_idx": 2, "a0": "pink", "a1": "yellow", "a2": "blue", "a3": "white"}
+{"vid_name": "136", "qid": 1131, "q": "Where are they?", "answer_idx": 1, "a0": "kitchen", "a1": "bedroom", "a2": "balcony", "a3": "yard"}
+{"vid_name": "136", "qid": 1132, "q": "What are they doing?", "answer_idx": 1, "a0": "playing", "a1": "packing", "a2": "singing", "a3": "traveling"}
+{"vid_name": "136", "qid": 1133, "q": "Where are they sitting?", "answer_idx": 3, "a0": "bathtub", "a1": "table", "a2": "tree", "a3": "floor"}
+{"vid_name": "136", "qid": 1134, "q": "Where do they need the outfit next day?", "answer_idx": 2, "a0": "farm", "a1": "bathtub", "a2": "school", "a3": "yard"}
+{"vid_name": "136", "qid": 1135, "q": "What color is the woman's dress?", "answer_idx": 2, "a0": "black", "a1": "white", "a2": "blue", "a3": "pink"}
+{"vid_name": "136", "qid": 1136, "q": "What are the words on the painting on the wall?", "answer_idx": 0, "a0": "be yourself", "a1": "I don't know", "a2": "please fly with me", "a3": "coolest girl ever"}
+{"vid_name": "136", "qid": 1137, "q": "How many TVs are in the room?", "answer_idx": 2, "a0": "4 ", "a1": "3", "a2": "1", "a3": "2"}
+{"vid_name": "136", "qid": 1138, "q": "What is the relationship between those people?", "answer_idx": 1, "a0": "teacher and students", "a1": "mother and daughters", "a2": "friends", "a3": "father and daughters"}
+{"vid_name": "136", "qid": 1139, "q": "What's the color of the door?", "answer_idx": 1, "a0": "pink", "a1": "white", "a2": "yellow", "a3": "blue"}
+{"vid_name": "206", "qid": 1728, "q": "How many boxes of cookies are there?", "answer_idx": 2, "a0": "10", "a1": "17", "a2": "14", "a3": "15"}
+{"vid_name": "206", "qid": 1729, "q": "How many orange boxes of cookies are there?", "answer_idx": 2, "a0": "3", "a1": "1", "a2": "2", "a3": "4"}
+{"vid_name": "206", "qid": 1730, "q": "How many are they going to have on a plate?", "answer_idx": 2, "a0": "4", "a1": "2", "a2": "1", "a3": "3"}
+{"vid_name": "206", "qid": 1731, "q": "What are they going to do?", "answer_idx": 1, "a0": "the pop game", "a1": "the pop tart challenge", "a2": "the cake challenge", "a3": "the tart game"}
+{"vid_name": "206", "qid": 1732, "q": "How many different flavors of cookies are there?", "answer_idx": 0, "a0": "14", "a1": "10", "a2": "16", "a3": "17"}
+{"vid_name": "206", "qid": 1733, "q": "How many girls are there?", "answer_idx": 1, "a0": "4", "a1": "2", "a2": "1", "a3": "3"}
+{"vid_name": "206", "qid": 1734, "q": "How many people are there?", "answer_idx": 2, "a0": "4", "a1": "5", "a2": "3", "a3": "2"}
+{"vid_name": "206", "qid": 1735, "q": "How many men are there?", "answer_idx": 1, "a0": "2", "a1": "1", "a2": "4", "a3": "3"}
+{"vid_name": "207", "qid": 1736, "q": "What flavor of cookies do they taste?", "answer_idx": 0, "a0": "blueberry", "a1": "sea salt", "a2": "peanut butter", "a3": "brown sugar cinnamon"}
+{"vid_name": "207", "qid": 1737, "q": "Who likes the cookies?", "answer_idx": 2, "a0": "the big girl", "a1": "the aunt", "a2": "the man", "a3": "the little girl"}
+{"vid_name": "207", "qid": 1738, "q": "How many orange boxes of cookies are there?", "answer_idx": 3, "a0": "one", "a1": "10", "a2": "3", "a3": "2"}
+{"vid_name": "207", "qid": 1739, "q": "How many blue boxes of cookies are there?", "answer_idx": 1, "a0": "15", "a1": "10", "a2": "2", "a3": "11"}
+{"vid_name": "207", "qid": 1740, "q": "What color is the big girl's top?", "answer_idx": 3, "a0": "black", "a1": "blue", "a2": "brown", "a3": "grey"}
+{"vid_name": "207", "qid": 1741, "q": "Does the man like the first one?", "answer_idx": 0, "a0": "yes", "a1": "no", "a2": "", "a3": ""}
+{"vid_name": "207", "qid": 1742, "q": "What is the girl's answer?", "answer_idx": 1, "a0": "vanilla", "a1": "blueberry", "a2": "watermelon", "a3": "strawberry"}
+{"vid_name": "207", "qid": 1743, "q": "What is the correct answer?", "answer_idx": 3, "a0": "watermelon", "a1": "strawberry", "a2": "vanilla", "a3": "blueberry"}
+{"vid_name": "207", "qid": 1744, "q": "Who is the winner for the first challenge?", "answer_idx": 3, "a0": "the man", "a1": "both of them", "a2": "neither of them", "a3": "the girl"}
+{"vid_name": "207", "qid": 1745, "q": "How many people are there?", "answer_idx": 0, "a0": "3", "a1": "5", "a2": "2", "a3": "4"}
+{"vid_name": "208", "qid": 1746, "q": "What color is the man's top?", "answer_idx": 1, "a0": "brown", "a1": "black", "a2": "red", "a3": "green"}
+{"vid_name": "208", "qid": 1747, "q": "What color are the masks?", "answer_idx": 2, "a0": "blue", "a1": "green", "a2": "black", "a3": "white"}
+{"vid_name": "208", "qid": 1748, "q": "Who is wearing a necklace?", "answer_idx": 0, "a0": "the big girl", "a1": "the old lady", "a2": "the man", "a3": "the little girl"}
+{"vid_name": "208", "qid": 1749, "q": "What flavor of cookies do they taste?", "answer_idx": 0, "a0": "peanut butter", "a1": "cocoa", "a2": "brown sugar cinnamon", "a3": "sea salt"}
+{"vid_name": "208", "qid": 1750, "q": "Where are they seated?", "answer_idx": 2, "a0": "on the floor", "a1": "on the terrace", "a2": "at the counter", "a3": "on the couch"}
+{"vid_name": "208", "qid": 1751, "q": "What is the correct answer?", "answer_idx": 2, "a0": "strawberry", "a1": "blueberry", "a2": "peanut butter", "a3": "chocolate"}
+{"vid_name": "208", "qid": 1752, "q": "What is the man's answer?", "answer_idx": 2, "a0": "chocolate", "a1": "blueberry", "a2": "peanut butter", "a3": "strawberry"}
+{"vid_name": "208", "qid": 1753, "q": "what is the girl's answer?", "answer_idx": 1, "a0": "strawberry", "a1": "peanut butter", "a2": "chocolate", "a3": "blueberry"}
+{"vid_name": "208", "qid": 1754, "q": "Who is the winner?", "answer_idx": 3, "a0": "the man", "a1": "the girl", "a2": "neither of them", "a3": "both of them"}
+{"vid_name": "208", "qid": 1755, "q": "How many people are there?", "answer_idx": 0, "a0": "3", "a1": "2", "a2": "5", "a3": "4"}
+{"vid_name": "209", "qid": 1756, "q": "Who cannot smell anything?", "answer_idx": 2, "a0": "the man", "a1": "the aunt", "a2": "the big girl", "a3": "the little girl"}
+{"vid_name": "209", "qid": 1757, "q": "Who has short hair?", "answer_idx": 2, "a0": "the big girl", "a1": "the aunt", "a2": "the man", "a3": "the cousin"}
+{"vid_name": "209", "qid": 1758, "q": "What color is the girl's bracelet?", "answer_idx": 2, "a0": "green", "a1": "violet", "a2": "black", "a3": "brown"}
+{"vid_name": "209", "qid": 1759, "q": "What is the name of the cookies?", "answer_idx": 2, "a0": "graham crackers", "a1": "nut tarts", "a2": "pop tarts", "a3": "cherry tarts"}
+{"vid_name": "209", "qid": 1760, "q": "What flavor of cookies do they taste?", "answer_idx": 3, "a0": "chocolate milk", "a1": "peanut butter", "a2": "chocolate chips", "a3": "chocolate peanut butter"}
+{"vid_name": "209", "qid": 1761, "q": "Does the girl smell anything?", "answer_idx": 1, "a0": "", "a1": "no", "a2": "yes", "a3": ""}
+{"vid_name": "209", "qid": 1762, "q": "What is the correct answer?", "answer_idx": 2, "a0": "blueberry", "a1": "strawberry", "a2": "chocolate peanut butter", "a3": "peanut butter"}
+{"vid_name": "209", "qid": 1763, "q": "What is the man's answer?", "answer_idx": 3, "a0": "peanut butter", "a1": "blueberry", "a2": "strawberry", "a3": "chocolate"}
+{"vid_name": "209", "qid": 1764, "q": "What is the girl's answer?", "answer_idx": 0, "a0": "chocolate peanut butter", "a1": "peanut butter", "a2": "strawberry", "a3": "blueberry"}
+{"vid_name": "209", "qid": 1765, "q": "Who is the winner?", "answer_idx": 0, "a0": "the girl", "a1": "both of them", "a2": "the man", "a3": "neither of them"}
+{"vid_name": "210", "qid": 1766, "q": "How many people are in the room?", "answer_idx": 1, "a0": "2", "a1": "3", "a2": "1", "a3": "5"}
+{"vid_name": "210", "qid": 1767, "q": "How many people are wearing masks?", "answer_idx": 2, "a0": "6", "a1": "3", "a2": "2", "a3": "1"}
+{"vid_name": "210", "qid": 1768, "q": "How many people have a plate?", "answer_idx": 0, "a0": "3", "a1": "2", "a2": "1", "a3": "5"}
+{"vid_name": "210", "qid": 1769, "q": "How many cookies does each one eat?", "answer_idx": 3, "a0": "4", "a1": "3", "a2": "2", "a3": "1"}
+{"vid_name": "210", "qid": 1770, "q": "What flavor was the cookie?", "answer_idx": 1, "a0": "sea salt", "a1": "brown sugar cinnamon", "a2": "cappuccino", "a3": "cocoa"}
+{"vid_name": "210", "qid": 1771, "q": "Does the man like the flavor?", "answer_idx": 1, "a0": "no", "a1": "yes", "a2": "", "a3": ""}
+{"vid_name": "210", "qid": 1772, "q": "What is the correct answer?", "answer_idx": 0, "a0": "brown sugar cinnamon", "a1": "peanut butter", "a2": "blueberry", "a3": "lemon"}
+{"vid_name": "210", "qid": 1773, "q": "What is the girl's answer?", "answer_idx": 3, "a0": "peanut butter", "a1": "blueberry", "a2": "lemon", "a3": "brown sugar cinnamon"}
+{"vid_name": "210", "qid": 1774, "q": "Who is the winner?", "answer_idx": 1, "a0": "both of them", "a1": "the girl", "a2": "the man", "a3": "neither of them"}
+{"vid_name": "210", "qid": 1775, "q": "What is the man's answer?", "answer_idx": 2, "a0": "lemon", "a1": "peanut butter", "a2": "brown sugar", "a3": "blueberry"}
+{"vid_name": "211", "qid": 1776, "q": "What is the little girl's name?", "answer_idx": 0, "a0": "Paisly", "a1": "Brice", "a2": "Paula", "a3": "Brooklyn"}
+{"vid_name": "211", "qid": 1777, "q": "What is the little girl's favorite color?", "answer_idx": 3, "a0": "brown", "a1": "red", "a2": "white", "a3": "pink"}
+{"vid_name": "211", "qid": 1778, "q": "How old is the little girl?", "answer_idx": 3, "a0": "1", "a1": "2", "a2": "4", "a3": "3"}
+{"vid_name": "211", "qid": 1779, "q": "How many girls love pink?", "answer_idx": 2, "a0": "4", "a1": "1", "a2": "2", "a3": "3"}
+{"vid_name": "211", "qid": 1780, "q": "What does the little girl have pink?", "answer_idx": 1, "a0": "her fingernails", "a1": "her lips", "a2": "her skirt", "a3": "her t-shirt"}
+{"vid_name": "211", "qid": 1781, "q": "What is on the woman's shirt?", "answer_idx": 2, "a0": "a dog", "a1": "a frog", "a2": "a cat", "a3": "an apple"}
+{"vid_name": "211", "qid": 1782, "q": "How many people are there?", "answer_idx": 2, "a0": "3", "a1": "4", "a2": "2", "a3": "1"}
+{"vid_name": "212", "qid": 1783, "q": "What color are the cats the little girl likes?", "answer_idx": 1, "a0": "brown", "a1": "orange", "a2": "black", "a3": "white"}
+{"vid_name": "212", "qid": 1784, "q": "What size are the cats the little girl likes?", "answer_idx": 3, "a0": "tiny", "a1": "small", "a2": "average", "a3": "big"}
+{"vid_name": "212", "qid": 1785, "q": "What do the girls say that the cats say?", "answer_idx": 0, "a0": "meow", "a1": "ham-ham", "a2": "woof", "a3": "oink"}
+{"vid_name": "212", "qid": 1786, "q": "What do the girls say that the butterfly say?", "answer_idx": 2, "a0": "meow", "a1": "moo", "a2": "tweet-tweet", "a3": "woof"}
+{"vid_name": "212", "qid": 1787, "q": "What do the girls say that the horse say?", "answer_idx": 0, "a0": "naaay", "a1": "moo", "a2": "tweet-tweet", "a3": "woof"}
+{"vid_name": "212", "qid": 1788, "q": "What is Paisy's favorite animal?", "answer_idx": 3, "a0": "tiger", "a1": "pig", "a2": "dog", "a3": "big cats"}
+{"vid_name": "212", "qid": 1789, "q": "Waht do dogs say?", "answer_idx": 0, "a0": "woof", "a1": "tweet-tweet", "a2": "meow", "a3": "moo"}
+{"vid_name": "213", "qid": 1790, "q": "What does the cow say?", "answer_idx": 0, "a0": "mooo", "a1": "ga-ga", "a2": "oink", "a3": "meow"}
+{"vid_name": "213", "qid": 1791, "q": "What is the girl's favorite Disney show?", "answer_idx": 3, "a0": "Mickey Mouse", "a1": "Stuck in the Middle", "a2": "Descendants", "a3": "Frozen"}
+{"vid_name": "213", "qid": 1792, "q": "What kind of lessons is the little girl taking?", "answer_idx": 3, "a0": "piano", "a1": "soccer", "a2": "baseball", "a3": "swimming"}
+{"vid_name": "213", "qid": 1793, "q": "Where does the girls say they go?", "answer_idx": 3, "a0": "under the couch", "a1": "under the bridge", "a2": "under the bed", "a3": "under the water"}
+{"vid_name": "213", "qid": 1794, "q": "What Frozen characters does the little girl like?", "answer_idx": 1, "a0": "Mickey Mouse", "a1": "Olaf and Anna", "a2": "Esmeralda", "a3": "Annabella"}
+{"vid_name": "213", "qid": 1795, "q": "Who knows what the sound of skunks are like?", "answer_idx": 0, "a0": "the little kid", "a1": "the dog", "a2": "the woman", "a3": "the man"}
+{"vid_name": "213", "qid": 1796, "q": "How many people are in this video?", "answer_idx": 2, "a0": "4 ", "a1": "3", "a2": "2", "a3": "1"}
+{"vid_name": "213", "qid": 1797, "q": "What kind of animals are printed in the woman's top?", "answer_idx": 1, "a0": "dog", "a1": "cat", "a2": "lion", "a3": "fish"}
+{"vid_name": "213", "qid": 1798, "q": "How many kids are in this video?", "answer_idx": 1, "a0": "3", "a1": "1", "a2": "4", "a3": "2"}
+{"vid_name": "214", "qid": 1799, "q": "What color are the little girl's eyes?", "answer_idx": 2, "a0": "blue", "a1": "green", "a2": "black", "a3": "hazelnut"}
+{"vid_name": "214", "qid": 1800, "q": "What is in the painting on the wall?", "answer_idx": 0, "a0": "2 Bs", "a1": "2Ds", "a2": "1 B", "a3": "2 As"}
+{"vid_name": "214", "qid": 1801, "q": "What sport are they acting out?", "answer_idx": 0, "a0": "swimming", "a1": "soccer", "a2": "running", "a3": "baseball"}
+{"vid_name": "214", "qid": 1802, "q": "How does the girl float?", "answer_idx": 3, "a0": "on her side", "a1": "on her tummy", "a2": "on her chest", "a3": "on her back"}
+{"vid_name": "214", "qid": 1803, "q": "Where do the arms go when they float?", "answer_idx": 0, "a0": "out", "a1": "to the side", "a2": "to the left", "a3": "to the right"}
+{"vid_name": "214", "qid": 1804, "q": "What is on the woman's shirt?", "answer_idx": 0, "a0": "cat", "a1": "dog", "a2": " apple", "a3": "tiger"}
+{"vid_name": "214", "qid": 1805, "q": "How many people are there?", "answer_idx": 1, "a0": "4", "a1": "2", "a2": "3", "a3": "1"}
+{"vid_name": "215", "qid": 1806, "q": "How many favorite siblings does the girl have?", "answer_idx": 0, "a0": "2", "a1": "3", "a2": "1", "a3": "4"}
+{"vid_name": "215", "qid": 1807, "q": "What color is the couch?", "answer_idx": 0, "a0": "beige", "a1": "green", "a2": "violet", "a3": "brown"}
+{"vid_name": "215", "qid": 1808, "q": "What is the little girl wearing?", "answer_idx": 0, "a0": "overall shorts", "a1": "sweater", "a2": "swimsuit", "a3": "dress"}
+{"vid_name": "215", "qid": 1809, "q": "What color is the little girl's hair?", "answer_idx": 0, "a0": "black", "a1": "blonde", "a2": "blue", "a3": "red"}
+{"vid_name": "215", "qid": 1810, "q": "What is the woman wearing?", "answer_idx": 2, "a0": "coat", "a1": "vest", "a2": "t-shirt", "a3": "gown"}
+{"vid_name": "215", "qid": 1811, "q": "How many siblings did the kid say she has in the beginning?", "answer_idx": 2, "a0": "4", "a1": "3", "a2": "1", "a3": "2"}
+{"vid_name": "215", "qid": 1812, "q": "How many siblings does the kid actually have?", "answer_idx": 1, "a0": "2", "a1": "6", "a2": "1", "a3": "3"}
+{"vid_name": "215", "qid": 1813, "q": "Who is the kid's favorite sibling?", "answer_idx": 3, "a0": "Elsa", "a1": "Jack", "a2": "Mark", "a3": "Daxton and the girl next to her"}
+{"vid_name": "215", "qid": 1814, "q": "What is on the woman's shirt?", "answer_idx": 0, "a0": "cat", "a1": "dog", "a2": " apple", "a3": "tiger"}
+{"vid_name": "215", "qid": 1815, "q": "How many people are there?", "answer_idx": 2, "a0": "1", "a1": "4", "a2": "2", "a3": "3"}
+{"vid_name": "216", "qid": 1816, "q": "Where are they sitting?", "answer_idx": 0, "a0": "on the couch", "a1": "in the balcony", "a2": "on the floor", "a3": "at the table"}
+{"vid_name": "216", "qid": 1817, "q": "What pet does the girl have?", "answer_idx": 0, "a0": "a dog", "a1": "a frog", "a2": "a mouse", "a3": "a cat"}
+{"vid_name": "216", "qid": 1818, "q": "How is the girl's pet?", "answer_idx": 2, "a0": "scary", "a1": "huge", "a2": "tiny", "a3": "brown"}
+{"vid_name": "216", "qid": 1819, "q": "What color is the woman's hair tie?", "answer_idx": 2, "a0": "white", "a1": "green", "a2": "black", "a3": "yellow"}
+{"vid_name": "216", "qid": 1820, "q": "Where does the girl stand up?", "answer_idx": 0, "a0": "on the couch", "a1": "on the floor", "a2": "on the bed", "a3": "on the pillow"}
+{"vid_name": "216", "qid": 1821, "q": "Does the girl like the woman?", "answer_idx": 3, "a0": "", "a1": "", "a2": "no", "a3": "yes"}
+{"vid_name": "216", "qid": 1822, "q": "How many people are there?", "answer_idx": 1, "a0": "3", "a1": "2", "a2": "4", "a3": "1"}
+{"vid_name": "216", "qid": 1823, "q": "How many women are there?", "answer_idx": 1, "a0": "2", "a1": "1", "a2": "4", "a3": "3"}
+{"vid_name": "216", "qid": 1824, "q": "What kind of animals are printed in the woman's top?", "answer_idx": 1, "a0": "fish", "a1": "cat", "a2": "lion", "a3": "dog"}
+{"vid_name": "216", "qid": 1825, "q": "What is Braidy?", "answer_idx": 0, "a0": "dog", "a1": "tiger", "a2": " apple", "a3": "monster"}
+{"vid_name": "217", "qid": 1826, "q": "What does the woman ask the girl to do for her first?", "answer_idx": 2, "a0": "to sing", "a1": "to run", "a2": "to dance", "a3": "to eat"}
+{"vid_name": "217", "qid": 1827, "q": "Where does the girl say she stands first?", "answer_idx": 0, "a0": "on the floor", "a1": "on the couch", "a2": "in the doorway", "a3": "on the bed"}
+{"vid_name": "217", "qid": 1828, "q": "What color are the woman's fingernails?", "answer_idx": 0, "a0": "turquoise", "a1": "golden", "a2": "red", "a3": "white"}
+{"vid_name": "217", "qid": 1829, "q": "What is Haisley's favorite food?", "answer_idx": 2, "a0": "apples", "a1": "grated cheese", "a2": "mac and cheese", "a3": "grapes"}
+{"vid_name": "217", "qid": 1830, "q": "Who reads Haisley a story?", "answer_idx": 2, "a0": "cousin", "a1": "dad", "a2": "mom", "a3": "grandma"}
+{"vid_name": "217", "qid": 1831, "q": "Does the woman like mac and cheese?", "answer_idx": 3, "a0": "", "a1": "no", "a2": "", "a3": "yes"}
+{"vid_name": "217", "qid": 1832, "q": "What does Paisy do when she goes to bed?", "answer_idx": 1, "a0": "read a story", "a1": "get in her pajamas and read a story", "a2": "sleep", "a3": "play around"}
+{"vid_name": "217", "qid": 1833, "q": "Who reads Paisy a story?", "answer_idx": 3, "a0": "herself", "a1": "dad", "a2": "no one", "a3": "mom"}
+{"vid_name": "217", "qid": 1834, "q": "How many people are there?", "answer_idx": 2, "a0": "3", "a1": "4", "a2": "2", "a3": "1"}
+{"vid_name": "218", "qid": 1835, "q": "How many girls are wearing earrings?", "answer_idx": 1, "a0": "2", "a1": "1", "a2": "5", "a3": "3"}
+{"vid_name": "218", "qid": 1836, "q": "What color is the girl's hair tie?", "answer_idx": 2, "a0": "black ", "a1": "yellow", "a2": "red", "a3": "silver"}
+{"vid_name": "218", "qid": 1837, "q": "What color is the woman's bracelet?", "answer_idx": 0, "a0": "black", "a1": "green", "a2": "red", "a3": "yellow"}
+{"vid_name": "218", "qid": 1838, "q": "What part of the body the woman asks first if it's ticklish?", "answer_idx": 0, "a0": "feet", "a1": "knees", "a2": "palms", "a3": "neck"}
+{"vid_name": "218", "qid": 1839, "q": "What part of the body the woman asks last if it's ticklish?", "answer_idx": 2, "a0": "knees", "a1": "neck", "a2": "armpits", "a3": "legs"}
+{"vid_name": "218", "qid": 1840, "q": "How did the kid answer at the first time?", "answer_idx": 3, "a0": "they didn't show us the answer", "a1": "she just doesn't know", "a2": "yes", "a3": "no"}
+{"vid_name": "219", "qid": 1841, "q": "What is on the woman's T-shirt?", "answer_idx": 1, "a0": "a dog", "a1": "a cat", "a2": "a candle", "a3": "a brownie"}
+{"vid_name": "219", "qid": 1842, "q": "What color is the wall?", "answer_idx": 2, "a0": "white", "a1": "yellow", "a2": "green", "a3": "red"}
+{"vid_name": "219", "qid": 1843, "q": "Where is the Haisley in the beginning?", "answer_idx": 3, "a0": "under the bed", "a1": "on the floor", "a2": "in the doorway", "a3": "behind the woman"}
+{"vid_name": "219", "qid": 1844, "q": "How many people are on the couch?", "answer_idx": 3, "a0": "0", "a1": "5", "a2": "1", "a3": "2"}
+{"vid_name": "219", "qid": 1845, "q": "Who is the woman looking for?", "answer_idx": 3, "a0": "the phone", "a1": "the watch", "a2": "the remote", "a3": "Haisley"}
+{"vid_name": "219", "qid": 1846, "q": "Where is Paisy?", "answer_idx": 1, "a0": "out of the room", "a1": "behind the woman", "a2": "don't know", "a3": "under the couch"}
+{"vid_name": "219", "qid": 1847, "q": "How many people are there?", "answer_idx": 3, "a0": "4", "a1": "3", "a2": "1", "a3": "2"}
+{"vid_name": "219", "qid": 1848, "q": "How many women are there?", "answer_idx": 2, "a0": "3", "a1": "2", "a2": "1", "a3": "4"}
+{"vid_name": "219", "qid": 1849, "q": "What kind of animals are printed in the woman's top?", "answer_idx": 0, "a0": "cat", "a1": "lion", "a2": "fish", "a3": "dog"}
+{"vid_name": "245", "qid": 2047, "q": "What is the pattern according to the woman before the child changed it?", "answer_idx": 2, "a0": "spider, bee, spider, bee, bee", "a1": "bee, bee, spider, spider", "a2": "bee, bee, spider, bee, bee", "a3": "bee, spider, spider, bee, bee"}
+{"vid_name": "245", "qid": 2048, "q": "How many spiders does the boy add?", "answer_idx": 1, "a0": "4", "a1": "1", "a2": "0", "a3": "5"}
+{"vid_name": "245", "qid": 2049, "q": "What does the pattern contain?", "answer_idx": 3, "a0": " spiders and cats", "a1": "bees and cars", "a2": "bees and flies", "a3": "bees and spiders"}
+{"vid_name": "245", "qid": 2050, "q": "What does the pattern should have at the end to be correct?", "answer_idx": 3, "a0": "thtree spiders", "a1": "2 bees", "a2": "1 spider", "a3": "2 spiders"}
+{"vid_name": "245", "qid": 2051, "q": "What insect is on the first card in the row?", "answer_idx": 0, "a0": "a bee", "a1": "a fly", "a2": "a butterfly", "a3": "a beetle"}
+{"vid_name": "245", "qid": 2052, "q": "How many people are there?", "answer_idx": 1, "a0": "2", "a1": "3", "a2": "4", "a3": "1"}
+{"vid_name": "245", "qid": 2053, "q": "How many boys are there?", "answer_idx": 1, "a0": "4", "a1": "1", "a2": "3", "a3": "2"}
+{"vid_name": "245", "qid": 2054, "q": "How many women are there?", "answer_idx": 3, "a0": "4", "a1": "2", "a2": "3", "a3": "1"}
+{"vid_name": "245", "qid": 2055, "q": "What are they doing?", "answer_idx": 2, "a0": "playing video games", "a1": "singing", "a2": "playing cards", "a3": "dancing"}
+{"vid_name": "245", "qid": 2056, "q": "How many TVs are in this house?", "answer_idx": 2, "a0": "4", "a1": "3", "a2": "1", "a3": "2"}
+{"vid_name": "246", "qid": 2057, "q": "How many cushions are on the wooden bench?", "answer_idx": 3, "a0": "5", "a1": "3", "a2": "10", "a3": "2"}
+{"vid_name": "246", "qid": 2058, "q": "How many cards is the woman asking the child to chose?", "answer_idx": 2, "a0": "5", "a1": "2 or 5", "a2": "2 or 3", "a3": "3"}
+{"vid_name": "246", "qid": 2059, "q": "What color is the square card?", "answer_idx": 1, "a0": "orange", "a1": "green", "a2": "blue", "a3": "red"}
+{"vid_name": "246", "qid": 2060, "q": "How many spiders are in the row in the beginning?", "answer_idx": 0, "a0": "4", "a1": "7", "a2": "10", "a3": "2"}
+{"vid_name": "246", "qid": 2061, "q": "How many bees are in the row in the beginning?", "answer_idx": 2, "a0": "7", "a1": "10", "a2": "4", "a3": "2"}
+{"vid_name": "246", "qid": 2062, "q": "How many people are in this video?", "answer_idx": 0, "a0": "3", "a1": "4", "a2": "1", "a3": "2"}
+{"vid_name": "246", "qid": 2063, "q": "How many kids are in this video?", "answer_idx": 0, "a0": "1", "a1": "4", "a2": "3", "a3": "2"}
+{"vid_name": "246", "qid": 2064, "q": "Where are they?", "answer_idx": 0, "a0": "at home", "a1": "in a cinema", "a2": "at a park", "a3": "in a restaurant"}
+{"vid_name": "246", "qid": 2065, "q": "What are they doing?", "answer_idx": 3, "a0": "sleeping", "a1": "eating", "a2": "dancing", "a3": "playing a game"}
+{"vid_name": "246", "qid": 2066, "q": "How many TVs are in the room?", "answer_idx": 2, "a0": "2", "a1": "3", "a2": "1", "a3": "4"}
+{"vid_name": "247", "qid": 2067, "q": "When asked, what color does the boy say that the triangle is?", "answer_idx": 0, "a0": "orange", "a1": "orange and white", "a2": "red", "a3": "blue"}
+{"vid_name": "247", "qid": 2068, "q": "When asked, what color does the boy say that the cercle is?", "answer_idx": 3, "a0": "brown", "a1": "red", "a2": "orange", "a3": "purple"}
+{"vid_name": "247", "qid": 2069, "q": "How many squares does the pattern have?", "answer_idx": 2, "a0": "1", "a1": "5", "a2": "2", "a3": "3"}
+{"vid_name": "247", "qid": 2070, "q": "What shape does the boy tells the woman to put after the second square?", "answer_idx": 1, "a0": "cylinder", "a1": "rectangle", "a2": "cercle", "a3": "square"}
+{"vid_name": "247", "qid": 2071, "q": "Where are they arranging the cards?", "answer_idx": 0, "a0": "on the couch", "a1": "on the chair", "a2": "on the floor", "a3": "on the stand"}
+{"vid_name": "247", "qid": 2072, "q": "How many people are there?", "answer_idx": 3, "a0": "2", "a1": "1", "a2": "4", "a3": "3"}
+{"vid_name": "247", "qid": 2073, "q": "How many boys are there?", "answer_idx": 3, "a0": "2", "a1": "3", "a2": "4", "a3": "1"}
+{"vid_name": "247", "qid": 2074, "q": "How many women are there?", "answer_idx": 2, "a0": "3", "a1": "4", "a2": "1", "a3": "2"}
+{"vid_name": "247", "qid": 2075, "q": "What are they doing?", "answer_idx": 1, "a0": "eating", "a1": "playing a game", "a2": "sleeping", "a3": "dancing"}
+{"vid_name": "247", "qid": 2076, "q": "How many TVs are in this house?", "answer_idx": 3, "a0": "2", "a1": "3", "a2": "4", "a3": "1"}
+{"vid_name": "248", "qid": 2077, "q": "What is next to the couch?", "answer_idx": 2, "a0": "a booster chair", "a1": "a dog", "a2": "a table", "a3": "an oven"}
+{"vid_name": "248", "qid": 2078, "q": "Who arranges the triangle cards on the couch?", "answer_idx": 1, "a0": "the baby", "a1": "the woman", "a2": "the boy", "a3": "the old men"}
+{"vid_name": "248", "qid": 2079, "q": "What color is the woman's bracelet?", "answer_idx": 3, "a0": "blue", "a1": "green", "a2": "white ", "a3": "black"}
+{"vid_name": "248", "qid": 2080, "q": "To whom is the woman talking?", "answer_idx": 0, "a0": "to the boy", "a1": "to the cat", "a2": "to the dog", "a3": "to the old woman"}
+{"vid_name": "248", "qid": 2081, "q": "How are they arranging the cards?", "answer_idx": 3, "a0": "in a square", "a1": "on top of each other", "a2": "in a cercle", "a3": "in a line"}
+{"vid_name": "248", "qid": 2082, "q": "How many people are in this video?", "answer_idx": 2, "a0": "4", "a1": "2", "a2": "3", "a3": "1"}
+{"vid_name": "248", "qid": 2083, "q": "How many kids are in this video?", "answer_idx": 1, "a0": "4", "a1": "1", "a2": "3", "a3": "2"}
+{"vid_name": "248", "qid": 2084, "q": "Where are they?", "answer_idx": 2, "a0": "in a cinema", "a1": "in a restaurant", "a2": "at home", "a3": "at a park"}
+{"vid_name": "248", "qid": 2085, "q": "What are they doing?", "answer_idx": 2, "a0": "eating", "a1": "sleeping", "a2": "playing a game", "a3": "dancing"}
+{"vid_name": "248", "qid": 2086, "q": "How many TVs are in the room?", "answer_idx": 0, "a0": "1", "a1": "3", "a2": "2", "a3": "4"}
+{"vid_name": "249", "qid": 2087, "q": "What color is the triangle on the card?", "answer_idx": 0, "a0": "blue", "a1": "yellow", "a2": "green", "a3": "white"}
+{"vid_name": "249", "qid": 2088, "q": "What shapes are on the cards?", "answer_idx": 0, "a0": "triangle, cercle, square", "a1": "cylinder, square", "a2": "triangle, cercle, cylinder", "a3": "triangle, cercle"}
+{"vid_name": "249", "qid": 2089, "q": "What cards does the boy says he wants first?", "answer_idx": 2, "a0": "the bug", "a1": "the fly", "a2": "the tree", "a3": "the triangle"}
+{"vid_name": "249", "qid": 2090, "q": "Where is the TV?", "answer_idx": 3, "a0": "on the floor", "a1": "at the window", "a2": "on the chair", "a3": "on the stand"}
+{"vid_name": "249", "qid": 2091, "q": "What color are the pillows?", "answer_idx": 0, "a0": "red and white", "a1": "white and yellow", "a2": "red", "a3": "red and black"}
+{"vid_name": "249", "qid": 2092, "q": "How many people are in this video?", "answer_idx": 2, "a0": "4", "a1": "1", "a2": "3", "a3": "2"}
+{"vid_name": "249", "qid": 2093, "q": "How many kids are in this video?", "answer_idx": 3, "a0": "4", "a1": "2", "a2": "3", "a3": "1"}
+{"vid_name": "249", "qid": 2094, "q": "Where are they?", "answer_idx": 0, "a0": "at home", "a1": "in a cinema", "a2": "in a restaurant", "a3": "at a park"}
+{"vid_name": "249", "qid": 2095, "q": "What are they doing?", "answer_idx": 3, "a0": "dancing", "a1": "eating", "a2": "sleeping", "a3": "playing a game"}
+{"vid_name": "249", "qid": 2096, "q": "How many TVs are in the room?", "answer_idx": 3, "a0": "2", "a1": "4", "a2": "3", "a3": "1"}
+{"vid_name": "250", "qid": 2097, "q": "What color are the boy's shorts?", "answer_idx": 3, "a0": "blue", "a1": "black", "a2": "yellow", "a3": "red"}
+{"vid_name": "250", "qid": 2098, "q": "What does the boy has on his finger?", "answer_idx": 0, "a0": "a band-aid", "a1": "a spot", "a2": "a bug", "a3": "a ring"}
+{"vid_name": "250", "qid": 2099, "q": "What color is the couch?", "answer_idx": 3, "a0": "ivory", "a1": "red", "a2": "orange", "a3": "brown"}
+{"vid_name": "250", "qid": 2100, "q": "What does the woman say that is on the cards?", "answer_idx": 2, "a0": "a siren", "a1": "a tree and a car", "a2": "a tree and a butterfly", "a3": "a tree and a fly"}
+{"vid_name": "250", "qid": 2101, "q": "What card does the kid put down after the first butterfly card?", "answer_idx": 3, "a0": "a motorcycle card", "a1": "a car card", "a2": "a spider card", "a3": "a tree card"}
+{"vid_name": "250", "qid": 2102, "q": "How many tree cards?", "answer_idx": 0, "a0": "4", "a1": "1", "a2": "3", "a3": "2"}
+{"vid_name": "250", "qid": 2103, "q": "How many butterfly cards?", "answer_idx": 0, "a0": "4", "a1": "1", "a2": "2", "a3": "3"}
+{"vid_name": "250", "qid": 2104, "q": "Where are they?", "answer_idx": 1, "a0": "in a restaurant", "a1": "at home", "a2": "in a cinema", "a3": "at a park"}
+{"vid_name": "250", "qid": 2105, "q": "What are they doing?", "answer_idx": 3, "a0": "sleeping", "a1": "eating", "a2": "dancing", "a3": "playing a game"}
+{"vid_name": "250", "qid": 2106, "q": "How many TVs are in the room?", "answer_idx": 2, "a0": "3", "a1": "4", "a2": "1", "a3": "2"}
+{"vid_name": "251", "qid": 2107, "q": "What color is the pen?", "answer_idx": 1, "a0": "blue", "a1": "orange and white", "a2": "silver", "a3": "black "}
+{"vid_name": "251", "qid": 2108, "q": "Where is the smartphone?", "answer_idx": 2, "a0": "on the table", "a1": "under the chair", "a2": "on the couch", "a3": "under the bed"}
+{"vid_name": "251", "qid": 2109, "q": "What are they playing?", "answer_idx": 3, "a0": "chess", "a1": "dame", "a2": "baseball", "a3": "cards"}
+{"vid_name": "251", "qid": 2110, "q": "How many more does the boy want to do?", "answer_idx": 3, "a0": "10", "a1": "6", "a2": "5", "a3": "1"}
+{"vid_name": "251", "qid": 2111, "q": "How many people are in the room?", "answer_idx": 1, "a0": "1", "a1": "3", "a2": "2", "a3": "3"}
+{"vid_name": "251", "qid": 2112, "q": "Where are they?", "answer_idx": 0, "a0": "at home", "a1": "in a restaurant", "a2": "in a cinema", "a3": "at a park"}
+{"vid_name": "251", "qid": 2113, "q": "What's the color of the wall?", "answer_idx": 1, "a0": "rainbow", "a1": "white", "a2": "yellow", "a3": "pink"}
+{"vid_name": "251", "qid": 2114, "q": "What are they doing?", "answer_idx": 2, "a0": "sleeping", "a1": "eating", "a2": "playing a game", "a3": "dancing"}
+{"vid_name": "251", "qid": 2115, "q": "How many TVs are in the room?", "answer_idx": 0, "a0": "1", "a1": "2", "a2": "3", "a3": "4"}
+{"vid_name": "251", "qid": 2116, "q": "How many kids are in this video?", "answer_idx": 2, "a0": "2", "a1": "3", "a2": "1", "a3": "4"}
+{"vid_name": "252", "qid": 2117, "q": "What number is the boy doing?", "answer_idx": 3, "a0": "5", "a1": "2", "a2": "8", "a3": "9"}
+{"vid_name": "252", "qid": 2118, "q": "What is the first question women is asking the boy?", "answer_idx": 1, "a0": "Do you want to sleep?", "a1": "Do you want to play this one?", "a2": "Where is your car?", "a3": "How is the weather?"}
+{"vid_name": "252", "qid": 2119, "q": "Who has long hair?", "answer_idx": 3, "a0": "the dog", "a1": "the old man", "a2": "the boy", "a3": "the woman"}
+{"vid_name": "252", "qid": 2120, "q": "How many boys are there?", "answer_idx": 2, "a0": "2", "a1": "3", "a2": "1", "a3": "4"}
+{"vid_name": "252", "qid": 2121, "q": "How many TVs are there?", "answer_idx": 0, "a0": "1", "a1": "4", "a2": "2", "a3": "3"}
+{"vid_name": "252", "qid": 2122, "q": "How many girls are there?", "answer_idx": 3, "a0": "3", "a1": "1", "a2": "4", "a3": "2"}
+{"vid_name": "252", "qid": 2123, "q": "Where are they?", "answer_idx": 0, "a0": "at home", "a1": "at a park", "a2": "in a cinema", "a3": "in a restaurant"}
+{"vid_name": "252", "qid": 2124, "q": "What number are they showing with fingers?", "answer_idx": 3, "a0": "2", "a1": "1", "a2": "8", "a3": "9"}
+{"vid_name": "258", "qid": 2160, "q": "How many times you get to blow bubbles?", "answer_idx": 1, "a0": "4", "a1": "3", "a2": "1", "a3": "2"}
+{"vid_name": "258", "qid": 2161, "q": "How many people are in the video?", "answer_idx": 3, "a0": "1", "a1": "5", "a2": "2", "a3": "3"}
+{"vid_name": "258", "qid": 2162, "q": "Who is the girl in relation to the woman?", "answer_idx": 1, "a0": "sister", "a1": "daughter", "a2": "cousin", "a3": "aunt"}
+{"vid_name": "258", "qid": 2163, "q": "What is the first rule to have a turn?", "answer_idx": 0, "a0": "wait", "a1": "play", "a2": "talk", "a3": "listen"}
+{"vid_name": "258", "qid": 2164, "q": "What color is the woman's top?", "answer_idx": 3, "a0": "orange", "a1": "white", "a2": "red", "a3": "magenta"}
+{"vid_name": "259", "qid": 2165, "q": "What color is the bubble recipient?", "answer_idx": 1, "a0": "blue", "a1": "magenta", "a2": "green", "a3": "white"}
+{"vid_name": "259", "qid": 2166, "q": "Who sets the rules?", "answer_idx": 2, "a0": "aunt", "a1": "girl", "a2": "woman", "a3": "boy"}
+{"vid_name": "259", "qid": 2167, "q": "What color is the woman's hair?", "answer_idx": 3, "a0": "black", "a1": "auburn", "a2": "brown", "a3": "blonde"}
+{"vid_name": "259", "qid": 2168, "q": "What is supposed to day who gets the bubbles?", "answer_idx": 0, "a0": "thank you", "a1": "I want it", "a2": "take it", "a3": "I don't want it"}
+{"vid_name": "259", "qid": 2169, "q": "What color are the woman's pants?", "answer_idx": 1, "a0": "blue", "a1": "black", "a2": "yellow", "a3": "red"}
+{"vid_name": "270", "qid": 2249, "q": "What does the woman do with the liquid?", "answer_idx": 2, "a0": "drinks it", "a1": "throws it away", "a2": "pours it", "a3": "spills it"}
+{"vid_name": "270", "qid": 2250, "q": "Where are they?", "answer_idx": 1, "a0": "court", "a1": "classroom", "a2": "backyard", "a3": "floor"}
+{"vid_name": "270", "qid": 2251, "q": "How many empty cups are?", "answer_idx": 3, "a0": "5", "a1": "2", "a2": "3", "a3": "1"}
+{"vid_name": "270", "qid": 2252, "q": "What color is the liquid?", "answer_idx": 3, "a0": "blue", "a1": "green", "a2": "black", "a3": "red"}
+{"vid_name": "270", "qid": 2253, "q": "What is the first question the woman asks?", "answer_idx": 1, "a0": "Which cup is mine?", "a1": "Which cup has more?", "a2": "Which cup is round?", "a3": "Which cup is blue?"}
+{"vid_name": "271", "qid": 2254, "q": "What color is the board on the wall?", "answer_idx": 0, "a0": "yellow", "a1": "violet", "a2": "green", "a3": "magenta"}
+{"vid_name": "271", "qid": 2255, "q": "what color is the table?", "answer_idx": 1, "a0": "brown", "a1": "gray", "a2": "yellow", "a3": "red"}
+{"vid_name": "271", "qid": 2256, "q": "What color is the liquid?", "answer_idx": 3, "a0": "yellow", "a1": "black", "a2": "blue", "a3": "red"}
+{"vid_name": "271", "qid": 2257, "q": "What does the woman ask first?", "answer_idx": 3, "a0": "Do the cups look the same?", "a1": "Do the cups have the same color?", "a2": "Where are the cups?", "a3": "Do the cups have the same amount of juice?"}
+{"vid_name": "271", "qid": 2258, "q": "What color is the woman's nailpolish?", "answer_idx": 1, "a0": "golden", "a1": "pink", "a2": "black", "a3": "green"}
+{"vid_name": "272", "qid": 2259, "q": "What is on the table next to the cups?", "answer_idx": 1, "a0": "buttons", "a1": "paper", "a2": "cakes", "a3": "food"}
+{"vid_name": "272", "qid": 2260, "q": "What color is the children's top?", "answer_idx": 1, "a0": "pink", "a1": "light blue", "a2": "green", "a3": "black"}
+{"vid_name": "272", "qid": 2261, "q": "What does the woman ask?", "answer_idx": 2, "a0": "are they mine?", "a1": "are they green?", "a2": "are they equal?", "a3": "are they sold?"}
+{"vid_name": "272", "qid": 2262, "q": "What color is the woman's top?", "answer_idx": 2, "a0": "white", "a1": "golden", "a2": "navy", "a3": "yellow"}
+{"vid_name": "272", "qid": 2263, "q": "What does the woman do with the liquid?", "answer_idx": 2, "a0": "boils it", "a1": "drinks it", "a2": "pours it", "a3": "changes color"}
+{"vid_name": "273", "qid": 2264, "q": "Where are they?", "answer_idx": 2, "a0": "court", "a1": "pool", "a2": "classroom", "a3": "gym"}
+{"vid_name": "273", "qid": 2265, "q": "What color are the walls?", "answer_idx": 0, "a0": "light green", "a1": "black", "a2": "green", "a3": "brown"}
+{"vid_name": "273", "qid": 2266, "q": "What is the first question the woman asks?", "answer_idx": 2, "a0": "is this cold?", "a1": "is this yours?", "a2": "is this fair?", "a3": "is this mild?"}
+{"vid_name": "273", "qid": 2267, "q": "How many pieces of cracker are in front of the children in the beginning?", "answer_idx": 3, "a0": "4", "a1": "0", "a2": "5", "a3": "1"}
+{"vid_name": "273", "qid": 2268, "q": "How many pieces of cracker are in front of the woman?", "answer_idx": 2, "a0": "6", "a1": "0", "a2": "2", "a3": "3"}
+{"vid_name": "279", "qid": 2317, "q": "Where is the TV?", "answer_idx": 1, "a0": "on the floor", "a1": "on the TV stand", "a2": "on the balcony", "a3": "on the microwave"}
+{"vid_name": "279", "qid": 2318, "q": "How many glasses are on the table?", "answer_idx": 2, "a0": "4", "a1": "1", "a2": "3", "a3": "0"}
+{"vid_name": "279", "qid": 2319, "q": "How many bottles does the woman have?", "answer_idx": 1, "a0": "2", "a1": "1", "a2": "6", "a3": "3"}
+{"vid_name": "279", "qid": 2320, "q": "What does the woman pour?", "answer_idx": 3, "a0": "water", "a1": "wine", "a2": "milk", "a3": "juice"}
+{"vid_name": "279", "qid": 2321, "q": "What color is the girl's top?", "answer_idx": 3, "a0": "blue", "a1": "white", "a2": "orange", "a3": "violet"}
+{"vid_name": "280", "qid": 2322, "q": "What color is the woman's blouse?", "answer_idx": 3, "a0": "orange", "a1": "green", "a2": "yellow", "a3": "blue"}
+{"vid_name": "280", "qid": 2323, "q": "How many coins are on the table?", "answer_idx": 2, "a0": "17", "a1": "13", "a2": "14", "a3": "16"}
+{"vid_name": "280", "qid": 2324, "q": "What color is the woman's hair?", "answer_idx": 3, "a0": "brown", "a1": "gray", "a2": "black", "a3": "blonde"}
+{"vid_name": "280", "qid": 2325, "q": "How many rows of coins are?", "answer_idx": 3, "a0": "5", "a1": "14", "a2": "0", "a3": "2"}
+{"vid_name": "280", "qid": 2326, "q": "What coins are on the table?", "answer_idx": 3, "a0": "dimes", "a1": "quarters", "a2": "cents", "a3": "pennies"}

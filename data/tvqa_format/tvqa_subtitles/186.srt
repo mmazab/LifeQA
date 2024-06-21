@@ -1,0 +1,48 @@
+1
+00:00:00,600 --> 00:00:01,399
+do we need some milk
+
+2
+00:00:04,599 --> 00:00:05,400
+ does he have it
+
+3
+00:00:08,300 --> 00:00:09,199
+ does he have it
+
+4
+00:00:12,099 --> 00:00:16,100
+ no but would you put milk on your list cuz we need milk
+
+5
+00:00:22,800 --> 00:00:25,300
+ you're right you're right popsicles on your list
+
+6
+00:00:32,899 --> 00:00:33,299
+ okay
+
+7
+00:00:34,899 --> 00:00:37,200
+ why can't I understand
+
+8
+00:00:41,100 --> 00:00:44,500
+ $40 for popsicles
+
+9
+00:00:54,500 --> 00:00:56,299
+ UK
+
+10
+00:01:00,60000 --> 00:01:03,60500
+ where is Asia Lee
+
+11
+00:01:08,60400 --> 00:01:10,60200
+ do I need any paper towels
+
+12
+00:01:13,60300 --> 00:01:15,60500
+ no I think we do
+

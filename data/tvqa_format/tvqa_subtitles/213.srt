@@ -1,0 +1,40 @@
+1
+00:00:00,100 --> 00:00:01,800
+good night cow what does a cow say
+
+2
+00:00:07,000 --> 00:00:08,099
+ what is a sensei
+
+3
+00:00:11,599 --> 00:00:13,699
+ what how did it go
+
+4
+00:00:20,699 --> 00:00:22,300
+ I know what
+
+5
+00:00:27,800 --> 00:00:29,800
+ what is your favorite Disney show
+
+6
+00:00:31,800 --> 00:00:47,600
+ would you like to watch you like Doc McStuffin you like a flash flood to do you like Olaf Anna Elsa
+
+7
+00:00:50,200 --> 00:00:52,799
+ The Paisley do you take swimming lessons
+
+8
+00:00:54,100 --> 00:00:59,799
+ do you like swimming lessons I'm going to go you're going to go under the water can you show me how you go under the water
+
+9
+00:01:05,60000 --> 00:01:06,60400
+ can you show me how you go into the water
+
+10
+00:01:12,60900 --> 00:01:14,60400
+ wow that's cool
+

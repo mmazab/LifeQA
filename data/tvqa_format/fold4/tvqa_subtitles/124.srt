@@ -1,0 +1,32 @@
+1
+00:00:00,000 --> 00:00:00,700
+all right
+
+2
+00:00:02,899 --> 00:00:04,000
+ remember math yesterday
+
+3
+00:00:06,900 --> 00:00:08,000
+ you talk about this thing
+
+4
+00:00:09,300 --> 00:00:10,000
+ call Glo
+
+5
+00:00:12,599 --> 00:00:25,899
+ number 39 on the number line and number lines go horizontal sometimes can they go vertical number line for horizontal
+
+6
+00:00:28,399 --> 00:00:34,500
+ number lines can go vertical and number lines can go at a diagonal
+
+7
+00:00:38,899 --> 00:00:40,299
+ that using gestures
+
+8
+00:00:58,100 --> 00:00:59,000
+ Minecraft
+

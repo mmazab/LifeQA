@@ -1,0 +1,16 @@
+1
+00:00:10,300 --> 00:00:11,199
+Mariah Carey
+
+2
+00:00:25,800 --> 00:00:27,899
+ what is the weather in Merrick today
+
+3
+00:01:01,60100 --> 00:01:03,60300
+ what do we flush
+
+4
+00:01:07,60000 --> 00:01:08,60700
+ Play It Again
+
