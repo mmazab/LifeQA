@@ -12,7 +12,7 @@ Ruoyao Wang,
 [Jia Deng](https://www.cs.princeton.edu/~jiadeng/),
 [Rada Mihalcea](https://web.eecs.umich.edu/~mihalcea/)
 
-You can see more information at [the LifeQA website](https://lit.eecs.umich.edu/lifeqa).
+More information is available at [the LifeQA website](https://lit.eecs.umich.edu/lifeqa).
 
 ## Setup
 
@@ -26,15 +26,15 @@ conda activate lifeqa
 ## Data
 
 The dataset is under `data/`, in [`lqa_train.json`](data/lqa_train.json), [`lqa_dev.json`](data/lqa_dev.json),
-and [`lqa_test.json`](data/lqa_test.json). Even though it's divided in train/dev/test, for most experiments we merge
+and [`lqa_test.json`](data/lqa_test.json). Even though it's divided into train/dev/test, for most experiments we merge
 them and use a five-fold cross-validation, with the folds indicated in [`data/folds`](data/folds).
 
 ### Visual features
 
-You can [download the already extracted features](https://drive.google.com/drive/folders/1sV1IYoC1oIgjHfSVkIJ-p8GA2hOwx4u1?usp=sharing)
+You can [download the already extracted features](https://deepblue.lib.umich.edu/data/concern/data_sets/05741s53k)
 or do the following to extract them yourself.
 
-1. Download the videos. Due to YouTube's Term of Service, we can't provide the video files, however we provide the IDs
+1. Download the videos. Due to YouTube's Terms of Service, we can't provide the video files. However, we provide the IDs
 and timestamps to obtain the same data. Download the YouTube videos indicated in the field `parent_video_id` from the
 JSON files, cut them based on the fields `start_time` and `end_time`, and save them based on the JSON key (e.g., `213`)
 to `data/videos`, placing the files there without subdirectories.
@@ -61,7 +61,7 @@ Check the scripts under `run_scripts` to run the available baselines.
 
 ### TVQA
 
-To run TVQA baseline, it's different from the rest of the baselines.
+Running the TVQA baseline is different from running the rest of the baselines.
 
 We copied [TVQA's repo content from commit `2c98044`](https://github.com/jayleicn/TVQA/tree/2c98044b949b470d0d31c1cf25cdff60bc673fb8)
 into the [`TVQA/`](TVQA) folder.
@@ -135,7 +135,7 @@ for i in 0 1 2 3 4; do
 done
 ```
 
-For train, dev and test partitions:
+For train, dev, and test partitions:
 
 ```bash
 python main.py \
@@ -217,7 +217,7 @@ python main.py \
   --new_word2idx_path cache_lifeqa/word2idx.pickle
 ```
 
-For train, dev and test partitions:
+For train, dev, and test partitions:
 
 ```bash
 python main.py \
